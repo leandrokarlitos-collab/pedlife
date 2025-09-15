@@ -1,8 +1,8 @@
 import type { MockMedicationData, MedicationCategoryData, CategoryInfo, Medication, MedicationGroup } from '@/types/medication';
-import { LucideIcon, Pill, Syringe, ShieldAlert, Package, Brain, Microscope, HeartPulse, Eye } from 'lucide-react';
+import { LucideIcon, Pill, Syringe, ShieldAlert, Package, Brain, Microscope, HeartPulse, Eye, Stethoscope, Activity, Zap } from 'lucide-react';
 import { slugify } from '@/lib/utils';
 
-// Importar todos os arquivos de categoria estáticos
+// Importar arquivos de categoria existentes
 import antibioticos from '@/medications/Categorias/antibioticos_fixed.json';
 import anticonvulsivantes from '@/medications/Categorias/anticonvulsivantes_fixed.json';
 import antiemeticos from '@/medications/Categorias/antiemeticos_fixed.json';
@@ -18,18 +18,41 @@ import pcr from '@/medications/Categorias/pcr_fixed.json';
 import sedativos from '@/medications/Categorias/sedativos_fixed.json';
 import xaropesTosse from '@/medications/Categorias/xaropes_tosse_fixed.json';
 
+// Importar novas categorias atualizadas
+import antibioticosUpdated from '@/medications/Categorias/antibioticos_updated.json';
+import anticonvulsivantesUpdated from '@/medications/Categorias/anticonvulsivantes_updated.json';
+import antihistaminicos from '@/medications/Categorias/anti-histaminicos_updated.json';
+import antidotos from '@/medications/Categorias/antidotos_updated.json';
+import antiparasitarios from '@/medications/Categorias/antiparasitarios_updated.json';
+import antitussigenos from '@/medications/Categorias/antitussigenos_updated.json';
+import antiviraisUpdated from '@/medications/Categorias/antivirais_updated.json';
+import corticoidesUpdated from '@/medications/Categorias/corticoides-ev_updated.json';
+import expectorantesMucoliticos from '@/medications/Categorias/expectorantes-mucoliticos_updated.json';
+import gastrointestinal from '@/medications/Categorias/gastrointestinal_updated.json';
+
 // categoria 'diureticos' removida (não existe JSON correspondente)
 
-// Arquivo estático de cada categoria
+// Arquivo estático de cada categoria (combinando dados antigos e novos)
 const categoryFiles: Record<string, Medication[]> = {
-  'antibioticos': antibioticos,
-  'anticonvulsivantes': anticonvulsivantes,
+  // Categorias atualizadas com novos dados
+  'antibioticos': [...antibioticos, ...antibioticosUpdated],
+  'anticonvulsivantes': [...anticonvulsivantes, ...anticonvulsivantesUpdated],
+  'antivirais': [...antivirais, ...antiviraisUpdated],
+  'corticoides-ev': [...corticoidesEv, ...corticoidesUpdated],
+  
+  // Novas categorias
+  'anti-histaminicos': antihistaminicos,
+  'antidotos': antidotos,
+  'antiparasitarios': antiparasitarios,
+  'antitussigenos': antitussigenos,
+  'expectorantes-mucoliticos': expectorantesMucoliticos,
+  'gastrointestinal': gastrointestinal,
+  
+  // Categorias existentes mantidas
   'antiemeticos': antiemeticos,
   'antimicrobianos': antimicrobianos,
-  'antivirais': antivirais,
   'bloqueador-neuromuscular': bloqueadorNeuromuscular,
   'carvao-ativado': carvaoAtivado,
-  'corticoides-ev': corticoidesEv,
   'medicacao-bradicardia': medicacaoBradicardia,
   'nasais': nasais,
   'oftalmologicos-otologicos': oftalmologicosOtologicos,
@@ -39,6 +62,7 @@ const categoryFiles: Record<string, Medication[]> = {
 };
 
 const categoryIconMap: Record<string, { icon: LucideIcon; iconColorClass: string; bgColorClass: string }> = {
+  // Categorias existentes
   'antibioticos': { icon: Pill, iconColorClass: 'text-blue-500', bgColorClass: 'bg-blue-100' },
   'antivirais': { icon: ShieldAlert, iconColorClass: 'text-green-500', bgColorClass: 'bg-green-100' },
   'antiemeticos': { icon: Package, iconColorClass: 'text-purple-500', bgColorClass: 'bg-purple-100' },
@@ -48,10 +72,21 @@ const categoryIconMap: Record<string, { icon: LucideIcon; iconColorClass: string
   'corticoides-ev': { icon: Syringe, iconColorClass: 'text-red-500', bgColorClass: 'bg-red-100' },
   'medicacao-bradicardia': { icon: HeartPulse, iconColorClass: 'text-yellow-600', bgColorClass: 'bg-yellow-100' },
   'nasais': { icon: Package, iconColorClass: 'text-green-400', bgColorClass: 'bg-green-50' },
+  
+  // Novas categorias
+  'anti-histaminicos': { icon: ShieldAlert, iconColorClass: 'text-orange-500', bgColorClass: 'bg-orange-100' },
+  'antidotos': { icon: Zap, iconColorClass: 'text-red-600', bgColorClass: 'bg-red-100' },
+  'antiparasitarios': { icon: Microscope, iconColorClass: 'text-teal-600', bgColorClass: 'bg-teal-100' },
+  'antitussigenos': { icon: Stethoscope, iconColorClass: 'text-cyan-600', bgColorClass: 'bg-cyan-100' },
+  'expectorantes-mucoliticos': { icon: Activity, iconColorClass: 'text-emerald-600', bgColorClass: 'bg-emerald-100' },
+  'gastrointestinal': { icon: Package, iconColorClass: 'text-violet-600', bgColorClass: 'bg-violet-100' },
+  
+  // Categorias existentes mantidas
   'oftalmologicos-otologicos': { icon: Eye, iconColorClass: 'text-blue-500', bgColorClass: 'bg-blue-100' },
   'pcr': { icon: HeartPulse, iconColorClass: 'text-red-700', bgColorClass: 'bg-red-200' },
   'sedativos': { icon: Brain, iconColorClass: 'text-purple-600', bgColorClass: 'bg-purple-100' },
   'xaropes-tosse': { icon: Package, iconColorClass: 'text-amber-500', bgColorClass: 'bg-amber-100' },
+  'carvao-ativado': { icon: Package, iconColorClass: 'text-gray-600', bgColorClass: 'bg-gray-100' },
 };
 
 function formatCategoryName(slug: string): string {

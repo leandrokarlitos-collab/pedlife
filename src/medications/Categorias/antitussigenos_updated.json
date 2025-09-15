@@ -1,0 +1,272 @@
+[
+  {
+    "name": "Dropropizina- Gotas 30 mg/Ml",
+    "slug": "dropropizina--gotas-30-mgml",
+    "form": "Solução Oral em Gotas",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (antitussígenos/supressores) - Gotas (>2 anos): 1 gota por 2 kg de peso, 3 a 4x/dia.\nXarope Pediátrico:\n- 2-3 anos: 2,5 a 5 mL, 4x/...",
+    "alerts": [
+      "Contraindicado para menores de 2 anos. \nUsar com cautela em pacientes com insuficiência hepática ou renal. \nPode causar sonolência."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "30 mg/Ml",
+      "usualDose": "Gotas (>2 anos): 1 gota por 2 kg de peso, 3 a 4x/dia.\nXarope Pediátrico:\n- 2-3 anos: 2,5 a 5 mL, 4x/dia.\n- >3 anos: 10 mL, 4x/dia.\nXarope Adulto (>12a): 10 mL, 4x/dia.",
+      "doseInterval": "4x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado para menores de 2 anos. \nUsar com cautela em pacientes com insuficiência hepática ou renal. \nPode causar sonolência."
+    },
+    "calculationParams": {
+      "type": "dropropizina--gotas-30-mgml",
+      "logica_js": "\"Gotas: 1 gota por 2 kg de peso por dose. Xaropes: Dose fixa por idade (ver dose usual).\"",
+      "doseMinima": "Varia com a idade e\n apresentação.",
+      "doseMaxima": "Gotas: 4 gotas/2kg/dia.\nXaropes: 40 mL/dia.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Contraindicado para menores de 2 anos. \nUsar com cautela em pacientes com insuficiência hepática ou renal. \nPode causar sonolência."
+    }
+  },
+  {
+    "name": "- Xarope Adulto 3 mg/mL",
+    "slug": "--xarope-adulto-3-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (antitussígenos/supressores) - Gotas (>2 anos): 1 gota por 2 kg de peso, 3 a 4x/dia.\nXarope Pediátrico:\n- 2-3 anos: 2,5 a 5 mL, 4x/...",
+    "alerts": [
+      "Contraindicado para menores de 2 anos. \nUsar com cautela em pacientes com insuficiência hepática ou renal. \nPode causar sonolência."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "3 mg/mL",
+      "usualDose": "Gotas (>2 anos): 1 gota por 2 kg de peso, 3 a 4x/dia.\nXarope Pediátrico:\n- 2-3 anos: 2,5 a 5 mL, 4x/dia.\n- >3 anos: 10 mL, 4x/dia.\nXarope Adulto (>12a): 10 mL, 4x/dia.",
+      "doseInterval": "4x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado para menores de 2 anos. \nUsar com cautela em pacientes com insuficiência hepática ou renal. \nPode causar sonolência."
+    },
+    "calculationParams": {
+      "type": "--xarope-adulto-3-mgml",
+      "logica_js": "\"Gotas: 1 gota por 2 kg de peso por dose. Xaropes: Dose fixa por idade (ver dose usual).\"",
+      "doseMinima": "Varia com a idade e\n apresentação.",
+      "doseMaxima": "Gotas: 4 gotas/2kg/dia.\nXaropes: 40 mL/dia.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Contraindicado para menores de 2 anos. \nUsar com cautela em pacientes com insuficiência hepática ou renal. \nPode causar sonolência."
+    }
+  },
+  {
+    "name": "- Xarope Pediátrico 1,5 mg/mL",
+    "slug": "--xarope-pediatrico-15-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (antitussígenos/supressores) - Gotas (>2 anos): 1 gota por 2 kg de peso, 3 a 4x/dia.\nXarope Pediátrico:\n- 2-3 anos: 2,5 a 5 mL, 4x/...",
+    "alerts": [
+      "Contraindicado para menores de 2 anos. \nUsar com cautela em pacientes com insuficiência hepática ou renal. \nPode causar sonolência."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "5 mg/mL",
+      "usualDose": "Gotas (>2 anos): 1 gota por 2 kg de peso, 3 a 4x/dia.\nXarope Pediátrico:\n- 2-3 anos: 2,5 a 5 mL, 4x/dia.\n- >3 anos: 10 mL, 4x/dia.\nXarope Adulto (>12a): 10 mL, 4x/dia.",
+      "doseInterval": "4x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado para menores de 2 anos. \nUsar com cautela em pacientes com insuficiência hepática ou renal. \nPode causar sonolência."
+    },
+    "calculationParams": {
+      "type": "--xarope-pediatrico-15-mgml",
+      "logica_js": "\"Gotas: 1 gota por 2 kg de peso por dose. Xaropes: Dose fixa por idade (ver dose usual).\"",
+      "doseMinima": "Varia com a idade e\n apresentação.",
+      "doseMaxima": "Gotas: 4 gotas/2kg/dia.\nXaropes: 40 mL/dia.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Contraindicado para menores de 2 anos. \nUsar com cautela em pacientes com insuficiência hepática ou renal. \nPode causar sonolência."
+    }
+  },
+  {
+    "name": "Clobutinol 48 mg/mL + Doxilamina 9 mg/mL (Gotas)",
+    "slug": "clobutinol-48-mgml-doxilamina-9-mgml-gotas",
+    "form": "Solução Oral em Gotas",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (antitussígenos/supressores) - Dose de 8/8h, por idade:\n- 2-3 anos: 5 a 10 gotas\n- 3-12 anos: 10 a 20 gotas\n- > 12 anos: 20 gotas...",
+    "alerts": [
+      "Indicado para maiores de 2 anos.\n Usar apenas enquanto houver sintomas.\n Pode causar sonolência devido ao anti-histamínico."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "48 mg/mL",
+      "usualDose": "Dose de 8/8h, por idade:\n- 2-3 anos: 5 a 10 gotas\n- 3-12 anos: 10 a 20 gotas\n- > 12 anos: 20 gotas",
+      "doseInterval": "8/8h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Indicado para maiores de 2 anos.\n Usar apenas enquanto houver sintomas.\n Pode causar sonolência devido ao anti-histamínico."
+    },
+    "calculationParams": {
+      "type": "clobutinol-48-mgml-doxilamina-9-mgml-gotas",
+      "logica_js": null,
+      "doseMinima": "Varia com a idade \n(ver dose usual).",
+      "doseMaxima": "Varia com a idade \n(ver dose usual).",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Indicado para maiores de 2 anos.\n Usar apenas enquanto houver sintomas.\n Pode causar sonolência devido ao anti-histamínico."
+    }
+  },
+  {
+    "name": "Levodropropizina 30 mg/mL ",
+    "slug": "levodropropizina-30-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (antitussígenos/supressores) - > 2 anos: 1 mg/kg/dose, até 3 vezes ao dia....",
+    "alerts": [
+      "Indicado para maiores de 2 anos. \nNão administrar junto com as refeições. \nReavaliar se a tosse persistir por mais de 4-5 dias."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "30 mg/mL",
+      "usualDose": "> 2 anos: 1 mg/kg/dose, até 3 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Indicado para maiores de 2 anos. \nNão administrar junto com as refeições. \nReavaliar se a tosse persistir por mais de 4-5 dias."
+    },
+    "calculationParams": {
+      "type": "levodropropizina-30-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 1) + \" gotas conforme orientação médica\"",
+      "doseMinima": "1 mg/kg/dose",
+      "doseMaxima": "120 gotas/dia (120 mg/dia).",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Preferencialmente, diluir em um pouco de água.",
+      "observacoes": "Indicado para maiores de 2 anos. \nNão administrar junto com as refeições. \nReavaliar se a tosse persistir por mais de 4-5 dias."
+    }
+  },
+  {
+    "name": "(Gotas)1 gota = 1 mg",
+    "slug": "gotas1-gota-1-mg",
+    "form": "Solução Oral em Gotas",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (antitussígenos/supressores) - > 2 anos: 1 mg/kg/dose, até 3 vezes ao dia....",
+    "alerts": [
+      "Indicado para maiores de 2 anos. \nNão administrar junto com as refeições. \nReavaliar se a tosse persistir por mais de 4-5 dias."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "1 mg",
+      "usualDose": "> 2 anos: 1 mg/kg/dose, até 3 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Indicado para maiores de 2 anos. \nNão administrar junto com as refeições. \nReavaliar se a tosse persistir por mais de 4-5 dias."
+    },
+    "calculationParams": {
+      "type": "gotas1-gota-1-mg",
+      "logica_js": "\"Administrar \" + Math.round(peso * 1) + \" gotas conforme orientação médica\"",
+      "doseMinima": "1 mg/kg/dose",
+      "doseMaxima": "120 gotas/dia (120 mg/dia).",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Preferencialmente, diluir em um pouco de água.",
+      "observacoes": "Indicado para maiores de 2 anos. \nNão administrar junto com as refeições. \nReavaliar se a tosse persistir por mais de 4-5 dias."
+    }
+  },
+  {
+    "name": "Levodropropizina 6 mg/mL (Xarope)",
+    "slug": "levodropropizina-6-mgml-xarope",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (antitussígenos/supressores) - > 2 anos: 1 mg/kg/dose, até 3x/dia.\nGuia Prático:\n- 10-20 kg: 3 mL/dose\n- 21-30 kg: 5 mL/dose\n> 12 a...",
+    "alerts": [
+      "O texto indica que esta apresentação é para > 12 anos, mas fornece doses para crianças menores.\n Reavaliar se a tosse persistir por mais de 4-5 dias."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "6 mg/mL",
+      "usualDose": "> 2 anos: 1 mg/kg/dose, até 3x/dia.\nGuia Prático:\n- 10-20 kg: 3 mL/dose\n- 21-30 kg: 5 mL/dose\n> 12 anos: 10 mL, 3x/dia.",
+      "doseInterval": "3x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "O texto indica que esta apresentação é para > 12 anos, mas fornece doses para crianças menores.\n Reavaliar se a tosse persistir por mais de 4-5 dias."
+    },
+    "calculationParams": {
+      "type": "levodropropizina-6-mgml-xarope",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.17 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "1 mg/kg/dose",
+      "doseMaxima": "30 mL/dia.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "O texto indica que esta apresentação é para > 12 anos, mas fornece doses para crianças menores.\n Reavaliar se a tosse persistir por mais de 4-5 dias."
+    }
+  },
+  {
+    "name": "Guaifenesina 13,3 mg/mL (Xarope)",
+    "slug": "guaifenesina-133-mgml-xarope",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (antitussígenos/supressores) - Dose fixa por idade/peso:\n- 6-12 anos (22-43 kg): 7,5 mL a cada 4 horas.\n- > 12 anos (> 43 kg): 15 m...",
+    "alerts": [
+      "Contraindicado para menores de 6 anos. Recomenda-se beber bastante água durante o tratamento para ajudar a soltar o muco."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "3 mg/mL",
+      "usualDose": "Dose fixa por idade/peso:\n- 6-12 anos (22-43 kg): 7,5 mL a cada 4 horas.\n- > 12 anos (> 43 kg): 15 mL a cada 4 horas.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado para menores de 6 anos. Recomenda-se beber bastante água durante o tratamento para ajudar a soltar o muco."
+    },
+    "calculationParams": {
+      "type": "guaifenesina-133-mgml-xarope",
+      "logica_js": null,
+      "doseMinima": "7,5 mL/dose (6-12a).\n15 mL/dose (>12a).",
+      "doseMaxima": "6 doses por dia.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Contraindicado para menores de 6 anos. Recomenda-se beber bastante água durante o tratamento para ajudar a soltar o muco."
+    }
+  },
+  {
+    "name": "Fendizoato de Cloperastina 3,54 mg/mL (Xarope)",
+    "slug": "fendizoato-de-cloperastina-354-mgml-xarope",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (antitussígenos/supressores) - ≤ 12 anos: 0,5 a 1 mL/kg/dia, dividido em 3 tomadas diárias.\n> 12 anos: 10 mL, 3 vezes ao dia....",
+    "alerts": [
+      "Pode causar sonolência e boca seca. Usar com cautela em pacientes com glaucoma."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "54 mg/mL",
+      "usualDose": "≤ 12 anos: 0,5 a 1 mL/kg/dia, dividido em 3 tomadas diárias.\n> 12 anos: 10 mL, 3 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Pode causar sonolência e boca seca. Usar com cautela em pacientes com glaucoma."
+    },
+    "calculationParams": {
+      "type": "fendizoato-de-cloperastina-354-mgml-xarope",
+      "logica_js": "\"A dose diária total é de 0,5 a 1 mL por kg de peso,  que deve ser dividida em 3 doses.\"",
+      "doseMinima": "0,5 mL/kg/dia",
+      "doseMaxima": "1 mL/kg/dia",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Pode causar sonolência e boca seca. Usar com cautela em pacientes com glaucoma."
+    }
+  },
+  {
+    "name": "Fendizoato de Cloperastina 35,4 mg/mL (Suspensão Oral)",
+    "slug": "fendizoato-de-cloperastina-354-mgml-suspensao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (antitussígenos/supressores) - ≤ 12 anos: 1 a 2 gotas/kg/dia, dividida em 3 tomadas diárias.\n> 12 anos: 20 gotas, 3 vezes ao dia....",
+    "alerts": [
+      "Pode causar sonolência e boca seca. Usar com cautela em pacientes com glaucoma."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "4 mg/mL",
+      "usualDose": "≤ 12 anos: 1 a 2 gotas/kg/dia, dividida em 3 tomadas diárias.\n> 12 anos: 20 gotas, 3 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Pode causar sonolência e boca seca. Usar com cautela em pacientes com glaucoma."
+    },
+    "calculationParams": {
+      "type": "fendizoato-de-cloperastina-354-mgml-suspensao-oral",
+      "logica_js": "\"Administrar \" + Math.round(peso * 2) + \" gotas conforme orientação médica\"",
+      "doseMinima": "1 gota/kg/dia",
+      "doseMaxima": "2 gotas/kg/dia",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Pode causar sonolência e boca seca. Usar com cautela em pacientes com glaucoma."
+    }
+  }
+]

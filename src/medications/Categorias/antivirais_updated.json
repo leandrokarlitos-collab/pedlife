@@ -1,0 +1,110 @@
+[
+  {
+    "name": "HPMIX (Aciclovir) 40 mg/mL ",
+    "slug": "hpmix-aciclovir-40-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIVIRAL - Tratamento H. Simples: 20 mg/kg/dose de 6/6h (4x/dia)\nSupressão H. Simples (Imunocomprometidos): 20 ...",
+    "alerts": [
+      "Ajustar a dose em pacientes com insuficiência renal. Manter boa hidratação. Agitar bem a suspensão antes de usar. A eficácia é maior com o início prec..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "40 mg/mL",
+      "usualDose": "Tratamento H. Simples: 20 mg/kg/dose de 6/6h (4x/dia)\nSupressão H. Simples (Imunocomprometidos): 20 mg/kg/dose de 6/6h(4x/dia)\nTratamento H. Zóster (>6 anos): 800 mg (20 mL) de 6/6h (4x/dia).",
+      "doseInterval": "6/6h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Ajustar a dose em pacientes com insuficiência renal. Manter boa hidratação. Agitar bem a suspensão antes de usar. A eficácia é maior com o início precoce do tratamento."
+    },
+    "calculationParams": {
+      "type": "hpmix-aciclovir-40-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.5 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "20 mg/kg/dose",
+      "doseMaxima": "800 mg por dose",
+      "reconstituicao": "Não se aplica (suspensão pronta para uso).",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Ajustar a dose em pacientes com insuficiência renal. Manter boa hidratação. Agitar bem a suspensão antes de usar. A eficácia é maior com o início precoce do tratamento."
+    }
+  },
+  {
+    "name": "(Suspensão Oral)",
+    "slug": "suspensao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIVIRAL - Tratamento H. Simples: 20 mg/kg/dose de 6/6h (4x/dia)\nSupressão H. Simples (Imunocomprometidos): 20 ...",
+    "alerts": [
+      "Ajustar a dose em pacientes com insuficiência renal. Manter boa hidratação. Agitar bem a suspensão antes de usar. A eficácia é maior com o início prec..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Tratamento H. Simples: 20 mg/kg/dose de 6/6h (4x/dia)\nSupressão H. Simples (Imunocomprometidos): 20 mg/kg/dose de 6/6h(4x/dia)\nTratamento H. Zóster (>6 anos): 800 mg (20 mL) de 6/6h (4x/dia).",
+      "doseInterval": "6/6h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Ajustar a dose em pacientes com insuficiência renal. Manter boa hidratação. Agitar bem a suspensão antes de usar. A eficácia é maior com o início precoce do tratamento."
+    },
+    "calculationParams": {
+      "type": "suspensao-oral",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.5 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "20 mg/kg/dose",
+      "doseMaxima": "800 mg por dose",
+      "reconstituicao": "Não se aplica (suspensão pronta para uso).",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Ajustar a dose em pacientes com insuficiência renal. Manter boa hidratação. Agitar bem a suspensão antes de usar. A eficácia é maior com o início precoce do tratamento."
+    }
+  },
+  {
+    "name": "Aciclovir 250 mg/Pó",
+    "slug": "aciclovir-250-mgpo",
+    "form": "Pó para Reconstituição",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIVIRAL - Crianças (3m-12a): 250 mg/m² a 500 mg/m² a cada 8 horas.\nNeonatos (até 3m): 10 mg/kg a cada 8 horas....",
+    "alerts": [
+      "Infusão lenta, durante 1 hora, para evitar danos aos rins. Manter hidratação adequada do paciente. Ajustar dose em insuficiência renal. Usar imediatam..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "250 mg",
+      "usualDose": "Crianças (3m-12a): 250 mg/m² a 500 mg/m² a cada 8 horas.\nNeonatos (até 3m): 10 mg/kg a cada 8 horas.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Infusão lenta, durante 1 hora, para evitar danos aos rins. Manter hidratação adequada do paciente. Ajustar dose em insuficiência renal. Usar imediatamente após o preparo."
+    },
+    "calculationParams": {
+      "type": "aciclovir-250-mgpo",
+      "logica_js": "\"Crianças: 1. Calcular Área Corporal (m²). 2. Dose(mg) = ASC(m²) × [250 ou 500]. 3. Volume(mL) = Dose(mg) ÷ 25 mg/mL.  Neonatos: Volume(mL) = (Peso(kg) × [10 ou 20]) ÷ 25 mg/mL\"",
+      "doseMinima": "250 mg/m² (crianças) \nou \n10 mg/kg (neonatos).",
+      "doseMaxima": "500 mg/m²/dose (crianças) \nOu\n 20 mg/kg/dose (neonatos).",
+      "reconstituicao": "Reconstituir com 10 mL de Água pra Injeção ou SF 0,9%.",
+      "diluicao": "Diluir a dose reconstituída em 50 a 100 mL de solução compatível.",
+      "observacoes": "Infusão lenta, durante 1 hora, para evitar danos aos rins. Manter hidratação adequada do paciente. Ajustar dose em insuficiência renal. Usar imediatamente após o preparo."
+    }
+  },
+  {
+    "name": "Palivizumabe 50 mg / 100 mg (Pó)",
+    "slug": "palivizumabe-50-mg-100-mg-po",
+    "form": "Pó para Reconstituição",
+    "application": "IM",
+    "description": "Medicamento da categoria ANTIVIRAL - 15 mg/kg/dose, uma vez por mês....",
+    "alerts": [
+      "Aplicar no músculo ântero-lateral da coxa. Repetir a cada 28-30 dias durante a estação do VSR (geralmente até 5 doses). Volumes maiores que 1 mL devem..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "50 mg",
+      "usualDose": "15 mg/kg/dose, uma vez por mês.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Aplicar no músculo ântero-lateral da coxa. Repetir a cada 28-30 dias durante a estação do VSR (geralmente até 5 doses). Volumes maiores que 1 mL devem ser divididos em múltiplas aplicações."
+    },
+    "calculationParams": {
+      "type": "palivizumabe-50-mg-100-mg-po",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.15 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "15 mg/kg/dose",
+      "doseMaxima": "15 mg/kg/dose",
+      "reconstituicao": "50mg: em 0,6 mL de água p/ injetáveis.\n100mg: em 1,0 mL de água p/ injetáveis.\n(Ambos resultam em 100 mg/mL)",
+      "diluicao": "Não se aplica (administrado após reconstituição).",
+      "observacoes": "Aplicar no músculo ântero-lateral da coxa. Repetir a cada 28-30 dias durante a estação do VSR (geralmente até 5 doses). Volumes maiores que 1 mL devem ser divididos em múltiplas aplicações."
+    }
+  }
+]

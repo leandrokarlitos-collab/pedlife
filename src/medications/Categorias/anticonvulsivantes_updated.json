@@ -1,0 +1,1298 @@
+[
+  {
+    "name": "Cloridrato de Midazolam 1 mg/mL ",
+    "slug": "cloridrato-de-midazolam-1-mgml",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Crise Convulsiva (IM): 0,1 a 0,15 mg/kg/dose.\nEstado de Mal Epiléptico (EV):\n- Ataque: 0,15 mg/kg.\n-...",
+    "alerts": [
+      "VERIFICAR A CONCENTRAÇÃO ANTES DO CÁLCULO. \nRisco de depressão respiratória. \nEV lento. \nMonitoramento contínuo. \nAntídoto: Flumazenil."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "1 mg/mL",
+      "usualDose": "Crise Convulsiva (IM): 0,1 a 0,15 mg/kg/dose.\nEstado de Mal Epiléptico (EV):\n- Ataque: 0,15 mg/kg.\n- Infusão: Iniciar com 0,06 mg/kg/hora.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "VERIFICAR A CONCENTRAÇÃO ANTES DO CÁLCULO. \nRisco de depressão respiratória. \nEV lento. \nMonitoramento contínuo. \nAntídoto: Flumazenil."
+    },
+    "calculationParams": {
+      "type": "cloridrato-de-midazolam-1-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.15 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,1 mg/kg (IM)",
+      "doseMaxima": "10 mg por dose (IM).",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Pode ser diluído em SF 0,9% ou SG 5% para infusão contínua.",
+      "observacoes": "VERIFICAR A CONCENTRAÇÃO ANTES DO CÁLCULO. \nRisco de depressão respiratória. \nEV lento. \nMonitoramento contínuo. \nAntídoto: Flumazenil."
+    }
+  },
+  {
+    "name": "E",
+    "slug": "e",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Crise Convulsiva (IM): 0,1 a 0,15 mg/kg/dose.\nEstado de Mal Epiléptico (EV):\n- Ataque: 0,15 mg/kg.\n-...",
+    "alerts": [
+      "VERIFICAR A CONCENTRAÇÃO ANTES DO CÁLCULO. \nRisco de depressão respiratória. \nEV lento. \nMonitoramento contínuo. \nAntídoto: Flumazenil."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Crise Convulsiva (IM): 0,1 a 0,15 mg/kg/dose.\nEstado de Mal Epiléptico (EV):\n- Ataque: 0,15 mg/kg.\n- Infusão: Iniciar com 0,06 mg/kg/hora.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "VERIFICAR A CONCENTRAÇÃO ANTES DO CÁLCULO. \nRisco de depressão respiratória. \nEV lento. \nMonitoramento contínuo. \nAntídoto: Flumazenil."
+    },
+    "calculationParams": {
+      "type": "e",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.15 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,1 mg/kg (IM)",
+      "doseMaxima": "10 mg por dose (IM).",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Pode ser diluído em SF 0,9% ou SG 5% para infusão contínua.",
+      "observacoes": "VERIFICAR A CONCENTRAÇÃO ANTES DO CÁLCULO. \nRisco de depressão respiratória. \nEV lento. \nMonitoramento contínuo. \nAntídoto: Flumazenil."
+    }
+  },
+  {
+    "name": " 5 mg/mL (Solução Injetável)",
+    "slug": "5-mgml-solucao-injetavel",
+    "form": "Solução Injetável",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Crise Convulsiva (IM): 0,1 a 0,15 mg/kg/dose.\nEstado de Mal Epiléptico (EV):\n- Ataque: 0,15 mg/kg.\n-...",
+    "alerts": [
+      "VERIFICAR A CONCENTRAÇÃO ANTES DO CÁLCULO. \nRisco de depressão respiratória. \nEV lento. \nMonitoramento contínuo. \nAntídoto: Flumazenil."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "5 mg/mL",
+      "usualDose": "Crise Convulsiva (IM): 0,1 a 0,15 mg/kg/dose.\nEstado de Mal Epiléptico (EV):\n- Ataque: 0,15 mg/kg.\n- Infusão: Iniciar com 0,06 mg/kg/hora.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "VERIFICAR A CONCENTRAÇÃO ANTES DO CÁLCULO. \nRisco de depressão respiratória. \nEV lento. \nMonitoramento contínuo. \nAntídoto: Flumazenil."
+    },
+    "calculationParams": {
+      "type": "5-mgml-solucao-injetavel",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.15 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,1 mg/kg (IM)",
+      "doseMaxima": "10 mg por dose (IM).",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Pode ser diluído em SF 0,9% ou SG 5% para infusão contínua.",
+      "observacoes": "VERIFICAR A CONCENTRAÇÃO ANTES DO CÁLCULO. \nRisco de depressão respiratória. \nEV lento. \nMonitoramento contínuo. \nAntídoto: Flumazenil."
+    }
+  },
+  {
+    "name": "Diazepam 5 mg/mL ",
+    "slug": "diazepam-5-mgml",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Crise Convulsiva (Retal): 0,5 mg/kg/dose.\nMal Epiléptico (EV): 0,3 a 0,5 mg/kg/dose.\nSedação (EV): 0...",
+    "alerts": [
+      "Administração EV deve ser LENTA (não exceder 5 mg/min).\n Risco de depressão respiratória e hipotensão.\n Requer monitoramento cardiorrespiratório. \nUso..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "5 mg/mL",
+      "usualDose": "Crise Convulsiva (Retal): 0,5 mg/kg/dose.\nMal Epiléptico (EV): 0,3 a 0,5 mg/kg/dose.\nSedação (EV): 0,1 a 0,2 mg/kg/dose.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Administração EV deve ser LENTA (não exceder 5 mg/min).\n Risco de depressão respiratória e hipotensão.\n Requer monitoramento cardiorrespiratório. \nUso retal quando a via EV não está disponível."
+    },
+    "calculationParams": {
+      "type": "diazepam-5-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.1 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,1 mg/kg/dose (Sedação)",
+      "doseMaxima": "10 mg/dose (EV) ou 20 mg/dose (Retal).",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não é necessário para injeção direta.",
+      "observacoes": "Administração EV deve ser LENTA (não exceder 5 mg/min).\n Risco de depressão respiratória e hipotensão.\n Requer monitoramento cardiorrespiratório. \nUso retal quando a via EV não está disponível."
+    }
+  },
+  {
+    "name": "(Solução Injetável)",
+    "slug": "solucao-injetavel",
+    "form": "Solução Injetável",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Crise Convulsiva (Retal): 0,5 mg/kg/dose.\nMal Epiléptico (EV): 0,3 a 0,5 mg/kg/dose.\nSedação (EV): 0...",
+    "alerts": [
+      "Administração EV deve ser LENTA (não exceder 5 mg/min).\n Risco de depressão respiratória e hipotensão.\n Requer monitoramento cardiorrespiratório. \nUso..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Crise Convulsiva (Retal): 0,5 mg/kg/dose.\nMal Epiléptico (EV): 0,3 a 0,5 mg/kg/dose.\nSedação (EV): 0,1 a 0,2 mg/kg/dose.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Administração EV deve ser LENTA (não exceder 5 mg/min).\n Risco de depressão respiratória e hipotensão.\n Requer monitoramento cardiorrespiratório. \nUso retal quando a via EV não está disponível."
+    },
+    "calculationParams": {
+      "type": "solucao-injetavel",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.1 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,1 mg/kg/dose (Sedação)",
+      "doseMaxima": "10 mg/dose (EV) ou 20 mg/dose (Retal).",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não é necessário para injeção direta.",
+      "observacoes": "Administração EV deve ser LENTA (não exceder 5 mg/min).\n Risco de depressão respiratória e hipotensão.\n Requer monitoramento cardiorrespiratório. \nUso retal quando a via EV não está disponível."
+    }
+  },
+  {
+    "name": "Fenitoína 50 mg/mL",
+    "slug": "fenitoina-50-mgml",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Ataque: 15 a 20 mg/kg/dose.\nManutenção: 4 a 8 mg/kg/dia, \ndivididos de 12/12 horas....",
+    "alerts": [
+      "Infusão LENTA (1-3 mg/kg/min, sem exceder 50 mg/min) pelo alto risco de hipotensão e arritmias cardíacas. Requer monitoramento cardíaco e da pressão a..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "50 mg/mL",
+      "usualDose": "Ataque: 15 a 20 mg/kg/dose.\nManutenção: 4 a 8 mg/kg/dia, \ndivididos de 12/12 horas.",
+      "doseInterval": "12/12 h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Infusão LENTA (1-3 mg/kg/min, sem exceder 50 mg/min) pelo alto risco de hipotensão e arritmias cardíacas. Requer monitoramento cardíaco e da pressão arterial."
+    },
+    "calculationParams": {
+      "type": "fenitoina-50-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.4 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "Ataque: 15 mg/kg.\nManutenção: 4 mg/kg/dia.",
+      "doseMaxima": "Ataque: 1.000 mg/dose.\nManutenção: 300 mg/dia.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Pode ser diluído em Soro Fisiológico 0,9% para uma concentração final\n ≥ 5 mg/mL.",
+      "observacoes": "Infusão LENTA (1-3 mg/kg/min, sem exceder 50 mg/min) pelo alto risco de hipotensão e arritmias cardíacas. Requer monitoramento cardíaco e da pressão arterial."
+    }
+  },
+  {
+    "name": " (Solução Injetável)",
+    "slug": "solucao-injetavel",
+    "form": "Solução Injetável",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Ataque: 15 a 20 mg/kg/dose.\nManutenção: 4 a 8 mg/kg/dia, \ndivididos de 12/12 horas....",
+    "alerts": [
+      "Infusão LENTA (1-3 mg/kg/min, sem exceder 50 mg/min) pelo alto risco de hipotensão e arritmias cardíacas. Requer monitoramento cardíaco e da pressão a..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Ataque: 15 a 20 mg/kg/dose.\nManutenção: 4 a 8 mg/kg/dia, \ndivididos de 12/12 horas.",
+      "doseInterval": "12/12 h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Infusão LENTA (1-3 mg/kg/min, sem exceder 50 mg/min) pelo alto risco de hipotensão e arritmias cardíacas. Requer monitoramento cardíaco e da pressão arterial."
+    },
+    "calculationParams": {
+      "type": "solucao-injetavel",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.4 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "Ataque: 15 mg/kg.\nManutenção: 4 mg/kg/dia.",
+      "doseMaxima": "Ataque: 1.000 mg/dose.\nManutenção: 300 mg/dia.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Pode ser diluído em Soro Fisiológico 0,9% para uma concentração final\n ≥ 5 mg/mL.",
+      "observacoes": "Infusão LENTA (1-3 mg/kg/min, sem exceder 50 mg/min) pelo alto risco de hipotensão e arritmias cardíacas. Requer monitoramento cardíaco e da pressão arterial."
+    }
+  },
+  {
+    "name": "Fenobarbital 100 mg/mL ",
+    "slug": "fenobarbital-100-mgml",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Ataque: 10-20 mg/kg/dose.\nManutenção: 3-6 mg/kg/dia \n(Neonatos: 5 mg/kg/dia), \ndivididos de 12/12h o...",
+    "alerts": [
+      "Infusão lenta (máx. 60 mg/min). \nRisco de hipotensão e depressão respiratória,\n podendo necessitar de suporte ventilatório."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "100 mg/mL",
+      "usualDose": "Ataque: 10-20 mg/kg/dose.\nManutenção: 3-6 mg/kg/dia \n(Neonatos: 5 mg/kg/dia), \ndivididos de 12/12h ou 24/24h.",
+      "doseInterval": "12/12h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Infusão lenta (máx. 60 mg/min). \nRisco de hipotensão e depressão respiratória,\n podendo necessitar de suporte ventilatório."
+    },
+    "calculationParams": {
+      "type": "fenobarbital-100-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.2 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "3 mg/kg/dia (Manutenção).",
+      "doseMaxima": "320 mg por dose.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Diluir com Soro Fisiológico 0,9%.",
+      "observacoes": "Infusão lenta (máx. 60 mg/min). \nRisco de hipotensão e depressão respiratória,\n podendo necessitar de suporte ventilatório."
+    }
+  },
+  {
+    "name": "(Solução Injetável)",
+    "slug": "solucao-injetavel",
+    "form": "Solução Injetável",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Ataque: 10-20 mg/kg/dose.\nManutenção: 3-6 mg/kg/dia \n(Neonatos: 5 mg/kg/dia), \ndivididos de 12/12h o...",
+    "alerts": [
+      "Infusão lenta (máx. 60 mg/min). \nRisco de hipotensão e depressão respiratória,\n podendo necessitar de suporte ventilatório."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Ataque: 10-20 mg/kg/dose.\nManutenção: 3-6 mg/kg/dia \n(Neonatos: 5 mg/kg/dia), \ndivididos de 12/12h ou 24/24h.",
+      "doseInterval": "12/12h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Infusão lenta (máx. 60 mg/min). \nRisco de hipotensão e depressão respiratória,\n podendo necessitar de suporte ventilatório."
+    },
+    "calculationParams": {
+      "type": "solucao-injetavel",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.2 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "3 mg/kg/dia (Manutenção).",
+      "doseMaxima": "320 mg por dose.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Diluir com Soro Fisiológico 0,9%.",
+      "observacoes": "Infusão lenta (máx. 60 mg/min). \nRisco de hipotensão e depressão respiratória,\n podendo necessitar de suporte ventilatório."
+    }
+  },
+  {
+    "name": "Fenobarbital 40 mg/mL (Gotas)",
+    "slug": "fenobarbital-40-mgml-gotas",
+    "form": "Solução Oral em Gotas",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Manutenção (>1 mês): 3-6 mg/kg/dia, divididos de 12/12h ou 24/24h.\nManutenção (Neonatos): 5 mg/kg/di...",
+    "alerts": [
+      "Risco de depressão respiratória e sedação. O ajuste da dose deve ser cuidadoso e monitorado."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "40 mg/mL",
+      "usualDose": "Manutenção (>1 mês): 3-6 mg/kg/dia, divididos de 12/12h ou 24/24h.\nManutenção (Neonatos): 5 mg/kg/dia de 24/24h.",
+      "doseInterval": "12/12h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Risco de depressão respiratória e sedação. O ajuste da dose deve ser cuidadoso e monitorado."
+    },
+    "calculationParams": {
+      "type": "fenobarbital-40-mgml-gotas",
+      "logica_js": "\"Administrar \" + Math.round(peso * 5) + \" gotas conforme orientação médica\"",
+      "doseMinima": "3 mg/kg/dia",
+      "doseMaxima": "400 gotas (400 mg) por dia.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Risco de depressão respiratória e sedação. O ajuste da dose deve ser cuidadoso e monitorado."
+    }
+  },
+  {
+    "name": "Clorpromazina 5 mg/mL ",
+    "slug": "clorpromazina-5-mgml",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Varia com a indicação (≥ 6 meses):\n- Comportamento: 0,28-0,55 mg/kg/dose\n- Náuseas/Vômitos: 0,55 mg/...",
+    "alerts": [
+      "Risco de hipotensão e sedação profunda. \nPode causar reações extrapiramidais (espasmos). \nRequer monitoramento."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "5 mg/mL",
+      "usualDose": "Varia com a indicação (≥ 6 meses):\n- Comportamento: 0,28-0,55 mg/kg/dose\n- Náuseas/Vômitos: 0,55 mg/kg/dose\n- Vômitos (Quimio): 0,5-1 mg/kg/dose\n- Tétano: 0,55 mg/kg/dose",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Risco de hipotensão e sedação profunda. \nPode causar reações extrapiramidais (espasmos). \nRequer monitoramento."
+    },
+    "calculationParams": {
+      "type": "clorpromazina-5-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.11 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,28 mg/kg/dose",
+      "doseMaxima": "< 22,7 kg: 40 mg/dia.\n22,7-45,5 kg: 75 mg/dia",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Pode ser diluída para infusão EV.",
+      "observacoes": "Risco de hipotensão e sedação profunda. \nPode causar reações extrapiramidais (espasmos). \nRequer monitoramento."
+    }
+  },
+  {
+    "name": "(Solução Injetável)",
+    "slug": "solucao-injetavel",
+    "form": "Solução Injetável",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Varia com a indicação (≥ 6 meses):\n- Comportamento: 0,28-0,55 mg/kg/dose\n- Náuseas/Vômitos: 0,55 mg/...",
+    "alerts": [
+      "Risco de hipotensão e sedação profunda. \nPode causar reações extrapiramidais (espasmos). \nRequer monitoramento."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Varia com a indicação (≥ 6 meses):\n- Comportamento: 0,28-0,55 mg/kg/dose\n- Náuseas/Vômitos: 0,55 mg/kg/dose\n- Vômitos (Quimio): 0,5-1 mg/kg/dose\n- Tétano: 0,55 mg/kg/dose",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Risco de hipotensão e sedação profunda. \nPode causar reações extrapiramidais (espasmos). \nRequer monitoramento."
+    },
+    "calculationParams": {
+      "type": "solucao-injetavel",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.11 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,28 mg/kg/dose",
+      "doseMaxima": "< 22,7 kg: 40 mg/dia.\n22,7-45,5 kg: 75 mg/dia",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Pode ser diluída para infusão EV.",
+      "observacoes": "Risco de hipotensão e sedação profunda. \nPode causar reações extrapiramidais (espasmos). \nRequer monitoramento."
+    }
+  },
+  {
+    "name": "Clorpromazina 40 mg/mL (Gotas",
+    "slug": "clorpromazina-40-mgml-gotas",
+    "form": "Solução Oral em Gotas",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Varia com a indicação (≥ 6 meses):\n- Comportamento: 0,55 mg/kg/dose (ou 0,55 gota/kg/dose) de 4/4 ou...",
+    "alerts": [
+      "Risco de hipotensão e sedação profunda. Pode causar reações extrapiramidais (espasmos). Requer monitoramento."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "40 mg/mL",
+      "usualDose": "Varia com a indicação (≥ 6 meses):\n- Comportamento: 0,55 mg/kg/dose (ou 0,55 gota/kg/dose) de 4/4 ou 6/6h.\n- Náuseas/Vômitos: 0,55 mg/kg/dose (ou 0,55 gota/kg/dose) de 6/6 ou 8/8h.",
+      "doseInterval": "6/6h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Risco de hipotensão e sedação profunda. Pode causar reações extrapiramidais (espasmos). Requer monitoramento."
+    },
+    "calculationParams": {
+      "type": "clorpromazina-40-mgml-gotas",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.55) + \" gotas conforme orientação médica\"",
+      "doseMinima": "0,55 mg/kg/dose",
+      "doseMaxima": "< 22,7 kg: 40 mg/dia.\n22,7-45,5 kg: 75 mg/dia.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Risco de hipotensão e sedação profunda. Pode causar reações extrapiramidais (espasmos). Requer monitoramento."
+    }
+  },
+  {
+    "name": "Lactobacillus reuteri DSM 17938",
+    "slug": "lactobacillus-reuteri-dsm-17938",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - 5 gotas, uma vez ao dia....",
+    "alerts": [
+      "Agitar bem antes de usar. Pode ser misturado em líquidos ou alimentos frios/mornos, nunca quentes. Indicado para o equilíbrio da flora intestinal e ma..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "5 gotas, uma vez ao dia.",
+      "doseInterval": "uma vez ao dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Agitar bem antes de usar. Pode ser misturado em líquidos ou alimentos frios/mornos, nunca quentes. Indicado para o equilíbrio da flora intestinal e manejo de desconfortos intestinais em bebês.\n\n\n\n\n\n\n\n\nCriar Resumo em Áudio"
+    },
+    "calculationParams": {
+      "type": "lactobacillus-reuteri-dsm-17938",
+      "logica_js": null,
+      "doseMinima": "5 gotas/dia.",
+      "doseMaxima": "5 gotas/dia.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Agitar bem antes de usar. Pode ser misturado em líquidos ou alimentos frios/mornos, nunca quentes. Indicado para o equilíbrio da flora intestinal e manejo de desconfortos intestinais em bebês.\n\n\n\n\n\n\n\n\nCriar Resumo em Áudio"
+    }
+  },
+  {
+    "name": " (Colidis®)",
+    "slug": "colidis",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - 5 gotas, uma vez ao dia....",
+    "alerts": [
+      "Agitar bem antes de usar. Pode ser misturado em líquidos ou alimentos frios/mornos, nunca quentes. Indicado para o equilíbrio da flora intestinal e ma..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "5 gotas, uma vez ao dia.",
+      "doseInterval": "uma vez ao dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Agitar bem antes de usar. Pode ser misturado em líquidos ou alimentos frios/mornos, nunca quentes. Indicado para o equilíbrio da flora intestinal e manejo de desconfortos intestinais em bebês.\n\n\n\n\n\n\n\n\nCriar Resumo em Áudio"
+    },
+    "calculationParams": {
+      "type": "colidis",
+      "logica_js": null,
+      "doseMinima": "5 gotas/dia.",
+      "doseMaxima": "5 gotas/dia.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Agitar bem antes de usar. Pode ser misturado em líquidos ou alimentos frios/mornos, nunca quentes. Indicado para o equilíbrio da flora intestinal e manejo de desconfortos intestinais em bebês.\n\n\n\n\n\n\n\n\nCriar Resumo em Áudio"
+    }
+  },
+  {
+    "name": "Saccharomyces boulardii 100 mg ",
+    "slug": "saccharomyces-boulardii-100-mg",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - A dose varia com a apresentação:\n- 250 mg: 1 a 2 cápsulas/envelopes, 1 a 2 vezes ao dia.\n- 200 mg: 1...",
+    "alerts": [
+      "Administrar em jejum ou 30 minutos antes das refeições. O conteúdo do pó pode ser misturado em mamadeiras, líquidos ou alimentos. A cápsula não deve s..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "100 mg",
+      "usualDose": "A dose varia com a apresentação:\n- 250 mg: 1 a 2 cápsulas/envelopes, 1 a 2 vezes ao dia.\n- 200 mg: 1 cápsula/envelope, 1 a 2 vezes ao dia.\n- 100 mg: 2 cápsulas, 2 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Administrar em jejum ou 30 minutos antes das refeições. O conteúdo do pó pode ser misturado em mamadeiras, líquidos ou alimentos. A cápsula não deve ser partida"
+    },
+    "calculationParams": {
+      "type": "saccharomyces-boulardii-100-mg",
+      "logica_js": null,
+      "doseMinima": "Varia com a apresentação.",
+      "doseMaxima": "Varia com a apresentação.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "O pó pode ser adicionado a líquidos ou alimentos semissólidos (frios).",
+      "observacoes": "Administrar em jejum ou 30 minutos antes das refeições. O conteúdo do pó pode ser misturado em mamadeiras, líquidos ou alimentos. A cápsula não deve ser partida"
+    }
+  },
+  {
+    "name": "/ 200 mg / 250 mg (Cápsula ou Pó)",
+    "slug": "200-mg-250-mg-capsula-ou-po",
+    "form": "Cápsula",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - A dose varia com a apresentação:\n- 250 mg: 1 a 2 cápsulas/envelopes, 1 a 2 vezes ao dia.\n- 200 mg: 1...",
+    "alerts": [
+      "Administrar em jejum ou 30 minutos antes das refeições. O conteúdo do pó pode ser misturado em mamadeiras, líquidos ou alimentos. A cápsula não deve s..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "200 mg",
+      "usualDose": "A dose varia com a apresentação:\n- 250 mg: 1 a 2 cápsulas/envelopes, 1 a 2 vezes ao dia.\n- 200 mg: 1 cápsula/envelope, 1 a 2 vezes ao dia.\n- 100 mg: 2 cápsulas, 2 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Administrar em jejum ou 30 minutos antes das refeições. O conteúdo do pó pode ser misturado em mamadeiras, líquidos ou alimentos. A cápsula não deve ser partida"
+    },
+    "calculationParams": {
+      "type": "200-mg-250-mg-capsula-ou-po",
+      "logica_js": null,
+      "doseMinima": "Varia com a apresentação.",
+      "doseMaxima": "Varia com a apresentação.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "O pó pode ser adicionado a líquidos ou alimentos semissólidos (frios).",
+      "observacoes": "Administrar em jejum ou 30 minutos antes das refeições. O conteúdo do pó pode ser misturado em mamadeiras, líquidos ou alimentos. A cápsula não deve ser partida"
+    }
+  },
+  {
+    "name": "Racecadotril 10 mg / 30 mg",
+    "slug": "racecadotril-10-mg-30-mg",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Pediátrica (>3 meses): 1,5 mg/kg/dose, 3 vezes ao dia....",
+    "alerts": [
+      "Administrar preferencialmente antes das refeições principais. \nÉ fundamental manter a hidratação adequada da criança. \nContraindicado para menores de ..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "10 mg",
+      "usualDose": "Pediátrica (>3 meses): 1,5 mg/kg/dose, 3 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Administrar preferencialmente antes das refeições principais. \nÉ fundamental manter a hidratação adequada da criança. \nContraindicado para menores de 3 meses de idade."
+    },
+    "calculationParams": {
+      "type": "racecadotril-10-mg-30-mg",
+      "logica_js": "\"Guia prático (3x/dia): - < 9kg: 1 sachê de 10mg - 9 a 13kg: 2 sachês de 10mg - 13 a 27kg: 1 sachê de 30mg - > 27kg: 2 sachês de 30mg\"",
+      "doseMinima": "1,5 mg/kg/dose.",
+      "doseMaxima": "Não exceder 7 dias \nde tratamento",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "O pó/granulado pode ser misturado em pequena\n quantidade de água, alimento ou mamadeira.",
+      "observacoes": "Administrar preferencialmente antes das refeições principais. \nÉ fundamental manter a hidratação adequada da criança. \nContraindicado para menores de 3 meses de idade."
+    }
+  },
+  {
+    "name": " (Pó/Granulado)",
+    "slug": "pogranulado",
+    "form": "Pó para Reconstituição",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Pediátrica (>3 meses): 1,5 mg/kg/dose, 3 vezes ao dia....",
+    "alerts": [
+      "Administrar preferencialmente antes das refeições principais. \nÉ fundamental manter a hidratação adequada da criança. \nContraindicado para menores de ..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Pediátrica (>3 meses): 1,5 mg/kg/dose, 3 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Administrar preferencialmente antes das refeições principais. \nÉ fundamental manter a hidratação adequada da criança. \nContraindicado para menores de 3 meses de idade."
+    },
+    "calculationParams": {
+      "type": "pogranulado",
+      "logica_js": "\"Guia prático (3x/dia): - < 9kg: 1 sachê de 10mg - 9 a 13kg: 2 sachês de 10mg - 13 a 27kg: 1 sachê de 30mg - > 27kg: 2 sachês de 30mg\"",
+      "doseMinima": "1,5 mg/kg/dose.",
+      "doseMaxima": "Não exceder 7 dias \nde tratamento",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "O pó/granulado pode ser misturado em pequena\n quantidade de água, alimento ou mamadeira.",
+      "observacoes": "Administrar preferencialmente antes das refeições principais. \nÉ fundamental manter a hidratação adequada da criança. \nContraindicado para menores de 3 meses de idade."
+    }
+  },
+  {
+    "name": "Zinco 2 mg/mL",
+    "slug": "zinco-2-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Dose única diária para diarreia aguda:\n- < 6 meses: 10 mg (5 mL)\n- ≥ 6 meses: 20 mg (10 mL)...",
+    "alerts": [
+      "Administrar junto com as refeições. \nO tratamento da diarreia aguda deve durar de 10 a 14 dias consecutivos. Agitar o frasco antes de usar"
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "2 mg/mL",
+      "usualDose": "Dose única diária para diarreia aguda:\n- < 6 meses: 10 mg (5 mL)\n- ≥ 6 meses: 20 mg (10 mL)",
+      "doseInterval": "Dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Administrar junto com as refeições. \nO tratamento da diarreia aguda deve durar de 10 a 14 dias consecutivos. Agitar o frasco antes de usar"
+    },
+    "calculationParams": {
+      "type": "zinco-2-mgml",
+      "logica_js": "\"Dose fixa diária (1x/dia): - < 6 meses: 5 mL - ≥ 6 meses: 10 mL\"",
+      "doseMinima": "10 mg/dia",
+      "doseMaxima": "20 mg/dia",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Administrar junto com as refeições. \nO tratamento da diarreia aguda deve durar de 10 a 14 dias consecutivos. Agitar o frasco antes de usar"
+    }
+  },
+  {
+    "name": " (Unizinco® Suspensão Oral)",
+    "slug": "unizinco-suspensao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Dose única diária para diarreia aguda:\n- < 6 meses: 10 mg (5 mL)\n- ≥ 6 meses: 20 mg (10 mL)...",
+    "alerts": [
+      "Administrar junto com as refeições. \nO tratamento da diarreia aguda deve durar de 10 a 14 dias consecutivos. Agitar o frasco antes de usar"
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Dose única diária para diarreia aguda:\n- < 6 meses: 10 mg (5 mL)\n- ≥ 6 meses: 20 mg (10 mL)",
+      "doseInterval": "Dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Administrar junto com as refeições. \nO tratamento da diarreia aguda deve durar de 10 a 14 dias consecutivos. Agitar o frasco antes de usar"
+    },
+    "calculationParams": {
+      "type": "unizinco-suspensao-oral",
+      "logica_js": "\"Dose fixa diária (1x/dia): - < 6 meses: 5 mL - ≥ 6 meses: 10 mL\"",
+      "doseMinima": "10 mg/dia",
+      "doseMaxima": "20 mg/dia",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Administrar junto com as refeições. \nO tratamento da diarreia aguda deve durar de 10 a 14 dias consecutivos. Agitar o frasco antes de usar"
+    }
+  },
+  {
+    "name": "Zinco 10 mg/mL (Biozinc® Gotas)",
+    "slug": "zinco-10-mgml-biozinc-gotas",
+    "form": "Solução Oral em Gotas",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Crianças > 4 anos e Adultos: 0,5 mL (10 gotas), uma vez ao dia ...",
+    "alerts": [
+      "Este produto é um suplemento alimentar, não um medicamento. Não exceder a recomendação diária de consumo. 1 mL equivale a 20 gotas."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "10 mg/mL",
+      "usualDose": "Crianças > 4 anos e Adultos: 0,5 mL (10 gotas), uma vez ao dia ",
+      "doseInterval": "uma vez ao dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Este produto é um suplemento alimentar, não um medicamento. Não exceder a recomendação diária de consumo. 1 mL equivale a 20 gotas."
+    },
+    "calculationParams": {
+      "type": "zinco-10-mgml-biozinc-gotas",
+      "logica_js": "\"Dose fixa diária (1x/dia): 0,5 mL ou 10 gotas\"",
+      "doseMinima": "0,5 mL/dia ",
+      "doseMaxima": "0,5 mL/dia ",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Este produto é um suplemento alimentar, não um medicamento. Não exceder a recomendação diária de consumo. 1 mL equivale a 20 gotas."
+    }
+  },
+  {
+    "name": "Lactulona (Xarope)",
+    "slug": "lactulona-xarope",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Constipação (dose diária):\n- Lactentes: 5 mL\n- 1-5 anos: 5-10 mL\n- 6-12 anos: 10-15 mL\n- >12 anos: 1...",
+    "alerts": [
+      "Risco de acidose em pacientes com encefalopatia hepática. \nSe uma dose for esquecida, administrar assim que lembrar, mas não dobrar a dose seguinte."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Constipação (dose diária):\n- Lactentes: 5 mL\n- 1-5 anos: 5-10 mL\n- 6-12 anos: 10-15 mL\n- >12 anos: 15-30 mL\nEncefalopatia Hepática:\n60-150 mL/dia",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Risco de acidose em pacientes com encefalopatia hepática. \nSe uma dose for esquecida, administrar assim que lembrar, mas não dobrar a dose seguinte."
+    },
+    "calculationParams": {
+      "type": "lactulona-xarope",
+      "logica_js": null,
+      "doseMinima": "Varia com a idade (ver dose usual).",
+      "doseMaxima": "Varia com a idade (ver dose usual).",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Risco de acidose em pacientes com encefalopatia hepática. \nSe uma dose for esquecida, administrar assim que lembrar, mas não dobrar a dose seguinte."
+    }
+  },
+  {
+    "name": "Fosfato de Sódio Monobásico ",
+    "slug": "fosfato-de-sodio-monobasico",
+    "form": "Suspensão Oral",
+    "application": "Retal",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Adultos e crianças > 12 anos:\n1 frasco (130 mL) em aplicação única....",
+    "alerts": [
+      "Contraindicado para menores de 12 anos. \nReter o líquido por 2 a 5 minutos até sentir forte vontade de evacuar. Manter boa hidratação após o uso. \nNão..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Adultos e crianças > 12 anos:\n1 frasco (130 mL) em aplicação única.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado para menores de 12 anos. \nReter o líquido por 2 a 5 minutos até sentir forte vontade de evacuar. Manter boa hidratação após o uso. \nNão usar por mais de 3 dias."
+    },
+    "calculationParams": {
+      "type": "fosfato-de-sodio-monobasico",
+      "logica_js": null,
+      "doseMinima": "1 frasco",
+      "doseMaxima": "1 frasco",
+      "reconstituicao": "Não se aplica (solução pronta).",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Contraindicado para menores de 12 anos. \nReter o líquido por 2 a 5 minutos até sentir forte vontade de evacuar. Manter boa hidratação após o uso. \nNão usar por mais de 3 dias."
+    }
+  },
+  {
+    "name": "+ ",
+    "slug": "",
+    "form": "Suspensão Oral",
+    "application": "Retal",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Adultos e crianças > 12 anos:\n1 frasco (130 mL) em aplicação única....",
+    "alerts": [
+      "Contraindicado para menores de 12 anos. \nReter o líquido por 2 a 5 minutos até sentir forte vontade de evacuar. Manter boa hidratação após o uso. \nNão..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Adultos e crianças > 12 anos:\n1 frasco (130 mL) em aplicação única.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado para menores de 12 anos. \nReter o líquido por 2 a 5 minutos até sentir forte vontade de evacuar. Manter boa hidratação após o uso. \nNão usar por mais de 3 dias."
+    },
+    "calculationParams": {
+      "type": "",
+      "logica_js": null,
+      "doseMinima": "1 frasco",
+      "doseMaxima": "1 frasco",
+      "reconstituicao": "Não se aplica (solução pronta).",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Contraindicado para menores de 12 anos. \nReter o líquido por 2 a 5 minutos até sentir forte vontade de evacuar. Manter boa hidratação após o uso. \nNão usar por mais de 3 dias."
+    }
+  },
+  {
+    "name": "Dibásico (Phosfoenema®)",
+    "slug": "dibasico-phosfoenema",
+    "form": "Suspensão Oral",
+    "application": "Retal",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Adultos e crianças > 12 anos:\n1 frasco (130 mL) em aplicação única....",
+    "alerts": [
+      "Contraindicado para menores de 12 anos. \nReter o líquido por 2 a 5 minutos até sentir forte vontade de evacuar. Manter boa hidratação após o uso. \nNão..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Adultos e crianças > 12 anos:\n1 frasco (130 mL) em aplicação única.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado para menores de 12 anos. \nReter o líquido por 2 a 5 minutos até sentir forte vontade de evacuar. Manter boa hidratação após o uso. \nNão usar por mais de 3 dias."
+    },
+    "calculationParams": {
+      "type": "dibasico-phosfoenema",
+      "logica_js": null,
+      "doseMinima": "1 frasco",
+      "doseMaxima": "1 frasco",
+      "reconstituicao": "Não se aplica (solução pronta).",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Contraindicado para menores de 12 anos. \nReter o líquido por 2 a 5 minutos até sentir forte vontade de evacuar. Manter boa hidratação após o uso. \nNão usar por mais de 3 dias."
+    }
+  },
+  {
+    "name": "Glicerina (Enema / Solução Retal)",
+    "slug": "glicerina-enema-solucao-retal",
+    "form": "Suspensão Oral",
+    "application": "Retal",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - 250 a 1.000 mL por dia....",
+    "alerts": [
+      "Para constipação crônica com irritação da mucosa, usar a menor concentração eficaz.\n Monitorar sinais de sangramento retal."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "250 a 1.000 mL por dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Para constipação crônica com irritação da mucosa, usar a menor concentração eficaz.\n Monitorar sinais de sangramento retal."
+    },
+    "calculationParams": {
+      "type": "glicerina-enema-solucao-retal",
+      "logica_js": null,
+      "doseMinima": "250 mL/dia",
+      "doseMaxima": "1.000 mL/dia",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Para constipação crônica com irritação da mucosa, usar a menor concentração eficaz.\n Monitorar sinais de sangramento retal."
+    }
+  },
+  {
+    "name": "Macrogol",
+    "slug": "macrogol",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Constipação (Inicial): 1 g/kg/dia.\nConstipação (Manutenção): 0,4 g/kg/dia.\nPreparo de Colonoscopia: ...",
+    "alerts": [
+      "Para preparo de exame, a solução é ingerida a cada 30 minutos. Ajustar a dose conforme a resposta do paciente. \nManter boa hidratação."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Constipação (Inicial): 1 g/kg/dia.\nConstipação (Manutenção): 0,4 g/kg/dia.\nPreparo de Colonoscopia: 4,5 g/kg/dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Para preparo de exame, a solução é ingerida a cada 30 minutos. Ajustar a dose conforme a resposta do paciente. \nManter boa hidratação."
+    },
+    "calculationParams": {
+      "type": "macrogol",
+      "logica_js": "\"Cálculo baseado em g/kg/dia,  variando conforme a indicação  (constipação vs. preparo de exame).\"",
+      "doseMinima": "0,4 g/kg/dia (manutenção)",
+      "doseMaxima": "100 g/dia (constipação) \nou \n255 g/dia (preparo de exame).",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "O pó deve ser dissolvido em líquido. Ex: 8,5g em 150 mL para \npreparo de exame.",
+      "observacoes": "Para preparo de exame, a solução é ingerida a cada 30 minutos. Ajustar a dose conforme a resposta do paciente. \nManter boa hidratação."
+    }
+  },
+  {
+    "name": " (Pó para Solução Oral)",
+    "slug": "po-para-solucao-oral",
+    "form": "Pó para Reconstituição",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Constipação (Inicial): 1 g/kg/dia.\nConstipação (Manutenção): 0,4 g/kg/dia.\nPreparo de Colonoscopia: ...",
+    "alerts": [
+      "Para preparo de exame, a solução é ingerida a cada 30 minutos. Ajustar a dose conforme a resposta do paciente. \nManter boa hidratação."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Constipação (Inicial): 1 g/kg/dia.\nConstipação (Manutenção): 0,4 g/kg/dia.\nPreparo de Colonoscopia: 4,5 g/kg/dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Para preparo de exame, a solução é ingerida a cada 30 minutos. Ajustar a dose conforme a resposta do paciente. \nManter boa hidratação."
+    },
+    "calculationParams": {
+      "type": "po-para-solucao-oral",
+      "logica_js": "\"Cálculo baseado em g/kg/dia,  variando conforme a indicação  (constipação vs. preparo de exame).\"",
+      "doseMinima": "0,4 g/kg/dia (manutenção)",
+      "doseMaxima": "100 g/dia (constipação) \nou \n255 g/dia (preparo de exame).",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "O pó deve ser dissolvido em líquido. Ex: 8,5g em 150 mL para \npreparo de exame.",
+      "observacoes": "Para preparo de exame, a solução é ingerida a cada 30 minutos. Ajustar a dose conforme a resposta do paciente. \nManter boa hidratação."
+    }
+  },
+  {
+    "name": "Óleo Mineral (Nujol®)",
+    "slug": "oleo-mineral-nujol",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - < 5 anos: 1 colher de chá à noite.\n5 a 10 anos: 1/2 colher de sopa 2x/dia (noite e manhã).\nAdultos: ...",
+    "alerts": [
+      "Indicado para prisão de ventre.\n Pode também ser usado na pele para amaciar áreas ressecadas.\n Se os sintomas não desaparecerem, procurar orientação m..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "< 5 anos: 1 colher de chá à noite.\n5 a 10 anos: 1/2 colher de sopa 2x/dia (noite e manhã).\nAdultos: 1 colher de sopa 2x/dia (noite e manhã).",
+      "doseInterval": "2x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Indicado para prisão de ventre.\n Pode também ser usado na pele para amaciar áreas ressecadas.\n Se os sintomas não desaparecerem, procurar orientação médica."
+    },
+    "calculationParams": {
+      "type": "oleo-mineral-nujol",
+      "logica_js": null,
+      "doseMinima": "Varia com a idade \n(ver dose usual).",
+      "doseMaxima": "Pode ser aumentada se não houver efeito\n (Adultos: até 3 colheres de sopa/dia).",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Indicado para prisão de ventre.\n Pode também ser usado na pele para amaciar áreas ressecadas.\n Se os sintomas não desaparecerem, procurar orientação médica."
+    }
+  },
+  {
+    "name": "Macrogol 3350 + Eletrólitos",
+    "slug": "macrogol-3350-eletrolitos",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Constipação (>7 anos): 1 a 2 envelopes/dia.\nConstipação Intensa (>7 anos): 5 envelopes à noite.\nPrep...",
+    "alerts": [
+      "Contraindicado para menores de 7 anos. \nUsar com cautela em idosos.\n Liberado na lactação. \nNão é necessário suspender para procedimentos."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Constipação (>7 anos): 1 a 2 envelopes/dia.\nConstipação Intensa (>7 anos): 5 envelopes à noite.\nPreparo Intestinal (Adultos): 8 envelopes em 1 L de água.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado para menores de 7 anos. \nUsar com cautela em idosos.\n Liberado na lactação. \nNão é necessário suspender para procedimentos."
+    },
+    "calculationParams": {
+      "type": "macrogol-3350-eletrolitos",
+      "logica_js": null,
+      "doseMinima": "1 envelope/dia.",
+      "doseMaxima": "Varia com a indicação.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Dissolver 1 envelope em 125 mL de água, chá ou suco.",
+      "observacoes": "Contraindicado para menores de 7 anos. \nUsar com cautela em idosos.\n Liberado na lactação. \nNão é necessário suspender para procedimentos."
+    }
+  },
+  {
+    "name": " (Pó para Solução Oral)",
+    "slug": "po-para-solucao-oral",
+    "form": "Pó para Reconstituição",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Constipação (>7 anos): 1 a 2 envelopes/dia.\nConstipação Intensa (>7 anos): 5 envelopes à noite.\nPrep...",
+    "alerts": [
+      "Contraindicado para menores de 7 anos. \nUsar com cautela em idosos.\n Liberado na lactação. \nNão é necessário suspender para procedimentos."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Constipação (>7 anos): 1 a 2 envelopes/dia.\nConstipação Intensa (>7 anos): 5 envelopes à noite.\nPreparo Intestinal (Adultos): 8 envelopes em 1 L de água.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado para menores de 7 anos. \nUsar com cautela em idosos.\n Liberado na lactação. \nNão é necessário suspender para procedimentos."
+    },
+    "calculationParams": {
+      "type": "po-para-solucao-oral",
+      "logica_js": null,
+      "doseMinima": "1 envelope/dia.",
+      "doseMaxima": "Varia com a indicação.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Dissolver 1 envelope em 125 mL de água, chá ou suco.",
+      "observacoes": "Contraindicado para menores de 7 anos. \nUsar com cautela em idosos.\n Liberado na lactação. \nNão é necessário suspender para procedimentos."
+    }
+  },
+  {
+    "name": "Hidróxido de Magnésio",
+    "slug": "hidroxido-de-magnesio",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Como Laxante (dose diária):\n- >12 anos: 30 a 60 mL\n- 6 a 11 anos: 15 a 30 mL\nComo Antiácido:\n->12 an...",
+    "alerts": [
+      "Contraindicado <2 anos (antiácido) e <6 anos (laxante). \nNão usar como laxante por mais de 3 dias consecutivos. \nAgitar antes de usar. \nCautela em pac..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Como Laxante (dose diária):\n- >12 anos: 30 a 60 mL\n- 6 a 11 anos: 15 a 30 mL\nComo Antiácido:\n->12 anos: 5 a 15 mL/dose, até 4x/dia\n- 2 a 11 anos: 5 mL/dose, até 2x/dia",
+      "doseInterval": "4x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado <2 anos (antiácido) e <6 anos (laxante). \nNão usar como laxante por mais de 3 dias consecutivos. \nAgitar antes de usar. \nCautela em pacientes com insuficiência renal."
+    },
+    "calculationParams": {
+      "type": "hidroxido-de-magnesio",
+      "logica_js": null,
+      "doseMinima": "Varia com a idade e indicação.",
+      "doseMaxima": "Varia com a idade e indicação.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica (pode ser misturado com água).",
+      "observacoes": "Contraindicado <2 anos (antiácido) e <6 anos (laxante). \nNão usar como laxante por mais de 3 dias consecutivos. \nAgitar antes de usar. \nCautela em pacientes com insuficiência renal."
+    }
+  },
+  {
+    "name": " ~85.5 mg/mL ",
+    "slug": "855-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Como Laxante (dose diária):\n- >12 anos: 30 a 60 mL\n- 6 a 11 anos: 15 a 30 mL\nComo Antiácido:\n->12 an...",
+    "alerts": [
+      "Contraindicado <2 anos (antiácido) e <6 anos (laxante). \nNão usar como laxante por mais de 3 dias consecutivos. \nAgitar antes de usar. \nCautela em pac..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "85.5 mg/mL",
+      "usualDose": "Como Laxante (dose diária):\n- >12 anos: 30 a 60 mL\n- 6 a 11 anos: 15 a 30 mL\nComo Antiácido:\n->12 anos: 5 a 15 mL/dose, até 4x/dia\n- 2 a 11 anos: 5 mL/dose, até 2x/dia",
+      "doseInterval": "4x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado <2 anos (antiácido) e <6 anos (laxante). \nNão usar como laxante por mais de 3 dias consecutivos. \nAgitar antes de usar. \nCautela em pacientes com insuficiência renal."
+    },
+    "calculationParams": {
+      "type": "855-mgml",
+      "logica_js": null,
+      "doseMinima": "Varia com a idade e indicação.",
+      "doseMaxima": "Varia com a idade e indicação.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica (pode ser misturado com água).",
+      "observacoes": "Contraindicado <2 anos (antiácido) e <6 anos (laxante). \nNão usar como laxante por mais de 3 dias consecutivos. \nAgitar antes de usar. \nCautela em pacientes com insuficiência renal."
+    }
+  },
+  {
+    "name": "(Leite de Magnésia)",
+    "slug": "leite-de-magnesia",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Como Laxante (dose diária):\n- >12 anos: 30 a 60 mL\n- 6 a 11 anos: 15 a 30 mL\nComo Antiácido:\n->12 an...",
+    "alerts": [
+      "Contraindicado <2 anos (antiácido) e <6 anos (laxante). \nNão usar como laxante por mais de 3 dias consecutivos. \nAgitar antes de usar. \nCautela em pac..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Como Laxante (dose diária):\n- >12 anos: 30 a 60 mL\n- 6 a 11 anos: 15 a 30 mL\nComo Antiácido:\n->12 anos: 5 a 15 mL/dose, até 4x/dia\n- 2 a 11 anos: 5 mL/dose, até 2x/dia",
+      "doseInterval": "4x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado <2 anos (antiácido) e <6 anos (laxante). \nNão usar como laxante por mais de 3 dias consecutivos. \nAgitar antes de usar. \nCautela em pacientes com insuficiência renal."
+    },
+    "calculationParams": {
+      "type": "leite-de-magnesia",
+      "logica_js": null,
+      "doseMinima": "Varia com a idade e indicação.",
+      "doseMaxima": "Varia com a idade e indicação.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica (pode ser misturado com água).",
+      "observacoes": "Contraindicado <2 anos (antiácido) e <6 anos (laxante). \nNão usar como laxante por mais de 3 dias consecutivos. \nAgitar antes de usar. \nCautela em pacientes com insuficiência renal."
+    }
+  },
+  {
+    "name": "Polivitamínico",
+    "slug": "polivitaminico",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Dose única diária por idade:\n- 0-6 meses: 6 gotas\n- 7-11 meses: 9 gotas\n- 1-3 anos: 11 gotas\n- 4-6 a...",
+    "alerts": [
+      "Este produto é um suplemento alimentar, não um medicamento.\n Não exceder a recomendação diária. \nAs gotas podem ser misturadas com água, suco ou leite..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Dose única diária por idade:\n- 0-6 meses: 6 gotas\n- 7-11 meses: 9 gotas\n- 1-3 anos: 11 gotas\n- 4-6 anos: 12 gotas\n- 7-10 anos: 13 gotas",
+      "doseInterval": "Dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Este produto é um suplemento alimentar, não um medicamento.\n Não exceder a recomendação diária. \nAs gotas podem ser misturadas com água, suco ou leite."
+    },
+    "calculationParams": {
+      "type": "polivitaminico",
+      "logica_js": null,
+      "doseMinima": "Dose fixa por idade ",
+      "doseMaxima": "Dose fixa por idade ",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Este produto é um suplemento alimentar, não um medicamento.\n Não exceder a recomendação diária. \nAs gotas podem ser misturadas com água, suco ou leite."
+    }
+  },
+  {
+    "name": " (Protovit® Plus) (Gotas)",
+    "slug": "protovit-plus-gotas",
+    "form": "Solução Oral em Gotas",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Dose única diária por idade:\n- 0-6 meses: 6 gotas\n- 7-11 meses: 9 gotas\n- 1-3 anos: 11 gotas\n- 4-6 a...",
+    "alerts": [
+      "Este produto é um suplemento alimentar, não um medicamento.\n Não exceder a recomendação diária. \nAs gotas podem ser misturadas com água, suco ou leite..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Dose única diária por idade:\n- 0-6 meses: 6 gotas\n- 7-11 meses: 9 gotas\n- 1-3 anos: 11 gotas\n- 4-6 anos: 12 gotas\n- 7-10 anos: 13 gotas",
+      "doseInterval": "Dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Este produto é um suplemento alimentar, não um medicamento.\n Não exceder a recomendação diária. \nAs gotas podem ser misturadas com água, suco ou leite."
+    },
+    "calculationParams": {
+      "type": "protovit-plus-gotas",
+      "logica_js": null,
+      "doseMinima": "Dose fixa por idade ",
+      "doseMaxima": "Dose fixa por idade ",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Este produto é um suplemento alimentar, não um medicamento.\n Não exceder a recomendação diária. \nAs gotas podem ser misturadas com água, suco ou leite."
+    }
+  },
+  {
+    "name": "Vitamina D (Colecalciferol) ",
+    "slug": "vitamina-d-colecalciferol",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Dose terapêutica diária por 12 semanas:\n- < 1 ano: 1 mL (2.000 UI)\n- 1-12 anos: 1,5 a 3 mL (3.000-6....",
+    "alerts": [
+      "Tratamento por 12 semanas.\n Após o período, repetir a dosagem de 25-OH-vitamina D para reavaliar. \nPrescrever dose de manutenção após o término do tra..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Dose terapêutica diária por 12 semanas:\n- < 1 ano: 1 mL (2.000 UI)\n- 1-12 anos: 1,5 a 3 mL (3.000-6.000 UI)\n- > 12 anos: 3 mL (6.000 UI)",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Tratamento por 12 semanas.\n Após o período, repetir a dosagem de 25-OH-vitamina D para reavaliar. \nPrescrever dose de manutenção após o término do tratamento."
+    },
+    "calculationParams": {
+      "type": "vitamina-d-colecalciferol",
+      "logica_js": "\"Dose fixa diária por idade: - <1a: 1 mL - 1-12a: 1,5-3 mL - >12a: 3 mL\"",
+      "doseMinima": "Dose fixa por idade ",
+      "doseMaxima": "Dose fixa por idade ",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Tratamento por 12 semanas.\n Após o período, repetir a dosagem de 25-OH-vitamina D para reavaliar. \nPrescrever dose de manutenção após o término do tratamento."
+    }
+  },
+  {
+    "name": "2.000 UI/mL (Solução Oral)",
+    "slug": "2000-uiml-solucao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Dose terapêutica diária por 12 semanas:\n- < 1 ano: 1 mL (2.000 UI)\n- 1-12 anos: 1,5 a 3 mL (3.000-6....",
+    "alerts": [
+      "Tratamento por 12 semanas.\n Após o período, repetir a dosagem de 25-OH-vitamina D para reavaliar. \nPrescrever dose de manutenção após o término do tra..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "2.000 UI",
+      "usualDose": "Dose terapêutica diária por 12 semanas:\n- < 1 ano: 1 mL (2.000 UI)\n- 1-12 anos: 1,5 a 3 mL (3.000-6.000 UI)\n- > 12 anos: 3 mL (6.000 UI)",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Tratamento por 12 semanas.\n Após o período, repetir a dosagem de 25-OH-vitamina D para reavaliar. \nPrescrever dose de manutenção após o término do tratamento."
+    },
+    "calculationParams": {
+      "type": "2000-uiml-solucao-oral",
+      "logica_js": "\"Dose fixa diária por idade: - <1a: 1 mL - 1-12a: 1,5-3 mL - >12a: 3 mL\"",
+      "doseMinima": "Dose fixa por idade ",
+      "doseMaxima": "Dose fixa por idade ",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Tratamento por 12 semanas.\n Após o período, repetir a dosagem de 25-OH-vitamina D para reavaliar. \nPrescrever dose de manutenção após o término do tratamento."
+    }
+  },
+  {
+    "name": "Timomodulina 20 mg/mL ",
+    "slug": "timomodulina-20-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Dose diária fixa por idade:\n- Crianças (3 a 12 anos): 5 a 10 mL.\n- Adultos: 15 a 30 mL....",
+    "alerts": [
+      "Administrar em jejum ou 2 horas após as refeições. \nA duração do tratamento varia de 15 a 90 dias.\n Contraindicado para menores de 3 anos. \nContém açú..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "20 mg/mL",
+      "usualDose": "Dose diária fixa por idade:\n- Crianças (3 a 12 anos): 5 a 10 mL.\n- Adultos: 15 a 30 mL.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Administrar em jejum ou 2 horas após as refeições. \nA duração do tratamento varia de 15 a 90 dias.\n Contraindicado para menores de 3 anos. \nContém açúcar."
+    },
+    "calculationParams": {
+      "type": "timomodulina-20-mgml",
+      "logica_js": null,
+      "doseMinima": "Crianças: 5 mL/dia.\nAdultos: 15 mL/dia.",
+      "doseMaxima": "Crianças: 10 mL/dia.\nAdultos: 30 mL/dia.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Administrar em jejum ou 2 horas após as refeições. \nA duração do tratamento varia de 15 a 90 dias.\n Contraindicado para menores de 3 anos. \nContém açúcar."
+    }
+  },
+  {
+    "name": "(Leucogen® Xarope)",
+    "slug": "leucogen-xarope",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Dose diária fixa por idade:\n- Crianças (3 a 12 anos): 5 a 10 mL.\n- Adultos: 15 a 30 mL....",
+    "alerts": [
+      "Administrar em jejum ou 2 horas após as refeições. \nA duração do tratamento varia de 15 a 90 dias.\n Contraindicado para menores de 3 anos. \nContém açú..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Dose diária fixa por idade:\n- Crianças (3 a 12 anos): 5 a 10 mL.\n- Adultos: 15 a 30 mL.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Administrar em jejum ou 2 horas após as refeições. \nA duração do tratamento varia de 15 a 90 dias.\n Contraindicado para menores de 3 anos. \nContém açúcar."
+    },
+    "calculationParams": {
+      "type": "leucogen-xarope",
+      "logica_js": null,
+      "doseMinima": "Crianças: 5 mL/dia.\nAdultos: 15 mL/dia.",
+      "doseMaxima": "Crianças: 10 mL/dia.\nAdultos: 30 mL/dia.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Administrar em jejum ou 2 horas após as refeições. \nA duração do tratamento varia de 15 a 90 dias.\n Contraindicado para menores de 3 anos. \nContém açúcar."
+    }
+  },
+  {
+    "name": "Pelargonium sidoides ",
+    "slug": "pelargonium-sidoides",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Dose 3x/dia:\n- 1-5 anos: 10 gotas (Kaloba®)\n- 6-12 anos: 20 gotas\n- >12 anos: 30 gotas...",
+    "alerts": [
+      "Contraindicações de idade variam: Kaloba® (< 1 ano); \nImunotrat® e Blugrip® (< 6 anos). \nAdministrar meia hora antes das refeições. \nDuração do tratam..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Dose 3x/dia:\n- 1-5 anos: 10 gotas (Kaloba®)\n- 6-12 anos: 20 gotas\n- >12 anos: 30 gotas",
+      "doseInterval": "3x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicações de idade variam: Kaloba® (< 1 ano); \nImunotrat® e Blugrip® (< 6 anos). \nAdministrar meia hora antes das refeições. \nDuração do tratamento: 5-7 dias."
+    },
+    "calculationParams": {
+      "type": "pelargonium-sidoides",
+      "logica_js": "\"Dose fixa por idade, 3x/dia: - 1-5a: 10 gotas - 6-12a: 20 gotas - >12a: 30 gotas\"",
+      "doseMinima": "Varia com a idade.",
+      "doseMaxima": "Varia com a idade.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Contraindicações de idade variam: Kaloba® (< 1 ano); \nImunotrat® e Blugrip® (< 6 anos). \nAdministrar meia hora antes das refeições. \nDuração do tratamento: 5-7 dias."
+    }
+  },
+  {
+    "name": "825 mg/mL (Gotas)",
+    "slug": "825-mgml-gotas",
+    "form": "Solução Oral em Gotas",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Dose 3x/dia:\n- 1-5 anos: 10 gotas (Kaloba®)\n- 6-12 anos: 20 gotas\n- >12 anos: 30 gotas...",
+    "alerts": [
+      "Contraindicações de idade variam: Kaloba® (< 1 ano); \nImunotrat® e Blugrip® (< 6 anos). \nAdministrar meia hora antes das refeições. \nDuração do tratam..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "825 mg/mL",
+      "usualDose": "Dose 3x/dia:\n- 1-5 anos: 10 gotas (Kaloba®)\n- 6-12 anos: 20 gotas\n- >12 anos: 30 gotas",
+      "doseInterval": "3x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicações de idade variam: Kaloba® (< 1 ano); \nImunotrat® e Blugrip® (< 6 anos). \nAdministrar meia hora antes das refeições. \nDuração do tratamento: 5-7 dias."
+    },
+    "calculationParams": {
+      "type": "825-mgml-gotas",
+      "logica_js": "\"Dose fixa por idade, 3x/dia: - 1-5a: 10 gotas - 6-12a: 20 gotas - >12a: 30 gotas\"",
+      "doseMinima": "Varia com a idade.",
+      "doseMaxima": "Varia com a idade.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Contraindicações de idade variam: Kaloba® (< 1 ano); \nImunotrat® e Blugrip® (< 6 anos). \nAdministrar meia hora antes das refeições. \nDuração do tratamento: 5-7 dias."
+    }
+  },
+  {
+    "name": "Kaloba®,",
+    "slug": "kaloba",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Dose 3x/dia:\n- 1-5 anos: 10 gotas (Kaloba®)\n- 6-12 anos: 20 gotas\n- >12 anos: 30 gotas...",
+    "alerts": [
+      "Contraindicações de idade variam: Kaloba® (< 1 ano); \nImunotrat® e Blugrip® (< 6 anos). \nAdministrar meia hora antes das refeições. \nDuração do tratam..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Dose 3x/dia:\n- 1-5 anos: 10 gotas (Kaloba®)\n- 6-12 anos: 20 gotas\n- >12 anos: 30 gotas",
+      "doseInterval": "3x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicações de idade variam: Kaloba® (< 1 ano); \nImunotrat® e Blugrip® (< 6 anos). \nAdministrar meia hora antes das refeições. \nDuração do tratamento: 5-7 dias."
+    },
+    "calculationParams": {
+      "type": "kaloba",
+      "logica_js": "\"Dose fixa por idade, 3x/dia: - 1-5a: 10 gotas - 6-12a: 20 gotas - >12a: 30 gotas\"",
+      "doseMinima": "Varia com a idade.",
+      "doseMaxima": "Varia com a idade.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Contraindicações de idade variam: Kaloba® (< 1 ano); \nImunotrat® e Blugrip® (< 6 anos). \nAdministrar meia hora antes das refeições. \nDuração do tratamento: 5-7 dias."
+    }
+  },
+  {
+    "name": " Imunotrat Pelargonium®, ",
+    "slug": "imunotrat-pelargonium",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Dose 3x/dia:\n- 1-5 anos: 10 gotas (Kaloba®)\n- 6-12 anos: 20 gotas\n- >12 anos: 30 gotas...",
+    "alerts": [
+      "Contraindicações de idade variam: Kaloba® (< 1 ano); \nImunotrat® e Blugrip® (< 6 anos). \nAdministrar meia hora antes das refeições. \nDuração do tratam..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Dose 3x/dia:\n- 1-5 anos: 10 gotas (Kaloba®)\n- 6-12 anos: 20 gotas\n- >12 anos: 30 gotas",
+      "doseInterval": "3x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicações de idade variam: Kaloba® (< 1 ano); \nImunotrat® e Blugrip® (< 6 anos). \nAdministrar meia hora antes das refeições. \nDuração do tratamento: 5-7 dias."
+    },
+    "calculationParams": {
+      "type": "imunotrat-pelargonium",
+      "logica_js": "\"Dose fixa por idade, 3x/dia: - 1-5a: 10 gotas - 6-12a: 20 gotas - >12a: 30 gotas\"",
+      "doseMinima": "Varia com a idade.",
+      "doseMaxima": "Varia com a idade.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Contraindicações de idade variam: Kaloba® (< 1 ano); \nImunotrat® e Blugrip® (< 6 anos). \nAdministrar meia hora antes das refeições. \nDuração do tratamento: 5-7 dias."
+    }
+  },
+  {
+    "name": "Blugrip Pelargonium®",
+    "slug": "blugrip-pelargonium",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - Dose 3x/dia:\n- 1-5 anos: 10 gotas (Kaloba®)\n- 6-12 anos: 20 gotas\n- >12 anos: 30 gotas...",
+    "alerts": [
+      "Contraindicações de idade variam: Kaloba® (< 1 ano); \nImunotrat® e Blugrip® (< 6 anos). \nAdministrar meia hora antes das refeições. \nDuração do tratam..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Dose 3x/dia:\n- 1-5 anos: 10 gotas (Kaloba®)\n- 6-12 anos: 20 gotas\n- >12 anos: 30 gotas",
+      "doseInterval": "3x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicações de idade variam: Kaloba® (< 1 ano); \nImunotrat® e Blugrip® (< 6 anos). \nAdministrar meia hora antes das refeições. \nDuração do tratamento: 5-7 dias."
+    },
+    "calculationParams": {
+      "type": "blugrip-pelargonium",
+      "logica_js": "\"Dose fixa por idade, 3x/dia: - 1-5a: 10 gotas - 6-12a: 20 gotas - >12a: 30 gotas\"",
+      "doseMinima": "Varia com a idade.",
+      "doseMaxima": "Varia com a idade.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Contraindicações de idade variam: Kaloba® (< 1 ano); \nImunotrat® e Blugrip® (< 6 anos). \nAdministrar meia hora antes das refeições. \nDuração do tratamento: 5-7 dias."
+    }
+  },
+  {
+    "name": "Pelargonium sidoides 307 mg/mL ",
+    "slug": "pelargonium-sidoides-307-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - 1 ano: 2,5 mL, 24h\n2-5 anos: 2,5 mL, 12/12h\n6-12 anos: 5 mL, 12/12h\n> 12 anos: 7,5 mL, 12/12h...",
+    "alerts": [
+      "\nContraindicado para menores de 1 ano.\n Administrar meia hora antes das refeições.\n Duração do tratamento: 5-7 dias."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "307 mg/mL",
+      "usualDose": "1 ano: 2,5 mL, 24h\n2-5 anos: 2,5 mL, 12/12h\n6-12 anos: 5 mL, 12/12h\n> 12 anos: 7,5 mL, 12/12h",
+      "doseInterval": "12/12h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "\nContraindicado para menores de 1 ano.\n Administrar meia hora antes das refeições.\n Duração do tratamento: 5-7 dias."
+    },
+    "calculationParams": {
+      "type": "pelargonium-sidoides-307-mgml",
+      "logica_js": "\"Dose fixa por idade (ver dose usual).\"",
+      "doseMinima": "Varia com a idade.",
+      "doseMaxima": "Varia com a idade.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "\nContraindicado para menores de 1 ano.\n Administrar meia hora antes das refeições.\n Duração do tratamento: 5-7 dias."
+    }
+  },
+  {
+    "name": "(Solução Oral ou Xarope)",
+    "slug": "solucao-oral-ou-xarope",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTICONVULSIVANTES - 1 ano: 2,5 mL, 24h\n2-5 anos: 2,5 mL, 12/12h\n6-12 anos: 5 mL, 12/12h\n> 12 anos: 7,5 mL, 12/12h...",
+    "alerts": [
+      "\nContraindicado para menores de 1 ano.\n Administrar meia hora antes das refeições.\n Duração do tratamento: 5-7 dias."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "1 ano: 2,5 mL, 24h\n2-5 anos: 2,5 mL, 12/12h\n6-12 anos: 5 mL, 12/12h\n> 12 anos: 7,5 mL, 12/12h",
+      "doseInterval": "12/12h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "\nContraindicado para menores de 1 ano.\n Administrar meia hora antes das refeições.\n Duração do tratamento: 5-7 dias."
+    },
+    "calculationParams": {
+      "type": "solucao-oral-ou-xarope",
+      "logica_js": "\"Dose fixa por idade (ver dose usual).\"",
+      "doseMinima": "Varia com a idade.",
+      "doseMaxima": "Varia com a idade.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "\nContraindicado para menores de 1 ano.\n Administrar meia hora antes das refeições.\n Duração do tratamento: 5-7 dias."
+    }
+  }
+]

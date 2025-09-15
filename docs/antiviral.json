@@ -1,0 +1,50 @@
+[
+  {
+    "CATEGORIA": "ANTIVIRAL",
+    "MEDICAMENTO": "HPMIX (Aciclovir) 40 mg/mL ",
+    "VIA DE ADMINISTRAÇÃO": "Via Oral (VO)",
+    "RECONSTITUIÇÃO": "Não se aplica (suspensão pronta para uso).",
+    "DILUIÇÃO": "Não se aplica.",
+    "DOSE USUAL (EM EXIBIÇÃO)": "Tratamento H. Simples: 20 mg/kg/dose de 6/6h (4x/dia)\nSupressão H. Simples (Imunocomprometidos): 20 mg/kg/dose de 6/6h(4x/dia)\nTratamento H. Zóster (>6 anos): 800 mg (20 mL) de 6/6h (4x/dia).",
+    "DOSE MÍNIMA": "20 mg/kg/dose",
+    "DOSE MÁXIMA": "800 mg por dose",
+    "MACETE DE CÁLCULO": "Peso (kg) × 0,5 mL por dose (para a dose de 20 mg/kg)",
+    "OBSERVAÇÕES": "Ajustar a dose em pacientes com insuficiência renal. Manter boa hidratação. Agitar bem a suspensão antes de usar. A eficácia é maior com o início precoce do tratamento."
+  },
+  {
+    "CATEGORIA": "ANTIVIRAL",
+    "MEDICAMENTO": "(Suspensão Oral)",
+    "VIA DE ADMINISTRAÇÃO": "Via Oral (VO)",
+    "RECONSTITUIÇÃO": "Não se aplica (suspensão pronta para uso).",
+    "DILUIÇÃO": "Não se aplica.",
+    "DOSE USUAL (EM EXIBIÇÃO)": "Tratamento H. Simples: 20 mg/kg/dose de 6/6h (4x/dia)\nSupressão H. Simples (Imunocomprometidos): 20 mg/kg/dose de 6/6h(4x/dia)\nTratamento H. Zóster (>6 anos): 800 mg (20 mL) de 6/6h (4x/dia).",
+    "DOSE MÍNIMA": "20 mg/kg/dose",
+    "DOSE MÁXIMA": "800 mg por dose",
+    "MACETE DE CÁLCULO": "Peso (kg) × 0,5 mL por dose (para a dose de 20 mg/kg)",
+    "OBSERVAÇÕES": "Ajustar a dose em pacientes com insuficiência renal. Manter boa hidratação. Agitar bem a suspensão antes de usar. A eficácia é maior com o início precoce do tratamento."
+  },
+  {
+    "CATEGORIA": "ANTIVIRAL",
+    "MEDICAMENTO": "Aciclovir 250 mg/Pó",
+    "VIA DE ADMINISTRAÇÃO": "Endovenosa (EV)",
+    "RECONSTITUIÇÃO": "Reconstituir com 10 mL de Água pra Injeção ou SF 0,9%.",
+    "DILUIÇÃO": "Diluir a dose reconstituída em 50 a 100 mL de solução compatível.",
+    "DOSE USUAL (EM EXIBIÇÃO)": "Crianças (3m-12a): 250 mg/m² a 500 mg/m² a cada 8 horas.\nNeonatos (até 3m): 10 mg/kg a cada 8 horas.",
+    "DOSE MÍNIMA": "250 mg/m² (crianças) \nou \n10 mg/kg (neonatos).",
+    "DOSE MÁXIMA": "500 mg/m²/dose (crianças) \nOu\n 20 mg/kg/dose (neonatos).",
+    "MACETE DE CÁLCULO": "Crianças: 1. Calcular Área Corporal (m²).\n2. Dose(mg) = ASC(m²) × [250 ou 500].\n3. Volume(mL) = Dose(mg) ÷ 25 mg/mL.\n\nNeonatos: Volume(mL) = (Peso(kg) × [10 ou 20]) ÷ 25 mg/mL",
+    "OBSERVAÇÕES": "Infusão lenta, durante 1 hora, para evitar danos aos rins. Manter hidratação adequada do paciente. Ajustar dose em insuficiência renal. Usar imediatamente após o preparo."
+  },
+  {
+    "CATEGORIA": "ANTIVIRAL",
+    "MEDICAMENTO": "Palivizumabe 50 mg / 100 mg (Pó)",
+    "VIA DE ADMINISTRAÇÃO": "Intramuscular (IM)",
+    "RECONSTITUIÇÃO": "50mg: em 0,6 mL de água p/ injetáveis.\n100mg: em 1,0 mL de água p/ injetáveis.\n(Ambos resultam em 100 mg/mL)",
+    "DILUIÇÃO": "Não se aplica (administrado após reconstituição).",
+    "DOSE USUAL (EM EXIBIÇÃO)": "15 mg/kg/dose, uma vez por mês.",
+    "DOSE MÍNIMA": "15 mg/kg/dose",
+    "DOSE MÁXIMA": "15 mg/kg/dose",
+    "MACETE DE CÁLCULO": "Peso (kg) × 0,15 mL por dose",
+    "OBSERVAÇÕES": "Aplicar no músculo ântero-lateral da coxa. Repetir a cada 28-30 dias durante a estação do VSR (geralmente até 5 doses). Volumes maiores que 1 mL devem ser divididos em múltiplas aplicações."
+  }
+]

@@ -1,0 +1,245 @@
+[
+  {
+    "name": "Succinato Sódico de Hidrocortisona 100 mg/Pó",
+    "slug": "succinato-sodico-de-hidrocortisona-100-mgpo",
+    "form": "Pó para Reconstituição",
+    "application": "EV",
+    "description": "Medicamento da categoria CORTICOIDE - Dose pediátrica variável (ex: 4-8 mg/kg como dose de ataque na asma)....",
+    "alerts": [
+      "Injeção EV direta deve ser lenta (mínimo 30 seg.). Infusão em 20-30 min. Pode mascarar sinais de infecção. A solução reconstituída é estável por 3 dia..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "100 mg",
+      "usualDose": "Dose pediátrica variável (ex: 4-8 mg/kg como dose de ataque na asma).",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Injeção EV direta deve ser lenta (mínimo 30 seg.). Infusão em 20-30 min. Pode mascarar sinais de infecção. A solução reconstituída é estável por 3 dias."
+    },
+    "calculationParams": {
+      "type": "succinato-sodico-de-hidrocortisona-100-mgpo",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.08 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "Não inferior a 25 mg/dia.",
+      "doseMaxima": "Até 8 mg/kg/dia, divididas em 3 ou 4 doses.",
+      "reconstituicao": "Com até 2 mL de água para injetáveis \n(Resulta em 50 mg/mL)",
+      "diluicao": "Para infusão EV, diluir a dose em 100 a 1000 mL de SF 0,9% ou SG 5%.",
+      "observacoes": "Injeção EV direta deve ser lenta (mínimo 30 seg.). Infusão em 20-30 min. Pode mascarar sinais de infecção. A solução reconstituída é estável por 3 dias."
+    }
+  },
+  {
+    "name": "Succinato Sódico de Hidrocortisona 500 mg/Pó",
+    "slug": "succinato-sodico-de-hidrocortisona-500-mgpo",
+    "form": "Pó para Reconstituição",
+    "application": "EV",
+    "description": "Medicamento da categoria CORTICOIDE - Dose pediátrica variável (ex: 4-8 mg/kg como dose de ataque na asma)....",
+    "alerts": [
+      "Injeção EV direta deve ser lenta (até 10 min.). Infusão em 20-30 min. A administração IV rápida de doses altas pode causar colapso cardiovascular."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "500 mg",
+      "usualDose": "Dose pediátrica variável (ex: 4-8 mg/kg como dose de ataque na asma).",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Injeção EV direta deve ser lenta (até 10 min.). Infusão em 20-30 min. A administração IV rápida de doses altas pode causar colapso cardiovascular."
+    },
+    "calculationParams": {
+      "type": "succinato-sodico-de-hidrocortisona-500-mgpo",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.032 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "Não inferior a 25 mg/dia.",
+      "doseMaxima": "Até 8 mg/kg/dia, divididas em 3 ou 4 doses.",
+      "reconstituicao": "Com até 4 mL de água para injetáveis\n (Resulta em 125 mg/mL)",
+      "diluicao": "Para infusão EV, diluir a dose em 100 a 1000 mL de SF 0,9% ou SG 5%.",
+      "observacoes": "Injeção EV direta deve ser lenta (até 10 min.). Infusão em 20-30 min. A administração IV rápida de doses altas pode causar colapso cardiovascular."
+    }
+  },
+  {
+    "name": "Succinato Sódico de Metilprednisolona 40 mg/Pó",
+    "slug": "succinato-sodico-de-metilprednisolona-40-mgpo",
+    "form": "Pó para Reconstituição",
+    "application": "EV",
+    "description": "Medicamento da categoria CORTICOIDE - Dose pediátrica variável (ex: 1-2 mg/kg/dia para asma)....",
+    "alerts": [
+      "Infusão de altas doses deve ser lenta (≥ 30 min). Pode mascarar sinais de infecção e suprimir o crescimento com uso crônico. Solução estável por 48h."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "40 mg",
+      "usualDose": "Dose pediátrica variável (ex: 1-2 mg/kg/dia para asma).",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Infusão de altas doses deve ser lenta (≥ 30 min). Pode mascarar sinais de infecção e suprimir o crescimento com uso crônico. Solução estável por 48h."
+    },
+    "calculationParams": {
+      "type": "succinato-sodico-de-metilprednisolona-40-mgpo",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.025 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "Não inferior a 0,5 mg/kg/dia.",
+      "doseMaxima": "Até 30 mg/kg/dia\n (pulsoterapia, por até 3 dias).",
+      "reconstituicao": "Com 1 mL de diluente (Resulta em 40 mg/mL)",
+      "diluicao": "Para infusão EV, diluir a dose em 100 a 1000 mL de SF 0,9% ou SG 5%.",
+      "observacoes": "Infusão de altas doses deve ser lenta (≥ 30 min). Pode mascarar sinais de infecção e suprimir o crescimento com uso crônico. Solução estável por 48h."
+    }
+  },
+  {
+    "name": "Succinato Sódico de Metilprednisolona 125 mg/Pó",
+    "slug": "succinato-sodico-de-metilprednisolona-125-mgpo",
+    "form": "Pó para Reconstituição",
+    "application": "EV",
+    "description": "Medicamento da categoria CORTICOIDE - Dose pediátrica variável (ex: 1-2 mg/kg/dia para asma)....",
+    "alerts": [
+      "Infusão de altas doses deve ser lenta (≥ 30 min). Pode mascarar sinais de infecção e suprimir o crescimento com uso crônico. Solução estável por 48h."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "125 mg",
+      "usualDose": "Dose pediátrica variável (ex: 1-2 mg/kg/dia para asma).",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Infusão de altas doses deve ser lenta (≥ 30 min). Pode mascarar sinais de infecção e suprimir o crescimento com uso crônico. Solução estável por 48h."
+    },
+    "calculationParams": {
+      "type": "succinato-sodico-de-metilprednisolona-125-mgpo",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.016 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "Não inferior a 0,5 mg/kg/dia.",
+      "doseMaxima": "Até 30 mg/kg/dia (pulsoterapia, por até 3 dias)",
+      "reconstituicao": "Com 2 mL de diluente (Resulta em 62,5 mg/mL)",
+      "diluicao": "Para infusão EV, diluir a dose em 100 a 1000 mL de SF 0,9% ou SG 5%.",
+      "observacoes": "Infusão de altas doses deve ser lenta (≥ 30 min). Pode mascarar sinais de infecção e suprimir o crescimento com uso crônico. Solução estável por 48h."
+    }
+  },
+  {
+    "name": "Fosfato dissódico de dexametasona 2 mg/mL (ampola 1 mL)",
+    "slug": "fosfato-dissodico-de-dexametasona-2-mgml-ampola-1-ml",
+    "form": "Solução Injetável",
+    "application": "EV",
+    "description": "Medicamento da categoria CORTICOIDE - Dose Pediátrica: 0,02 a 0,3 mg/kg/dia, dividida em 3 ou 4 doses....",
+    "alerts": [
+      "Injeção EV deve ser lenta. O uso prolongado pode \nsuprimir o crescimento em crianças. \nPode mascarar sinais de infecção."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "2 mg/mL",
+      "usualDose": "Dose Pediátrica: 0,02 a 0,3 mg/kg/dia, dividida em 3 ou 4 doses.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Injeção EV deve ser lenta. O uso prolongado pode \nsuprimir o crescimento em crianças. \nPode mascarar sinais de infecção."
+    },
+    "calculationParams": {
+      "type": "fosfato-dissodico-de-dexametasona-2-mgml-ampola-1-ml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.025 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,02 mg/kg/dia",
+      "doseMaxima": "0,3 mg/kg/dia",
+      "reconstituicao": "Não se aplica (solução pronta).",
+      "diluicao": "Para infusão EV, diluir a dose em 100 a 1000 mL de SF 0,9% ou SG 5%.",
+      "observacoes": "Injeção EV deve ser lenta. O uso prolongado pode \nsuprimir o crescimento em crianças. \nPode mascarar sinais de infecção."
+    }
+  },
+  {
+    "name": "Fosfato dissódico de dexametasona 4 mg/mL ",
+    "slug": "fosfato-dissodico-de-dexametasona-4-mgml",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria CORTICOIDE - Dose Pediátrica: 0,02 a 0,3 mg/kg/dia, dividida em 3 ou 4 doses....",
+    "alerts": [
+      "Injeção EV deve ser lenta. O uso prolongado pode \nsuprimir o crescimento em crianças. \nPode mascarar sinais de infecção."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "4 mg/mL",
+      "usualDose": "Dose Pediátrica: 0,02 a 0,3 mg/kg/dia, dividida em 3 ou 4 doses.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Injeção EV deve ser lenta. O uso prolongado pode \nsuprimir o crescimento em crianças. \nPode mascarar sinais de infecção."
+    },
+    "calculationParams": {
+      "type": "fosfato-dissodico-de-dexametasona-4-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.0125 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,02 mg/kg/dia",
+      "doseMaxima": "0,3 mg/kg/dia",
+      "reconstituicao": "Não se aplica (solução pronta).",
+      "diluicao": "Para infusão EV, diluir a dose em 100 a 1000 mL de SF 0,9% ou SG 5%.",
+      "observacoes": "Injeção EV deve ser lenta. O uso prolongado pode \nsuprimir o crescimento em crianças. \nPode mascarar sinais de infecção."
+    }
+  },
+  {
+    "name": "(frasco-ampola 2,5 mL)",
+    "slug": "frasco-ampola-25-ml",
+    "form": "Solução Injetável",
+    "application": "EV",
+    "description": "Medicamento da categoria CORTICOIDE - Dose Pediátrica: 0,02 a 0,3 mg/kg/dia, dividida em 3 ou 4 doses....",
+    "alerts": [
+      "Injeção EV deve ser lenta. O uso prolongado pode \nsuprimir o crescimento em crianças. \nPode mascarar sinais de infecção."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Dose Pediátrica: 0,02 a 0,3 mg/kg/dia, dividida em 3 ou 4 doses.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Injeção EV deve ser lenta. O uso prolongado pode \nsuprimir o crescimento em crianças. \nPode mascarar sinais de infecção."
+    },
+    "calculationParams": {
+      "type": "frasco-ampola-25-ml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.0125 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,02 mg/kg/dia",
+      "doseMaxima": "0,3 mg/kg/dia",
+      "reconstituicao": "Não se aplica (solução pronta).",
+      "diluicao": "Para infusão EV, diluir a dose em 100 a 1000 mL de SF 0,9% ou SG 5%.",
+      "observacoes": "Injeção EV deve ser lenta. O uso prolongado pode \nsuprimir o crescimento em crianças. \nPode mascarar sinais de infecção."
+    }
+  },
+  {
+    "name": "Sulfato de Magnésio 10% (100 mg/mL)",
+    "slug": "sulfato-de-magnesio-10-100-mgml",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria CORTICOIDE - Asma (Crise Aguda): 25 a 75 mg/kg/dose (dose usual de 50 mg/kg)....",
+    "alerts": [
+      "A administração EV deve ser LENTA (20-30 min) para evitar parada cardiorrespiratória. Monitorar reflexos, frequência respiratória e débito urinário. A..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "100 mg/mL",
+      "usualDose": "Asma (Crise Aguda): 25 a 75 mg/kg/dose (dose usual de 50 mg/kg).",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "A administração EV deve ser LENTA (20-30 min) para evitar parada cardiorrespiratória. Monitorar reflexos, frequência respiratória e débito urinário. Antídoto: Gluconato de Cálcio."
+    },
+    "calculationParams": {
+      "type": "sulfato-de-magnesio-10-100-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.5 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "25 mg/kg/dose",
+      "doseMaxima": "75 mg/kg/dose (máx. 2g).",
+      "reconstituicao": "Não se aplica (solução pronta).",
+      "diluicao": "Para infusão EV, diluir em SF 0,9% ou SG 5%.",
+      "observacoes": "A administração EV deve ser LENTA (20-30 min) para evitar parada cardiorrespiratória. Monitorar reflexos, frequência respiratória e débito urinário. Antídoto: Gluconato de Cálcio."
+    }
+  },
+  {
+    "name": "Sulfato de Magnésio 50% (500 mg/mL)",
+    "slug": "sulfato-de-magnesio-50-500-mgml",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria CORTICOIDE - Asma (Crise Aguda): 25 a 75 mg/kg/dose (dose usual de 50 mg/kg)....",
+    "alerts": [
+      "\nNUNCA administrar sem diluir por via EV. \nA administração deve ser LENTA (20-30 min). \nMonitorar reflexos, frequência respiratória e débito urinário...."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "500 mg/mL",
+      "usualDose": "Asma (Crise Aguda): 25 a 75 mg/kg/dose (dose usual de 50 mg/kg).",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "\nNUNCA administrar sem diluir por via EV. \nA administração deve ser LENTA (20-30 min). \nMonitorar reflexos, frequência respiratória e débito urinário.\n Antídoto: Gluconato de Cálcio."
+    },
+    "calculationParams": {
+      "type": "sulfato-de-magnesio-50-500-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.1 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "25 mg/kg/dose",
+      "doseMaxima": "75 mg/kg/dose (máx. 2g).",
+      "reconstituicao": "Não se aplica (solução pronta).",
+      "diluicao": "OBRIGATÓRIO para uso EV. Diluir para concentração ≤ 20% (geralmente em SF 0,9% ou SG 5%).",
+      "observacoes": "\nNUNCA administrar sem diluir por via EV. \nA administração deve ser LENTA (20-30 min). \nMonitorar reflexos, frequência respiratória e débito urinário.\n Antídoto: Gluconato de Cálcio."
+    }
+  }
+]

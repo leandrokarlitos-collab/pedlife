@@ -1,0 +1,1298 @@
+[
+  {
+    "name": "Albendazol 40 mg/mL ",
+    "slug": "albendazol-40-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Varia com a indicação:\n- Giardíase (>2a): 10-15 mg/kg/dia, 1x/dia.\n- Ascaridíase/Ancilostomíase/Ente...",
+    "alerts": [
+      "Para infecções sistêmicas (ex: Neurocisticercose), administrar com alimentos gordurosos para aumentar a absorção. \nEm algumas infecções (ex: Enterobía..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "40 mg/mL",
+      "usualDose": "Varia com a indicação:\n- Giardíase (>2a): 10-15 mg/kg/dia, 1x/dia.\n- Ascaridíase/Ancilostomíase/Enterobíase: 200 mg (≤2a) ou 400 mg (>2a), dose única.\n- Larva M. Cutânea: 400 mg/dia.\n- Larva M. Visceral: 400 mg/dose, 2x/dia.\n- Teníase/Estrongiloidíase/Tricuríase: 400 mg/dia.\n- Neurocisticercose: 7,5 mg/kg/dose, 2x/dia.\n- Hidatidose: 5-7,5 mg/kg/dose, 2x/dia.\n- Opistorquíase: 400 mg/dose, 2x/dia.",
+      "doseInterval": "1x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Para infecções sistêmicas (ex: Neurocisticercose), administrar com alimentos gordurosos para aumentar a absorção. \nEm algumas infecções (ex: Enterobíase), pode ser necessário repetir a dose."
+    },
+    "calculationParams": {
+      "type": "albendazol-40-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.38 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "Varia com a indicação.",
+      "doseMaxima": "400 mg/dose\n ou \n600 mg/dia (Neurocisticercose).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Para infecções sistêmicas (ex: Neurocisticercose), administrar com alimentos gordurosos para aumentar a absorção. \nEm algumas infecções (ex: Enterobíase), pode ser necessário repetir a dose."
+    }
+  },
+  {
+    "name": "(Solução Oral)",
+    "slug": "solucao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Varia com a indicação:\n- Giardíase (>2a): 10-15 mg/kg/dia, 1x/dia.\n- Ascaridíase/Ancilostomíase/Ente...",
+    "alerts": [
+      "Para infecções sistêmicas (ex: Neurocisticercose), administrar com alimentos gordurosos para aumentar a absorção. \nEm algumas infecções (ex: Enterobía..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Varia com a indicação:\n- Giardíase (>2a): 10-15 mg/kg/dia, 1x/dia.\n- Ascaridíase/Ancilostomíase/Enterobíase: 200 mg (≤2a) ou 400 mg (>2a), dose única.\n- Larva M. Cutânea: 400 mg/dia.\n- Larva M. Visceral: 400 mg/dose, 2x/dia.\n- Teníase/Estrongiloidíase/Tricuríase: 400 mg/dia.\n- Neurocisticercose: 7,5 mg/kg/dose, 2x/dia.\n- Hidatidose: 5-7,5 mg/kg/dose, 2x/dia.\n- Opistorquíase: 400 mg/dose, 2x/dia.",
+      "doseInterval": "1x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Para infecções sistêmicas (ex: Neurocisticercose), administrar com alimentos gordurosos para aumentar a absorção. \nEm algumas infecções (ex: Enterobíase), pode ser necessário repetir a dose."
+    },
+    "calculationParams": {
+      "type": "solucao-oral",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.38 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "Varia com a indicação.",
+      "doseMaxima": "400 mg/dose\n ou \n600 mg/dia (Neurocisticercose).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Para infecções sistêmicas (ex: Neurocisticercose), administrar com alimentos gordurosos para aumentar a absorção. \nEm algumas infecções (ex: Enterobíase), pode ser necessário repetir a dose."
+    }
+  },
+  {
+    "name": "Nitazoxanida 500 mg (Comprimido) ",
+    "slug": "nitazoxanida-500-mg-comprimido",
+    "form": "Comprimido",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Dose Padrão (>1 ano): 7,5 mg/kg/dose, 2x/dia, por 3 dias (para a maioria das parasitoses).\nHimenolep...",
+    "alerts": [
+      "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimen..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "500 mg",
+      "usualDose": "Dose Padrão (>1 ano): 7,5 mg/kg/dose, 2x/dia, por 3 dias (para a maioria das parasitoses).\nHimenolepíase:- 1 a 11 anos: 100 mg/dose, 2x/dia, por 3 dias.",
+      "doseInterval": "2x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimentos."
+    },
+    "calculationParams": {
+      "type": "nitazoxanida-500-mg-comprimido",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.375 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "7,5 mg/kg/dose",
+      "doseMaxima": "500 mg por dose.",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimentos."
+    }
+  },
+  {
+    "name": "ou ",
+    "slug": "ou",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Dose Padrão (>1 ano): 7,5 mg/kg/dose, 2x/dia, por 3 dias (para a maioria das parasitoses).\nHimenolep...",
+    "alerts": [
+      "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimen..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Dose Padrão (>1 ano): 7,5 mg/kg/dose, 2x/dia, por 3 dias (para a maioria das parasitoses).\nHimenolepíase:- 1 a 11 anos: 100 mg/dose, 2x/dia, por 3 dias.",
+      "doseInterval": "2x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimentos."
+    },
+    "calculationParams": {
+      "type": "ou",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.375 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "7,5 mg/kg/dose",
+      "doseMaxima": "500 mg por dose.",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimentos."
+    }
+  },
+  {
+    "name": "20 mg/mL (Solução Oral)",
+    "slug": "20-mgml-solucao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Dose Padrão (>1 ano): 7,5 mg/kg/dose, 2x/dia, por 3 dias (para a maioria das parasitoses).\nHimenolep...",
+    "alerts": [
+      "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimen..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "20 mg/mL",
+      "usualDose": "Dose Padrão (>1 ano): 7,5 mg/kg/dose, 2x/dia, por 3 dias (para a maioria das parasitoses).\nHimenolepíase:- 1 a 11 anos: 100 mg/dose, 2x/dia, por 3 dias.",
+      "doseInterval": "2x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimentos."
+    },
+    "calculationParams": {
+      "type": "20-mgml-solucao-oral",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.375 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "7,5 mg/kg/dose",
+      "doseMaxima": "500 mg por dose.",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimentos."
+    }
+  },
+  {
+    "name": "Mebendazol 20 mg/mL ",
+    "slug": "mebendazol-20-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - \nVaria com a indicação (> 2 anos):\n- Ancilostomíase/Ascaridíase/Tricuríase: 5 mL (100 mg), 2x/dia, p...",
+    "alerts": [
+      "Uso em crianças acima de 2 anos. Pode ser necessário repetir o tratamento em algumas infecções (ex: Enterobíase). Administrar com alimentos gordurosos..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "20 mg/mL",
+      "usualDose": "\nVaria com a indicação (> 2 anos):\n- Ancilostomíase/Ascaridíase/Tricuríase: 5 mL (100 mg), 2x/dia, por 3 dias.\n- Enterobíase: 5 mL (100 mg), dose única.\n- Toxocaríase: 5-10 mL (100-200 mg), 2x/dia, por 5 dias.",
+      "doseInterval": "2x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Uso em crianças acima de 2 anos. Pode ser necessário repetir o tratamento em algumas infecções (ex: Enterobíase). Administrar com alimentos gordurosos para aumentar a absorção."
+    },
+    "calculationParams": {
+      "type": "mebendazol-20-mgml",
+      "logica_js": "\"Dose fixa em volume por indicação, não baseada em peso.\"",
+      "doseMinima": "100 mg (dose única).",
+      "doseMaxima": "200 mg por dose\n (Toxocaríase).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Uso em crianças acima de 2 anos. Pode ser necessário repetir o tratamento em algumas infecções (ex: Enterobíase). Administrar com alimentos gordurosos para aumentar a absorção."
+    }
+  },
+  {
+    "name": "(Suspensão Oral)",
+    "slug": "suspensao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - \nVaria com a indicação (> 2 anos):\n- Ancilostomíase/Ascaridíase/Tricuríase: 5 mL (100 mg), 2x/dia, p...",
+    "alerts": [
+      "Uso em crianças acima de 2 anos. Pode ser necessário repetir o tratamento em algumas infecções (ex: Enterobíase). Administrar com alimentos gordurosos..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "\nVaria com a indicação (> 2 anos):\n- Ancilostomíase/Ascaridíase/Tricuríase: 5 mL (100 mg), 2x/dia, por 3 dias.\n- Enterobíase: 5 mL (100 mg), dose única.\n- Toxocaríase: 5-10 mL (100-200 mg), 2x/dia, por 5 dias.",
+      "doseInterval": "2x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Uso em crianças acima de 2 anos. Pode ser necessário repetir o tratamento em algumas infecções (ex: Enterobíase). Administrar com alimentos gordurosos para aumentar a absorção."
+    },
+    "calculationParams": {
+      "type": "suspensao-oral",
+      "logica_js": "\"Dose fixa em volume por indicação, não baseada em peso.\"",
+      "doseMinima": "100 mg (dose única).",
+      "doseMaxima": "200 mg por dose\n (Toxocaríase).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Uso em crianças acima de 2 anos. Pode ser necessário repetir o tratamento em algumas infecções (ex: Enterobíase). Administrar com alimentos gordurosos para aumentar a absorção."
+    }
+  },
+  {
+    "name": "Ivermectina 6 mg (Comprimido)",
+    "slug": "ivermectina-6-mg-comprimido",
+    "form": "Comprimido",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Dose única, por faixa de peso:\nEscabiose/Estrongiloidíase, etc:\n- 15-24 kg: ½ comp.\n- 25-35 kg: 1 co...",
+    "alerts": [
+      "Contraindicado para menores de 5 anos ou com menos de 15 kg. \nO comprimido pode ser partido.\n Monitorar com exames oftalmológicos e de fezes."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "6 mg",
+      "usualDose": "Dose única, por faixa de peso:\nEscabiose/Estrongiloidíase, etc:\n- 15-24 kg: ½ comp.\n- 25-35 kg: 1 comp.\n- 36-50 kg: 1½ comp.\n- 51-65 kg: 2 comp.\nOncocercose:\n- 15-25 kg: ½ comp.\n- 26-44 kg: 1 comp.",
+      "doseInterval": "Dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado para menores de 5 anos ou com menos de 15 kg. \nO comprimido pode ser partido.\n Monitorar com exames oftalmológicos e de fezes."
+    },
+    "calculationParams": {
+      "type": "ivermectina-6-mg-comprimido",
+      "logica_js": "\"A dose em nº de comprimidos é definida por faixa de peso (ver dose usual). Regra geral para 200 mcg/kg: Nº de comp. = Peso (kg) ÷ 30.\"",
+      "doseMinima": "150 mcg/kg",
+      "doseMaxima": "200 mcg/kg",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Contraindicado para menores de 5 anos ou com menos de 15 kg. \nO comprimido pode ser partido.\n Monitorar com exames oftalmológicos e de fezes."
+    }
+  },
+  {
+    "name": "Pamoato de Pirvínio 10 mg/mL ",
+    "slug": "pamoato-de-pirvinio-10-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - > 10 kg: 1 mL/kg de peso corporal, em dose única....",
+    "alerts": [
+      "Indicado para Enterobíase em crianças com mais de 10 kg. Recomenda-se repetir a dose 2 semanas após a primeira. Pode causar coloração vermelha nas fez..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "10 mg/mL",
+      "usualDose": "> 10 kg: 1 mL/kg de peso corporal, em dose única.",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Indicado para Enterobíase em crianças com mais de 10 kg. Recomenda-se repetir a dose 2 semanas após a primeira. Pode causar coloração vermelha nas fezes."
+    },
+    "calculationParams": {
+      "type": "pamoato-de-pirvinio-10-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 1 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "1 mL/kg",
+      "doseMaxima": "600 mg/dia (60 mL).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Indicado para Enterobíase em crianças com mais de 10 kg. Recomenda-se repetir a dose 2 semanas após a primeira. Pode causar coloração vermelha nas fezes."
+    }
+  },
+  {
+    "name": "(Pyr-pam® Suspensão Oral)",
+    "slug": "pyr-pam-suspensao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - > 10 kg: 1 mL/kg de peso corporal, em dose única....",
+    "alerts": [
+      "Indicado para Enterobíase em crianças com mais de 10 kg. Recomenda-se repetir a dose 2 semanas após a primeira. Pode causar coloração vermelha nas fez..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "> 10 kg: 1 mL/kg de peso corporal, em dose única.",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Indicado para Enterobíase em crianças com mais de 10 kg. Recomenda-se repetir a dose 2 semanas após a primeira. Pode causar coloração vermelha nas fezes."
+    },
+    "calculationParams": {
+      "type": "pyr-pam-suspensao-oral",
+      "logica_js": "\"Administrar \" + Math.round(peso * 1 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "1 mL/kg",
+      "doseMaxima": "600 mg/dia (60 mL).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Indicado para Enterobíase em crianças com mais de 10 kg. Recomenda-se repetir a dose 2 semanas após a primeira. Pode causar coloração vermelha nas fezes."
+    }
+  },
+  {
+    "name": "Secnidazol 30 mg/mL ",
+    "slug": "secnidazol-30-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Amebíase Intestinal e Giardíase: 30 mg/kg, em dose única.\nAmebíase Hepática: 30 mg/kg/dia, por 5 a 7...",
+    "alerts": [
+      "\nAdministrar preferencialmente durante uma das refeições. \nO sabor metálico é um efeito adverso comum. \nEvitar bebidas alcoólicas durante e até 4 dias..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "30 mg/mL",
+      "usualDose": "Amebíase Intestinal e Giardíase: 30 mg/kg, em dose única.\nAmebíase Hepática: 30 mg/kg/dia, por 5 a 7 dias.",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "\nAdministrar preferencialmente durante uma das refeições. \nO sabor metálico é um efeito adverso comum. \nEvitar bebidas alcoólicas durante e até 4 dias após o tratamento."
+    },
+    "calculationParams": {
+      "type": "secnidazol-30-mgml",
+      "logica_js": "\"1 mL por kg de peso corporal.\"",
+      "doseMinima": "30 mg/kg",
+      "doseMaxima": "67 mL (2 g).",
+      "reconstituicao": "A forma em pó requer reconstituição com água.",
+      "diluicao": "Não se aplica",
+      "observacoes": "\nAdministrar preferencialmente durante uma das refeições. \nO sabor metálico é um efeito adverso comum. \nEvitar bebidas alcoólicas durante e até 4 dias após o tratamento."
+    }
+  },
+  {
+    "name": "(Suspensão Oral)",
+    "slug": "suspensao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Amebíase Intestinal e Giardíase: 30 mg/kg, em dose única.\nAmebíase Hepática: 30 mg/kg/dia, por 5 a 7...",
+    "alerts": [
+      "\nAdministrar preferencialmente durante uma das refeições. \nO sabor metálico é um efeito adverso comum. \nEvitar bebidas alcoólicas durante e até 4 dias..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Amebíase Intestinal e Giardíase: 30 mg/kg, em dose única.\nAmebíase Hepática: 30 mg/kg/dia, por 5 a 7 dias.",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "\nAdministrar preferencialmente durante uma das refeições. \nO sabor metálico é um efeito adverso comum. \nEvitar bebidas alcoólicas durante e até 4 dias após o tratamento."
+    },
+    "calculationParams": {
+      "type": "suspensao-oral",
+      "logica_js": "\"1 mL por kg de peso corporal.\"",
+      "doseMinima": "30 mg/kg",
+      "doseMaxima": "67 mL (2 g).",
+      "reconstituicao": "A forma em pó requer reconstituição com água.",
+      "diluicao": "Não se aplica",
+      "observacoes": "\nAdministrar preferencialmente durante uma das refeições. \nO sabor metálico é um efeito adverso comum. \nEvitar bebidas alcoólicas durante e até 4 dias após o tratamento."
+    }
+  },
+  {
+    "name": "Praziquantel 600 mg",
+    "slug": "praziquantel-600-mg",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Esquistossomose: 60 mg/kg, dose única.\nNeurocisticercose: 50 mg/kg/dia, de 8/8h (15 dias).\nCisticerc...",
+    "alerts": [
+      "Uso apenas acima de 4 anos.\n Para neurocisticercose, usar com paciente internado. \nRecomenda-se repouso por 3 horas após a ingestão para evitar náusea..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "600 mg",
+      "usualDose": "Esquistossomose: 60 mg/kg, dose única.\nNeurocisticercose: 50 mg/kg/dia, de 8/8h (15 dias).\nCisticercose: 50 mg/kg/dia, de 8/8h (14 dias).\nTeníase: 5-10 mg/kg, dose única.\nHymenolepis nana: 25 mg/kg, dose única.",
+      "doseInterval": "8/8h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Uso apenas acima de 4 anos.\n Para neurocisticercose, usar com paciente internado. \nRecomenda-se repouso por 3 horas após a ingestão para evitar náuseas e tontura."
+    },
+    "calculationParams": {
+      "type": "praziquantel-600-mg",
+      "logica_js": "\"Nº de comprimidos = (Peso × Dose em mg/kg) ÷ 600 Ex: Esquistossomose (60 mg/kg):Peso (kg) ÷ 10   Ex: H. nana (25 mg/kg):Peso (kg) ÷ 24\"",
+      "doseMinima": "5 mg/kg/dose (Teníase).",
+      "doseMaxima": "60 mg/kg/dose\n (Esquistossomose)",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Uso apenas acima de 4 anos.\n Para neurocisticercose, usar com paciente internado. \nRecomenda-se repouso por 3 horas após a ingestão para evitar náuseas e tontura."
+    }
+  },
+  {
+    "name": " (Comprimido)",
+    "slug": "comprimido",
+    "form": "Comprimido",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Esquistossomose: 60 mg/kg, dose única.\nNeurocisticercose: 50 mg/kg/dia, de 8/8h (15 dias).\nCisticerc...",
+    "alerts": [
+      "Uso apenas acima de 4 anos.\n Para neurocisticercose, usar com paciente internado. \nRecomenda-se repouso por 3 horas após a ingestão para evitar náusea..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Esquistossomose: 60 mg/kg, dose única.\nNeurocisticercose: 50 mg/kg/dia, de 8/8h (15 dias).\nCisticercose: 50 mg/kg/dia, de 8/8h (14 dias).\nTeníase: 5-10 mg/kg, dose única.\nHymenolepis nana: 25 mg/kg, dose única.",
+      "doseInterval": "8/8h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Uso apenas acima de 4 anos.\n Para neurocisticercose, usar com paciente internado. \nRecomenda-se repouso por 3 horas após a ingestão para evitar náuseas e tontura."
+    },
+    "calculationParams": {
+      "type": "comprimido",
+      "logica_js": "\"Nº de comprimidos = (Peso × Dose em mg/kg) ÷ 600 Ex: Esquistossomose (60 mg/kg):Peso (kg) ÷ 10   Ex: H. nana (25 mg/kg):Peso (kg) ÷ 24\"",
+      "doseMinima": "5 mg/kg/dose (Teníase).",
+      "doseMaxima": "60 mg/kg/dose\n (Esquistossomose)",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Uso apenas acima de 4 anos.\n Para neurocisticercose, usar com paciente internado. \nRecomenda-se repouso por 3 horas após a ingestão para evitar náuseas e tontura."
+    }
+  },
+  {
+    "name": "Tinidazol 500 mg ",
+    "slug": "tinidazol-500-mg",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Giardíase/Blastocystis: 50 mg/kg, dose única.\nAmebíase: 50 mg/kg/dia, por 3-5 dias.\nH. pylori: 20 mg...",
+    "alerts": [
+      "Uso em maiores de 3 anos. \nEvitar bebidas alcoólicas durante e por 3 dias após o tratamento (efeito dissulfiram). \nPara tricomoníase, tratar o parceir..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "500 mg",
+      "usualDose": "Giardíase/Blastocystis: 50 mg/kg, dose única.\nAmebíase: 50 mg/kg/dia, por 3-5 dias.\nH. pylori: 20 mg/kg/dia, por 5-7 dias.\nVaginose/Tricomoníase (adolescentes): 2.000 mg, dose única.",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Uso em maiores de 3 anos. \nEvitar bebidas alcoólicas durante e por 3 dias após o tratamento (efeito dissulfiram). \nPara tricomoníase, tratar o parceiro sexual."
+    },
+    "calculationParams": {
+      "type": "tinidazol-500-mg",
+      "logica_js": "\"Para dose de 50 mg/kg: Nº de comp. = Peso (kg) ÷ 10 Para dose de 20 mg/kg:Nº de comp. = Peso (kg) ÷ 25\"",
+      "doseMinima": "Varia com a \nindicação.",
+      "doseMaxima": "2.000 mg/dia \n(ou 1.000 mg/dia para H. pylori).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Uso em maiores de 3 anos. \nEvitar bebidas alcoólicas durante e por 3 dias após o tratamento (efeito dissulfiram). \nPara tricomoníase, tratar o parceiro sexual."
+    }
+  },
+  {
+    "name": "(Comprimido)",
+    "slug": "comprimido",
+    "form": "Comprimido",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Giardíase/Blastocystis: 50 mg/kg, dose única.\nAmebíase: 50 mg/kg/dia, por 3-5 dias.\nH. pylori: 20 mg...",
+    "alerts": [
+      "Uso em maiores de 3 anos. \nEvitar bebidas alcoólicas durante e por 3 dias após o tratamento (efeito dissulfiram). \nPara tricomoníase, tratar o parceir..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Giardíase/Blastocystis: 50 mg/kg, dose única.\nAmebíase: 50 mg/kg/dia, por 3-5 dias.\nH. pylori: 20 mg/kg/dia, por 5-7 dias.\nVaginose/Tricomoníase (adolescentes): 2.000 mg, dose única.",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Uso em maiores de 3 anos. \nEvitar bebidas alcoólicas durante e por 3 dias após o tratamento (efeito dissulfiram). \nPara tricomoníase, tratar o parceiro sexual."
+    },
+    "calculationParams": {
+      "type": "comprimido",
+      "logica_js": "\"Para dose de 50 mg/kg: Nº de comp. = Peso (kg) ÷ 10 Para dose de 20 mg/kg:Nº de comp. = Peso (kg) ÷ 25\"",
+      "doseMinima": "Varia com a \nindicação.",
+      "doseMaxima": "2.000 mg/dia \n(ou 1.000 mg/dia para H. pylori).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Uso em maiores de 3 anos. \nEvitar bebidas alcoólicas durante e por 3 dias após o tratamento (efeito dissulfiram). \nPara tricomoníase, tratar o parceiro sexual."
+    }
+  },
+  {
+    "name": "Albendazol 40 mg/mL ",
+    "slug": "albendazol-40-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Varia com a indicação:\n- Giardíase (>2a): 10-15 mg/kg/dia, 1x/dia.\n- Ascaridíase/Ancilostomíase/Ente...",
+    "alerts": [
+      "Para infecções sistêmicas (ex: Neurocisticercose), administrar com alimentos gordurosos para aumentar a absorção. \nEm algumas infecções (ex: Enterobía..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "40 mg/mL",
+      "usualDose": "Varia com a indicação:\n- Giardíase (>2a): 10-15 mg/kg/dia, 1x/dia.\n- Ascaridíase/Ancilostomíase/Enterobíase: 200 mg (≤2a) ou 400 mg (>2a), dose única.\n- Larva M. Cutânea: 400 mg/dia.\n- Larva M. Visceral: 400 mg/dose, 2x/dia.\n- Teníase/Estrongiloidíase/Tricuríase: 400 mg/dia.\n- Neurocisticercose: 7,5 mg/kg/dose, 2x/dia.\n- Hidatidose: 5-7,5 mg/kg/dose, 2x/dia.\n- Opistorquíase: 400 mg/dose, 2x/dia.",
+      "doseInterval": "1x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Para infecções sistêmicas (ex: Neurocisticercose), administrar com alimentos gordurosos para aumentar a absorção. \nEm algumas infecções (ex: Enterobíase), pode ser necessário repetir a dose."
+    },
+    "calculationParams": {
+      "type": "albendazol-40-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.38 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "Varia com a indicação.",
+      "doseMaxima": "400 mg/dose\n ou \n600 mg/dia (Neurocisticercose).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Para infecções sistêmicas (ex: Neurocisticercose), administrar com alimentos gordurosos para aumentar a absorção. \nEm algumas infecções (ex: Enterobíase), pode ser necessário repetir a dose."
+    }
+  },
+  {
+    "name": "(Solução Oral)",
+    "slug": "solucao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Varia com a indicação:\n- Giardíase (>2a): 10-15 mg/kg/dia, 1x/dia.\n- Ascaridíase/Ancilostomíase/Ente...",
+    "alerts": [
+      "Para infecções sistêmicas (ex: Neurocisticercose), administrar com alimentos gordurosos para aumentar a absorção. \nEm algumas infecções (ex: Enterobía..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Varia com a indicação:\n- Giardíase (>2a): 10-15 mg/kg/dia, 1x/dia.\n- Ascaridíase/Ancilostomíase/Enterobíase: 200 mg (≤2a) ou 400 mg (>2a), dose única.\n- Larva M. Cutânea: 400 mg/dia.\n- Larva M. Visceral: 400 mg/dose, 2x/dia.\n- Teníase/Estrongiloidíase/Tricuríase: 400 mg/dia.\n- Neurocisticercose: 7,5 mg/kg/dose, 2x/dia.\n- Hidatidose: 5-7,5 mg/kg/dose, 2x/dia.\n- Opistorquíase: 400 mg/dose, 2x/dia.",
+      "doseInterval": "1x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Para infecções sistêmicas (ex: Neurocisticercose), administrar com alimentos gordurosos para aumentar a absorção. \nEm algumas infecções (ex: Enterobíase), pode ser necessário repetir a dose."
+    },
+    "calculationParams": {
+      "type": "solucao-oral",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.38 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "Varia com a indicação.",
+      "doseMaxima": "400 mg/dose\n ou \n600 mg/dia (Neurocisticercose).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Para infecções sistêmicas (ex: Neurocisticercose), administrar com alimentos gordurosos para aumentar a absorção. \nEm algumas infecções (ex: Enterobíase), pode ser necessário repetir a dose."
+    }
+  },
+  {
+    "name": "Nitazoxanida 500 mg (Comprimido) ",
+    "slug": "nitazoxanida-500-mg-comprimido",
+    "form": "Comprimido",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Dose Padrão (>1 ano): 7,5 mg/kg/dose, 2x/dia, por 3 dias (para a maioria das parasitoses).\nHimenolep...",
+    "alerts": [
+      "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimen..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "500 mg",
+      "usualDose": "Dose Padrão (>1 ano): 7,5 mg/kg/dose, 2x/dia, por 3 dias (para a maioria das parasitoses).\nHimenolepíase:- 1 a 11 anos: 100 mg/dose, 2x/dia, por 3 dias.",
+      "doseInterval": "2x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimentos."
+    },
+    "calculationParams": {
+      "type": "nitazoxanida-500-mg-comprimido",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.375 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "7,5 mg/kg/dose",
+      "doseMaxima": "500 mg por dose.",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimentos."
+    }
+  },
+  {
+    "name": "ou ",
+    "slug": "ou",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Dose Padrão (>1 ano): 7,5 mg/kg/dose, 2x/dia, por 3 dias (para a maioria das parasitoses).\nHimenolep...",
+    "alerts": [
+      "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimen..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Dose Padrão (>1 ano): 7,5 mg/kg/dose, 2x/dia, por 3 dias (para a maioria das parasitoses).\nHimenolepíase:- 1 a 11 anos: 100 mg/dose, 2x/dia, por 3 dias.",
+      "doseInterval": "2x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimentos."
+    },
+    "calculationParams": {
+      "type": "ou",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.375 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "7,5 mg/kg/dose",
+      "doseMaxima": "500 mg por dose.",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimentos."
+    }
+  },
+  {
+    "name": "20 mg/mL (Solução Oral)",
+    "slug": "20-mgml-solucao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Dose Padrão (>1 ano): 7,5 mg/kg/dose, 2x/dia, por 3 dias (para a maioria das parasitoses).\nHimenolep...",
+    "alerts": [
+      "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimen..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "20 mg/mL",
+      "usualDose": "Dose Padrão (>1 ano): 7,5 mg/kg/dose, 2x/dia, por 3 dias (para a maioria das parasitoses).\nHimenolepíase:- 1 a 11 anos: 100 mg/dose, 2x/dia, por 3 dias.",
+      "doseInterval": "2x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimentos."
+    },
+    "calculationParams": {
+      "type": "20-mgml-solucao-oral",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.375 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "7,5 mg/kg/dose",
+      "doseMaxima": "500 mg por dose.",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimentos."
+    }
+  },
+  {
+    "name": "Mebendazol 20 mg/mL ",
+    "slug": "mebendazol-20-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - \nVaria com a indicação (> 2 anos):\n- Ancilostomíase/Ascaridíase/Tricuríase: 5 mL (100 mg), 2x/dia, p...",
+    "alerts": [
+      "Uso em crianças acima de 2 anos. Pode ser necessário repetir o tratamento em algumas infecções (ex: Enterobíase). Administrar com alimentos gordurosos..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "20 mg/mL",
+      "usualDose": "\nVaria com a indicação (> 2 anos):\n- Ancilostomíase/Ascaridíase/Tricuríase: 5 mL (100 mg), 2x/dia, por 3 dias.\n- Enterobíase: 5 mL (100 mg), dose única.\n- Toxocaríase: 5-10 mL (100-200 mg), 2x/dia, por 5 dias.",
+      "doseInterval": "2x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Uso em crianças acima de 2 anos. Pode ser necessário repetir o tratamento em algumas infecções (ex: Enterobíase). Administrar com alimentos gordurosos para aumentar a absorção."
+    },
+    "calculationParams": {
+      "type": "mebendazol-20-mgml",
+      "logica_js": "\"Dose fixa em volume por indicação, não baseada em peso.\"",
+      "doseMinima": "100 mg (dose única).",
+      "doseMaxima": "200 mg por dose\n (Toxocaríase).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Uso em crianças acima de 2 anos. Pode ser necessário repetir o tratamento em algumas infecções (ex: Enterobíase). Administrar com alimentos gordurosos para aumentar a absorção."
+    }
+  },
+  {
+    "name": "(Suspensão Oral)",
+    "slug": "suspensao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - \nVaria com a indicação (> 2 anos):\n- Ancilostomíase/Ascaridíase/Tricuríase: 5 mL (100 mg), 2x/dia, p...",
+    "alerts": [
+      "Uso em crianças acima de 2 anos. Pode ser necessário repetir o tratamento em algumas infecções (ex: Enterobíase). Administrar com alimentos gordurosos..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "\nVaria com a indicação (> 2 anos):\n- Ancilostomíase/Ascaridíase/Tricuríase: 5 mL (100 mg), 2x/dia, por 3 dias.\n- Enterobíase: 5 mL (100 mg), dose única.\n- Toxocaríase: 5-10 mL (100-200 mg), 2x/dia, por 5 dias.",
+      "doseInterval": "2x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Uso em crianças acima de 2 anos. Pode ser necessário repetir o tratamento em algumas infecções (ex: Enterobíase). Administrar com alimentos gordurosos para aumentar a absorção."
+    },
+    "calculationParams": {
+      "type": "suspensao-oral",
+      "logica_js": "\"Dose fixa em volume por indicação, não baseada em peso.\"",
+      "doseMinima": "100 mg (dose única).",
+      "doseMaxima": "200 mg por dose\n (Toxocaríase).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Uso em crianças acima de 2 anos. Pode ser necessário repetir o tratamento em algumas infecções (ex: Enterobíase). Administrar com alimentos gordurosos para aumentar a absorção."
+    }
+  },
+  {
+    "name": "Ivermectina 6 mg (Comprimido)",
+    "slug": "ivermectina-6-mg-comprimido",
+    "form": "Comprimido",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Dose única, por faixa de peso:\nEscabiose/Estrongiloidíase, etc:\n- 15-24 kg: ½ comp.\n- 25-35 kg: 1 co...",
+    "alerts": [
+      "Contraindicado para menores de 5 anos ou com menos de 15 kg. \nO comprimido pode ser partido.\n Monitorar com exames oftalmológicos e de fezes."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "6 mg",
+      "usualDose": "Dose única, por faixa de peso:\nEscabiose/Estrongiloidíase, etc:\n- 15-24 kg: ½ comp.\n- 25-35 kg: 1 comp.\n- 36-50 kg: 1½ comp.\n- 51-65 kg: 2 comp.\nOncocercose:\n- 15-25 kg: ½ comp.\n- 26-44 kg: 1 comp.",
+      "doseInterval": "Dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado para menores de 5 anos ou com menos de 15 kg. \nO comprimido pode ser partido.\n Monitorar com exames oftalmológicos e de fezes."
+    },
+    "calculationParams": {
+      "type": "ivermectina-6-mg-comprimido",
+      "logica_js": "\"A dose em nº de comprimidos é definida por faixa de peso (ver dose usual). Regra geral para 200 mcg/kg: Nº de comp. = Peso (kg) ÷ 30.\"",
+      "doseMinima": "150 mcg/kg",
+      "doseMaxima": "200 mcg/kg",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Contraindicado para menores de 5 anos ou com menos de 15 kg. \nO comprimido pode ser partido.\n Monitorar com exames oftalmológicos e de fezes."
+    }
+  },
+  {
+    "name": "Pamoato de Pirvínio 10 mg/mL ",
+    "slug": "pamoato-de-pirvinio-10-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - > 10 kg: 1 mL/kg de peso corporal, em dose única....",
+    "alerts": [
+      "Indicado para Enterobíase em crianças com mais de 10 kg. Recomenda-se repetir a dose 2 semanas após a primeira. Pode causar coloração vermelha nas fez..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "10 mg/mL",
+      "usualDose": "> 10 kg: 1 mL/kg de peso corporal, em dose única.",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Indicado para Enterobíase em crianças com mais de 10 kg. Recomenda-se repetir a dose 2 semanas após a primeira. Pode causar coloração vermelha nas fezes."
+    },
+    "calculationParams": {
+      "type": "pamoato-de-pirvinio-10-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 1 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "1 mL/kg",
+      "doseMaxima": "600 mg/dia (60 mL).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Indicado para Enterobíase em crianças com mais de 10 kg. Recomenda-se repetir a dose 2 semanas após a primeira. Pode causar coloração vermelha nas fezes."
+    }
+  },
+  {
+    "name": "(Pyr-pam® Suspensão Oral)",
+    "slug": "pyr-pam-suspensao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - > 10 kg: 1 mL/kg de peso corporal, em dose única....",
+    "alerts": [
+      "Indicado para Enterobíase em crianças com mais de 10 kg. Recomenda-se repetir a dose 2 semanas após a primeira. Pode causar coloração vermelha nas fez..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "> 10 kg: 1 mL/kg de peso corporal, em dose única.",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Indicado para Enterobíase em crianças com mais de 10 kg. Recomenda-se repetir a dose 2 semanas após a primeira. Pode causar coloração vermelha nas fezes."
+    },
+    "calculationParams": {
+      "type": "pyr-pam-suspensao-oral",
+      "logica_js": "\"Administrar \" + Math.round(peso * 1 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "1 mL/kg",
+      "doseMaxima": "600 mg/dia (60 mL).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Indicado para Enterobíase em crianças com mais de 10 kg. Recomenda-se repetir a dose 2 semanas após a primeira. Pode causar coloração vermelha nas fezes."
+    }
+  },
+  {
+    "name": "Secnidazol 30 mg/mL ",
+    "slug": "secnidazol-30-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Amebíase Intestinal e Giardíase: 30 mg/kg, em dose única.\nAmebíase Hepática: 30 mg/kg/dia, por 5 a 7...",
+    "alerts": [
+      "\nAdministrar preferencialmente durante uma das refeições. \nO sabor metálico é um efeito adverso comum. \nEvitar bebidas alcoólicas durante e até 4 dias..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "30 mg/mL",
+      "usualDose": "Amebíase Intestinal e Giardíase: 30 mg/kg, em dose única.\nAmebíase Hepática: 30 mg/kg/dia, por 5 a 7 dias.",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "\nAdministrar preferencialmente durante uma das refeições. \nO sabor metálico é um efeito adverso comum. \nEvitar bebidas alcoólicas durante e até 4 dias após o tratamento."
+    },
+    "calculationParams": {
+      "type": "secnidazol-30-mgml",
+      "logica_js": "\"1 mL por kg de peso corporal.\"",
+      "doseMinima": "30 mg/kg",
+      "doseMaxima": "67 mL (2 g).",
+      "reconstituicao": "A forma em pó requer reconstituição com água.",
+      "diluicao": "Não se aplica",
+      "observacoes": "\nAdministrar preferencialmente durante uma das refeições. \nO sabor metálico é um efeito adverso comum. \nEvitar bebidas alcoólicas durante e até 4 dias após o tratamento."
+    }
+  },
+  {
+    "name": "(Suspensão Oral)",
+    "slug": "suspensao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Amebíase Intestinal e Giardíase: 30 mg/kg, em dose única.\nAmebíase Hepática: 30 mg/kg/dia, por 5 a 7...",
+    "alerts": [
+      "\nAdministrar preferencialmente durante uma das refeições. \nO sabor metálico é um efeito adverso comum. \nEvitar bebidas alcoólicas durante e até 4 dias..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Amebíase Intestinal e Giardíase: 30 mg/kg, em dose única.\nAmebíase Hepática: 30 mg/kg/dia, por 5 a 7 dias.",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "\nAdministrar preferencialmente durante uma das refeições. \nO sabor metálico é um efeito adverso comum. \nEvitar bebidas alcoólicas durante e até 4 dias após o tratamento."
+    },
+    "calculationParams": {
+      "type": "suspensao-oral",
+      "logica_js": "\"1 mL por kg de peso corporal.\"",
+      "doseMinima": "30 mg/kg",
+      "doseMaxima": "67 mL (2 g).",
+      "reconstituicao": "A forma em pó requer reconstituição com água.",
+      "diluicao": "Não se aplica",
+      "observacoes": "\nAdministrar preferencialmente durante uma das refeições. \nO sabor metálico é um efeito adverso comum. \nEvitar bebidas alcoólicas durante e até 4 dias após o tratamento."
+    }
+  },
+  {
+    "name": "Praziquantel 600 mg",
+    "slug": "praziquantel-600-mg",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Esquistossomose: 60 mg/kg, dose única.\nNeurocisticercose: 50 mg/kg/dia, de 8/8h (15 dias).\nCisticerc...",
+    "alerts": [
+      "Uso apenas acima de 4 anos.\n Para neurocisticercose, usar com paciente internado. \nRecomenda-se repouso por 3 horas após a ingestão para evitar náusea..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "600 mg",
+      "usualDose": "Esquistossomose: 60 mg/kg, dose única.\nNeurocisticercose: 50 mg/kg/dia, de 8/8h (15 dias).\nCisticercose: 50 mg/kg/dia, de 8/8h (14 dias).\nTeníase: 5-10 mg/kg, dose única.\nHymenolepis nana: 25 mg/kg, dose única.",
+      "doseInterval": "8/8h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Uso apenas acima de 4 anos.\n Para neurocisticercose, usar com paciente internado. \nRecomenda-se repouso por 3 horas após a ingestão para evitar náuseas e tontura."
+    },
+    "calculationParams": {
+      "type": "praziquantel-600-mg",
+      "logica_js": "\"Nº de comprimidos = (Peso × Dose em mg/kg) ÷ 600 Ex: Esquistossomose (60 mg/kg):Peso (kg) ÷ 10   Ex: H. nana (25 mg/kg):Peso (kg) ÷ 24\"",
+      "doseMinima": "5 mg/kg/dose (Teníase).",
+      "doseMaxima": "60 mg/kg/dose\n (Esquistossomose)",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Uso apenas acima de 4 anos.\n Para neurocisticercose, usar com paciente internado. \nRecomenda-se repouso por 3 horas após a ingestão para evitar náuseas e tontura."
+    }
+  },
+  {
+    "name": " (Comprimido)",
+    "slug": "comprimido",
+    "form": "Comprimido",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Esquistossomose: 60 mg/kg, dose única.\nNeurocisticercose: 50 mg/kg/dia, de 8/8h (15 dias).\nCisticerc...",
+    "alerts": [
+      "Uso apenas acima de 4 anos.\n Para neurocisticercose, usar com paciente internado. \nRecomenda-se repouso por 3 horas após a ingestão para evitar náusea..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Esquistossomose: 60 mg/kg, dose única.\nNeurocisticercose: 50 mg/kg/dia, de 8/8h (15 dias).\nCisticercose: 50 mg/kg/dia, de 8/8h (14 dias).\nTeníase: 5-10 mg/kg, dose única.\nHymenolepis nana: 25 mg/kg, dose única.",
+      "doseInterval": "8/8h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Uso apenas acima de 4 anos.\n Para neurocisticercose, usar com paciente internado. \nRecomenda-se repouso por 3 horas após a ingestão para evitar náuseas e tontura."
+    },
+    "calculationParams": {
+      "type": "comprimido",
+      "logica_js": "\"Nº de comprimidos = (Peso × Dose em mg/kg) ÷ 600 Ex: Esquistossomose (60 mg/kg):Peso (kg) ÷ 10   Ex: H. nana (25 mg/kg):Peso (kg) ÷ 24\"",
+      "doseMinima": "5 mg/kg/dose (Teníase).",
+      "doseMaxima": "60 mg/kg/dose\n (Esquistossomose)",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Uso apenas acima de 4 anos.\n Para neurocisticercose, usar com paciente internado. \nRecomenda-se repouso por 3 horas após a ingestão para evitar náuseas e tontura."
+    }
+  },
+  {
+    "name": "Tinidazol 500 mg ",
+    "slug": "tinidazol-500-mg",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Giardíase/Blastocystis: 50 mg/kg, dose única.\nAmebíase: 50 mg/kg/dia, por 3-5 dias.\nH. pylori: 20 mg...",
+    "alerts": [
+      "Uso em maiores de 3 anos. \nEvitar bebidas alcoólicas durante e por 3 dias após o tratamento (efeito dissulfiram). \nPara tricomoníase, tratar o parceir..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "500 mg",
+      "usualDose": "Giardíase/Blastocystis: 50 mg/kg, dose única.\nAmebíase: 50 mg/kg/dia, por 3-5 dias.\nH. pylori: 20 mg/kg/dia, por 5-7 dias.\nVaginose/Tricomoníase (adolescentes): 2.000 mg, dose única.",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Uso em maiores de 3 anos. \nEvitar bebidas alcoólicas durante e por 3 dias após o tratamento (efeito dissulfiram). \nPara tricomoníase, tratar o parceiro sexual."
+    },
+    "calculationParams": {
+      "type": "tinidazol-500-mg",
+      "logica_js": "\"Para dose de 50 mg/kg: Nº de comp. = Peso (kg) ÷ 10 Para dose de 20 mg/kg:Nº de comp. = Peso (kg) ÷ 25\"",
+      "doseMinima": "Varia com a \nindicação.",
+      "doseMaxima": "2.000 mg/dia \n(ou 1.000 mg/dia para H. pylori).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Uso em maiores de 3 anos. \nEvitar bebidas alcoólicas durante e por 3 dias após o tratamento (efeito dissulfiram). \nPara tricomoníase, tratar o parceiro sexual."
+    }
+  },
+  {
+    "name": "(Comprimido)",
+    "slug": "comprimido",
+    "form": "Comprimido",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Giardíase/Blastocystis: 50 mg/kg, dose única.\nAmebíase: 50 mg/kg/dia, por 3-5 dias.\nH. pylori: 20 mg...",
+    "alerts": [
+      "Uso em maiores de 3 anos. \nEvitar bebidas alcoólicas durante e por 3 dias após o tratamento (efeito dissulfiram). \nPara tricomoníase, tratar o parceir..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Giardíase/Blastocystis: 50 mg/kg, dose única.\nAmebíase: 50 mg/kg/dia, por 3-5 dias.\nH. pylori: 20 mg/kg/dia, por 5-7 dias.\nVaginose/Tricomoníase (adolescentes): 2.000 mg, dose única.",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Uso em maiores de 3 anos. \nEvitar bebidas alcoólicas durante e por 3 dias após o tratamento (efeito dissulfiram). \nPara tricomoníase, tratar o parceiro sexual."
+    },
+    "calculationParams": {
+      "type": "comprimido",
+      "logica_js": "\"Para dose de 50 mg/kg: Nº de comp. = Peso (kg) ÷ 10 Para dose de 20 mg/kg:Nº de comp. = Peso (kg) ÷ 25\"",
+      "doseMinima": "Varia com a \nindicação.",
+      "doseMaxima": "2.000 mg/dia \n(ou 1.000 mg/dia para H. pylori).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Uso em maiores de 3 anos. \nEvitar bebidas alcoólicas durante e por 3 dias após o tratamento (efeito dissulfiram). \nPara tricomoníase, tratar o parceiro sexual."
+    }
+  },
+  {
+    "name": "Albendazol 40 mg/mL ",
+    "slug": "albendazol-40-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Varia com a indicação:\n- Giardíase (>2a): 10-15 mg/kg/dia, 1x/dia.\n- Ascaridíase/Ancilostomíase/Ente...",
+    "alerts": [
+      "Para infecções sistêmicas (ex: Neurocisticercose), administrar com alimentos gordurosos para aumentar a absorção. \nEm algumas infecções (ex: Enterobía..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "40 mg/mL",
+      "usualDose": "Varia com a indicação:\n- Giardíase (>2a): 10-15 mg/kg/dia, 1x/dia.\n- Ascaridíase/Ancilostomíase/Enterobíase: 200 mg (≤2a) ou 400 mg (>2a), dose única.\n- Larva M. Cutânea: 400 mg/dia.\n- Larva M. Visceral: 400 mg/dose, 2x/dia.\n- Teníase/Estrongiloidíase/Tricuríase: 400 mg/dia.\n- Neurocisticercose: 7,5 mg/kg/dose, 2x/dia.\n- Hidatidose: 5-7,5 mg/kg/dose, 2x/dia.\n- Opistorquíase: 400 mg/dose, 2x/dia.",
+      "doseInterval": "1x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Para infecções sistêmicas (ex: Neurocisticercose), administrar com alimentos gordurosos para aumentar a absorção. \nEm algumas infecções (ex: Enterobíase), pode ser necessário repetir a dose."
+    },
+    "calculationParams": {
+      "type": "albendazol-40-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.38 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "Varia com a indicação.",
+      "doseMaxima": "400 mg/dose\n ou \n600 mg/dia (Neurocisticercose).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Para infecções sistêmicas (ex: Neurocisticercose), administrar com alimentos gordurosos para aumentar a absorção. \nEm algumas infecções (ex: Enterobíase), pode ser necessário repetir a dose."
+    }
+  },
+  {
+    "name": "(Solução Oral)",
+    "slug": "solucao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Varia com a indicação:\n- Giardíase (>2a): 10-15 mg/kg/dia, 1x/dia.\n- Ascaridíase/Ancilostomíase/Ente...",
+    "alerts": [
+      "Para infecções sistêmicas (ex: Neurocisticercose), administrar com alimentos gordurosos para aumentar a absorção. \nEm algumas infecções (ex: Enterobía..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Varia com a indicação:\n- Giardíase (>2a): 10-15 mg/kg/dia, 1x/dia.\n- Ascaridíase/Ancilostomíase/Enterobíase: 200 mg (≤2a) ou 400 mg (>2a), dose única.\n- Larva M. Cutânea: 400 mg/dia.\n- Larva M. Visceral: 400 mg/dose, 2x/dia.\n- Teníase/Estrongiloidíase/Tricuríase: 400 mg/dia.\n- Neurocisticercose: 7,5 mg/kg/dose, 2x/dia.\n- Hidatidose: 5-7,5 mg/kg/dose, 2x/dia.\n- Opistorquíase: 400 mg/dose, 2x/dia.",
+      "doseInterval": "1x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Para infecções sistêmicas (ex: Neurocisticercose), administrar com alimentos gordurosos para aumentar a absorção. \nEm algumas infecções (ex: Enterobíase), pode ser necessário repetir a dose."
+    },
+    "calculationParams": {
+      "type": "solucao-oral",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.38 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "Varia com a indicação.",
+      "doseMaxima": "400 mg/dose\n ou \n600 mg/dia (Neurocisticercose).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Para infecções sistêmicas (ex: Neurocisticercose), administrar com alimentos gordurosos para aumentar a absorção. \nEm algumas infecções (ex: Enterobíase), pode ser necessário repetir a dose."
+    }
+  },
+  {
+    "name": "Nitazoxanida 500 mg (Comprimido) ",
+    "slug": "nitazoxanida-500-mg-comprimido",
+    "form": "Comprimido",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Dose Padrão (>1 ano): 7,5 mg/kg/dose, 2x/dia, por 3 dias (para a maioria das parasitoses).\nHimenolep...",
+    "alerts": [
+      "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimen..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "500 mg",
+      "usualDose": "Dose Padrão (>1 ano): 7,5 mg/kg/dose, 2x/dia, por 3 dias (para a maioria das parasitoses).\nHimenolepíase:- 1 a 11 anos: 100 mg/dose, 2x/dia, por 3 dias.",
+      "doseInterval": "2x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimentos."
+    },
+    "calculationParams": {
+      "type": "nitazoxanida-500-mg-comprimido",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.375 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "7,5 mg/kg/dose",
+      "doseMaxima": "500 mg por dose.",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimentos."
+    }
+  },
+  {
+    "name": "ou ",
+    "slug": "ou",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Dose Padrão (>1 ano): 7,5 mg/kg/dose, 2x/dia, por 3 dias (para a maioria das parasitoses).\nHimenolep...",
+    "alerts": [
+      "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimen..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Dose Padrão (>1 ano): 7,5 mg/kg/dose, 2x/dia, por 3 dias (para a maioria das parasitoses).\nHimenolepíase:- 1 a 11 anos: 100 mg/dose, 2x/dia, por 3 dias.",
+      "doseInterval": "2x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimentos."
+    },
+    "calculationParams": {
+      "type": "ou",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.375 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "7,5 mg/kg/dose",
+      "doseMaxima": "500 mg por dose.",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimentos."
+    }
+  },
+  {
+    "name": "20 mg/mL (Solução Oral)",
+    "slug": "20-mgml-solucao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Dose Padrão (>1 ano): 7,5 mg/kg/dose, 2x/dia, por 3 dias (para a maioria das parasitoses).\nHimenolep...",
+    "alerts": [
+      "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimen..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "20 mg/mL",
+      "usualDose": "Dose Padrão (>1 ano): 7,5 mg/kg/dose, 2x/dia, por 3 dias (para a maioria das parasitoses).\nHimenolepíase:- 1 a 11 anos: 100 mg/dose, 2x/dia, por 3 dias.",
+      "doseInterval": "2x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimentos."
+    },
+    "calculationParams": {
+      "type": "20-mgml-solucao-oral",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.375 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "7,5 mg/kg/dose",
+      "doseMaxima": "500 mg por dose.",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "\nIndicado para maiores de 1 ano. \nO tratamento pode ser estendido para 14 dias em pacientes imunodeprimidos.\n Administrar preferencialmente com alimentos."
+    }
+  },
+  {
+    "name": "Mebendazol 20 mg/mL ",
+    "slug": "mebendazol-20-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - \nVaria com a indicação (> 2 anos):\n- Ancilostomíase/Ascaridíase/Tricuríase: 5 mL (100 mg), 2x/dia, p...",
+    "alerts": [
+      "Uso em crianças acima de 2 anos. Pode ser necessário repetir o tratamento em algumas infecções (ex: Enterobíase). Administrar com alimentos gordurosos..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "20 mg/mL",
+      "usualDose": "\nVaria com a indicação (> 2 anos):\n- Ancilostomíase/Ascaridíase/Tricuríase: 5 mL (100 mg), 2x/dia, por 3 dias.\n- Enterobíase: 5 mL (100 mg), dose única.\n- Toxocaríase: 5-10 mL (100-200 mg), 2x/dia, por 5 dias.",
+      "doseInterval": "2x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Uso em crianças acima de 2 anos. Pode ser necessário repetir o tratamento em algumas infecções (ex: Enterobíase). Administrar com alimentos gordurosos para aumentar a absorção."
+    },
+    "calculationParams": {
+      "type": "mebendazol-20-mgml",
+      "logica_js": "\"Dose fixa em volume por indicação, não baseada em peso.\"",
+      "doseMinima": "100 mg (dose única).",
+      "doseMaxima": "200 mg por dose\n (Toxocaríase).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Uso em crianças acima de 2 anos. Pode ser necessário repetir o tratamento em algumas infecções (ex: Enterobíase). Administrar com alimentos gordurosos para aumentar a absorção."
+    }
+  },
+  {
+    "name": "(Suspensão Oral)",
+    "slug": "suspensao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - \nVaria com a indicação (> 2 anos):\n- Ancilostomíase/Ascaridíase/Tricuríase: 5 mL (100 mg), 2x/dia, p...",
+    "alerts": [
+      "Uso em crianças acima de 2 anos. Pode ser necessário repetir o tratamento em algumas infecções (ex: Enterobíase). Administrar com alimentos gordurosos..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "\nVaria com a indicação (> 2 anos):\n- Ancilostomíase/Ascaridíase/Tricuríase: 5 mL (100 mg), 2x/dia, por 3 dias.\n- Enterobíase: 5 mL (100 mg), dose única.\n- Toxocaríase: 5-10 mL (100-200 mg), 2x/dia, por 5 dias.",
+      "doseInterval": "2x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Uso em crianças acima de 2 anos. Pode ser necessário repetir o tratamento em algumas infecções (ex: Enterobíase). Administrar com alimentos gordurosos para aumentar a absorção."
+    },
+    "calculationParams": {
+      "type": "suspensao-oral",
+      "logica_js": "\"Dose fixa em volume por indicação, não baseada em peso.\"",
+      "doseMinima": "100 mg (dose única).",
+      "doseMaxima": "200 mg por dose\n (Toxocaríase).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Uso em crianças acima de 2 anos. Pode ser necessário repetir o tratamento em algumas infecções (ex: Enterobíase). Administrar com alimentos gordurosos para aumentar a absorção."
+    }
+  },
+  {
+    "name": "Ivermectina 6 mg (Comprimido)",
+    "slug": "ivermectina-6-mg-comprimido",
+    "form": "Comprimido",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Dose única, por faixa de peso:\nEscabiose/Estrongiloidíase, etc:\n- 15-24 kg: ½ comp.\n- 25-35 kg: 1 co...",
+    "alerts": [
+      "Contraindicado para menores de 5 anos ou com menos de 15 kg. \nO comprimido pode ser partido.\n Monitorar com exames oftalmológicos e de fezes."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "6 mg",
+      "usualDose": "Dose única, por faixa de peso:\nEscabiose/Estrongiloidíase, etc:\n- 15-24 kg: ½ comp.\n- 25-35 kg: 1 comp.\n- 36-50 kg: 1½ comp.\n- 51-65 kg: 2 comp.\nOncocercose:\n- 15-25 kg: ½ comp.\n- 26-44 kg: 1 comp.",
+      "doseInterval": "Dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado para menores de 5 anos ou com menos de 15 kg. \nO comprimido pode ser partido.\n Monitorar com exames oftalmológicos e de fezes."
+    },
+    "calculationParams": {
+      "type": "ivermectina-6-mg-comprimido",
+      "logica_js": "\"A dose em nº de comprimidos é definida por faixa de peso (ver dose usual). Regra geral para 200 mcg/kg: Nº de comp. = Peso (kg) ÷ 30.\"",
+      "doseMinima": "150 mcg/kg",
+      "doseMaxima": "200 mcg/kg",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Contraindicado para menores de 5 anos ou com menos de 15 kg. \nO comprimido pode ser partido.\n Monitorar com exames oftalmológicos e de fezes."
+    }
+  },
+  {
+    "name": "Pamoato de Pirvínio 10 mg/mL ",
+    "slug": "pamoato-de-pirvinio-10-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - > 10 kg: 1 mL/kg de peso corporal, em dose única....",
+    "alerts": [
+      "Indicado para Enterobíase em crianças com mais de 10 kg. Recomenda-se repetir a dose 2 semanas após a primeira. Pode causar coloração vermelha nas fez..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "10 mg/mL",
+      "usualDose": "> 10 kg: 1 mL/kg de peso corporal, em dose única.",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Indicado para Enterobíase em crianças com mais de 10 kg. Recomenda-se repetir a dose 2 semanas após a primeira. Pode causar coloração vermelha nas fezes."
+    },
+    "calculationParams": {
+      "type": "pamoato-de-pirvinio-10-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 1 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "1 mL/kg",
+      "doseMaxima": "600 mg/dia (60 mL).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Indicado para Enterobíase em crianças com mais de 10 kg. Recomenda-se repetir a dose 2 semanas após a primeira. Pode causar coloração vermelha nas fezes."
+    }
+  },
+  {
+    "name": "(Pyr-pam® Suspensão Oral)",
+    "slug": "pyr-pam-suspensao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - > 10 kg: 1 mL/kg de peso corporal, em dose única....",
+    "alerts": [
+      "Indicado para Enterobíase em crianças com mais de 10 kg. Recomenda-se repetir a dose 2 semanas após a primeira. Pode causar coloração vermelha nas fez..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "> 10 kg: 1 mL/kg de peso corporal, em dose única.",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Indicado para Enterobíase em crianças com mais de 10 kg. Recomenda-se repetir a dose 2 semanas após a primeira. Pode causar coloração vermelha nas fezes."
+    },
+    "calculationParams": {
+      "type": "pyr-pam-suspensao-oral",
+      "logica_js": "\"Administrar \" + Math.round(peso * 1 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "1 mL/kg",
+      "doseMaxima": "600 mg/dia (60 mL).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Indicado para Enterobíase em crianças com mais de 10 kg. Recomenda-se repetir a dose 2 semanas após a primeira. Pode causar coloração vermelha nas fezes."
+    }
+  },
+  {
+    "name": "Secnidazol 30 mg/mL ",
+    "slug": "secnidazol-30-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Amebíase Intestinal e Giardíase: 30 mg/kg, em dose única.\nAmebíase Hepática: 30 mg/kg/dia, por 5 a 7...",
+    "alerts": [
+      "\nAdministrar preferencialmente durante uma das refeições. \nO sabor metálico é um efeito adverso comum. \nEvitar bebidas alcoólicas durante e até 4 dias..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "30 mg/mL",
+      "usualDose": "Amebíase Intestinal e Giardíase: 30 mg/kg, em dose única.\nAmebíase Hepática: 30 mg/kg/dia, por 5 a 7 dias.",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "\nAdministrar preferencialmente durante uma das refeições. \nO sabor metálico é um efeito adverso comum. \nEvitar bebidas alcoólicas durante e até 4 dias após o tratamento."
+    },
+    "calculationParams": {
+      "type": "secnidazol-30-mgml",
+      "logica_js": "\"1 mL por kg de peso corporal.\"",
+      "doseMinima": "30 mg/kg",
+      "doseMaxima": "67 mL (2 g).",
+      "reconstituicao": "A forma em pó requer reconstituição com água.",
+      "diluicao": "Não se aplica",
+      "observacoes": "\nAdministrar preferencialmente durante uma das refeições. \nO sabor metálico é um efeito adverso comum. \nEvitar bebidas alcoólicas durante e até 4 dias após o tratamento."
+    }
+  },
+  {
+    "name": "(Suspensão Oral)",
+    "slug": "suspensao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Amebíase Intestinal e Giardíase: 30 mg/kg, em dose única.\nAmebíase Hepática: 30 mg/kg/dia, por 5 a 7...",
+    "alerts": [
+      "\nAdministrar preferencialmente durante uma das refeições. \nO sabor metálico é um efeito adverso comum. \nEvitar bebidas alcoólicas durante e até 4 dias..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Amebíase Intestinal e Giardíase: 30 mg/kg, em dose única.\nAmebíase Hepática: 30 mg/kg/dia, por 5 a 7 dias.",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "\nAdministrar preferencialmente durante uma das refeições. \nO sabor metálico é um efeito adverso comum. \nEvitar bebidas alcoólicas durante e até 4 dias após o tratamento."
+    },
+    "calculationParams": {
+      "type": "suspensao-oral",
+      "logica_js": "\"1 mL por kg de peso corporal.\"",
+      "doseMinima": "30 mg/kg",
+      "doseMaxima": "67 mL (2 g).",
+      "reconstituicao": "A forma em pó requer reconstituição com água.",
+      "diluicao": "Não se aplica",
+      "observacoes": "\nAdministrar preferencialmente durante uma das refeições. \nO sabor metálico é um efeito adverso comum. \nEvitar bebidas alcoólicas durante e até 4 dias após o tratamento."
+    }
+  },
+  {
+    "name": "Praziquantel 600 mg",
+    "slug": "praziquantel-600-mg",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Esquistossomose: 60 mg/kg, dose única.\nNeurocisticercose: 50 mg/kg/dia, de 8/8h (15 dias).\nCisticerc...",
+    "alerts": [
+      "Uso apenas acima de 4 anos.\n Para neurocisticercose, usar com paciente internado. \nRecomenda-se repouso por 3 horas após a ingestão para evitar náusea..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "600 mg",
+      "usualDose": "Esquistossomose: 60 mg/kg, dose única.\nNeurocisticercose: 50 mg/kg/dia, de 8/8h (15 dias).\nCisticercose: 50 mg/kg/dia, de 8/8h (14 dias).\nTeníase: 5-10 mg/kg, dose única.\nHymenolepis nana: 25 mg/kg, dose única.",
+      "doseInterval": "8/8h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Uso apenas acima de 4 anos.\n Para neurocisticercose, usar com paciente internado. \nRecomenda-se repouso por 3 horas após a ingestão para evitar náuseas e tontura."
+    },
+    "calculationParams": {
+      "type": "praziquantel-600-mg",
+      "logica_js": "\"Nº de comprimidos = (Peso × Dose em mg/kg) ÷ 600 Ex: Esquistossomose (60 mg/kg):Peso (kg) ÷ 10   Ex: H. nana (25 mg/kg):Peso (kg) ÷ 24\"",
+      "doseMinima": "5 mg/kg/dose (Teníase).",
+      "doseMaxima": "60 mg/kg/dose\n (Esquistossomose)",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Uso apenas acima de 4 anos.\n Para neurocisticercose, usar com paciente internado. \nRecomenda-se repouso por 3 horas após a ingestão para evitar náuseas e tontura."
+    }
+  },
+  {
+    "name": " (Comprimido)",
+    "slug": "comprimido",
+    "form": "Comprimido",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Esquistossomose: 60 mg/kg, dose única.\nNeurocisticercose: 50 mg/kg/dia, de 8/8h (15 dias).\nCisticerc...",
+    "alerts": [
+      "Uso apenas acima de 4 anos.\n Para neurocisticercose, usar com paciente internado. \nRecomenda-se repouso por 3 horas após a ingestão para evitar náusea..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Esquistossomose: 60 mg/kg, dose única.\nNeurocisticercose: 50 mg/kg/dia, de 8/8h (15 dias).\nCisticercose: 50 mg/kg/dia, de 8/8h (14 dias).\nTeníase: 5-10 mg/kg, dose única.\nHymenolepis nana: 25 mg/kg, dose única.",
+      "doseInterval": "8/8h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Uso apenas acima de 4 anos.\n Para neurocisticercose, usar com paciente internado. \nRecomenda-se repouso por 3 horas após a ingestão para evitar náuseas e tontura."
+    },
+    "calculationParams": {
+      "type": "comprimido",
+      "logica_js": "\"Nº de comprimidos = (Peso × Dose em mg/kg) ÷ 600 Ex: Esquistossomose (60 mg/kg):Peso (kg) ÷ 10   Ex: H. nana (25 mg/kg):Peso (kg) ÷ 24\"",
+      "doseMinima": "5 mg/kg/dose (Teníase).",
+      "doseMaxima": "60 mg/kg/dose\n (Esquistossomose)",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Uso apenas acima de 4 anos.\n Para neurocisticercose, usar com paciente internado. \nRecomenda-se repouso por 3 horas após a ingestão para evitar náuseas e tontura."
+    }
+  },
+  {
+    "name": "Tinidazol 500 mg ",
+    "slug": "tinidazol-500-mg",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Giardíase/Blastocystis: 50 mg/kg, dose única.\nAmebíase: 50 mg/kg/dia, por 3-5 dias.\nH. pylori: 20 mg...",
+    "alerts": [
+      "Uso em maiores de 3 anos. \nEvitar bebidas alcoólicas durante e por 3 dias após o tratamento (efeito dissulfiram). \nPara tricomoníase, tratar o parceir..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "500 mg",
+      "usualDose": "Giardíase/Blastocystis: 50 mg/kg, dose única.\nAmebíase: 50 mg/kg/dia, por 3-5 dias.\nH. pylori: 20 mg/kg/dia, por 5-7 dias.\nVaginose/Tricomoníase (adolescentes): 2.000 mg, dose única.",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Uso em maiores de 3 anos. \nEvitar bebidas alcoólicas durante e por 3 dias após o tratamento (efeito dissulfiram). \nPara tricomoníase, tratar o parceiro sexual."
+    },
+    "calculationParams": {
+      "type": "tinidazol-500-mg",
+      "logica_js": "\"Para dose de 50 mg/kg: Nº de comp. = Peso (kg) ÷ 10 Para dose de 20 mg/kg:Nº de comp. = Peso (kg) ÷ 25\"",
+      "doseMinima": "Varia com a \nindicação.",
+      "doseMaxima": "2.000 mg/dia \n(ou 1.000 mg/dia para H. pylori).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Uso em maiores de 3 anos. \nEvitar bebidas alcoólicas durante e por 3 dias após o tratamento (efeito dissulfiram). \nPara tricomoníase, tratar o parceiro sexual."
+    }
+  },
+  {
+    "name": "(Comprimido)",
+    "slug": "comprimido",
+    "form": "Comprimido",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTIPARASITARIOS - Giardíase/Blastocystis: 50 mg/kg, dose única.\nAmebíase: 50 mg/kg/dia, por 3-5 dias.\nH. pylori: 20 mg...",
+    "alerts": [
+      "Uso em maiores de 3 anos. \nEvitar bebidas alcoólicas durante e por 3 dias após o tratamento (efeito dissulfiram). \nPara tricomoníase, tratar o parceir..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Giardíase/Blastocystis: 50 mg/kg, dose única.\nAmebíase: 50 mg/kg/dia, por 3-5 dias.\nH. pylori: 20 mg/kg/dia, por 5-7 dias.\nVaginose/Tricomoníase (adolescentes): 2.000 mg, dose única.",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Uso em maiores de 3 anos. \nEvitar bebidas alcoólicas durante e por 3 dias após o tratamento (efeito dissulfiram). \nPara tricomoníase, tratar o parceiro sexual."
+    },
+    "calculationParams": {
+      "type": "comprimido",
+      "logica_js": "\"Para dose de 50 mg/kg: Nº de comp. = Peso (kg) ÷ 10 Para dose de 20 mg/kg:Nº de comp. = Peso (kg) ÷ 25\"",
+      "doseMinima": "Varia com a \nindicação.",
+      "doseMaxima": "2.000 mg/dia \n(ou 1.000 mg/dia para H. pylori).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Uso em maiores de 3 anos. \nEvitar bebidas alcoólicas durante e por 3 dias após o tratamento (efeito dissulfiram). \nPara tricomoníase, tratar o parceiro sexual."
+    }
+  }
+]

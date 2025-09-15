@@ -1,0 +1,137 @@
+[
+  {
+    "name": "Cloridrato de Naloxona ",
+    "slug": "cloridrato-de-naloxona",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIDOTOS - Reversão de Intoxicação:\n- Neonatal/<20kg: 0,1 mg/kg/dose.\n- >20kg: 2 mg/dose.\nReversão Depressão Te...",
+    "alerts": [
+      "A via intramuscular deve ser evitada (absorção errática).\n Para via endotraqueal, lavar o tubo com SF 0,9% após a dose. \nAs doses podem ser repetidas ..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Reversão de Intoxicação:\n- Neonatal/<20kg: 0,1 mg/kg/dose.\n- >20kg: 2 mg/dose.\nReversão Depressão Terapêutica:\n0,001 a 0,005 mg/kg/dose.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "A via intramuscular deve ser evitada (absorção errática).\n Para via endotraqueal, lavar o tubo com SF 0,9% após a dose. \nAs doses podem ser repetidas a cada 2-3 minutos, conforme necessário."
+    },
+    "calculationParams": {
+      "type": "cloridrato-de-naloxona",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.25 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,001 mg/kg/dose.",
+      "doseMaxima": "2 mg por dose.",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "EV em bólus: Não é necessária.\nEndotraqueal: Diluir em 1-2 mL de SF 0,9%.",
+      "observacoes": "A via intramuscular deve ser evitada (absorção errática).\n Para via endotraqueal, lavar o tubo com SF 0,9% após a dose. \nAs doses podem ser repetidas a cada 2-3 minutos, conforme necessário."
+    }
+  },
+  {
+    "name": "0,4 mg/mL (Solução Injetável)",
+    "slug": "04-mgml-solucao-injetavel",
+    "form": "Solução Injetável",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIDOTOS - Reversão de Intoxicação:\n- Neonatal/<20kg: 0,1 mg/kg/dose.\n- >20kg: 2 mg/dose.\nReversão Depressão Te...",
+    "alerts": [
+      "A via intramuscular deve ser evitada (absorção errática).\n Para via endotraqueal, lavar o tubo com SF 0,9% após a dose. \nAs doses podem ser repetidas ..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "4 mg/mL",
+      "usualDose": "Reversão de Intoxicação:\n- Neonatal/<20kg: 0,1 mg/kg/dose.\n- >20kg: 2 mg/dose.\nReversão Depressão Terapêutica:\n0,001 a 0,005 mg/kg/dose.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "A via intramuscular deve ser evitada (absorção errática).\n Para via endotraqueal, lavar o tubo com SF 0,9% após a dose. \nAs doses podem ser repetidas a cada 2-3 minutos, conforme necessário."
+    },
+    "calculationParams": {
+      "type": "04-mgml-solucao-injetavel",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.25 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,001 mg/kg/dose.",
+      "doseMaxima": "2 mg por dose.",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "EV em bólus: Não é necessária.\nEndotraqueal: Diluir em 1-2 mL de SF 0,9%.",
+      "observacoes": "A via intramuscular deve ser evitada (absorção errática).\n Para via endotraqueal, lavar o tubo com SF 0,9% após a dose. \nAs doses podem ser repetidas a cada 2-3 minutos, conforme necessário."
+    }
+  },
+  {
+    "name": "Flumazenil 0,1 mg/mL",
+    "slug": "flumazenil-01-mgml",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIDOTOS - Dose inicial: 0,01 mg/kg (máx. 0,2 mg).\nDoses subsequentes: Repetir 0,01 mg/kg a cada 60 seg (máx. 4...",
+    "alerts": [
+      "Indicado para maiores de 1 ano. Administrar em 15 segundos. A dose deve ser individualizada. Monitorar recorrência da sedação e depressão respiratória..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "1 mg/mL",
+      "usualDose": "Dose inicial: 0,01 mg/kg (máx. 0,2 mg).\nDoses subsequentes: Repetir 0,01 mg/kg a cada 60 seg (máx. 4x).",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Indicado para maiores de 1 ano. Administrar em 15 segundos. A dose deve ser individualizada. Monitorar recorrência da sedação e depressão respiratória."
+    },
+    "calculationParams": {
+      "type": "flumazenil-01-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.1 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "\n0,01 mg/kg por dose.",
+      "doseMaxima": "Dose total de 0,05 mg/kg ou 1 mg (a que for menor).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não é necessária para bólus EV.",
+      "observacoes": "Indicado para maiores de 1 ano. Administrar em 15 segundos. A dose deve ser individualizada. Monitorar recorrência da sedação e depressão respiratória."
+    }
+  },
+  {
+    "name": " (Solução Injetável)",
+    "slug": "solucao-injetavel",
+    "form": "Solução Injetável",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIDOTOS - Dose inicial: 0,01 mg/kg (máx. 0,2 mg).\nDoses subsequentes: Repetir 0,01 mg/kg a cada 60 seg (máx. 4...",
+    "alerts": [
+      "Indicado para maiores de 1 ano. Administrar em 15 segundos. A dose deve ser individualizada. Monitorar recorrência da sedação e depressão respiratória..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Dose inicial: 0,01 mg/kg (máx. 0,2 mg).\nDoses subsequentes: Repetir 0,01 mg/kg a cada 60 seg (máx. 4x).",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Indicado para maiores de 1 ano. Administrar em 15 segundos. A dose deve ser individualizada. Monitorar recorrência da sedação e depressão respiratória."
+    },
+    "calculationParams": {
+      "type": "solucao-injetavel",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.1 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "\n0,01 mg/kg por dose.",
+      "doseMaxima": "Dose total de 0,05 mg/kg ou 1 mg (a que for menor).",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não é necessária para bólus EV.",
+      "observacoes": "Indicado para maiores de 1 ano. Administrar em 15 segundos. A dose deve ser individualizada. Monitorar recorrência da sedação e depressão respiratória."
+    }
+  },
+  {
+    "name": "Glucagon 1 mg/mL (Solução Injetável)",
+    "slug": "glucagon-1-mgml-solucao-injetavel",
+    "form": "Solução Injetável",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIDOTOS - 0,02 a 0,03 mg/kg/dose....",
+    "alerts": [
+      "Indicado para o tratamento de hipoglicemia grave. Após a recuperação da consciência, administrar carboidratos orais. Pode causar náuseas e vômitos"
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "1 mg/mL",
+      "usualDose": "0,02 a 0,03 mg/kg/dose.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Indicado para o tratamento de hipoglicemia grave. Após a recuperação da consciência, administrar carboidratos orais. Pode causar náuseas e vômitos"
+    },
+    "calculationParams": {
+      "type": "glucagon-1-mgml-solucao-injetavel",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.03 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,02 mg/kg/dose",
+      "doseMaxima": "1 mg (1 mL) por dose.",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Não se aplica",
+      "observacoes": "Indicado para o tratamento de hipoglicemia grave. Após a recuperação da consciência, administrar carboidratos orais. Pode causar náuseas e vômitos"
+    }
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "CATEGORIA": "CORTICOIDE",
+    "MEDICAMENTO": "Succinato Sódico de Hidrocortisona 100 mg/Pó",
+    "VIA DE ADMINISTRAÇÃO": "Endovenosa (EV) \nOu\n Intramuscular (IM)",
+    "RECONSTITUIÇÃO": "Com até 2 mL de água para injetáveis \n(Resulta em 50 mg/mL)",
+    "DILUIÇÃO": "Para infusão EV, diluir a dose em 100 a 1000 mL de SF 0,9% ou SG 5%.",
+    "DOSE USUAL (EM EXIBIÇÃO)": "Dose pediátrica variável (ex: 4-8 mg/kg como dose de ataque na asma).",
+    "DOSE MÍNIMA": "Não inferior a 25 mg/dia.",
+    "DOSE MÁXIMA": "Até 8 mg/kg/dia, divididas em 3 ou 4 doses.",
+    "MACETE DE CÁLCULO": "Peso (kg) × 0,08 mL por dose (para uma dose de 4 mg/kg).",
+    "OBSERVAÇÕES": "Injeção EV direta deve ser lenta (mínimo 30 seg.). Infusão em 20-30 min. Pode mascarar sinais de infecção. A solução reconstituída é estável por 3 dias."
+  },
+  {
+    "CATEGORIA": "CORTICOIDE",
+    "MEDICAMENTO": "Succinato Sódico de Hidrocortisona 500 mg/Pó",
+    "VIA DE ADMINISTRAÇÃO": "Endovenosa (EV) \nOu\n Intramuscular (IM)",
+    "RECONSTITUIÇÃO": "Com até 4 mL de água para injetáveis\n (Resulta em 125 mg/mL)",
+    "DILUIÇÃO": "Para infusão EV, diluir a dose em 100 a 1000 mL de SF 0,9% ou SG 5%.",
+    "DOSE USUAL (EM EXIBIÇÃO)": "Dose pediátrica variável (ex: 4-8 mg/kg como dose de ataque na asma).",
+    "DOSE MÍNIMA": "Não inferior a 25 mg/dia.",
+    "DOSE MÁXIMA": "Até 8 mg/kg/dia, divididas em 3 ou 4 doses.",
+    "MACETE DE CÁLCULO": "Peso (kg) × 0,032 mL por dose (para uma dose de 4 mg/kg).",
+    "OBSERVAÇÕES": "Injeção EV direta deve ser lenta (até 10 min.). Infusão em 20-30 min. A administração IV rápida de doses altas pode causar colapso cardiovascular."
+  },
+  {
+    "CATEGORIA": "CORTICOIDE",
+    "MEDICAMENTO": "Succinato Sódico de Metilprednisolona 40 mg/Pó",
+    "VIA DE ADMINISTRAÇÃO": "Endovenosa (EV) \nOu\n Intramuscular (IM)",
+    "RECONSTITUIÇÃO": "Com 1 mL de diluente (Resulta em 40 mg/mL)",
+    "DILUIÇÃO": "Para infusão EV, diluir a dose em 100 a 1000 mL de SF 0,9% ou SG 5%.",
+    "DOSE USUAL (EM EXIBIÇÃO)": "Dose pediátrica variável (ex: 1-2 mg/kg/dia para asma).",
+    "DOSE MÍNIMA": "Não inferior a 0,5 mg/kg/dia.",
+    "DOSE MÁXIMA": "Até 30 mg/kg/dia\n (pulsoterapia, por até 3 dias).",
+    "MACETE DE CÁLCULO": "Peso (kg) × 0,025 mL por dose (para uma dose de 1 mg/kg).",
+    "OBSERVAÇÕES": "Infusão de altas doses deve ser lenta (≥ 30 min). Pode mascarar sinais de infecção e suprimir o crescimento com uso crônico. Solução estável por 48h."
+  },
+  {
+    "CATEGORIA": "CORTICOIDE",
+    "MEDICAMENTO": "Succinato Sódico de Metilprednisolona 125 mg/Pó",
+    "VIA DE ADMINISTRAÇÃO": "Endovenosa (EV) \nOu\n Intramuscular (IM)",
+    "RECONSTITUIÇÃO": "Com 2 mL de diluente (Resulta em 62,5 mg/mL)",
+    "DILUIÇÃO": "Para infusão EV, diluir a dose em 100 a 1000 mL de SF 0,9% ou SG 5%.",
+    "DOSE USUAL (EM EXIBIÇÃO)": "Dose pediátrica variável (ex: 1-2 mg/kg/dia para asma).",
+    "DOSE MÍNIMA": "Não inferior a 0,5 mg/kg/dia.",
+    "DOSE MÁXIMA": "Até 30 mg/kg/dia (pulsoterapia, por até 3 dias)",
+    "MACETE DE CÁLCULO": "Peso (kg) × 0,016 mL por dose (para uma dose de 1 mg/kg).",
+    "OBSERVAÇÕES": "Infusão de altas doses deve ser lenta (≥ 30 min). Pode mascarar sinais de infecção e suprimir o crescimento com uso crônico. Solução estável por 48h."
+  },
+  {
+    "CATEGORIA": "CORTICOIDE",
+    "MEDICAMENTO": "Fosfato dissódico de dexametasona 2 mg/mL (ampola 1 mL)",
+    "VIA DE ADMINISTRAÇÃO": "Endovenosa (EV) \nOu\n Intramuscular (IM)",
+    "RECONSTITUIÇÃO": "Não se aplica (solução pronta).",
+    "DILUIÇÃO": "Para infusão EV, diluir a dose em 100 a 1000 mL de SF 0,9% ou SG 5%.",
+    "DOSE USUAL (EM EXIBIÇÃO)": "Dose Pediátrica: 0,02 a 0,3 mg/kg/dia, dividida em 3 ou 4 doses.",
+    "DOSE MÍNIMA": "0,02 mg/kg/dia",
+    "DOSE MÁXIMA": "0,3 mg/kg/dia",
+    "MACETE DE CÁLCULO": "Peso (kg) × 0,025 mL por dose (para uma dose de 0,05 mg/kg).",
+    "OBSERVAÇÕES": "Injeção EV deve ser lenta. O uso prolongado pode \nsuprimir o crescimento em crianças. \nPode mascarar sinais de infecção."
+  },
+  {
+    "CATEGORIA": "CORTICOIDE",
+    "MEDICAMENTO": "Fosfato dissódico de dexametasona 4 mg/mL ",
+    "VIA DE ADMINISTRAÇÃO": "Endovenosa (EV) \nOu\n Intramuscular (IM)",
+    "RECONSTITUIÇÃO": "Não se aplica (solução pronta).",
+    "DILUIÇÃO": "Para infusão EV, diluir a dose em 100 a 1000 mL de SF 0,9% ou SG 5%.",
+    "DOSE USUAL (EM EXIBIÇÃO)": "Dose Pediátrica: 0,02 a 0,3 mg/kg/dia, dividida em 3 ou 4 doses.",
+    "DOSE MÍNIMA": "0,02 mg/kg/dia",
+    "DOSE MÁXIMA": "0,3 mg/kg/dia",
+    "MACETE DE CÁLCULO": "Peso (kg) × 0,0125 mL por dose (para uma dose de 0,05 mg/kg).",
+    "OBSERVAÇÕES": "Injeção EV deve ser lenta. O uso prolongado pode \nsuprimir o crescimento em crianças. \nPode mascarar sinais de infecção."
+  },
+  {
+    "CATEGORIA": "CORTICOIDE",
+    "MEDICAMENTO": "(frasco-ampola 2,5 mL)",
+    "VIA DE ADMINISTRAÇÃO": "Endovenosa (EV) \nOu\n Intramuscular (IM)",
+    "RECONSTITUIÇÃO": "Não se aplica (solução pronta).",
+    "DILUIÇÃO": "Para infusão EV, diluir a dose em 100 a 1000 mL de SF 0,9% ou SG 5%.",
+    "DOSE USUAL (EM EXIBIÇÃO)": "Dose Pediátrica: 0,02 a 0,3 mg/kg/dia, dividida em 3 ou 4 doses.",
+    "DOSE MÍNIMA": "0,02 mg/kg/dia",
+    "DOSE MÁXIMA": "0,3 mg/kg/dia",
+    "MACETE DE CÁLCULO": "Peso (kg) × 0,0125 mL por dose (para uma dose de 0,05 mg/kg).",
+    "OBSERVAÇÕES": "Injeção EV deve ser lenta. O uso prolongado pode \nsuprimir o crescimento em crianças. \nPode mascarar sinais de infecção."
+  },
+  {
+    "CATEGORIA": "CORTICOIDE",
+    "MEDICAMENTO": "Sulfato de Magnésio 10% (100 mg/mL)",
+    "VIA DE ADMINISTRAÇÃO": "Endovenosa (EV) ou Intramuscular (IM)",
+    "RECONSTITUIÇÃO": "Não se aplica (solução pronta).",
+    "DILUIÇÃO": "Para infusão EV, diluir em SF 0,9% ou SG 5%.",
+    "DOSE USUAL (EM EXIBIÇÃO)": "Asma (Crise Aguda): 25 a 75 mg/kg/dose (dose usual de 50 mg/kg).",
+    "DOSE MÍNIMA": "25 mg/kg/dose",
+    "DOSE MÁXIMA": "75 mg/kg/dose (máx. 2g).",
+    "MACETE DE CÁLCULO": "Peso (kg) × 0,5 mL por dose (para dose de 50 mg/kg).",
+    "OBSERVAÇÕES": "A administração EV deve ser LENTA (20-30 min) para evitar parada cardiorrespiratória. Monitorar reflexos, frequência respiratória e débito urinário. Antídoto: Gluconato de Cálcio."
+  },
+  {
+    "CATEGORIA": "CORTICOIDE",
+    "MEDICAMENTO": "Sulfato de Magnésio 50% (500 mg/mL)",
+    "VIA DE ADMINISTRAÇÃO": "Endovenosa (EV) ou Intramuscular (IM)",
+    "RECONSTITUIÇÃO": "Não se aplica (solução pronta).",
+    "DILUIÇÃO": "OBRIGATÓRIO para uso EV. Diluir para concentração ≤ 20% (geralmente em SF 0,9% ou SG 5%).",
+    "DOSE USUAL (EM EXIBIÇÃO)": "Asma (Crise Aguda): 25 a 75 mg/kg/dose (dose usual de 50 mg/kg).",
+    "DOSE MÍNIMA": "25 mg/kg/dose",
+    "DOSE MÁXIMA": "75 mg/kg/dose (máx. 2g).",
+    "MACETE DE CÁLCULO": "Peso (kg) × 0,1 mL por dose (para dose de 50 mg/kg).",
+    "OBSERVAÇÕES": "\nNUNCA administrar sem diluir por via EV. \nA administração deve ser LENTA (20-30 min). \nMonitorar reflexos, frequência respiratória e débito urinário.\n Antídoto: Gluconato de Cálcio."
+  }
+]

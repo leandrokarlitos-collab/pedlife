@@ -1,0 +1,380 @@
+[
+  {
+    "name": "Cloridrato de Bromexina 0,8 mg/mL (Xarope Infantil)",
+    "slug": "cloridrato-de-bromexina-08-mgml-xarope-infantil",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (expectorantes/mucolíticos) - Dose de 8/8h, por idade:\n- 2-6 anos: 2,5 Ml\n- 6-12 anos: 5 a 10 mL\n- ≥ 12 anos: 10 a 20 mL...",
+    "alerts": [
+      "Uso permitido acima de 2 anos."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "8 mg/mL",
+      "usualDose": "Dose de 8/8h, por idade:\n- 2-6 anos: 2,5 Ml\n- 6-12 anos: 5 a 10 mL\n- ≥ 12 anos: 10 a 20 mL",
+      "doseInterval": "8/8h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Uso permitido acima de 2 anos."
+    },
+    "calculationParams": {
+      "type": "cloridrato-de-bromexina-08-mgml-xarope-infantil",
+      "logica_js": null,
+      "doseMinima": "Varia com a idade \n(ver dose usual).",
+      "doseMaxima": "Varia com a idade \n(ver dose usual).",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Uso permitido acima de 2 anos."
+    }
+  },
+  {
+    "name": "Cloridrato de Bromexina 2 mg/mL (Gotas)",
+    "slug": "cloridrato-de-bromexina-2-mgml-gotas",
+    "form": "Solução Oral em Gotas",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (expectorantes/mucolíticos) - Dose de 12/12h, por idade:\n- 2-6 anos: 10 gotas\n- 6-12 anos: 15 gotas\n- ≥ 12 anos: 30 gotas...",
+    "alerts": [
+      "Uso permitido acima de 2 anos. Recomenda-se aquecer a solução à temperatura corporal antes da inalação"
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "2 mg/mL",
+      "usualDose": "Dose de 12/12h, por idade:\n- 2-6 anos: 10 gotas\n- 6-12 anos: 15 gotas\n- ≥ 12 anos: 30 gotas",
+      "doseInterval": "12/12h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Uso permitido acima de 2 anos. Recomenda-se aquecer a solução à temperatura corporal antes da inalação"
+    },
+    "calculationParams": {
+      "type": "cloridrato-de-bromexina-2-mgml-gotas",
+      "logica_js": null,
+      "doseMinima": "Varia com a idade \n(ver dose usual).",
+      "doseMaxima": "Varia com a idade \n(ver dose usual).",
+      "reconstituicao": "\tNão se aplica.",
+      "diluicao": "Diluir a dose com soro fisiológico na proporção de 1:1.",
+      "observacoes": "Uso permitido acima de 2 anos. Recomenda-se aquecer a solução à temperatura corporal antes da inalação"
+    }
+  },
+  {
+    "name": "Cloridrato de Ambroxol 3 mg/mL (Xarope Pediátrico)",
+    "slug": "cloridrato-de-ambroxol-3-mgml-xarope-pediatrico",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (expectorantes/mucolíticos) - Por Idade:\n- < 2 anos: 2,5 mL, 2x/dia.\n- 2-6 anos: 2,5 mL, 3x/dia.\n- 6-12 anos: 5 mL, 2-3x/dia.\nPor ...",
+    "alerts": [
+      "O tratamento não deve exceder 7-10 dias sem orientação médica."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "3 mg/mL",
+      "usualDose": "Por Idade:\n- < 2 anos: 2,5 mL, 2x/dia.\n- 2-6 anos: 2,5 mL, 3x/dia.\n- 6-12 anos: 5 mL, 2-3x/dia.\nPor Peso: 0,5 mg/kg/dose, 3x/dia.",
+      "doseInterval": "2x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "O tratamento não deve exceder 7-10 dias sem orientação médica."
+    },
+    "calculationParams": {
+      "type": "cloridrato-de-ambroxol-3-mgml-xarope-pediatrico",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.17 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "Varia com a idade.",
+      "doseMaxima": "Varia com a idade.",
+      "reconstituicao": "\tNão se aplica.",
+      "diluicao": "\tNão se aplica.",
+      "observacoes": "O tratamento não deve exceder 7-10 dias sem orientação médica."
+    }
+  },
+  {
+    "name": "Cloridrato de Ambroxol 7,5 mg/mL (Gotas)1 gota = 0,3 mg",
+    "slug": "cloridrato-de-ambroxol-75-mgml-gotas1-gota-03-mg",
+    "form": "Solução Oral em Gotas",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (expectorantes/mucolíticos) - Por Idade:\n- < 2 anos: 25 gotas, 2x/dia.\n- 2-5 anos: 25 gotas, 3x/dia.\n- 6-12 anos: 50 gotas, 3x/dia...",
+    "alerts": [
+      "Pode ser administrado com ou sem alimentos."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "5 mg/mL",
+      "usualDose": "Por Idade:\n- < 2 anos: 25 gotas, 2x/dia.\n- 2-5 anos: 25 gotas, 3x/dia.\n- 6-12 anos: 50 gotas, 3x/dia.\nPor Peso: 0,5 mg/kg/dose, 3x/dia.",
+      "doseInterval": "2x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Pode ser administrado com ou sem alimentos."
+    },
+    "calculationParams": {
+      "type": "cloridrato-de-ambroxol-75-mgml-gotas1-gota-03-mg",
+      "logica_js": "\"Administrar \" + Math.round(peso * 1.6) + \" gotas conforme orientação médica\"",
+      "doseMinima": "Varia com a idade.",
+      "doseMaxima": "Varia com a idade.",
+      "reconstituicao": "\tNão se aplica.",
+      "diluicao": "\tNão se aplica.",
+      "observacoes": "Pode ser administrado com ou sem alimentos."
+    }
+  },
+  {
+    "name": "Acetilcisteína Xarope",
+    "slug": "acetilcisteina-xarope",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (expectorantes/mucolíticos) - Xarope 20 mg/mL:\n- 2 a 4 anos: 5 mL, 2 a 3x/dia\n- > 4 anos: 5 mL, 3 a 4x/dia.\nXarope 40 mg/mL:\n > 12...",
+    "alerts": [
+      "Contraindicado para menores de 2 anos. Usar com cautela em pacientes com asma. A presença de odor de enxofre é normal."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Xarope 20 mg/mL:\n- 2 a 4 anos: 5 mL, 2 a 3x/dia\n- > 4 anos: 5 mL, 3 a 4x/dia.\nXarope 40 mg/mL:\n > 12 anos: 15 mL, 1x/dia.",
+      "doseInterval": "3x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado para menores de 2 anos. Usar com cautela em pacientes com asma. A presença de odor de enxofre é normal."
+    },
+    "calculationParams": {
+      "type": "acetilcisteina-xarope",
+      "logica_js": "\"Dose fixa por idade: 20 mg/mL: 5 mL por dose. 40 mg/mL: 15 mL por dose.\"",
+      "doseMinima": "Varia com a idade e concentração.",
+      "doseMaxima": "Varia com a idade e concentração.",
+      "reconstituicao": "\tNão se aplica.",
+      "diluicao": "\tNão se aplica.",
+      "observacoes": "Contraindicado para menores de 2 anos. Usar com cautela em pacientes com asma. A presença de odor de enxofre é normal."
+    }
+  },
+  {
+    "name": "- 20 mg/mL (Pediátrico)",
+    "slug": "--20-mgml-pediatrico",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (expectorantes/mucolíticos) - Xarope 20 mg/mL:\n- 2 a 4 anos: 5 mL, 2 a 3x/dia\n- > 4 anos: 5 mL, 3 a 4x/dia.\nXarope 40 mg/mL:\n > 12...",
+    "alerts": [
+      "Contraindicado para menores de 2 anos. Usar com cautela em pacientes com asma. A presença de odor de enxofre é normal."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "20 mg/mL",
+      "usualDose": "Xarope 20 mg/mL:\n- 2 a 4 anos: 5 mL, 2 a 3x/dia\n- > 4 anos: 5 mL, 3 a 4x/dia.\nXarope 40 mg/mL:\n > 12 anos: 15 mL, 1x/dia.",
+      "doseInterval": "3x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado para menores de 2 anos. Usar com cautela em pacientes com asma. A presença de odor de enxofre é normal."
+    },
+    "calculationParams": {
+      "type": "--20-mgml-pediatrico",
+      "logica_js": "\"Dose fixa por idade: 20 mg/mL: 5 mL por dose. 40 mg/mL: 15 mL por dose.\"",
+      "doseMinima": "Varia com a idade e concentração.",
+      "doseMaxima": "Varia com a idade e concentração.",
+      "reconstituicao": "\tNão se aplica.",
+      "diluicao": "\tNão se aplica.",
+      "observacoes": "Contraindicado para menores de 2 anos. Usar com cautela em pacientes com asma. A presença de odor de enxofre é normal."
+    }
+  },
+  {
+    "name": "- 40 mg/mL (Adulto)",
+    "slug": "--40-mgml-adulto",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (expectorantes/mucolíticos) - Xarope 20 mg/mL:\n- 2 a 4 anos: 5 mL, 2 a 3x/dia\n- > 4 anos: 5 mL, 3 a 4x/dia.\nXarope 40 mg/mL:\n > 12...",
+    "alerts": [
+      "Contraindicado para menores de 2 anos. Usar com cautela em pacientes com asma. A presença de odor de enxofre é normal."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "40 mg/mL",
+      "usualDose": "Xarope 20 mg/mL:\n- 2 a 4 anos: 5 mL, 2 a 3x/dia\n- > 4 anos: 5 mL, 3 a 4x/dia.\nXarope 40 mg/mL:\n > 12 anos: 15 mL, 1x/dia.",
+      "doseInterval": "3x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado para menores de 2 anos. Usar com cautela em pacientes com asma. A presença de odor de enxofre é normal."
+    },
+    "calculationParams": {
+      "type": "--40-mgml-adulto",
+      "logica_js": "\"Dose fixa por idade: 20 mg/mL: 5 mL por dose. 40 mg/mL: 15 mL por dose.\"",
+      "doseMinima": "Varia com a idade e concentração.",
+      "doseMaxima": "Varia com a idade e concentração.",
+      "reconstituicao": "\tNão se aplica.",
+      "diluicao": "\tNão se aplica.",
+      "observacoes": "Contraindicado para menores de 2 anos. Usar com cautela em pacientes com asma. A presença de odor de enxofre é normal."
+    }
+  },
+  {
+    "name": "Acetilcisteína (Antídoto)",
+    "slug": "acetilcisteina-antidoto",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (expectorantes/mucolíticos) - Protocolo EV (21h):\n1. Ataque: 150 mg/kg (60 min).\n2. 2ª Dose: 50 mg/kg (4h).\n3. 3ª Dose: 100 mg/kg ...",
+    "alerts": [
+      "Iniciar o mais rápido possível (idealmente < 10h após a ingestão do paracetamol). Seguir rigorosamente os volumes de diluição e tempos de infusão do p..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Protocolo EV (21h):\n1. Ataque: 150 mg/kg (60 min).\n2. 2ª Dose: 50 mg/kg (4h).\n3. 3ª Dose: 100 mg/kg (16h).\nProtocolo Oral (72h):\n1. Ataque: 140 mg/kg.\n2. Manutenção: 70 mg/kg a cada 4h (17 doses).",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Iniciar o mais rápido possível (idealmente < 10h após a ingestão do paracetamol). Seguir rigorosamente os volumes de diluição e tempos de infusão do protocolo."
+    },
+    "calculationParams": {
+      "type": "acetilcisteina-antidoto",
+      "logica_js": "\"Administrar \" + Math.round(peso * 1.5 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "Varia com a idade.",
+      "doseMaxima": "Dose total EV: 300 mg/kg.\nDose total Oral: 1.330 mg/kg.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "EV: Diluir em SG 5% ou SF 0,45%;\n o volume varia com o peso e a etapa da infusão.",
+      "observacoes": "Iniciar o mais rápido possível (idealmente < 10h após a ingestão do paracetamol). Seguir rigorosamente os volumes de diluição e tempos de infusão do protocolo."
+    }
+  },
+  {
+    "name": "Acetilcisteína (Solução para Nebulização)",
+    "slug": "acetilcisteina-solucao-para-nebulizacao",
+    "form": "Suspensão Oral",
+    "application": "Inalatória",
+    "description": "Medicamento da categoria TOSSE (expectorantes/mucolíticos) - 1 ampola, 1 a 2 vezes ao dia....",
+    "alerts": [
+      "Realizar dose de broncodilatador 10-15 minutos antes da nebulização. Risco de broncoespasmo, principalmente em pacientes asmáticos."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "1 ampola, 1 a 2 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Realizar dose de broncodilatador 10-15 minutos antes da nebulização. Risco de broncoespasmo, principalmente em pacientes asmáticos."
+    },
+    "calculationParams": {
+      "type": "acetilcisteina-solucao-para-nebulizacao",
+      "logica_js": null,
+      "doseMinima": "1 ampola/dia.",
+      "doseMaxima": "2 ampolas/dia.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Diluir a dose na mesma quantidade de Soro Fisiológico 0,9%.",
+      "observacoes": "Realizar dose de broncodilatador 10-15 minutos antes da nebulização. Risco de broncoespasmo, principalmente em pacientes asmáticos."
+    }
+  },
+  {
+    "name": "Carbocisteína 50 mg/mL (Gotas)",
+    "slug": "carbocisteina-50-mgml-gotas",
+    "form": "Solução Oral em Gotas",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (expectorantes/mucolíticos) - Por Peso (>2a): 2 gotas/kg/dose (5 mg/kg/dose), 3x/dia.\nPor Idade:<br>- 2-5 anos: 40 gotas, 2x/dia.\n...",
+    "alerts": [
+      "Contraindicado para menores de 2 anos."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "50 mg/mL",
+      "usualDose": "Por Peso (>2a): 2 gotas/kg/dose (5 mg/kg/dose), 3x/dia.\nPor Idade:<br>- 2-5 anos: 40 gotas, 2x/dia.\n- 6-11 anos: 40-100 gotas, 3x/dia.",
+      "doseInterval": "3x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado para menores de 2 anos."
+    },
+    "calculationParams": {
+      "type": "carbocisteina-50-mgml-gotas",
+      "logica_js": "\"Administrar \" + Math.round(peso * 2) + \" gotas conforme orientação médica\"",
+      "doseMinima": "Varia com a idade.",
+      "doseMaxima": "Varia com a idade.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Contraindicado para menores de 2 anos."
+    }
+  },
+  {
+    "name": "1 gota = 2,5 mg",
+    "slug": "1-gota-25-mg",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (expectorantes/mucolíticos) - Por Peso (>2a): 2 gotas/kg/dose (5 mg/kg/dose), 3x/dia.\nPor Idade:<br>- 2-5 anos: 40 gotas, 2x/dia.\n...",
+    "alerts": [
+      "Contraindicado para menores de 2 anos."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "5 mg",
+      "usualDose": "Por Peso (>2a): 2 gotas/kg/dose (5 mg/kg/dose), 3x/dia.\nPor Idade:<br>- 2-5 anos: 40 gotas, 2x/dia.\n- 6-11 anos: 40-100 gotas, 3x/dia.",
+      "doseInterval": "3x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado para menores de 2 anos."
+    },
+    "calculationParams": {
+      "type": "1-gota-25-mg",
+      "logica_js": "\"Administrar \" + Math.round(peso * 2) + \" gotas conforme orientação médica\"",
+      "doseMinima": "Varia com a idade.",
+      "doseMaxima": "Varia com a idade.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Contraindicado para menores de 2 anos."
+    }
+  },
+  {
+    "name": "Carbocisteína 20 mg/mL (Xarope Infantil)",
+    "slug": "carbocisteina-20-mgml-xarope-infantil",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (expectorantes/mucolíticos) - Por Peso (>2a): 0,25 mL/kg/dose (5 mg/kg/dose), 3x/dia.\nPor Idade:\n- 2-5 anos: 10 mL, 2x/dia\n- 6-11 ...",
+    "alerts": [
+      "Contraindicado para menores de 2 anos."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "20 mg/mL",
+      "usualDose": "Por Peso (>2a): 0,25 mL/kg/dose (5 mg/kg/dose), 3x/dia.\nPor Idade:\n- 2-5 anos: 10 mL, 2x/dia\n- 6-11 anos: 10-12,5 mL, 3x/dia.",
+      "doseInterval": "3x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Contraindicado para menores de 2 anos."
+    },
+    "calculationParams": {
+      "type": "carbocisteina-20-mgml-xarope-infantil",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.25 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "Varia com a idade.",
+      "doseMaxima": "Varia com a idade.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Contraindicado para menores de 2 anos."
+    }
+  },
+  {
+    "name": "Hedera helix Xarope",
+    "slug": "hedera-helix-xarope",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (expectorantes/mucolíticos) - Dose 3x/dia, por idade:\n 2-7 anos: 8 a 18,75 mg\n- 8-12 anos: 17,5 a 37,5 mg\n- > 12 anos: 28 a 90 mg...",
+    "alerts": [
+      "Verificar a concentração do frasco antes de calcular. Contraindicado para menores de 2 anos. Monitorar se a tosse persistir, houver febre ou expectora..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Dose 3x/dia, por idade:\n 2-7 anos: 8 a 18,75 mg\n- 8-12 anos: 17,5 a 37,5 mg\n- > 12 anos: 28 a 90 mg",
+      "doseInterval": "3x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Verificar a concentração do frasco antes de calcular. Contraindicado para menores de 2 anos. Monitorar se a tosse persistir, houver febre ou expectoração purulenta."
+    },
+    "calculationParams": {
+      "type": "hedera-helix-xarope",
+      "logica_js": "\"Volume da dose (3x/dia): Para 7 mg/mL: - 2-7 anos: ≈ 2,5 mL - 8-12 anos: ≈ 5 mL Para 15 mg/mL: - 2-7 anos: ≈ 1,25 mL - 8-12 anos: ≈ 2,5 mL\"",
+      "doseMinima": "Varia com a idade.",
+      "doseMaxima": "Varia com a idade.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Verificar a concentração do frasco antes de calcular. Contraindicado para menores de 2 anos. Monitorar se a tosse persistir, houver febre ou expectoração purulenta."
+    }
+  },
+  {
+    "name": "(7 mg/mL e 15 mg/mL)",
+    "slug": "7-mgml-e-15-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria TOSSE (expectorantes/mucolíticos) - Dose 3x/dia, por idade:\n 2-7 anos: 8 a 18,75 mg\n- 8-12 anos: 17,5 a 37,5 mg\n- > 12 anos: 28 a 90 mg...",
+    "alerts": [
+      "Verificar a concentração do frasco antes de calcular. Contraindicado para menores de 2 anos. Monitorar se a tosse persistir, houver febre ou expectora..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "7 mg/mL",
+      "usualDose": "Dose 3x/dia, por idade:\n 2-7 anos: 8 a 18,75 mg\n- 8-12 anos: 17,5 a 37,5 mg\n- > 12 anos: 28 a 90 mg",
+      "doseInterval": "3x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Verificar a concentração do frasco antes de calcular. Contraindicado para menores de 2 anos. Monitorar se a tosse persistir, houver febre ou expectoração purulenta."
+    },
+    "calculationParams": {
+      "type": "7-mgml-e-15-mgml",
+      "logica_js": "\"Volume da dose (3x/dia): Para 7 mg/mL: - 2-7 anos: ≈ 2,5 mL - 8-12 anos: ≈ 5 mL Para 15 mg/mL: - 2-7 anos: ≈ 1,25 mL - 8-12 anos: ≈ 2,5 mL\"",
+      "doseMinima": "Varia com a idade.",
+      "doseMaxima": "Varia com a idade.",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Verificar a concentração do frasco antes de calcular. Contraindicado para menores de 2 anos. Monitorar se a tosse persistir, houver febre ou expectoração purulenta."
+    }
+  }
+]

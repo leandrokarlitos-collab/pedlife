@@ -1,0 +1,893 @@
+[
+  {
+    "name": "Ceftriaxona 1000 mg/pó",
+    "slug": "ceftriaxona-1000-mgpo",
+    "form": "Pó para Reconstituição",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 50 mg/kg/dia EV de 12/12h (infecções leves)\n100 mg/kg/dia EV de 24/24h (infecções graves)...",
+    "alerts": [
+      "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "1000 mg",
+      "usualDose": "50 mg/kg/dia EV de 12/12h (infecções leves)\n100 mg/kg/dia EV de 24/24h (infecções graves)",
+      "doseInterval": "12/12h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros nefrotóxicos. Infusão deve ser feita em 30 minutos. Conservar sob refrigeração."
+    },
+    "calculationParams": {
+      "type": "ceftriaxona-1000-mgpo",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.25 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "50 mg/kg/dia",
+      "doseMaxima": "2000 mg/dia",
+      "reconstituicao": "5 mL de Água Destilada",
+      "diluicao": "Diluir em 50–100 mL de SF 0,9% para infusão lenta (30 min)",
+      "observacoes": "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros nefrotóxicos. Infusão deve ser feita em 30 minutos. Conservar sob refrigeração."
+    }
+  },
+  {
+    "name": "Amicacina 50 mg/2 mL",
+    "slug": "amicacina-50-mg2-ml",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 15 a 20 mg/kg/dia, por via EV, divididos a cada 8/8 horas...",
+    "alerts": [
+      "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "50 mg/2 mL",
+      "usualDose": "15 a 20 mg/kg/dia, por via EV, divididos a cada 8/8 horas",
+      "doseInterval": "8/8 h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros nefrotóxicos. Infusão deve ser feita em 30 minutos. Conservar sob refrigeração."
+    },
+    "calculationParams": {
+      "type": "amicacina-50-mg2-ml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.2 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "\t15 mg/kg/dia",
+      "doseMaxima": "\t20 mg/kg/dia",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Diluir em 50–100 mL de SF 0,9% para infusão lenta (30 min)",
+      "observacoes": "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros nefrotóxicos. Infusão deve ser feita em 30 minutos. Conservar sob refrigeração."
+    }
+  },
+  {
+    "name": "Amicacina 125 mg/2 mL",
+    "slug": "amicacina-125-mg2-ml",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 15 a 20 mg/kg/dia, por via EV, divididos a cada 8/8 horas...",
+    "alerts": [
+      "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "125 mg/2 mL",
+      "usualDose": "15 a 20 mg/kg/dia, por via EV, divididos a cada 8/8 horas",
+      "doseInterval": "8/8 h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros nefrotóxicos. Infusão deve ser feita em 30 minutos. Conservar sob refrigeração."
+    },
+    "calculationParams": {
+      "type": "amicacina-125-mg2-ml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.2 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "\t15 mg/kg/dia",
+      "doseMaxima": "\t20 mg/kg/dia",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Diluir em 50–100 mL de SF 0,9% para infusão lenta (30 min)",
+      "observacoes": "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros nefrotóxicos. Infusão deve ser feita em 30 minutos. Conservar sob refrigeração."
+    }
+  },
+  {
+    "name": "Amicacina 250 mg/2 mL",
+    "slug": "amicacina-250-mg2-ml",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 15 a 20 mg/kg/dia, por via EV, divididos a cada 8/8 horas...",
+    "alerts": [
+      "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "250 mg/2 mL",
+      "usualDose": "15 a 20 mg/kg/dia, por via EV, divididos a cada 8/8 horas",
+      "doseInterval": "8/8 h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros nefrotóxicos. Infusão deve ser feita em 30 minutos. Conservar sob refrigeração."
+    },
+    "calculationParams": {
+      "type": "amicacina-250-mg2-ml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.2 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "\t15 mg/kg/dia",
+      "doseMaxima": "\t20 mg/kg/dia",
+      "reconstituicao": "Não se aplica",
+      "diluicao": "Diluir em 50–100 mL de SF 0,9% para infusão lenta (30 min)",
+      "observacoes": "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros nefrotóxicos. Infusão deve ser feita em 30 minutos. Conservar sob refrigeração."
+    }
+  },
+  {
+    "name": "Amoxicilina + Clavulanato",
+    "slug": "amoxicilina-clavulanato",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 90 a 150 mg/kg/dia de Amoxicilina, dividido em 2–3 doses\n- 500+100 mg: 12/12h\n- 1000+200 mg: 8/8h...",
+    "alerts": [
+      "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "90 a 150 mg/kg/dia de Amoxicilina, dividido em 2–3 doses\n- 500+100 mg: 12/12h\n- 1000+200 mg: 8/8h",
+      "doseInterval": "12/12h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros nefrotóxicos. Infusão deve ser feita em 30 minutos. Conservar sob refrigeração."
+    },
+    "calculationParams": {
+      "type": "amoxicilina-clavulanato",
+      "logica_js": "\"Para 90 mg/kg/dia: Peso (kg) × 0,09 g ÷ nº de doses/dia Para 150 mg/kg/dia: Peso (kg) × 0,15 g ÷ nº de doses/dia Dividir em 2 ou 3 doses diárias, respeitando o máximo de 6 g/dia\"",
+      "doseMinima": "90 mg/kg/dia",
+      "doseMaxima": "6000 mg/dia",
+      "reconstituicao": "Reconstituir com 10 mL de AD",
+      "diluicao": "Diluir em 50–100 mL de SF 0,9% para infusão lenta (30 a 60 min)",
+      "observacoes": "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros nefrotóxicos. Infusão deve ser feita em 30 minutos. Conservar sob refrigeração."
+    }
+  },
+  {
+    "name": "500 mg + 100 mg (EV)",
+    "slug": "500-mg-100-mg-ev",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 90 a 150 mg/kg/dia de Amoxicilina, dividido em 2–3 doses\n- 500+100 mg: 12/12h\n- 1000+200 mg: 8/8h...",
+    "alerts": [
+      "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "500 mg",
+      "usualDose": "90 a 150 mg/kg/dia de Amoxicilina, dividido em 2–3 doses\n- 500+100 mg: 12/12h\n- 1000+200 mg: 8/8h",
+      "doseInterval": "12/12h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros nefrotóxicos. Infusão deve ser feita em 30 minutos. Conservar sob refrigeração."
+    },
+    "calculationParams": {
+      "type": "500-mg-100-mg-ev",
+      "logica_js": "\"Para 90 mg/kg/dia: Peso (kg) × 0,09 g ÷ nº de doses/dia Para 150 mg/kg/dia: Peso (kg) × 0,15 g ÷ nº de doses/dia Dividir em 2 ou 3 doses diárias, respeitando o máximo de 6 g/dia\"",
+      "doseMinima": "90 mg/kg/dia",
+      "doseMaxima": "6000 mg/dia",
+      "reconstituicao": "Reconstituir com 10 mL de AD",
+      "diluicao": "Diluir em 50–100 mL de SF 0,9% para infusão lenta (30 a 60 min)",
+      "observacoes": "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros nefrotóxicos. Infusão deve ser feita em 30 minutos. Conservar sob refrigeração."
+    }
+  },
+  {
+    "name": "1000 mg + 200 mg (EV)",
+    "slug": "1000-mg-200-mg-ev",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 90 a 150 mg/kg/dia de Amoxicilina, dividido em 2–3 doses\n- 500+100 mg: 12/12h\n- 1000+200 mg: 8/8h...",
+    "alerts": [
+      "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "1000 mg",
+      "usualDose": "90 a 150 mg/kg/dia de Amoxicilina, dividido em 2–3 doses\n- 500+100 mg: 12/12h\n- 1000+200 mg: 8/8h",
+      "doseInterval": "12/12h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros nefrotóxicos. Infusão deve ser feita em 30 minutos. Conservar sob refrigeração."
+    },
+    "calculationParams": {
+      "type": "1000-mg-200-mg-ev",
+      "logica_js": "\"Para 90 mg/kg/dia: Peso (kg) × 0,09 g ÷ nº de doses/dia Para 150 mg/kg/dia: Peso (kg) × 0,15 g ÷ nº de doses/dia Dividir em 2 ou 3 doses diárias, respeitando o máximo de 6 g/dia\"",
+      "doseMinima": "90 mg/kg/dia",
+      "doseMaxima": "6000 mg/dia",
+      "reconstituicao": "Reconstituir com 10 mL de AD",
+      "diluicao": "Diluir em 50–100 mL de SF 0,9% para infusão lenta (30 a 60 min)",
+      "observacoes": "Monitorar função renal e níveis séricos (nível pico e vale em tratamentos prolongados).   Ajustar dose em prematuros e neonatos. Evitar uso com outros nefrotóxicos. Infusão deve ser feita em 30 minutos. Conservar sob refrigeração."
+    }
+  },
+  {
+    "name": "Ampicilina 500 mg",
+    "slug": "ampicilina-500-mg",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 200 mg/kg/dia, dividido a cada 6/6 horas (4x/dia) → 50 mg/kg/dose...",
+    "alerts": [
+      "Estável por 1 hora após reconstituição. Utilizar dose média para infecções moderadas."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "500 mg",
+      "usualDose": "200 mg/kg/dia, dividido a cada 6/6 horas (4x/dia) → 50 mg/kg/dose",
+      "doseInterval": "6/6 h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Estável por 1 hora após reconstituição. Utilizar dose média para infecções moderadas."
+    },
+    "calculationParams": {
+      "type": "ampicilina-500-mg",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.15 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "100 mg/kg/dia",
+      "doseMaxima": "12.000 mg/dia",
+      "reconstituicao": "Reconstituir com 3 mL de AD",
+      "diluicao": "Diluir em 50–100 mL de SF 0,9% para infusão lenta (30 a 60 min)",
+      "observacoes": "Estável por 1 hora após reconstituição. Utilizar dose média para infecções moderadas."
+    }
+  },
+  {
+    "name": "Ampicilina 1000mg",
+    "slug": "ampicilina-1000mg",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 200 mg/kg/dia, dividido a cada 6/6 horas (4x/dia) → 50 mg/kg/dose...",
+    "alerts": [
+      "Estável por 1 hora após reconstituição. Utilizar dose média para infecções moderadas."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "1000mg",
+      "usualDose": "200 mg/kg/dia, dividido a cada 6/6 horas (4x/dia) → 50 mg/kg/dose",
+      "doseInterval": "6/6 h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Estável por 1 hora após reconstituição. Utilizar dose média para infecções moderadas."
+    },
+    "calculationParams": {
+      "type": "ampicilina-1000mg",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.15 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "100 mg/kg/dia",
+      "doseMaxima": "12.000 mg/dia",
+      "reconstituicao": "Reconstituir com 3 mL de AD",
+      "diluicao": "Diluir em 50–100 mL de SF 0,9% para infusão lenta (30 a 60 min)",
+      "observacoes": "Estável por 1 hora após reconstituição. Utilizar dose média para infecções moderadas."
+    }
+  },
+  {
+    "name": "Ampicilina + Sulbactam 1,5 g/pó",
+    "slug": "ampicilina-sulbactam-15-gpo",
+    "form": "Pó para Reconstituição",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - Infecções Leves/Moderadas: 150 mg/kg/dia (da associação), divididos de 6/6h.\nInfecções Graves: 300 m...",
+    "alerts": [
+      "Ajustar dose em pacientes com insuficiência renal. Diarreia é um efeito adverso comum. A infusão endovenosa deve ser lenta para evitar flebite. A esta..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "5 g",
+      "usualDose": "Infecções Leves/Moderadas: 150 mg/kg/dia (da associação), divididos de 6/6h.\nInfecções Graves: 300 mg/kg/dia (da associação), divididos de 6/6h.",
+      "doseInterval": "6/6h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Ajustar dose em pacientes com insuficiência renal. Diarreia é um efeito adverso comum. A infusão endovenosa deve ser lenta para evitar flebite. A estabilidade da solução após o preparo é limitada, sempre consulte a bula."
+    },
+    "calculationParams": {
+      "type": "ampicilina-sulbactam-15-gpo",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.1 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "150mg/kg/dia",
+      "doseMaxima": "4 g/dia",
+      "reconstituicao": "Reconstituir 3,2 mL de AD",
+      "diluicao": "Diluir em 50–100 mL de SF 0,9% para infusão lenta (30 a 60 min)",
+      "observacoes": "Ajustar dose em pacientes com insuficiência renal. Diarreia é um efeito adverso comum. A infusão endovenosa deve ser lenta para evitar flebite. A estabilidade da solução após o preparo é limitada, sempre consulte a bula."
+    }
+  },
+  {
+    "name": "Cefalotina 1000 mg/pó",
+    "slug": "cefalotina-1000-mgpo",
+    "form": "Pó para Reconstituição",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 50 a 200 mg/kg/dia, divididos a cada 6 horas...",
+    "alerts": [
+      "Monitorar função renal em neonatos e prematuros.\nEvitar uso com aminoglicosídeos.\t\t\t\t\t\t\t\t\nEstabilidade após reconstituição limitada; seguir bula.\t\t\t\t\t..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "1000 mg",
+      "usualDose": "50 a 200 mg/kg/dia, divididos a cada 6 horas",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Monitorar função renal em neonatos e prematuros.\nEvitar uso com aminoglicosídeos.\t\t\t\t\t\t\t\t\nEstabilidade após reconstituição limitada; seguir bula.\t\t\t\t\t\t\t\t\nInfusão deve ser lenta para evitar irritação venosa."
+    },
+    "calculationParams": {
+      "type": "cefalotina-1000-mgpo",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.143 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "50 mg/kg/dia",
+      "doseMaxima": "200 mg/kg/dia",
+      "reconstituicao": "5 mL de Água Destilada",
+      "diluicao": "Diluir em 50–100 mL de SF 0,9% para infusão lenta (30 a 60 min)",
+      "observacoes": "Monitorar função renal em neonatos e prematuros.\nEvitar uso com aminoglicosídeos.\t\t\t\t\t\t\t\t\nEstabilidade após reconstituição limitada; seguir bula.\t\t\t\t\t\t\t\t\nInfusão deve ser lenta para evitar irritação venosa."
+    }
+  },
+  {
+    "name": "Oxacilina 500 mg/pó",
+    "slug": "oxacilina-500-mgpo",
+    "form": "Pó para Reconstituição",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 50 mg/kg/dia de 6/6h (infecções leves a moderadas)\n100 mg/kg/dia de 6/6h (infecções graves)...",
+    "alerts": [
+      "Ajustar dose em neonatos pela função renal.\n Evitar administração rápida — risco de convulsões. \nEstabilidade da solução reconstituída: até 6h sob ref..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "500 mg",
+      "usualDose": "50 mg/kg/dia de 6/6h (infecções leves a moderadas)\n100 mg/kg/dia de 6/6h (infecções graves)",
+      "doseInterval": "6/6h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Ajustar dose em neonatos pela função renal.\n Evitar administração rápida — risco de convulsões. \nEstabilidade da solução reconstituída: até 6h sob refrigeração."
+    },
+    "calculationParams": {
+      "type": "oxacilina-500-mgpo",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.25 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "25 mg/kg/dia",
+      "doseMaxima": "200 mg/kg/dia",
+      "reconstituicao": "5 mL de Água Destilada",
+      "diluicao": "Diluir em 50–100 mL de SF 0,9% para infusão lenta (30 a 60 min)",
+      "observacoes": "Ajustar dose em neonatos pela função renal.\n Evitar administração rápida — risco de convulsões. \nEstabilidade da solução reconstituída: até 6h sob refrigeração."
+    }
+  },
+  {
+    "name": "Gentamicina (20 mg/mL, 40 mg/mL, 80 mg/2 mL)",
+    "slug": "gentamicina-20-mgml-40-mgml-80-mg2-ml",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 7 mg/kg/dia em dose única diária ou dividida a cada 8h \n(dependendo da idade e função renal)...",
+    "alerts": [
+      "Monitorar função renal e níveis séricos (pico e vale).\nAjustar dose conforme idade, função renal e peso.\nEvitar uso concomitante com outros nefrotóxic..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "80 mg/2 mL",
+      "usualDose": "7 mg/kg/dia em dose única diária ou dividida a cada 8h \n(dependendo da idade e função renal)",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Monitorar função renal e níveis séricos (pico e vale).\nAjustar dose conforme idade, função renal e peso.\nEvitar uso concomitante com outros nefrotóxicos ou ototóxicos.\nRisco de toxicidade aumenta com concentrações elevadas ou uso prolongado."
+    },
+    "calculationParams": {
+      "type": "gentamicina-20-mgml-40-mgml-80-mg2-ml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.35 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "5 mg/kg/dia",
+      "doseMaxima": "240 mg/dia",
+      "reconstituicao": "Não requer reconstituição",
+      "diluicao": "Diluir em 50–100 mL de SF 0,9% para infusão lenta (30 a 60 min)",
+      "observacoes": "Monitorar função renal e níveis séricos (pico e vale).\nAjustar dose conforme idade, função renal e peso.\nEvitar uso concomitante com outros nefrotóxicos ou ototóxicos.\nRisco de toxicidade aumenta com concentrações elevadas ou uso prolongado."
+    }
+  },
+  {
+    "name": "Vancomicina 500 mg/pó",
+    "slug": "vancomicina-500-mgpo",
+    "form": "Pó para Reconstituição",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 10 mg/kg/dose a cada 6–8h (total: 60 mg/kg/dia)...",
+    "alerts": [
+      "Infundir lentamente para evitar “síndrome do homem vermelho”. Ajustar dose em insuficiência renal. Monitorar níveis séricos (pico e vale) em tratament..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "500 mg",
+      "usualDose": "10 mg/kg/dose a cada 6–8h (total: 60 mg/kg/dia)",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Infundir lentamente para evitar “síndrome do homem vermelho”. Ajustar dose em insuficiência renal. Monitorar níveis séricos (pico e vale) em tratamentos prolongados. Não usar via IM."
+    },
+    "calculationParams": {
+      "type": "vancomicina-500-mgpo",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.12 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "10 mg/kg/dose",
+      "doseMaxima": "2 g/dia",
+      "reconstituicao": "3 mL de Água Destilada",
+      "diluicao": "Diluir em 100–200 mL de SF 0,9% ou SG 5% para infusão lenta (≥ 60 min)",
+      "observacoes": "Infundir lentamente para evitar “síndrome do homem vermelho”. Ajustar dose em insuficiência renal. Monitorar níveis séricos (pico e vale) em tratamentos prolongados. Não usar via IM."
+    }
+  },
+  {
+    "name": "Meropeném 500 mg/pó",
+    "slug": "meropenem-500-mgpo",
+    "form": "Pó para Reconstituição",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 60 mg/kg/dia divididos a cada 8 horas...",
+    "alerts": [
+      "Ajustar dose em insuficiência renal. Não misturar com outros fármacos na mesma solução. Estabilidade da solução reconstituída: 3 h em T° ambiente ou 1..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "500 mg",
+      "usualDose": "60 mg/kg/dia divididos a cada 8 horas",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Ajustar dose em insuficiência renal. Não misturar com outros fármacos na mesma solução. Estabilidade da solução reconstituída: 3 h em T° ambiente ou 16 h refrigerada (bolus) / 15 h refrigerada (infusão). Não congelar. Administrar por bolus (5 min) ou infusão (15–30 min)."
+    },
+    "calculationParams": {
+      "type": "meropenem-500-mgpo",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.4 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "10 mg/kg/dose",
+      "doseMaxima": "6 g/dia",
+      "reconstituicao": "10 mL de Água Destilada   (50 mg/mL)",
+      "diluicao": "Diluir em 100–200 mL de SF 0,9% ou SG 5% para infusão lenta (≥ 60 min)",
+      "observacoes": "Ajustar dose em insuficiência renal. Não misturar com outros fármacos na mesma solução. Estabilidade da solução reconstituída: 3 h em T° ambiente ou 16 h refrigerada (bolus) / 15 h refrigerada (infusão). Não congelar. Administrar por bolus (5 min) ou infusão (15–30 min)."
+    }
+  },
+  {
+    "name": "Piperacilina + Tazobactam ",
+    "slug": "piperacilina-tazobactam",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 240 a 400 mg/kg/dia divididos em 3 a 4 doses ...",
+    "alerts": [
+      "Ajustar dose em insuficiência renal. Não misturar na mesma solução com aminoglicosídeos. Utilizar imediatamente após preparo ou refrigerar por até 24h..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "240 a 400 mg/kg/dia divididos em 3 a 4 doses ",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Ajustar dose em insuficiência renal. Não misturar na mesma solução com aminoglicosídeos. Utilizar imediatamente após preparo ou refrigerar por até 24h. Observar sinais de hipersensibilidade. Infusão lenta para reduzir risco de flebite."
+    },
+    "calculationParams": {
+      "type": "piperacilina-tazobactam",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.4 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "240 mg/kg/dia",
+      "doseMaxima": "18 g/dia (piperacilina) + \n2,25 g/dia (tazobactam)",
+      "reconstituicao": "20 mL de SF 0,9%, SG 5% ou \nÁgua Destilada (≈ 200 mg/mL \ntotal piperacilina+tazobactam)",
+      "diluicao": "Diluir em 100–200 mL de SF 0,9% ou SG 5% para infusão lenta (≥ 60 min)",
+      "observacoes": "Ajustar dose em insuficiência renal. Não misturar na mesma solução com aminoglicosídeos. Utilizar imediatamente após preparo ou refrigerar por até 24h. Observar sinais de hipersensibilidade. Infusão lenta para reduzir risco de flebite."
+    }
+  },
+  {
+    "name": "4 g + 500 mg/pó",
+    "slug": "4-g-500-mgpo",
+    "form": "Pó para Reconstituição",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 240 a 400 mg/kg/dia divididos em 3 a 4 doses ...",
+    "alerts": [
+      "Ajustar dose em insuficiência renal. Não misturar na mesma solução com aminoglicosídeos. Utilizar imediatamente após preparo ou refrigerar por até 24h..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "500 mg",
+      "usualDose": "240 a 400 mg/kg/dia divididos em 3 a 4 doses ",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Ajustar dose em insuficiência renal. Não misturar na mesma solução com aminoglicosídeos. Utilizar imediatamente após preparo ou refrigerar por até 24h. Observar sinais de hipersensibilidade. Infusão lenta para reduzir risco de flebite."
+    },
+    "calculationParams": {
+      "type": "4-g-500-mgpo",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.4 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "240 mg/kg/dia",
+      "doseMaxima": "18 g/dia (piperacilina) + \n2,25 g/dia (tazobactam)",
+      "reconstituicao": "20 mL de SF 0,9%, SG 5% ou \nÁgua Destilada (≈ 200 mg/mL \ntotal piperacilina+tazobactam)",
+      "diluicao": "Diluir em 100–200 mL de SF 0,9% ou SG 5% para infusão lenta (≥ 60 min)",
+      "observacoes": "Ajustar dose em insuficiência renal. Não misturar na mesma solução com aminoglicosídeos. Utilizar imediatamente após preparo ou refrigerar por até 24h. Observar sinais de hipersensibilidade. Infusão lenta para reduzir risco de flebite."
+    }
+  },
+  {
+    "name": "Clindamicina 150 mg/mL",
+    "slug": "clindamicina-150-mgml",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 20–40 mg/kg/dia divididos em 3–4 doses...",
+    "alerts": [
+      "Evitar uso durante amamentação (perigoso). Categoria B FDA para gravidez. Não administrar em bolus EV. Ajuste de dose não é necessário para insuficiên..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "150 mg/mL",
+      "usualDose": "20–40 mg/kg/dia divididos em 3–4 doses",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Evitar uso durante amamentação (perigoso). Categoria B FDA para gravidez. Não administrar em bolus EV. Ajuste de dose não é necessário para insuficiência renal/hepática, mas monitorar função hepática, renal e hemograma em uso prolongado. Pode causar colite pseudomembranosa e diarreia associada a C. difficile. Contraindicado em casos de hipersensibilidade a clindamicina ou lincomicina."
+    },
+    "calculationParams": {
+      "type": "clindamicina-150-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.044 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "20 mg/kg/dia",
+      "doseMaxima": "2,7 g/dia",
+      "reconstituicao": "Pronta para uso (ampola de 4 mL)",
+      "diluicao": "Diluir em 100–200 mL de SF 0,9% ou SG 5% para infusão lenta (≥ 60 min)",
+      "observacoes": "Evitar uso durante amamentação (perigoso). Categoria B FDA para gravidez. Não administrar em bolus EV. Ajuste de dose não é necessário para insuficiência renal/hepática, mas monitorar função hepática, renal e hemograma em uso prolongado. Pode causar colite pseudomembranosa e diarreia associada a C. difficile. Contraindicado em casos de hipersensibilidade a clindamicina ou lincomicina."
+    }
+  },
+  {
+    "name": "Claritromicina 500 mg/pó",
+    "slug": "claritromicina-500-mgpo",
+    "form": "Pó para Reconstituição",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 7,5 mg/kg/dose a cada 12h (15 mg/kg/dia)...",
+    "alerts": [
+      "Não administrar por via IM ou em bolus EV. Ajustar dose em insuficiência renal grave (ClCr < 30 mL/min: reduzir 50%). Usar com cautela em insuficiênci..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "500 mg",
+      "usualDose": "7,5 mg/kg/dose a cada 12h (15 mg/kg/dia)",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Não administrar por via IM ou em bolus EV. Ajustar dose em insuficiência renal grave (ClCr < 30 mL/min: reduzir 50%). Usar com cautela em insuficiência hepática. Infundir em ≥ 60 min para reduzir risco de flebite. Estabilidade: solução reconstituída 24h à T° ambiente ou 48h refrigerada; diluída, usar em até 6h à T° ambiente ou 48h refrigerada."
+    },
+    "calculationParams": {
+      "type": "claritromicina-500-mgpo",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.15 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "7,5 mg/kg/dose",
+      "doseMaxima": "1 g/dia",
+      "reconstituicao": "10 mL de Água para Injeção (50 mg/mL)",
+      "diluicao": "Diluir em 250 mL de SF 0,9% ou SG 5% para infusão lenta (≥ 60 min)",
+      "observacoes": "Não administrar por via IM ou em bolus EV. Ajustar dose em insuficiência renal grave (ClCr < 30 mL/min: reduzir 50%). Usar com cautela em insuficiência hepática. Infundir em ≥ 60 min para reduzir risco de flebite. Estabilidade: solução reconstituída 24h à T° ambiente ou 48h refrigerada; diluída, usar em até 6h à T° ambiente ou 48h refrigerada."
+    }
+  },
+  {
+    "name": "Aztreonam 1000 mg/pó",
+    "slug": "aztreonam-1000-mgpo",
+    "form": "Pó para Reconstituição",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 30 mg/kg/dose, de 6/6h a 8/8h (infecções moderadas)...",
+    "alerts": [
+      "Ajustar dose em insuficiência renal. Usar reconstituição imediata e solução límpida. Em concentrações até 2% p/v, usar em até 24 h (temperatura ambien..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "1000 mg",
+      "usualDose": "30 mg/kg/dose, de 6/6h a 8/8h (infecções moderadas)",
+      "doseInterval": "6/6h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Ajustar dose em insuficiência renal. Usar reconstituição imediata e solução límpida. Em concentrações até 2% p/v, usar em até 24 h (temperatura ambiente) ou 3 dias (refrigerada). Não misturar com nafcilina, cefradina ou metronidazol."
+    },
+    "calculationParams": {
+      "type": "aztreonam-1000-mgpo",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.12 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "30mg/kg/dia",
+      "doseMaxima": "8 g/dia",
+      "reconstituicao": "3 mL de Água para Injetáveis\n (1 g → 253 mg/mL)",
+      "diluicao": "EV – diluir em 50–100 mL de SF 0,9%, \nSG 5% ou soluções compatíveis,\n para infusão lenta (20–60 min)",
+      "observacoes": "Ajustar dose em insuficiência renal. Usar reconstituição imediata e solução límpida. Em concentrações até 2% p/v, usar em até 24 h (temperatura ambiente) ou 3 dias (refrigerada). Não misturar com nafcilina, cefradina ou metronidazol."
+    }
+  },
+  {
+    "name": "Cefotaxima 1000 mg/pó",
+    "slug": "cefotaxima-1000-mgpo",
+    "form": "Pó para Reconstituição",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 50–100 mg/kg/dia divididos a cada 6–12h\nCasos graves: até 150–200 mg/kg/dia a cada 6–8h...",
+    "alerts": [
+      "Ajustar dose em insuficiência renal grave. Não misturar com aminoglicosídeos na mesma solução. Estabilidade: reconstituída com água ou SF 0,9%, estáve..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "1000 mg",
+      "usualDose": "50–100 mg/kg/dia divididos a cada 6–12h\nCasos graves: até 150–200 mg/kg/dia a cada 6–8h",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Ajustar dose em insuficiência renal grave. Não misturar com aminoglicosídeos na mesma solução. Estabilidade: reconstituída com água ou SF 0,9%, estável por 12h à temperatura ambiente e 24h sob refrigeração; com SG 5%, estável por 24h em temperatura ambiente ou refrigerada. Infusão lenta para evitar reações adversas."
+    },
+    "calculationParams": {
+      "type": "cefotaxima-1000-mgpo",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.25 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "50 mg/kg/dia",
+      "doseMaxima": "\t12 g/dia (adultos)\n200 mg/kg/dia (pediátricos)",
+      "reconstituicao": "EV: 5 mL de Água para Injetáveis (≈ 200 mg/mL)\nIM: 2–4 mL de Água para Injetáveis ou Lidocaína 1%",
+      "diluicao": "EV: diluir em 50–100 mL de SF 0,9%, SG 5%, \nRinger ou lactato de sódio para infusão em 20–60 min",
+      "observacoes": "Ajustar dose em insuficiência renal grave. Não misturar com aminoglicosídeos na mesma solução. Estabilidade: reconstituída com água ou SF 0,9%, estável por 12h à temperatura ambiente e 24h sob refrigeração; com SG 5%, estável por 24h em temperatura ambiente ou refrigerada. Infusão lenta para evitar reações adversas."
+    }
+  },
+  {
+    "name": "Ceftazidima 1 g/pó ",
+    "slug": "ceftazidima-1-gpo",
+    "form": "Pó para Reconstituição",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - Usual: 30–100 mg/kg/dia, dividido em 2–3 doses\nGraves até 150 mg/kg/dia (máx. 6 g/dia) dividido em 3...",
+    "alerts": [
+      "Não misturar com aminoglicosídeos na mesma seringa ou equipo.\nIncompatível com bicarbonato de sódio.\nPode alterar coloração da solução (de amarelo cla..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "1 g",
+      "usualDose": "Usual: 30–100 mg/kg/dia, dividido em 2–3 doses\nGraves até 150 mg/kg/dia (máx. 6 g/dia) dividido em 3 doses",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Não misturar com aminoglicosídeos na mesma seringa ou equipo.\nIncompatível com bicarbonato de sódio.\nPode alterar coloração da solução (de amarelo claro até âmbar) sem perda de estabilidade no prazo recomendado."
+    },
+    "calculationParams": {
+      "type": "ceftazidima-1-gpo",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.5 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "30mg/kg/dia",
+      "doseMaxima": "até 150 mg/kg/dia (máx. 6 g/dia) ",
+      "reconstituicao": "IM: 3 mL de Água para Injetáveis ou\n Lidocaína 0,5–1% → concentração aprox. 260 mg/mL\n Infusão EV: Reconstituir com 10 mL de AD",
+      "diluicao": "EV – diluir em 50–100 mL de SF 0,9%, \nSG 5% ou soluções compatíveis,\n para infusão lenta (20–60 min)",
+      "observacoes": "Não misturar com aminoglicosídeos na mesma seringa ou equipo.\nIncompatível com bicarbonato de sódio.\nPode alterar coloração da solução (de amarelo claro até âmbar) sem perda de estabilidade no prazo recomendado."
+    }
+  },
+  {
+    "name": "Imipenem + Cilastatina 500 mg",
+    "slug": "imipenem-cilastatina-500-mg",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - 60 a 100 mg/kg/dia, administrada por via intravenosa (IV),\n em doses divididas a cada 6 horas....",
+    "alerts": [
+      "Ajustar dose em insuficiência renal; contraindicado se Clcr ≤ 5 mL/min sem diálise. Administrar ≤ 500 mg em 20–30 min; ≥ 750 mg em 40–60 min. Não admi..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "500 mg",
+      "usualDose": "60 a 100 mg/kg/dia, administrada por via intravenosa (IV),\n em doses divididas a cada 6 horas.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Ajustar dose em insuficiência renal; contraindicado se Clcr ≤ 5 mL/min sem diálise. Administrar ≤ 500 mg em 20–30 min; ≥ 750 mg em 40–60 min. Não administrar em bolus. Estabilidade: 4 h em temperatura ambiente ou 24 h sob refrigeração. Reações adversas incluem náusea, vômito, diarreia, exantema e tromboflebite."
+    },
+    "calculationParams": {
+      "type": "imipenem-cilastatina-500-mg",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.3 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "15 mg/kg/dose",
+      "doseMaxima": "4 g/dia (pediátrico)",
+      "reconstituicao": "Reconstituir com 10 mL de Água para Injetáveis (50 mg/mL)",
+      "diluicao": "Diluir em 100–250 mL de SF 0,9% ou SG 5%\nMáx. concentração: 500 mg/60 mL",
+      "observacoes": "Ajustar dose em insuficiência renal; contraindicado se Clcr ≤ 5 mL/min sem diálise. Administrar ≤ 500 mg em 20–30 min; ≥ 750 mg em 40–60 min. Não administrar em bolus. Estabilidade: 4 h em temperatura ambiente ou 24 h sob refrigeração. Reações adversas incluem náusea, vômito, diarreia, exantema e tromboflebite."
+    }
+  },
+  {
+    "name": "Ertapenem Sódico 1 g/pó",
+    "slug": "ertapenem-sodico-1-gpo",
+    "form": "Pó para Reconstituição",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - Pediatria (≥3 meses): 15 mg/kg/dose de 12/12h (máx. 1 g/dia)\nAdulto: 1 g/dia (24/24h)...",
+    "alerts": [
+      "Ajustar dose em insuficiência renal (Clcr ≤ 30 mL/min). Evitar uso em menores de 3 meses. Não misturar com soluções contendo glicose para uso IM. Esta..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "1 g",
+      "usualDose": "Pediatria (≥3 meses): 15 mg/kg/dose de 12/12h (máx. 1 g/dia)\nAdulto: 1 g/dia (24/24h)",
+      "doseInterval": "12/12h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Ajustar dose em insuficiência renal (Clcr ≤ 30 mL/min). Evitar uso em menores de 3 meses. Não misturar com soluções contendo glicose para uso IM. Estabilidade: solução reconstituída estável por 6 h em temperatura ambiente ou 24 h sob refrigeração. Infusão EV lenta para evitar reações adversas."
+    },
+    "calculationParams": {
+      "type": "ertapenem-sodico-1-gpo",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.15 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "15 mg/kg/dose",
+      "doseMaxima": "1 g/dia",
+      "reconstituicao": "EV: 10 mL de Água para Injetáveis (100 mg/mL)\nIM: 3,2 mL de Lidocaína 1%",
+      "diluicao": "EV: diluir dose reconstituída em 50–100 mL de SF 0,9% e infundir em 30 min",
+      "observacoes": "Ajustar dose em insuficiência renal (Clcr ≤ 30 mL/min). Evitar uso em menores de 3 meses. Não misturar com soluções contendo glicose para uso IM. Estabilidade: solução reconstituída estável por 6 h em temperatura ambiente ou 24 h sob refrigeração. Infusão EV lenta para evitar reações adversas."
+    }
+  },
+  {
+    "name": "Ciprofloxacino 2 mg/mL",
+    "slug": "ciprofloxacino-2-mgml",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - Outras Infecções: 10 mg/kg/dose de 12/12h....",
+    "alerts": [
+      "Infusão lenta em 60 minutos para evitar reações no local. Ajustar dose em insuficiência renal. Risco de tendinite e ruptura de tendão. Pode causar rea..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "2 mg/mL",
+      "usualDose": "Outras Infecções: 10 mg/kg/dose de 12/12h.",
+      "doseInterval": "12/12h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Infusão lenta em 60 minutos para evitar reações no local. Ajustar dose em insuficiência renal. Risco de tendinite e ruptura de tendão. Pode causar reações de fotossensibilidade"
+    },
+    "calculationParams": {
+      "type": "ciprofloxacino-2-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 5 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "10 mg/kg/dose de 12/12h (Total: 20 mg/kg/dia)",
+      "doseMaxima": "400 mg por dose ou 1200 mg por dia.",
+      "reconstituicao": "Não se aplica (solução pronta para uso)",
+      "diluicao": "Não se aplica (bolsa pronta).",
+      "observacoes": "Infusão lenta em 60 minutos para evitar reações no local. Ajustar dose em insuficiência renal. Risco de tendinite e ruptura de tendão. Pode causar reações de fotossensibilidade"
+    }
+  },
+  {
+    "name": " (Bolsa 100mL ou 200mL)",
+    "slug": "bolsa-100ml-ou-200ml",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - Outras Infecções: 10 mg/kg/dose de 12/12h....",
+    "alerts": [
+      "Infusão lenta em 60 minutos para evitar reações no local. Ajustar dose em insuficiência renal. Risco de tendinite e ruptura de tendão. Pode causar rea..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Outras Infecções: 10 mg/kg/dose de 12/12h.",
+      "doseInterval": "12/12h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Infusão lenta em 60 minutos para evitar reações no local. Ajustar dose em insuficiência renal. Risco de tendinite e ruptura de tendão. Pode causar reações de fotossensibilidade"
+    },
+    "calculationParams": {
+      "type": "bolsa-100ml-ou-200ml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 5 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "10 mg/kg/dose de 12/12h (Total: 20 mg/kg/dia)",
+      "doseMaxima": "400 mg por dose ou 1200 mg por dia.",
+      "reconstituicao": "Não se aplica (solução pronta para uso)",
+      "diluicao": "Não se aplica (bolsa pronta).",
+      "observacoes": "Infusão lenta em 60 minutos para evitar reações no local. Ajustar dose em insuficiência renal. Risco de tendinite e ruptura de tendão. Pode causar reações de fotossensibilidade"
+    }
+  },
+  {
+    "name": "Linezolida 2 mg/mL ",
+    "slug": "linezolida-2-mgml",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - pediatria ≤ 11 anos: 10 mg/kg/dose EV a cada 8 h...",
+    "alerts": [
+      "Monitoramento: Função hematológica, sinais de mielossupressão, neuropatia óptica e periférica, sinais de síndrome serotoninérgica quando associada a s..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "2 mg/mL",
+      "usualDose": "pediatria ≤ 11 anos: 10 mg/kg/dose EV a cada 8 h",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Monitoramento: Função hematológica, sinais de mielossupressão, neuropatia óptica e periférica, sinais de síndrome serotoninérgica quando associada a serotoninérgicos.\nEstabilidade: Usar imediatamente após abertura da bolsa; proteger da luz até o uso; estável até a data de validade em embalagem fechada.\nObservações: Não misturar com anfotericina B, diazepam, fenitoína, ceftriaxona ou sulfametoxazol/trimetoprima."
+    },
+    "calculationParams": {
+      "type": "linezolida-2-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 5 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "10 mg/kg/dose ",
+      "doseMaxima": "600 mg/dose",
+      "reconstituicao": "Não requer (apresentação pronta para infusão)",
+      "diluicao": "EV: diluir dose reconstituída em 50–100 mL de SF 0,9% e infundir em 30 min a 60 min",
+      "observacoes": "Monitoramento: Função hematológica, sinais de mielossupressão, neuropatia óptica e periférica, sinais de síndrome serotoninérgica quando associada a serotoninérgicos.\nEstabilidade: Usar imediatamente após abertura da bolsa; proteger da luz até o uso; estável até a data de validade em embalagem fechada.\nObservações: Não misturar com anfotericina B, diazepam, fenitoína, ceftriaxona ou sulfametoxazol/trimetoprima."
+    }
+  },
+  {
+    "name": "Penicilina Benzatina 600.000 UI (IM)",
+    "slug": "penicilina-benzatina-600000-ui-im",
+    "form": "Suspensão Oral",
+    "application": "IM",
+    "description": "Medicamento da categoria ANTIBIOTICOS - Para pacientes < 27 kg:<br>600.000 UI (dose única)....",
+    "alerts": [
+      "NUNCA administrar EV (risco fatal). \nAplicar em músculo profundo (glúteo). \nAgitar vigorosamente. Usar imediatamente."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "600.000 UI",
+      "usualDose": "Para pacientes < 27 kg:<br>600.000 UI (dose única).",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "NUNCA administrar EV (risco fatal). \nAplicar em músculo profundo (glúteo). \nAgitar vigorosamente. Usar imediatamente."
+    },
+    "calculationParams": {
+      "type": "penicilina-benzatina-600000-ui-im",
+      "logica_js": "\"Administrar o volume total do frasco após a reconstituição.\"",
+      "doseMinima": "600.000 UI",
+      "doseMaxima": "600.000 UI",
+      "reconstituicao": "2 mL de Água Destilada (prática padrão)",
+      "diluicao": "Não se aplica.",
+      "observacoes": "NUNCA administrar EV (risco fatal). \nAplicar em músculo profundo (glúteo). \nAgitar vigorosamente. Usar imediatamente."
+    }
+  },
+  {
+    "name": "Penicilina Benzatina 1.200.000 UI",
+    "slug": "penicilina-benzatina-1200000-ui",
+    "form": "Suspensão Oral",
+    "application": "IM",
+    "description": "Medicamento da categoria ANTIBIOTICOS - Para pacientes ≥ 27 kg:<br>1.200.000 UI (dose única)....",
+    "alerts": [
+      "NUNCA administrar EV (risco fatal). \nAplicar em músculo profundo (glúteo). \nAgitar vigorosamente. Usar imediatamente."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "200.000 UI",
+      "usualDose": "Para pacientes ≥ 27 kg:<br>1.200.000 UI (dose única).",
+      "doseInterval": "dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "NUNCA administrar EV (risco fatal). \nAplicar em músculo profundo (glúteo). \nAgitar vigorosamente. Usar imediatamente."
+    },
+    "calculationParams": {
+      "type": "penicilina-benzatina-1200000-ui",
+      "logica_js": "\"Administrar o volume total do frasco após a reconstituição.\"",
+      "doseMinima": "1.200.000 UI",
+      "doseMaxima": "1.200.000 UI",
+      "reconstituicao": "4 mL de Água Destilada",
+      "diluicao": "Não se aplica.",
+      "observacoes": "NUNCA administrar EV (risco fatal). \nAplicar em músculo profundo (glúteo). \nAgitar vigorosamente. Usar imediatamente."
+    }
+  },
+  {
+    "name": "Sulfato de polimixina B ",
+    "slug": "sulfato-de-polimixina-b",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - IV (Crianças): 15.000 a 25.000 UI/kg/dia, divididos a cada 12 horas.\nIntratecal (>2 anos): 50.000 UI...",
+    "alerts": [
+      "Pode causar toxicidade renal e neurológica grave.\n Monitorar a função renal antes e durante o tratamento. \nA via Intramuscular não é recomendada devid..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "IV (Crianças): 15.000 a 25.000 UI/kg/dia, divididos a cada 12 horas.\nIntratecal (>2 anos): 50.000 UI/dia por 3-4 dias, depois em dias alternados.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Pode causar toxicidade renal e neurológica grave.\n Monitorar a função renal antes e durante o tratamento. \nA via Intramuscular não é recomendada devido à dor intensa."
+    },
+    "calculationParams": {
+      "type": "sulfato-de-polimixina-b",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.4 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "15.000 UI/kg/dia (IV).",
+      "doseMaxima": "25.000 UI/kg/dia (IV).",
+      "reconstituicao": "Reconstituir o pó com 10 mL de diluente apropriado \n(Água p/ Injeção, SF 0,9% ou SG 5%), \nresultando em 50.000 UI/mL.",
+      "diluicao": "Para infusão EV, diluir a dose reconstituída em 300 a 500 mL de SG 5%.",
+      "observacoes": "Pode causar toxicidade renal e neurológica grave.\n Monitorar a função renal antes e durante o tratamento. \nA via Intramuscular não é recomendada devido à dor intensa."
+    }
+  },
+  {
+    "name": " 500.000 UI/Pó ",
+    "slug": "500000-uipo",
+    "form": "Pó para Reconstituição",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTIBIOTICOS - IV (Crianças): 15.000 a 25.000 UI/kg/dia, divididos a cada 12 horas.\nIntratecal (>2 anos): 50.000 UI...",
+    "alerts": [
+      "Pode causar toxicidade renal e neurológica grave.\n Monitorar a função renal antes e durante o tratamento. \nA via Intramuscular não é recomendada devid..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "500.000 UI",
+      "usualDose": "IV (Crianças): 15.000 a 25.000 UI/kg/dia, divididos a cada 12 horas.\nIntratecal (>2 anos): 50.000 UI/dia por 3-4 dias, depois em dias alternados.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Pode causar toxicidade renal e neurológica grave.\n Monitorar a função renal antes e durante o tratamento. \nA via Intramuscular não é recomendada devido à dor intensa."
+    },
+    "calculationParams": {
+      "type": "500000-uipo",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.4 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "15.000 UI/kg/dia (IV).",
+      "doseMaxima": "25.000 UI/kg/dia (IV).",
+      "reconstituicao": "Reconstituir o pó com 10 mL de diluente apropriado \n(Água p/ Injeção, SF 0,9% ou SG 5%), \nresultando em 50.000 UI/mL.",
+      "diluicao": "Para infusão EV, diluir a dose reconstituída em 300 a 500 mL de SG 5%.",
+      "observacoes": "Pode causar toxicidade renal e neurológica grave.\n Monitorar a função renal antes e durante o tratamento. \nA via Intramuscular não é recomendada devido à dor intensa."
+    }
+  },
+  {
+    "name": "Sulfato de polimixina B ",
+    "slug": "sulfato-de-polimixina-b",
+    "form": "Suspensão Oral",
+    "application": "IM",
+    "description": "Medicamento da categoria ANTIBIOTICOS - Crianças: 25.000 a 30.000 UI/kg/dia, divididos em 4 a 6 doses....",
+    "alerts": [
+      "Via não recomendada devido à dor intensa. O uso de Lidocaína 1% como diluente é uma opção para reduzir a dor. Risco de nefrotoxicidade e neurotoxicida..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Crianças: 25.000 a 30.000 UI/kg/dia, divididos em 4 a 6 doses.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Via não recomendada devido à dor intensa. O uso de Lidocaína 1% como diluente é uma opção para reduzir a dor. Risco de nefrotoxicidade e neurotoxicidade."
+    },
+    "calculationParams": {
+      "type": "sulfato-de-polimixina-b",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.025 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "25.000 UI/kg/dia",
+      "doseMaxima": "30.000 UI/kg/dia",
+      "reconstituicao": "Com 2 mL de diluente (Água p/ injetáveis,\n SF 0,9% ou Lidocaína 1%), resultando em 250.000 UI/mL.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Via não recomendada devido à dor intensa. O uso de Lidocaína 1% como diluente é uma opção para reduzir a dor. Risco de nefrotoxicidade e neurotoxicidade."
+    }
+  },
+  {
+    "name": " 500.000 UI/Pó ",
+    "slug": "500000-uipo",
+    "form": "Pó para Reconstituição",
+    "application": "IM",
+    "description": "Medicamento da categoria ANTIBIOTICOS - Crianças: 25.000 a 30.000 UI/kg/dia, divididos em 4 a 6 doses....",
+    "alerts": [
+      "Via não recomendada devido à dor intensa. O uso de Lidocaína 1% como diluente é uma opção para reduzir a dor. Risco de nefrotoxicidade e neurotoxicida..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "500.000 UI",
+      "usualDose": "Crianças: 25.000 a 30.000 UI/kg/dia, divididos em 4 a 6 doses.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Via não recomendada devido à dor intensa. O uso de Lidocaína 1% como diluente é uma opção para reduzir a dor. Risco de nefrotoxicidade e neurotoxicidade."
+    },
+    "calculationParams": {
+      "type": "500000-uipo",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.025 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "25.000 UI/kg/dia",
+      "doseMaxima": "30.000 UI/kg/dia",
+      "reconstituicao": "Com 2 mL de diluente (Água p/ injetáveis,\n SF 0,9% ou Lidocaína 1%), resultando em 250.000 UI/mL.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Via não recomendada devido à dor intensa. O uso de Lidocaína 1% como diluente é uma opção para reduzir a dor. Risco de nefrotoxicidade e neurotoxicidade."
+    }
+  }
+]

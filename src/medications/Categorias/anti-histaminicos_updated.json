@@ -1,0 +1,515 @@
+[
+  {
+    "name": "Hidroxizina 2 mg/mL (Xarope)",
+    "slug": "hidroxizina-2-mgml-xarope",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTI-HISTAMINICO - Crianças: 0,7 mg/kg/dose, de 8/8h (3 vezes ao dia)....",
+    "alerts": [
+      "O efeito adverso mais comum é a sonolência. Usar com cautela com outros depressores do SNC (Sistema Nervoso Central). Pode ser necessário ajuste de do..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "2 mg/mL",
+      "usualDose": "Crianças: 0,7 mg/kg/dose, de 8/8h (3 vezes ao dia).",
+      "doseInterval": "8/8h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "O efeito adverso mais comum é a sonolência. Usar com cautela com outros depressores do SNC (Sistema Nervoso Central). Pode ser necessário ajuste de dose em pacientes com insuficiência renal ou hepática."
+    },
+    "calculationParams": {
+      "type": "hidroxizina-2-mgml-xarope",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.35 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,7 mg/kg/dose",
+      "doseMaxima": "< 6 anos: 50 mg/dia.\n≥ 6 anos: 100 mg/dia.",
+      "reconstituicao": "Não se aplica (solução pronta para uso).",
+      "diluicao": "Não se aplica",
+      "observacoes": "O efeito adverso mais comum é a sonolência. Usar com cautela com outros depressores do SNC (Sistema Nervoso Central). Pode ser necessário ajuste de dose em pacientes com insuficiência renal ou hepática."
+    }
+  },
+  {
+    "name": "Hidroxizina 25 mg (Comprimido)",
+    "slug": "hidroxizina-25-mg-comprimido",
+    "form": "Comprimido",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTI-HISTAMINICO - Crianças: 0,7 mg/kg/dose, de 8/8h (3 vezes ao dia)....",
+    "alerts": [
+      "O efeito adverso mais comum é a sonolência. Usar com cautela com outros depressores do SNC (Sistema Nervoso Central). Pode ser necessário ajuste de do..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "25 mg",
+      "usualDose": "Crianças: 0,7 mg/kg/dose, de 8/8h (3 vezes ao dia).",
+      "doseInterval": "8/8h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "O efeito adverso mais comum é a sonolência. Usar com cautela com outros depressores do SNC (Sistema Nervoso Central). Pode ser necessário ajuste de dose em pacientes com insuficiência renal ou hepática."
+    },
+    "calculationParams": {
+      "type": "hidroxizina-25-mg-comprimido",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.35 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,7 mg/kg/dose",
+      "doseMaxima": "< 6 anos: 50 mg/dia.\n≥ 6 anos: 100 mg/dia.",
+      "reconstituicao": "Não se aplica (solução pronta para uso).",
+      "diluicao": "Não se aplica",
+      "observacoes": "O efeito adverso mais comum é a sonolência. Usar com cautela com outros depressores do SNC (Sistema Nervoso Central). Pode ser necessário ajuste de dose em pacientes com insuficiência renal ou hepática."
+    }
+  },
+  {
+    "name": "Desloratadina 5 mg (Comprimido)",
+    "slug": "desloratadina-5-mg-comprimido",
+    "form": "Comprimido",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTI-HISTAMINICO - Maiores de 12 anos: 5 mg (1 comprimido) uma vez ao dia....",
+    "alerts": [
+      "Pode ser tomado com ou sem alimentos. Uso contraindicado para menores de 12 anos"
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "5 mg",
+      "usualDose": "Maiores de 12 anos: 5 mg (1 comprimido) uma vez ao dia.",
+      "doseInterval": "uma vez ao dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Pode ser tomado com ou sem alimentos. Uso contraindicado para menores de 12 anos"
+    },
+    "calculationParams": {
+      "type": "desloratadina-5-mg-comprimido",
+      "logica_js": null,
+      "doseMinima": "5 mg/dia",
+      "doseMaxima": "5 mg/dia",
+      "reconstituicao": "Não se aplica (solução pronta para uso).",
+      "diluicao": "Não se aplica",
+      "observacoes": "Pode ser tomado com ou sem alimentos. Uso contraindicado para menores de 12 anos"
+    }
+  },
+  {
+    "name": "Desloratadina 0,5 mg/mL (Xarope)",
+    "slug": "desloratadina-05-mgml-xarope",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTI-HISTAMINICO - Dose fixa por idade, 1x ao dia:\n- 6 a 11 meses: 2 mL (1 mg)\n- 1 a 5 anos: 2,5 mL (1,25 mg)\n- 6 a 11 ...",
+    "alerts": [
+      "Pode ser administrado com ou sem alimentos. Usar com cuidado em pacientes com histórico de convulsão ou insuficiência renal grave."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "5 mg/mL",
+      "usualDose": "Dose fixa por idade, 1x ao dia:\n- 6 a 11 meses: 2 mL (1 mg)\n- 1 a 5 anos: 2,5 mL (1,25 mg)\n- 6 a 11 anos: 5 mL (2,5 mg)\n- ≥ 12 anos: 10 mL (5 mg)",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Pode ser administrado com ou sem alimentos. Usar com cuidado em pacientes com histórico de convulsão ou insuficiência renal grave."
+    },
+    "calculationParams": {
+      "type": "desloratadina-05-mgml-xarope",
+      "logica_js": "\"Dose fixa por idade, 1 vez ao dia: - 6-11m: 2 mL - 1-5a: 2,5 mL - 6-11a: 5 mL - ≥12a: 10 mL\"",
+      "doseMinima": "1 mg/dia (2 mL)",
+      "doseMaxima": "5 mg/dia (10 mL)",
+      "reconstituicao": "Não se aplica (solução pronta para uso).",
+      "diluicao": "Não se aplica",
+      "observacoes": "Pode ser administrado com ou sem alimentos. Usar com cuidado em pacientes com histórico de convulsão ou insuficiência renal grave."
+    }
+  },
+  {
+    "name": "Fexofenadina 6 mg/mL (Xarope)",
+    "slug": "fexofenadina-6-mgml-xarope",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTI-HISTAMINICO - Dose fixa por idade, 2x/dia:\n- Urticária (6m a 2a): 2,5 mL (15 mg)\n- Rinite/Urticária (2 a 11a): 5 m...",
+    "alerts": [
+      "Agitar bem o frasco antes de usar. Não administrar com sucos de frutas (toranja, laranja ou maçã). A segurança não foi estabelecida abaixo de 6 meses ..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "6 mg/mL",
+      "usualDose": "Dose fixa por idade, 2x/dia:\n- Urticária (6m a 2a): 2,5 mL (15 mg)\n- Rinite/Urticária (2 a 11a): 5 mL (30 mg)",
+      "doseInterval": "2x/dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Agitar bem o frasco antes de usar. Não administrar com sucos de frutas (toranja, laranja ou maçã). A segurança não foi estabelecida abaixo de 6 meses para urticária e abaixo de 2 anos para rinite alérgica."
+    },
+    "calculationParams": {
+      "type": "fexofenadina-6-mgml-xarope",
+      "logica_js": "\"Dose fixa por idade, 2 vezes ao dia: - 6 meses a 2 anos: 2,5 mL - 2 a 11 anos: 5 mL\"",
+      "doseMinima": "2,5 mL (15 mg)",
+      "doseMaxima": "5 mL (30 mg)",
+      "reconstituicao": "Não se aplica (solução pronta para uso).",
+      "diluicao": "Não se aplica",
+      "observacoes": "Agitar bem o frasco antes de usar. Não administrar com sucos de frutas (toranja, laranja ou maçã). A segurança não foi estabelecida abaixo de 6 meses para urticária e abaixo de 2 anos para rinite alérgica."
+    }
+  },
+  {
+    "name": "Fexofenadina 60, 120 ",
+    "slug": "fexofenadina-60-120",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTI-HISTAMINICO - Dose única diária para >12 anos:\n- Rinite Alérgica: 120 mg ou 180 mg\n- Urticária: 180 mg...",
+    "alerts": [
+      "Administrar com líquido (água). Não administrar com sucos de frutas. Informar o médico em caso de doença renal. Uso não recomendado para menores de 12..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Dose única diária para >12 anos:\n- Rinite Alérgica: 120 mg ou 180 mg\n- Urticária: 180 mg",
+      "doseInterval": "Dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Administrar com líquido (água). Não administrar com sucos de frutas. Informar o médico em caso de doença renal. Uso não recomendado para menores de 12 anos."
+    },
+    "calculationParams": {
+      "type": "fexofenadina-60-120",
+      "logica_js": null,
+      "doseMinima": "120 mg/dia",
+      "doseMaxima": "180 mg/dia",
+      "reconstituicao": "Não se aplica (solução pronta para uso).",
+      "diluicao": "Não se aplica",
+      "observacoes": "Administrar com líquido (água). Não administrar com sucos de frutas. Informar o médico em caso de doença renal. Uso não recomendado para menores de 12 anos."
+    }
+  },
+  {
+    "name": "ou 180 mg (Comprimido)",
+    "slug": "ou-180-mg-comprimido",
+    "form": "Comprimido",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTI-HISTAMINICO - Dose única diária para >12 anos:\n- Rinite Alérgica: 120 mg ou 180 mg\n- Urticária: 180 mg...",
+    "alerts": [
+      "Administrar com líquido (água). Não administrar com sucos de frutas. Informar o médico em caso de doença renal. Uso não recomendado para menores de 12..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "180 mg",
+      "usualDose": "Dose única diária para >12 anos:\n- Rinite Alérgica: 120 mg ou 180 mg\n- Urticária: 180 mg",
+      "doseInterval": "Dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Administrar com líquido (água). Não administrar com sucos de frutas. Informar o médico em caso de doença renal. Uso não recomendado para menores de 12 anos."
+    },
+    "calculationParams": {
+      "type": "ou-180-mg-comprimido",
+      "logica_js": null,
+      "doseMinima": "120 mg/dia",
+      "doseMaxima": "180 mg/dia",
+      "reconstituicao": "Não se aplica (solução pronta para uso).",
+      "diluicao": "Não se aplica",
+      "observacoes": "Administrar com líquido (água). Não administrar com sucos de frutas. Informar o médico em caso de doença renal. Uso não recomendado para menores de 12 anos."
+    }
+  },
+  {
+    "name": "Maleato de Dexclorfeniramina",
+    "slug": "maleato-de-dexclorfeniramina",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTI-HISTAMINICO - > 12 anos: 1 comprimido, 3 a 4 vezes por dia.\n>6 a 12 anos: 1/2 comprimido, 3 vezes por dia....",
+    "alerts": [
+      "Pode causar sonolência; evitar dirigir ou operar máquinas. Contraindicado para menores de 2 anos."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "> 12 anos: 1 comprimido, 3 a 4 vezes por dia.\n>6 a 12 anos: 1/2 comprimido, 3 vezes por dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Pode causar sonolência; evitar dirigir ou operar máquinas. Contraindicado para menores de 2 anos."
+    },
+    "calculationParams": {
+      "type": "maleato-de-dexclorfeniramina",
+      "logica_js": "\"Dose fixa por idade:  >12 anos: 1 comp 3-4x/dia. - 6-12 anos: 1/2 comp 3x/dia.\"",
+      "doseMinima": "6 mg/dia (>12a) \nou \n3 mg/dia (6-12a)",
+      "doseMaxima": "12 mg/dia (>12a) \nou \n6 mg/dia (6-12a)",
+      "reconstituicao": "Não se aplica (solução pronta para uso).",
+      "diluicao": "Não se aplica",
+      "observacoes": "Pode causar sonolência; evitar dirigir ou operar máquinas. Contraindicado para menores de 2 anos."
+    }
+  },
+  {
+    "name": " 2 mg (Comprimido)",
+    "slug": "2-mg-comprimido",
+    "form": "Comprimido",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTI-HISTAMINICO - > 12 anos: 1 comprimido, 3 a 4 vezes por dia.\n>6 a 12 anos: 1/2 comprimido, 3 vezes por dia....",
+    "alerts": [
+      "Pode causar sonolência; evitar dirigir ou operar máquinas. Contraindicado para menores de 2 anos."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "2 mg",
+      "usualDose": "> 12 anos: 1 comprimido, 3 a 4 vezes por dia.\n>6 a 12 anos: 1/2 comprimido, 3 vezes por dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Pode causar sonolência; evitar dirigir ou operar máquinas. Contraindicado para menores de 2 anos."
+    },
+    "calculationParams": {
+      "type": "2-mg-comprimido",
+      "logica_js": "\"Dose fixa por idade:  >12 anos: 1 comp 3-4x/dia. - 6-12 anos: 1/2 comp 3x/dia.\"",
+      "doseMinima": "6 mg/dia (>12a) \nou \n3 mg/dia (6-12a)",
+      "doseMaxima": "12 mg/dia (>12a) \nou \n6 mg/dia (6-12a)",
+      "reconstituicao": "Não se aplica (solução pronta para uso).",
+      "diluicao": "Não se aplica",
+      "observacoes": "Pode causar sonolência; evitar dirigir ou operar máquinas. Contraindicado para menores de 2 anos."
+    }
+  },
+  {
+    "name": "Maleato de Dexclorfeniramina",
+    "slug": "maleato-de-dexclorfeniramina",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTI-HISTAMINICO - Dose fixa por idade:\n- > 12 anos: 5 mL, 3 a 4 vezes por dia.\n- 6 a 12 anos: 2,5 mL, 3 vezes por dia....",
+    "alerts": [
+      "Pode causar sonolência; evitar dirigir ou operar máquinas. Contraindicado para menores de 2 anos."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Dose fixa por idade:\n- > 12 anos: 5 mL, 3 a 4 vezes por dia.\n- 6 a 12 anos: 2,5 mL, 3 vezes por dia.\n- 2 a 6 anos: 1,25 mL, 3 vezes por dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Pode causar sonolência; evitar dirigir ou operar máquinas. Contraindicado para menores de 2 anos."
+    },
+    "calculationParams": {
+      "type": "maleato-de-dexclorfeniramina",
+      "logica_js": "\"Dose fixa por idade: - >12a: 5 mL (3-4x/dia) - 6-12a: 2,5 mL (3x/dia) - 2-6a: 1,25 mL (3x/dia)\"",
+      "doseMinima": "Varia com a idade \n(ver dose usual).",
+      "doseMaxima": ">12a: 12 mg/dia (30 mL)\n6-12a: 6 mg/dia (15 mL)\n>2-6a: 3 mg/dia (7,5 mL)",
+      "reconstituicao": "Não se aplica (solução pronta para uso).",
+      "diluicao": "Não se aplica",
+      "observacoes": "Pode causar sonolência; evitar dirigir ou operar máquinas. Contraindicado para menores de 2 anos."
+    }
+  },
+  {
+    "name": " 0,4 mg/mL (Solução Oral)",
+    "slug": "04-mgml-solucao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTI-HISTAMINICO - Dose fixa por idade:\n- > 12 anos: 5 mL, 3 a 4 vezes por dia.\n- 6 a 12 anos: 2,5 mL, 3 vezes por dia....",
+    "alerts": [
+      "Pode causar sonolência; evitar dirigir ou operar máquinas. Contraindicado para menores de 2 anos."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "4 mg/mL",
+      "usualDose": "Dose fixa por idade:\n- > 12 anos: 5 mL, 3 a 4 vezes por dia.\n- 6 a 12 anos: 2,5 mL, 3 vezes por dia.\n- 2 a 6 anos: 1,25 mL, 3 vezes por dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Pode causar sonolência; evitar dirigir ou operar máquinas. Contraindicado para menores de 2 anos."
+    },
+    "calculationParams": {
+      "type": "04-mgml-solucao-oral",
+      "logica_js": "\"Dose fixa por idade: - >12a: 5 mL (3-4x/dia) - 6-12a: 2,5 mL (3x/dia) - 2-6a: 1,25 mL (3x/dia)\"",
+      "doseMinima": "Varia com a idade \n(ver dose usual).",
+      "doseMaxima": ">12a: 12 mg/dia (30 mL)\n6-12a: 6 mg/dia (15 mL)\n>2-6a: 3 mg/dia (7,5 mL)",
+      "reconstituicao": "Não se aplica (solução pronta para uso).",
+      "diluicao": "Não se aplica",
+      "observacoes": "Pode causar sonolência; evitar dirigir ou operar máquinas. Contraindicado para menores de 2 anos."
+    }
+  },
+  {
+    "name": "Loratadina 1 mg/mL (Xarope)",
+    "slug": "loratadina-1-mgml-xarope",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTI-HISTAMINICO - Dose única diária:\n- > 12 anos: 10 mL (10 mg)\n- 2 a 12 anos (>30 kg): 10 mL (10 mg)\n- 2 a 12 anos (<...",
+    "alerts": [
+      "Pode ser tomado com ou sem alimentos. Não administrar em crianças menores de 2 anos."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "1 mg/mL",
+      "usualDose": "Dose única diária:\n- > 12 anos: 10 mL (10 mg)\n- 2 a 12 anos (>30 kg): 10 mL (10 mg)\n- 2 a 12 anos (<30 kg): 5 mL (5 mg)",
+      "doseInterval": "Dose única",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Pode ser tomado com ou sem alimentos. Não administrar em crianças menores de 2 anos."
+    },
+    "calculationParams": {
+      "type": "loratadina-1-mgml-xarope",
+      "logica_js": "\"Dose fixa 1x/dia: - >12a ou >30kg: 10 mL - 2-12a e <30kg: 5 mL\"",
+      "doseMinima": "5 mg/dia (5 mL)",
+      "doseMaxima": "10 mg/dia (10 mL)",
+      "reconstituicao": "Não se aplica (solução pronta para uso).",
+      "diluicao": "Não se aplica",
+      "observacoes": "Pode ser tomado com ou sem alimentos. Não administrar em crianças menores de 2 anos."
+    }
+  },
+  {
+    "name": "Loratadina 10 mg (Comprimido)",
+    "slug": "loratadina-10-mg-comprimido",
+    "form": "Comprimido",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTI-HISTAMINICO - Adultos e crianças > 12 anos:\n10 mg (1 comprimido) uma vez ao dia....",
+    "alerts": [
+      "Não administrar mais de 1 comprimido em 24 horas. O uso em crianças abaixo de 12 anos não é recomendado."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "10 mg",
+      "usualDose": "Adultos e crianças > 12 anos:\n10 mg (1 comprimido) uma vez ao dia.",
+      "doseInterval": "uma vez ao dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Não administrar mais de 1 comprimido em 24 horas. O uso em crianças abaixo de 12 anos não é recomendado."
+    },
+    "calculationParams": {
+      "type": "loratadina-10-mg-comprimido",
+      "logica_js": null,
+      "doseMinima": "10 mg/dia",
+      "doseMaxima": "10 mg/dia",
+      "reconstituicao": "Não se aplica (solução pronta para uso).",
+      "diluicao": "Não se aplica",
+      "observacoes": "Não administrar mais de 1 comprimido em 24 horas. O uso em crianças abaixo de 12 anos não é recomendado."
+    }
+  },
+  {
+    "name": "Dicloridrato de Cetirizina 1 mg/mL (Solução Oral)",
+    "slug": "dicloridrato-de-cetirizina-1-mgml-solucao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTI-HISTAMINICO - Dose fixa por idade:\n- > 12 anos: 10 mL (10 mg), 1x ao dia.\n- 6 a 12 anos: 5 mL (5 mg), 2x ao dia.\n-...",
+    "alerts": [
+      "Pode ser tomado com ou sem alimentos. Pode causar sonolência. Não ingerir álcool. Uso pediátrico abaixo de 2 anos não foi estabelecido."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "1 mg/mL",
+      "usualDose": "Dose fixa por idade:\n- > 12 anos: 10 mL (10 mg), 1x ao dia.\n- 6 a 12 anos: 5 mL (5 mg), 2x ao dia.\n- 2 a 6 anos: 2,5 mL (2,5 mg), 2x ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Pode ser tomado com ou sem alimentos. Pode causar sonolência. Não ingerir álcool. Uso pediátrico abaixo de 2 anos não foi estabelecido."
+    },
+    "calculationParams": {
+      "type": "dicloridrato-de-cetirizina-1-mgml-solucao-oral",
+      "logica_js": "\"Dose fixa por idade: - >12a: 10 mL (1x/dia) - 6-12a: 5 mL (2x/dia)  2-6a: 2,5 mL (2x/dia)\"",
+      "doseMinima": "5 mg/dia",
+      "doseMaxima": "10 mg/dia",
+      "reconstituicao": "Não se aplica (solução pronta para uso).",
+      "diluicao": "Não se aplica",
+      "observacoes": "Pode ser tomado com ou sem alimentos. Pode causar sonolência. Não ingerir álcool. Uso pediátrico abaixo de 2 anos não foi estabelecido."
+    }
+  },
+  {
+    "name": "Dicloridrato de Cetirizina 10 mg (Comprimido)",
+    "slug": "dicloridrato-de-cetirizina-10-mg-comprimido",
+    "form": "Comprimido",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTI-HISTAMINICO - Adultos e crianças > 12 anos:10 mg\n (1 comprimido) uma vez ao dia....",
+    "alerts": [
+      "Pode ser tomado com ou sem alimentos. Pode causar sonolência. Não ingerir álcool durante o tratamento."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "10 mg",
+      "usualDose": "Adultos e crianças > 12 anos:10 mg\n (1 comprimido) uma vez ao dia.",
+      "doseInterval": "uma vez ao dia",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Pode ser tomado com ou sem alimentos. Pode causar sonolência. Não ingerir álcool durante o tratamento."
+    },
+    "calculationParams": {
+      "type": "dicloridrato-de-cetirizina-10-mg-comprimido",
+      "logica_js": null,
+      "doseMinima": "10 mg/dia",
+      "doseMaxima": "10 mg/dia",
+      "reconstituicao": "Não se aplica (solução pronta para uso).",
+      "diluicao": "Não se aplica",
+      "observacoes": "Pode ser tomado com ou sem alimentos. Pode causar sonolência. Não ingerir álcool durante o tratamento."
+    }
+  },
+  {
+    "name": "Cloridrato de Prometazina 25 mg/mL (Ampola 2 mL)",
+    "slug": "cloridrato-de-prometazina-25-mgml-ampola-2-ml",
+    "form": "Solução Injetável",
+    "application": "IM",
+    "description": "Medicamento da categoria ANTI-HISTAMINICO - Adultos: 25 a 50 mg (1 a 2 mL).\nCrianças (>2 anos): 0,5 a 1 mg/kg/dose....",
+    "alerts": [
+      "Deve ser administrada por via IM profunda. NUNCA administrar por via Subcutânea ou Intra-arterial (risco de necrose grave). Uso EV não recomendado. Ca..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "25 mg/mL",
+      "usualDose": "Adultos: 25 a 50 mg (1 a 2 mL).\nCrianças (>2 anos): 0,5 a 1 mg/kg/dose.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Deve ser administrada por via IM profunda. NUNCA administrar por via Subcutânea ou Intra-arterial (risco de necrose grave). Uso EV não recomendado. Causa sonolência acentuada. Contraindicado para menores de 2 anos."
+    },
+    "calculationParams": {
+      "type": "cloridrato-de-prometazina-25-mgml-ampola-2-ml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.02 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,5 mg/kg/dose",
+      "doseMaxima": "1 mg/kg/dose",
+      "reconstituicao": "Não se aplica (solução pronta).",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Deve ser administrada por via IM profunda. NUNCA administrar por via Subcutânea ou Intra-arterial (risco de necrose grave). Uso EV não recomendado. Causa sonolência acentuada. Contraindicado para menores de 2 anos."
+    }
+  },
+  {
+    "name": "Cloridrato de Difenidramina 50 mg/mL (Solução Injetável)",
+    "slug": "cloridrato-de-difenidramina-50-mgml-solucao-injetavel",
+    "form": "Solução Injetável",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTI-HISTAMINICO - Crianças (>2 anos):\n1,25 mg/kg/dose, 3 a 4 vezes ao dia....",
+    "alerts": [
+      "Causa sonolência acentuada (não dirigir/operar máquinas). Contraindicado para menores de 2 anos. A administração EV deve ser lenta. Não injetar por vi..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "50 mg/mL",
+      "usualDose": "Crianças (>2 anos):\n1,25 mg/kg/dose, 3 a 4 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Causa sonolência acentuada (não dirigir/operar máquinas). Contraindicado para menores de 2 anos. A administração EV deve ser lenta. Não injetar por via subcutânea."
+    },
+    "calculationParams": {
+      "type": "cloridrato-de-difenidramina-50-mgml-solucao-injetavel",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.025 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "1,25 mg/kg/dose",
+      "doseMaxima": "300 mg/dia",
+      "reconstituicao": "Não se aplica (solução pronta).",
+      "diluicao": "Para uso EV, é preferível diluir em SF 0,9% e administrar por gotejamento.",
+      "observacoes": "Causa sonolência acentuada (não dirigir/operar máquinas). Contraindicado para menores de 2 anos. A administração EV deve ser lenta. Não injetar por via subcutânea."
+    }
+  },
+  {
+    "name": "Dimenidrinato 3 mg/mL + Vit. B6 5 mg/mL (Dramin® B6 DL)",
+    "slug": "dimenidrinato-3-mgml-vit-b6-5-mgml-dramin-b6-dl",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria ANTI-HISTAMINICO - Crianças (>2 anos):\n1,25 mg/kg/dose (de dimenidrinato) \na cada 6 horas....",
+    "alerts": [
+      "Infusão lenta (mínimo 20 min). Causa sonolência (não dirigir/operar máquinas). Contraindicado para menores de 2 anos. Usar com cautela em pacientes co..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "3 mg/mL",
+      "usualDose": "Crianças (>2 anos):\n1,25 mg/kg/dose (de dimenidrinato) \na cada 6 horas.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Infusão lenta (mínimo 20 min). Causa sonolência (não dirigir/operar máquinas). Contraindicado para menores de 2 anos. Usar com cautela em pacientes com asma."
+    },
+    "calculationParams": {
+      "type": "dimenidrinato-3-mgml-vit-b6-5-mgml-dramin-b6-dl",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.4 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "1,25 mg/kg/dose",
+      "doseMaxima": "7,5 mg/kg/dia \n(de dimenidrinato).",
+      "reconstituicao": "Não se aplica (solução pronta).",
+      "diluicao": "Diluir 1 ampola (10 mL) em 100 mL de SF 0,9%.",
+      "observacoes": "Infusão lenta (mínimo 20 min). Causa sonolência (não dirigir/operar máquinas). Contraindicado para menores de 2 anos. Usar com cautela em pacientes com asma."
+    }
+  },
+  {
+    "name": "Dimenidrinato 25 mg/mL + Vit. B6 5 mg/mL (Dramin® B6 - Gotas)",
+    "slug": "dimenidrinato-25-mgml-vit-b6-5-mgml-dramin-b6---gotas",
+    "form": "Solução Oral em Gotas",
+    "application": "VO",
+    "description": "Medicamento da categoria ANTI-HISTAMINICO - Crianças (>2 anos): 1,25 mg/kg/dose\n (de dimenidrinato) a cada 6 a 8 horas....",
+    "alerts": [
+      "Causa sonolência (não dirigir/operar máquinas). Contraindicado para menores de 2 anos. Usar com cautela em pacientes com asma. 1 mL equivale a 20 gota..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "25 mg/mL",
+      "usualDose": "Crianças (>2 anos): 1,25 mg/kg/dose\n (de dimenidrinato) a cada 6 a 8 horas.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Causa sonolência (não dirigir/operar máquinas). Contraindicado para menores de 2 anos. Usar com cautela em pacientes com asma. 1 mL equivale a 20 gotas."
+    },
+    "calculationParams": {
+      "type": "dimenidrinato-25-mgml-vit-b6-5-mgml-dramin-b6---gotas",
+      "logica_js": "\"Administrar \" + Math.round(peso * 1) + \" gotas conforme orientação médica\"",
+      "doseMinima": "1,25 mg/kg/dose",
+      "doseMaxima": "7,5 mg/kg/dia \n(de dimenidrinato).",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Causa sonolência (não dirigir/operar máquinas). Contraindicado para menores de 2 anos. Usar com cautela em pacientes com asma. 1 mL equivale a 20 gotas."
+    }
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "CATEGORIA": "ANTIDOTOS",
+    "MEDICAMENTO": "Cloridrato de Naloxona ",
+    "VIA DE ADMINISTRAÇÃO": "Endovenosa (EV), \nIntraóssea \nou \nEndotraqueal",
+    "RECONSTITUIÇÃO": "Não se aplica",
+    "DILUIÇÃO": "EV em bólus: Não é necessária.\nEndotraqueal: Diluir em 1-2 mL de SF 0,9%.",
+    "DOSE USUAL (EM EXIBIÇÃO)": "Reversão de Intoxicação:\n- Neonatal/<20kg: 0,1 mg/kg/dose.\n- >20kg: 2 mg/dose.\nReversão Depressão Terapêutica:\n0,001 a 0,005 mg/kg/dose.",
+    "DOSE MÍNIMA": "0,001 mg/kg/dose.",
+    "DOSE MÁXIMA": "2 mg por dose.",
+    "MACETE DE CÁLCULO": "Intoxicação (Neonatal/<20kg):Peso (kg) × 0,25 Ml\nDepressão Terapêutica: Peso (kg) × 0,0025 a 0,0125 mL",
+    "OBSERVAÇÕES": "A via intramuscular deve ser evitada (absorção errática).\n Para via endotraqueal, lavar o tubo com SF 0,9% após a dose. \nAs doses podem ser repetidas a cada 2-3 minutos, conforme necessário."
+  },
+  {
+    "CATEGORIA": "ANTIDOTOS",
+    "MEDICAMENTO": "0,4 mg/mL (Solução Injetável)",
+    "VIA DE ADMINISTRAÇÃO": "Endovenosa (EV), \nIntraóssea \nou \nEndotraqueal",
+    "RECONSTITUIÇÃO": "Não se aplica",
+    "DILUIÇÃO": "EV em bólus: Não é necessária.\nEndotraqueal: Diluir em 1-2 mL de SF 0,9%.",
+    "DOSE USUAL (EM EXIBIÇÃO)": "Reversão de Intoxicação:\n- Neonatal/<20kg: 0,1 mg/kg/dose.\n- >20kg: 2 mg/dose.\nReversão Depressão Terapêutica:\n0,001 a 0,005 mg/kg/dose.",
+    "DOSE MÍNIMA": "0,001 mg/kg/dose.",
+    "DOSE MÁXIMA": "2 mg por dose.",
+    "MACETE DE CÁLCULO": "Intoxicação (Neonatal/<20kg):Peso (kg) × 0,25 Ml\nDepressão Terapêutica: Peso (kg) × 0,0025 a 0,0125 mL",
+    "OBSERVAÇÕES": "A via intramuscular deve ser evitada (absorção errática).\n Para via endotraqueal, lavar o tubo com SF 0,9% após a dose. \nAs doses podem ser repetidas a cada 2-3 minutos, conforme necessário."
+  },
+  {
+    "CATEGORIA": "ANTIDOTOS",
+    "MEDICAMENTO": "Flumazenil 0,1 mg/mL",
+    "VIA DE ADMINISTRAÇÃO": "Endovenosa (EV)",
+    "RECONSTITUIÇÃO": "Não se aplica",
+    "DILUIÇÃO": "Não é necessária para bólus EV.",
+    "DOSE USUAL (EM EXIBIÇÃO)": "Dose inicial: 0,01 mg/kg (máx. 0,2 mg).\nDoses subsequentes: Repetir 0,01 mg/kg a cada 60 seg (máx. 4x).",
+    "DOSE MÍNIMA": "\n0,01 mg/kg por dose.",
+    "DOSE MÁXIMA": "Dose total de 0,05 mg/kg ou 1 mg (a que for menor).",
+    "MACETE DE CÁLCULO": "Peso (kg) × 0,1 mL por dose (para dose de 0,01 mg/kg).",
+    "OBSERVAÇÕES": "Indicado para maiores de 1 ano. Administrar em 15 segundos. A dose deve ser individualizada. Monitorar recorrência da sedação e depressão respiratória."
+  },
+  {
+    "CATEGORIA": "ANTIDOTOS",
+    "MEDICAMENTO": " (Solução Injetável)",
+    "VIA DE ADMINISTRAÇÃO": "Endovenosa (EV)",
+    "RECONSTITUIÇÃO": "Não se aplica",
+    "DILUIÇÃO": "Não é necessária para bólus EV.",
+    "DOSE USUAL (EM EXIBIÇÃO)": "Dose inicial: 0,01 mg/kg (máx. 0,2 mg).\nDoses subsequentes: Repetir 0,01 mg/kg a cada 60 seg (máx. 4x).",
+    "DOSE MÍNIMA": "\n0,01 mg/kg por dose.",
+    "DOSE MÁXIMA": "Dose total de 0,05 mg/kg ou 1 mg (a que for menor).",
+    "MACETE DE CÁLCULO": "Peso (kg) × 0,1 mL por dose (para dose de 0,01 mg/kg).",
+    "OBSERVAÇÕES": "Indicado para maiores de 1 ano. Administrar em 15 segundos. A dose deve ser individualizada. Monitorar recorrência da sedação e depressão respiratória."
+  },
+  {
+    "CATEGORIA": "ANTIDOTOS",
+    "MEDICAMENTO": "Glucagon 1 mg/mL (Solução Injetável)",
+    "VIA DE ADMINISTRAÇÃO": "Endovenosa (EV) \nOu\n Intramuscular (IM)",
+    "RECONSTITUIÇÃO": "Não se aplica",
+    "DILUIÇÃO": "Não se aplica",
+    "DOSE USUAL (EM EXIBIÇÃO)": "0,02 a 0,03 mg/kg/dose.",
+    "DOSE MÍNIMA": "0,02 mg/kg/dose",
+    "DOSE MÁXIMA": "1 mg (1 mL) por dose.",
+    "MACETE DE CÁLCULO": "Peso (kg) × 0,02 a 0,03 mL por dose.",
+    "OBSERVAÇÕES": "Indicado para o tratamento de hipoglicemia grave. Após a recuperação da consciência, administrar carboidratos orais. Pode causar náuseas e vômitos"
+  }
+]

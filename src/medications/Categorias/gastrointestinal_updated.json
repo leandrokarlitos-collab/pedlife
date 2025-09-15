@@ -1,0 +1,542 @@
+[
+  {
+    "name": "Ondansetrona 2 mg/mL (Solução Injetável)",
+    "slug": "ondansetrona-2-mgml-solucao-injetavel",
+    "form": "Solução Injetável",
+    "application": "EV",
+    "description": "Medicamento da categoria GASTROINTESTINAL - (>1 mês):** 0,1 mg/kg (máx. 4 mg).\n0,15 mg/kg (máx. 8 mg)....",
+    "alerts": [
+      "Injeção EV direta deve ser lenta (2-5 min); \ninfusão em 15 min.\n Risco de prolongamento do intervalo QT. \nAjustar dose em insuficiência hepática grave..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "2 mg/mL",
+      "usualDose": "(>1 mês):** 0,1 mg/kg (máx. 4 mg).\n0,15 mg/kg (máx. 8 mg).",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Injeção EV direta deve ser lenta (2-5 min); \ninfusão em 15 min.\n Risco de prolongamento do intervalo QT. \nAjustar dose em insuficiência hepática grave."
+    },
+    "calculationParams": {
+      "type": "ondansetrona-2-mgml-solucao-injetavel",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.05 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,1 mg/kg/dose",
+      "doseMaxima": "8 mg por dose",
+      "reconstituicao": "Não se aplica (solução pronta).",
+      "diluicao": "Para infusão EV, pode ser diluída em 50 - 100mL de SF 0,9% ou SG 5%.",
+      "observacoes": "Injeção EV direta deve ser lenta (2-5 min); \ninfusão em 15 min.\n Risco de prolongamento do intervalo QT. \nAjustar dose em insuficiência hepática grave."
+    }
+  },
+  {
+    "name": "Ondansetrona 0,8 mg/mL ",
+    "slug": "ondansetrona-08-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria GASTROINTESTINAL - Crianças de 6m a 11 anos: 5 mL (4 mg), 2 a 3 vezes ao dia.\n ≥ 12 anos: 10 mL (8 mg), 2 vezes ao dia....",
+    "alerts": [
+      "Administrar 30 minutos antes da quimioterapia. \nRisco de prolongamento do intervalo QT. \nCautela em pacientes com insuficiência hepática."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "8 mg/mL",
+      "usualDose": "Crianças de 6m a 11 anos: 5 mL (4 mg), 2 a 3 vezes ao dia.\n ≥ 12 anos: 10 mL (8 mg), 2 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Administrar 30 minutos antes da quimioterapia. \nRisco de prolongamento do intervalo QT. \nCautela em pacientes com insuficiência hepática."
+    },
+    "calculationParams": {
+      "type": "ondansetrona-08-mgml",
+      "logica_js": "\"Dose fixa por idade: - 6m-11a: 5 mL (2-3x/dia). - ≥12a: 10 mL (2x/dia).\"",
+      "doseMinima": "4 mg",
+      "doseMaxima": "24 mg/dia",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Administrar 30 minutos antes da quimioterapia. \nRisco de prolongamento do intervalo QT. \nCautela em pacientes com insuficiência hepática."
+    }
+  },
+  {
+    "name": "(4 mg/5 mL) (Xarope)",
+    "slug": "4-mg5-ml-xarope",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria GASTROINTESTINAL - Crianças de 6m a 11 anos: 5 mL (4 mg), 2 a 3 vezes ao dia.\n ≥ 12 anos: 10 mL (8 mg), 2 vezes ao dia....",
+    "alerts": [
+      "Administrar 30 minutos antes da quimioterapia. \nRisco de prolongamento do intervalo QT. \nCautela em pacientes com insuficiência hepática."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "4 mg/5 mL",
+      "usualDose": "Crianças de 6m a 11 anos: 5 mL (4 mg), 2 a 3 vezes ao dia.\n ≥ 12 anos: 10 mL (8 mg), 2 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Administrar 30 minutos antes da quimioterapia. \nRisco de prolongamento do intervalo QT. \nCautela em pacientes com insuficiência hepática."
+    },
+    "calculationParams": {
+      "type": "4-mg5-ml-xarope",
+      "logica_js": "\"Dose fixa por idade: - 6m-11a: 5 mL (2-3x/dia). - ≥12a: 10 mL (2x/dia).\"",
+      "doseMinima": "4 mg",
+      "doseMaxima": "24 mg/dia",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Administrar 30 minutos antes da quimioterapia. \nRisco de prolongamento do intervalo QT. \nCautela em pacientes com insuficiência hepática."
+    }
+  },
+  {
+    "name": "Ondansetrona 4 mg e 8 mg ",
+    "slug": "ondansetrona-4-mg-e-8-mg",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria GASTROINTESTINAL - Crianças de 2 a 11 anos: 4 mg, 2 a 3 vezes ao dia.\n- ≥ 12 anos: 8 mg, 2 vezes ao dia....",
+    "alerts": [
+      "Formas orodispersíveis (filme/granulado) se dissolvem na língua, não precisam de água. Manusear com as mãos secas. Administrar 30-60 min antes da quim..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "4 mg",
+      "usualDose": "Crianças de 2 a 11 anos: 4 mg, 2 a 3 vezes ao dia.\n- ≥ 12 anos: 8 mg, 2 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Formas orodispersíveis (filme/granulado) se dissolvem na língua, não precisam de água. Manusear com as mãos secas. Administrar 30-60 min antes da quimioterapia."
+    },
+    "calculationParams": {
+      "type": "ondansetrona-4-mg-e-8-mg",
+      "logica_js": "\"Dose fixa por idade:  2-11a: 4 mg (2-3x/dia). - ≥12a: 8 mg (2x/dia).\"",
+      "doseMinima": "4 mg",
+      "doseMaxima": "24 mg/dia",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Formas orodispersíveis (filme/granulado) se dissolvem na língua, não precisam de água. Manusear com as mãos secas. Administrar 30-60 min antes da quimioterapia."
+    }
+  },
+  {
+    "name": " Comprimido / Filme / Orodispersível",
+    "slug": "comprimido-filme-orodispersivel",
+    "form": "Comprimido",
+    "application": "VO",
+    "description": "Medicamento da categoria GASTROINTESTINAL - Crianças de 2 a 11 anos: 4 mg, 2 a 3 vezes ao dia.\n- ≥ 12 anos: 8 mg, 2 vezes ao dia....",
+    "alerts": [
+      "Formas orodispersíveis (filme/granulado) se dissolvem na língua, não precisam de água. Manusear com as mãos secas. Administrar 30-60 min antes da quim..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Crianças de 2 a 11 anos: 4 mg, 2 a 3 vezes ao dia.\n- ≥ 12 anos: 8 mg, 2 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Formas orodispersíveis (filme/granulado) se dissolvem na língua, não precisam de água. Manusear com as mãos secas. Administrar 30-60 min antes da quimioterapia."
+    },
+    "calculationParams": {
+      "type": "comprimido-filme-orodispersivel",
+      "logica_js": "\"Dose fixa por idade:  2-11a: 4 mg (2-3x/dia). - ≥12a: 8 mg (2x/dia).\"",
+      "doseMinima": "4 mg",
+      "doseMaxima": "24 mg/dia",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Formas orodispersíveis (filme/granulado) se dissolvem na língua, não precisam de água. Manusear com as mãos secas. Administrar 30-60 min antes da quimioterapia."
+    }
+  },
+  {
+    "name": "Bromoprida 5 mg/mL (Ampola 2 mL)",
+    "slug": "bromoprida-5-mgml-ampola-2-ml",
+    "form": "Solução Injetável",
+    "application": "EV",
+    "description": "Medicamento da categoria GASTROINTESTINAL - Crianças (>1 ano): 0,5 a 1 mg/kg/dia, divididos em 2 a 3 tomadas....",
+    "alerts": [
+      "Administração EV deve ser LENTA (mínimo 3 min). Risco de reações extrapiramidais (espasmos), principalmente em crianças. Causa sonolência. Contraindic..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "5 mg/mL",
+      "usualDose": "Crianças (>1 ano): 0,5 a 1 mg/kg/dia, divididos em 2 a 3 tomadas.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Administração EV deve ser LENTA (mínimo 3 min). Risco de reações extrapiramidais (espasmos), principalmente em crianças. Causa sonolência. Contraindicada em menores de 1 ano."
+    },
+    "calculationParams": {
+      "type": "bromoprida-5-mgml-ampola-2-ml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.06 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,5 mg/kg/dia",
+      "doseMaxima": "1 mg/kg/dia",
+      "reconstituicao": "Não se aplica (solução pronta).",
+      "diluicao": "Para uso EV, pode ser administrada diretamente ou diluída em soro.",
+      "observacoes": "Administração EV deve ser LENTA (mínimo 3 min). Risco de reações extrapiramidais (espasmos), principalmente em crianças. Causa sonolência. Contraindicada em menores de 1 ano."
+    }
+  },
+  {
+    "name": "Bromoprida 4 mg/mL (Gotas)",
+    "slug": "bromoprida-4-mgml-gotas",
+    "form": "Solução Oral em Gotas",
+    "application": "VO",
+    "description": "Medicamento da categoria GASTROINTESTINAL - Crianças (>1 ano): 1 a 2 gotas por kg de peso,\n divididas em 3 tomadas diárias....",
+    "alerts": [
+      "Risco de reações extrapiramidais (espasmos), principalmente em crianças. Causa sonolência. Contraindicada em crianças menores de 1 ano de idade."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "4 mg/mL",
+      "usualDose": "Crianças (>1 ano): 1 a 2 gotas por kg de peso,\n divididas em 3 tomadas diárias.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Risco de reações extrapiramidais (espasmos), principalmente em crianças. Causa sonolência. Contraindicada em crianças menores de 1 ano de idade."
+    },
+    "calculationParams": {
+      "type": "bromoprida-4-mgml-gotas",
+      "logica_js": "\"Administrar \" + Math.round(peso * 2) + \" gotas conforme orientação médica\"",
+      "doseMinima": "1 gota/kg/dose",
+      "doseMaxima": "2 gotas/kg/dose",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Risco de reações extrapiramidais (espasmos), principalmente em crianças. Causa sonolência. Contraindicada em crianças menores de 1 ano de idade."
+    }
+  },
+  {
+    "name": "Bromoprida 10 mg",
+    "slug": "bromoprida-10-mg",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria GASTROINTESTINAL - Adultos: 10 mg (1 comprimido), 2 a 3 vezes ao dia (de 12/12h ou 8/8h)....",
+    "alerts": [
+      "Formato inadequado para dose pediátrica precisa. Risco de reações extrapiramidais. Causa sonolência."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "10 mg",
+      "usualDose": "Adultos: 10 mg (1 comprimido), 2 a 3 vezes ao dia (de 12/12h ou 8/8h).",
+      "doseInterval": "12/12h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Formato inadequado para dose pediátrica precisa. Risco de reações extrapiramidais. Causa sonolência."
+    },
+    "calculationParams": {
+      "type": "bromoprida-10-mg",
+      "logica_js": null,
+      "doseMinima": "20 mg/dia",
+      "doseMaxima": "60 mg/dia",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Formato inadequado para dose pediátrica precisa. Risco de reações extrapiramidais. Causa sonolência."
+    }
+  },
+  {
+    "name": " (Comprimido ou Cápsula)",
+    "slug": "comprimido-ou-capsula",
+    "form": "Comprimido",
+    "application": "VO",
+    "description": "Medicamento da categoria GASTROINTESTINAL - Adultos: 10 mg (1 comprimido), 2 a 3 vezes ao dia (de 12/12h ou 8/8h)....",
+    "alerts": [
+      "Formato inadequado para dose pediátrica precisa. Risco de reações extrapiramidais. Causa sonolência."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Adultos: 10 mg (1 comprimido), 2 a 3 vezes ao dia (de 12/12h ou 8/8h).",
+      "doseInterval": "12/12h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Formato inadequado para dose pediátrica precisa. Risco de reações extrapiramidais. Causa sonolência."
+    },
+    "calculationParams": {
+      "type": "comprimido-ou-capsula",
+      "logica_js": null,
+      "doseMinima": "20 mg/dia",
+      "doseMaxima": "60 mg/dia",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Formato inadequado para dose pediátrica precisa. Risco de reações extrapiramidais. Causa sonolência."
+    }
+  },
+  {
+    "name": " Cloridrato de Metoclopramida 5 mg/mL ",
+    "slug": "cloridrato-de-metoclopramida-5-mgml",
+    "form": "Suspensão Oral",
+    "application": "EV",
+    "description": "Medicamento da categoria GASTROINTESTINAL - Crianças (>1 ano): 0,1 a 0,15 mg/kg/dose, até 3 vezes ao dia....",
+    "alerts": [
+      "Administração EV deve ser LENTA (mínimo de 3 minutos) para evitar ansiedade e agitação. Risco de reações extrapiramidais (espasmos), principalmente em..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "5 mg/mL",
+      "usualDose": "Crianças (>1 ano): 0,1 a 0,15 mg/kg/dose, até 3 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Administração EV deve ser LENTA (mínimo de 3 minutos) para evitar ansiedade e agitação. Risco de reações extrapiramidais (espasmos), principalmente em crianças. Contraindicado para menores de 1 ano."
+    },
+    "calculationParams": {
+      "type": "cloridrato-de-metoclopramida-5-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.03 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,1 mg/kg/dose",
+      "doseMaxima": "0,5 mg/kg/dia",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Para infusão EV, pode ser diluída em 50 - 100mL de SF 0,9% ou SG 5%.",
+      "observacoes": "Administração EV deve ser LENTA (mínimo de 3 minutos) para evitar ansiedade e agitação. Risco de reações extrapiramidais (espasmos), principalmente em crianças. Contraindicado para menores de 1 ano."
+    }
+  },
+  {
+    "name": "(Ampola 2 mL)",
+    "slug": "ampola-2-ml",
+    "form": "Solução Injetável",
+    "application": "EV",
+    "description": "Medicamento da categoria GASTROINTESTINAL - Crianças (>1 ano): 0,1 a 0,15 mg/kg/dose, até 3 vezes ao dia....",
+    "alerts": [
+      "Administração EV deve ser LENTA (mínimo de 3 minutos) para evitar ansiedade e agitação. Risco de reações extrapiramidais (espasmos), principalmente em..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Crianças (>1 ano): 0,1 a 0,15 mg/kg/dose, até 3 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Administração EV deve ser LENTA (mínimo de 3 minutos) para evitar ansiedade e agitação. Risco de reações extrapiramidais (espasmos), principalmente em crianças. Contraindicado para menores de 1 ano."
+    },
+    "calculationParams": {
+      "type": "ampola-2-ml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.03 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,1 mg/kg/dose",
+      "doseMaxima": "0,5 mg/kg/dia",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Para infusão EV, pode ser diluída em 50 - 100mL de SF 0,9% ou SG 5%.",
+      "observacoes": "Administração EV deve ser LENTA (mínimo de 3 minutos) para evitar ansiedade e agitação. Risco de reações extrapiramidais (espasmos), principalmente em crianças. Contraindicado para menores de 1 ano."
+    }
+  },
+  {
+    "name": "Cloridrato de Metoclopramida 4 mg/mL (Gotas)",
+    "slug": "cloridrato-de-metoclopramida-4-mgml-gotas",
+    "form": "Solução Oral em Gotas",
+    "application": "VO",
+    "description": "Medicamento da categoria GASTROINTESTINAL - Crianças (>1 ano): 1 a 2 gotas por kg de peso, 3 vezes ao dia....",
+    "alerts": [
+      "Risco de reações extrapiramidais (espasmos), principalmente em crianças. Contraindicado para crianças menores de 1 ano de idade. Administrar 30 minuto..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "4 mg/mL",
+      "usualDose": "Crianças (>1 ano): 1 a 2 gotas por kg de peso, 3 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Risco de reações extrapiramidais (espasmos), principalmente em crianças. Contraindicado para crianças menores de 1 ano de idade. Administrar 30 minutos antes das refeições."
+    },
+    "calculationParams": {
+      "type": "cloridrato-de-metoclopramida-4-mgml-gotas",
+      "logica_js": "\"Administrar \" + Math.round(peso * 2) + \" gotas conforme orientação médica\"",
+      "doseMinima": "1 gota/kg/dose",
+      "doseMaxima": "2 gotas/kg/dose",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Risco de reações extrapiramidais (espasmos), principalmente em crianças. Contraindicado para crianças menores de 1 ano de idade. Administrar 30 minutos antes das refeições."
+    }
+  },
+  {
+    "name": "Omeprazol 40 mg (Pó para Solução Injetável)",
+    "slug": "omeprazol-40-mg-po-para-solucao-injetavel",
+    "form": "Solução Injetável",
+    "application": "EV",
+    "description": "Medicamento da categoria GASTROINTESTINAL - Dose Pediátrica (prática clínica): 1 mg/kg/dia, \nadministrado 1 a 2 vezes ao dia....",
+    "alerts": [
+      "Injeção EV direta deve ser lenta (mínimo 2,5 minutos). Infusão em 20-30 minutos. Usar em até 4 horas após a reconstituição e proteger da luz."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "40 mg",
+      "usualDose": "Dose Pediátrica (prática clínica): 1 mg/kg/dia, \nadministrado 1 a 2 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Injeção EV direta deve ser lenta (mínimo 2,5 minutos). Infusão em 20-30 minutos. Usar em até 4 horas após a reconstituição e proteger da luz."
+    },
+    "calculationParams": {
+      "type": "omeprazol-40-mg-po-para-solucao-injetavel",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.25 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,5 mg/kg/dia",
+      "doseMaxima": "Não exceder a dose adulta (geralmente 40 mg/dia).",
+      "reconstituicao": "Reconstituir com o diluente próprio de 10 mL \n(Resulta em 4 mg/mL)",
+      "diluicao": "Para infusão, diluir a dose em 100 mL de SF 0,9% ou SG 5%.",
+      "observacoes": "Injeção EV direta deve ser lenta (mínimo 2,5 minutos). Infusão em 20-30 minutos. Usar em até 4 horas após a reconstituição e proteger da luz."
+    }
+  },
+  {
+    "name": "Omeprazol 4mg/ml (Xarope) VO/SNG",
+    "slug": "omeprazol-4mgml-xarope-vosng",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria GASTROINTESTINAL - 0,5 a 1 mg/kg/dia, 1 vez ao dia (24/24h)....",
+    "alerts": [
+      "Administrar em jejum. Geralmente manipulado como solução oral a 2 mg/mL. Estável por até 14 dias sob refrigeração (2–8 °C)."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "4mg/ml",
+      "usualDose": "0,5 a 1 mg/kg/dia, 1 vez ao dia (24/24h).",
+      "doseInterval": "24/24h",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Administrar em jejum. Geralmente manipulado como solução oral a 2 mg/mL. Estável por até 14 dias sob refrigeração (2–8 °C)."
+    },
+    "calculationParams": {
+      "type": "omeprazol-4mgml-xarope-vosng",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.5 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,5 mg/kg/dia",
+      "doseMaxima": "3 mg/kg/dia",
+      "reconstituicao": "Não se aplica (solução manipulada).",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Administrar em jejum. Geralmente manipulado como solução oral a 2 mg/mL. Estável por até 14 dias sob refrigeração (2–8 °C)."
+    }
+  },
+  {
+    "name": "Cloridrato de Ranitidina 25 mg/mL (Ampola 2 mL)",
+    "slug": "cloridrato-de-ranitidina-25-mgml-ampola-2-ml",
+    "form": "Solução Injetável",
+    "application": "EV",
+    "description": "Medicamento da categoria GASTROINTESTINAL - Dose Pediátrica (prática clínica): 2 a 4 mg/kg/dia, divididos em 3 a 4 doses....",
+    "alerts": [
+      "Injeção EV deve ser LENTA (mín. 2 min). Infusão em 15-20 min. Ajustar dose em insuficiência renal. A bula afirma que o uso pediátrico não foi avaliado..."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "25 mg/mL",
+      "usualDose": "Dose Pediátrica (prática clínica): 2 a 4 mg/kg/dia, divididos em 3 a 4 doses.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Injeção EV deve ser LENTA (mín. 2 min). Infusão em 15-20 min. Ajustar dose em insuficiência renal. A bula afirma que o uso pediátrico não foi avaliado."
+    },
+    "calculationParams": {
+      "type": "cloridrato-de-ranitidina-25-mgml-ampola-2-ml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.04 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "2 mg/kg/dia",
+      "doseMaxima": "4 mg/kg/dia (máx. 50 mg/dose).",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Para injeção EV, diluir para um volume de 20 mL \ncom SF 0,9%. Para infusão, diluir em 100 mL.",
+      "observacoes": "Injeção EV deve ser LENTA (mín. 2 min). Infusão em 15-20 min. Ajustar dose em insuficiência renal. A bula afirma que o uso pediátrico não foi avaliado."
+    }
+  },
+  {
+    "name": "Cloridrato de Ranitidina 15 mg/mL (150 mg/10 mL) (Xarope)",
+    "slug": "cloridrato-de-ranitidina-15-mgml-150-mg10-ml-xarope",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria GASTROINTESTINAL - Crianças (>1 mês): 2 a 4 mg/kg/dose, 2 vezes ao dia....",
+    "alerts": [
+      "Ajustar dose em insuficiência renal. Contraindicado para menores de 1 mês. Pode ser tomado com ou sem alimentos."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "150 mg/10 mL",
+      "usualDose": "Crianças (>1 mês): 2 a 4 mg/kg/dose, 2 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Ajustar dose em insuficiência renal. Contraindicado para menores de 1 mês. Pode ser tomado com ou sem alimentos."
+    },
+    "calculationParams": {
+      "type": "cloridrato-de-ranitidina-15-mgml-150-mg10-ml-xarope",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.133 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "2 mg/kg/dose",
+      "doseMaxima": "4 mg/kg/dose (máx. 300 mg/dia).",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Ajustar dose em insuficiência renal. Contraindicado para menores de 1 mês. Pode ser tomado com ou sem alimentos."
+    }
+  },
+  {
+    "name": "Cloridrato de Ranitidina 40 mg/mL ",
+    "slug": "cloridrato-de-ranitidina-40-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria GASTROINTESTINAL - Dose Pediátrica (prática clínica): 2 a 4 mg/kg/dose, 2 vezes ao dia....",
+    "alerts": [
+      "A bula fornecida é um rótulo e não contém posologia. A dose é baseada em referências pediátricas padrão."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "40 mg/mL",
+      "usualDose": "Dose Pediátrica (prática clínica): 2 a 4 mg/kg/dose, 2 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "A bula fornecida é um rótulo e não contém posologia. A dose é baseada em referências pediátricas padrão."
+    },
+    "calculationParams": {
+      "type": "cloridrato-de-ranitidina-40-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.05 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "2 mg/kg/dose",
+      "doseMaxima": "4 mg/kg/dose (máx. 300 mg/dia).",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "A bula fornecida é um rótulo e não contém posologia. A dose é baseada em referências pediátricas padrão."
+    }
+  },
+  {
+    "name": "(Gotas)",
+    "slug": "gotas",
+    "form": "Solução Oral em Gotas",
+    "application": "VO",
+    "description": "Medicamento da categoria GASTROINTESTINAL - Dose Pediátrica (prática clínica): 2 a 4 mg/kg/dose, 2 vezes ao dia....",
+    "alerts": [
+      "A bula fornecida é um rótulo e não contém posologia. A dose é baseada em referências pediátricas padrão."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Dose Pediátrica (prática clínica): 2 a 4 mg/kg/dose, 2 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "A bula fornecida é um rótulo e não contém posologia. A dose é baseada em referências pediátricas padrão."
+    },
+    "calculationParams": {
+      "type": "gotas",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.05 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "2 mg/kg/dose",
+      "doseMaxima": "4 mg/kg/dose (máx. 300 mg/dia).",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "A bula fornecida é um rótulo e não contém posologia. A dose é baseada em referências pediátricas padrão."
+    }
+  },
+  {
+    "name": "Domperidona 1 mg/Ml",
+    "slug": "domperidona-1-mgml",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria GASTROINTESTINAL - Crianças e adolescentes (<12 anos ou <35 kg): \n0,25 mg/kg/dose, 3 a 4 vezes ao dia....",
+    "alerts": [
+      "Administrar antes das refeições."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "1 mg/Ml",
+      "usualDose": "Crianças e adolescentes (<12 anos ou <35 kg): \n0,25 mg/kg/dose, 3 a 4 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Administrar antes das refeições."
+    },
+    "calculationParams": {
+      "type": "domperidona-1-mgml",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.25 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,25 mg/kg/dose",
+      "doseMaxima": "0,75 mg/kg/dia",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Administrar antes das refeições."
+    }
+  },
+  {
+    "name": " (Suspensão Oral)",
+    "slug": "suspensao-oral",
+    "form": "Suspensão Oral",
+    "application": "VO",
+    "description": "Medicamento da categoria GASTROINTESTINAL - Crianças e adolescentes (<12 anos ou <35 kg): \n0,25 mg/kg/dose, 3 a 4 vezes ao dia....",
+    "alerts": [
+      "Administrar antes das refeições."
+    ],
+    "commonBrandNames": "Consulte farmácia",
+    "dosageInformation": {
+      "concentration": "Ver fórmula",
+      "usualDose": "Crianças e adolescentes (<12 anos ou <35 kg): \n0,25 mg/kg/dose, 3 a 4 vezes ao dia.",
+      "doseInterval": "Conforme prescrição",
+      "treatmentDuration": "Conforme orientação médica",
+      "administrationNotes": "Administrar antes das refeições."
+    },
+    "calculationParams": {
+      "type": "suspensao-oral",
+      "logica_js": "\"Administrar \" + Math.round(peso * 0.25 * 10) / 10 + \" mL conforme orientação médica\"",
+      "doseMinima": "0,25 mg/kg/dose",
+      "doseMaxima": "0,75 mg/kg/dia",
+      "reconstituicao": "Não se aplica.",
+      "diluicao": "Não se aplica.",
+      "observacoes": "Administrar antes das refeições."
+    }
+  }
+]
