@@ -32,7 +32,7 @@ const App = () => (
           <Route path="/login" element={<AuthPage />} />
           <Route path="/register" element={<AuthPage />} />
           
-          <Route path="/platform" element={<AuthGuard><PlatformLayout /></AuthGuard>}>
+          <Route path="/platform" element={<PlatformLayout />}>
             <Route index element={<CalculatorPage />} />
             <Route path="calculator" element={<Outlet />}>
               <Route index element={<CalculatorPage />} />
