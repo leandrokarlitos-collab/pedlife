@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 
 interface MousePosition { x: number; y: number; }
-interface Particle { x: number; y: number; vx: number; vy: number; size: number; baseX: number; baseY: number; density: number; color: string; }
 
 export const usePediatricParticles = (
   canvasRef: React.RefObject<HTMLCanvasElement>,
@@ -10,8 +9,9 @@ export const usePediatricParticles = (
   isHovered: boolean,
   colors: string[]
 ) => {
-  const particles = useRef<Particle[]>([]);
   const animationFrameId = useRef<number>();
+  const time = useRef(0);
+  const mouseInfluence = useRef({ x: 0.5, y: 0.5 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -23,77 +23,130 @@ export const usePediatricParticles = (
     const resizeCanvas = () => {
       canvas.width = container.clientWidth;
       canvas.height = container.clientHeight;
-      initParticles();
     };
 
-    const initParticles = () => {
-      particles.current = [];
-      const numberOfParticles = (canvas.width * canvas.height) / 2000; 
-      for (let i = 0; i < numberOfParticles; i++) {
-        const size = Math.random() * 2 + 0.5;
-        const x = Math.random() * canvas.width;
-        const y = Math.random() * canvas.height;
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        particles.current.push({
-          x, y, vx: 0, vy: 0, // Velocidade para inércia
-          size, baseX: x, baseY: y,
-          density: (Math.random() * 10) + 2,
-          color
-        });
+    // Extrair cores RGB
+    const extractRGB = (color: string) => {
+      const match = color.match(/\d+/g);
+      if (match) {
+        return { r: parseInt(match[0]), g: parseInt(match[1]), b: parseInt(match[2]) };
       }
+      return { r: 99, g: 102, b: 241 };
     };
+
+    const rgbColors = colors.map(extractRGB);
 
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      particles.current.forEach(p => {
-        // Física de Atração com Inércia (Liquid Feel)
-        let dx = mousePos.x - p.x;
-        let dy = mousePos.y - p.y;
-        let distance = Math.sqrt(dx * dx + dy * dy);
-        const forceDistance = 120;
+      const width = canvas.width;
+      const height = canvas.height;
 
-        if (isHovered && distance < forceDistance) {
-          const force = (forceDistance - distance) / forceDistance;
-          const angle = Math.atan2(dy, dx);
-          const pushX = Math.cos(angle) * force * p.density * 0.8;
-          const pushY = Math.sin(angle) * force * p.density * 0.8;
-          
-          p.vx += pushX;
-          p.vy += pushY;
-        } else {
-          // Retorno elástico à base
-          const dxBase = p.baseX - p.x;
-          const dyBase = p.baseY - p.y;
-          p.vx += dxBase * 0.02; // Mola
-          p.vy += dyBase * 0.02;
-        }
+      ctx.clearRect(0, 0, width, height);
 
-        // Aplicar fricção (viscosidade)
-        p.vx *= 0.85; 
-        p.vy *= 0.85;
+      // Tempo suave
+      time.current += 0.008;
 
-        p.x += p.vx;
-        p.y += p.vy;
-        
+      // Suavizar influência do mouse
+      const targetX = isHovered ? mousePos.x / width : 0.5;
+      const targetY = isHovered ? mousePos.y / height : 0.5;
+      mouseInfluence.current.x += (targetX - mouseInfluence.current.x) * 0.05;
+      mouseInfluence.current.y += (targetY - mouseInfluence.current.y) * 0.05;
+
+      const mx = mouseInfluence.current.x;
+      const my = mouseInfluence.current.y;
+
+      // === AURORA GRADIENT EFFECT ===
+
+      // Criar múltiplos gradientes que se movem e se misturam
+      const gradientLayers = 3;
+
+      for (let layer = 0; layer < gradientLayers; layer++) {
+        const color = rgbColors[layer % rgbColors.length];
+        const nextColor = rgbColors[(layer + 1) % rgbColors.length];
+
+        // Posição do gradiente muda com o tempo e mouse
+        const angleOffset = time.current * (0.3 + layer * 0.1) + layer * 2;
+
+        // Centro do gradiente se move suavemente
+        const centerX = width * (0.3 + Math.sin(angleOffset) * 0.3 + mx * 0.2);
+        const centerY = height * (0.3 + Math.cos(angleOffset * 0.7) * 0.3 + my * 0.2);
+
+        // Raio do gradiente pulsa suavemente
+        const baseRadius = Math.max(width, height) * 0.8;
+        const radius = baseRadius + Math.sin(time.current + layer) * 30;
+
+        // Criar gradiente radial
+        const gradient = ctx.createRadialGradient(
+          centerX, centerY, 0,
+          centerX, centerY, radius
+        );
+
+        // Opacidade base - mais visível no hover
+        const baseOpacity = isHovered ? 0.15 : 0.08;
+        const layerOpacity = baseOpacity - layer * 0.03;
+
+        gradient.addColorStop(0, `rgba(${color.r}, ${color.g}, ${color.b}, ${layerOpacity})`);
+        gradient.addColorStop(0.4, `rgba(${nextColor.r}, ${nextColor.g}, ${nextColor.b}, ${layerOpacity * 0.5})`);
+        gradient.addColorStop(1, `rgba(${color.r}, ${color.g}, ${color.b}, 0)`);
+
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, width, height);
+      }
+
+      // === SHIMMER HIGHLIGHT (segue o mouse) ===
+      if (isHovered) {
+        const shimmerX = mx * width;
+        const shimmerY = my * height;
+        const shimmerRadius = 100 + Math.sin(time.current * 2) * 20;
+
+        const shimmer = ctx.createRadialGradient(
+          shimmerX, shimmerY, 0,
+          shimmerX, shimmerY, shimmerRadius
+        );
+
+        shimmer.addColorStop(0, 'rgba(255, 255, 255, 0.15)');
+        shimmer.addColorStop(0.5, 'rgba(255, 255, 255, 0.05)');
+        shimmer.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+        ctx.fillStyle = shimmer;
+        ctx.fillRect(0, 0, width, height);
+      }
+
+      // === SUBTLE FLOATING PARTICLES ===
+      const particleCount = isHovered ? 6 : 3;
+
+      for (let i = 0; i < particleCount; i++) {
+        const phase = time.current * 0.5 + i * 1.5;
+
+        const px = width * (0.2 + Math.sin(phase + i) * 0.3 + Math.cos(phase * 0.7) * 0.2);
+        const py = height * (0.2 + Math.cos(phase * 0.8 + i) * 0.3 + Math.sin(phase * 0.5) * 0.2);
+
+        const size = 2 + Math.sin(phase * 2) * 1;
+        const alpha = isHovered ? 0.2 + Math.sin(phase * 3) * 0.1 : 0.1;
+
+        const color = rgbColors[i % rgbColors.length];
+
+        // Partícula principal
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.closePath();
-        
-        // Efeito de brilho pulsante no hover
-        const alpha = isHovered ? (0.4 + Math.abs(p.vx)*0.1) : 0.15;
-        ctx.fillStyle = p.color.replace('rgb', 'rgba').replace(')', `, ${alpha})`);
+        ctx.arc(px, py, size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha})`;
         ctx.fill();
-      });
+
+        // Glow suave
+        ctx.beginPath();
+        ctx.arc(px, py, size * 3, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha * 0.2})`;
+        ctx.fill();
+      }
+
       animationFrameId.current = requestAnimationFrame(animate);
     };
 
     resizeCanvas();
     animate();
-    
-    // Resize observer logic...
+
     const resizeObserver = new ResizeObserver(resizeCanvas);
     resizeObserver.observe(container);
+
     return () => {
       if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
       resizeObserver.disconnect();

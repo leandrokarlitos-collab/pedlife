@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { PremiumCategoryCard } from '@/components/ui/PremiumCategoryCard';
 import { allCategories } from '@/data/mockMedications';
 import { Link } from 'react-router-dom';
-import { AnimatedBabyIcon } from '@/components/icons/AnimatedBabyIcon';
+import { PremiumBabyIcon } from '@/components/icons/PremiumBabyIcon';
 
 const CalculatorPage: React.FC = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
@@ -12,7 +12,7 @@ const CalculatorPage: React.FC = () => {
   const categories = allCategories.map(cat => ({
     title: cat.title,
     slug: cat.slug,
-    icon: AnimatedBabyIcon, 
+    icon: PremiumBabyIcon,
     description: cat.description || "Dosagens e orientações clínicas."
   }));
 
@@ -23,7 +23,7 @@ const CalculatorPage: React.FC = () => {
         {/* Badge Animado */}
         <div className="inline-flex items-center justify-center py-2 px-5 rounded-full bg-premium-violet/5 backdrop-blur-xl border border-premium-violet/20 text-premium-violet shadow-sm hover:shadow-md transition-all duration-300 group cursor-default">
            <div className="w-5 h-5 mr-2.5 text-premium-violet">
-             <AnimatedBabyIcon />
+             <PremiumBabyIcon />
            </div>
            <span className="font-bold tracking-widest uppercase text-[10px]">PedLife Clinical Tools</span>
         </div>
@@ -47,9 +47,16 @@ const CalculatorPage: React.FC = () => {
         </div>
       </div>
       
-      <div className={viewMode === 'grid' ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 w-full max-w-7xl px-4 perspective-1000" : "flex flex-col w-full max-w-3xl gap-4 px-4"}>
-        {categories.map((category) => (
-          <div key={category.slug} className="animate-fade-in-up" style={{ animationDelay: `${Math.random() * 0.5}s` }}>
+      <div className={viewMode === 'grid' ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 w-full max-w-7xl px-4" : "flex flex-col w-full max-w-3xl gap-4 px-4"}>
+        {categories.map((category, index) => (
+          <div
+            key={category.slug}
+            className="animate-fade-in-up opacity-0"
+            style={{
+              animationDelay: `${index * 0.08}s`,
+              animationFillMode: 'forwards'
+            }}
+          >
             <Link to={`/platform/calculator/${category.slug}`} className="block h-full">
                <PremiumCategoryCard {...category} layout={viewMode} />
             </Link>
