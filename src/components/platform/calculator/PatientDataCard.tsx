@@ -36,24 +36,41 @@ Dados do Paciente:
   `.trim();
   
   return (
-    <Card className="relative">
-       <Button 
+    <Card className="border border-gray-200 dark:border-gray-800">
+      <Button 
         variant="ghost" 
         size="icon" 
-        className="absolute top-2 right-2 text-primary/70 hover:text-primary dark:text-primary-foreground/70 dark:hover:text-primary-foreground"
+        className="absolute top-3 right-3 z-10"
         onClick={() => copyToClipboard(textToCopy, "Dados do paciente copiados!")}
         title="Copiar dados do paciente"
       >
         <Copy className="h-4 w-4" />
       </Button>
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold text-gray-700 dark:text-gray-100">Dados do Paciente</CardTitle>
+      
+      <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+        <CardTitle className="text-base font-semibold flex items-center gap-2">
+          <span className="text-lg">👤</span>
+          Dados do Paciente
+        </CardTitle>
       </CardHeader>
-      <CardContent className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
-        <p>Peso: <span className="font-medium">{calculationData.weight} kg</span></p>
-        <p>Idade: <span className="font-medium">{calculationData.age} anos</span></p>
-        <p>Data do cálculo: <span className="font-medium">{calculationData.calculationDate}</span></p>
-        <p>Horário: <span className="font-medium">{calculationData.calculationTime}</span></p>
+      
+      <CardContent className="text-sm space-y-3 pt-6">
+        <div className="flex justify-between">
+          <span className="text-muted-foreground">Peso:</span>
+          <span className="font-semibold">{calculationData.weight} kg</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-muted-foreground">Idade:</span>
+          <span className="font-semibold">{calculationData.age} anos</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-muted-foreground">Data:</span>
+          <span className="font-semibold">{calculationData.calculationDate}</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-muted-foreground">Horário:</span>
+          <span className="font-semibold">{calculationData.calculationTime}</span>
+        </div>
       </CardContent>
     </Card>
   );

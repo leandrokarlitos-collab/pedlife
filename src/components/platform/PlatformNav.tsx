@@ -31,20 +31,30 @@ export const PlatformNav: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full glass-nav">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-6">
-          <Link to="/platform" className="flex items-center gap-2">
+          <Link to="/platform" className="flex items-center gap-2 group">
             <img
               src="/lovable-uploads/b16ed0cb-3142-4d88-85ea-a5a2deccbba2.png"
               alt="Pedlife Logo"
-              className="h-8 w-auto" // Ajustei para h-8 para manter consistência, pode ser ajustado se necessário
+              className="h-9 w-auto transition-transform duration-200 group-hover:scale-105"
             />
           </Link>
           {!isMobile && (
-            <nav className="flex items-center gap-4">
+            <nav className="flex items-center gap-1">
               {navItems.map((item) => (
-                <NavLink key={item.to} to={item.to} className={navLinkClasses}>
+                <NavLink 
+                  key={item.to} 
+                  to={item.to} 
+                  className={({ isActive }) =>
+                    `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                      isActive 
+                        ? 'bg-primary/10 text-primary' 
+                        : 'text-muted-foreground hover:text-foreground hover:bg-gray-100 dark:hover:bg-gray-800'
+                    }`
+                  }
+                >
                   {item.label}
                 </NavLink>
               ))}
@@ -52,17 +62,17 @@ export const PlatformNav: React.FC = () => {
           )}
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
           <Button 
             variant="ghost" 
             size="icon" 
             onClick={toggleTheme}
-            className="text-muted-foreground hover:text-primary"
+            className="transition-all duration-200"
           >
             {theme === 'dark' ? (
-              <Sun className="h-5 w-5" />
+              <Sun className="h-5 w-5 text-amber-500" />
             ) : (
-              <Moon className="h-5 w-5" />
+              <Moon className="h-5 w-5 text-indigo-600" />
             )}
             <span className="sr-only">Alternar tema</span>
           </Button>
@@ -75,22 +85,24 @@ export const PlatformNav: React.FC = () => {
                   <span className="sr-only">Abrir menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right">
-                <nav className="grid gap-6 text-lg font-medium mt-8">
+              <SheetContent side="right" className="border-l">
+                <nav className="grid gap-4 mt-8">
                   <Link to="/platform" className="flex items-center gap-2 mb-4">
-                     <img
-                       src="/lovable-uploads/b16ed0cb-3142-4d88-85ea-a5a2deccbba2.png"
-                       alt="Pedlife Logo"
-                       className="h-8 w-auto" // Ajustei para h-8 para manter consistência
-                     />
-                   </Link>
+                    <img
+                      src="/lovable-uploads/b16ed0cb-3142-4d88-85ea-a5a2deccbba2.png"
+                      alt="Pedlife Logo"
+                      className="h-9 w-auto"
+                    />
+                  </Link>
                   {navItems.map((item) => (
                     <SheetClose key={item.to} asChild>
                       <NavLink
                         to={item.to}
                         className={({ isActive }) =>
-                          `flex items-center gap-4 px-2.5 ${
-                            isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
+                          `flex items-center gap-4 px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
+                            isActive 
+                              ? 'bg-primary/10 text-primary' 
+                              : 'text-muted-foreground hover:text-foreground hover:bg-gray-100 dark:hover:bg-gray-800'
                           }`
                         }
                       >

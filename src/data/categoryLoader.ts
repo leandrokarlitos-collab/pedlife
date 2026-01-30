@@ -1,5 +1,5 @@
 import type { MockMedicationData, MedicationCategoryData, CategoryInfo, Medication, MedicationGroup } from '@/types/medication';
-import { LucideIcon, Pill, Syringe, ShieldAlert, Package, Brain, Microscope, HeartPulse, Eye, Stethoscope, Activity, Zap } from 'lucide-react';
+import { LucideIcon, Pill } from 'lucide-react';
 import { slugify } from '@/lib/utils';
 
 // Importar arquivos de categoria existentes
@@ -13,7 +13,8 @@ import carvaoAtivado from '@/medications/Categorias/carvao_ativado_fixed.json';
 import corticoidesEv from '@/medications/Categorias/corticoides_ev_fixed.json';
 import medicacaoBradicardia from '@/medications/Categorias/medicacao_bradicardia_fixed.json';
 import nasais from '@/medications/Categorias/nasais_fixed.json';
-import oftalmologicosOtologicos from '@/medications/Categorias/oftalmologicos_otologicos_fixed.json';
+import oftalmologicos from '@/medications/Categorias/oftalmologicos_fixed.json';
+import otologicos from '@/medications/Categorias/otologicos_fixed.json';
 import pcr from '@/medications/Categorias/pcr_fixed.json';
 import sedativos from '@/medications/Categorias/sedativos_fixed.json';
 import xaropesTosse from '@/medications/Categorias/xaropes_tosse_fixed.json';
@@ -34,8 +35,8 @@ import gastrointestinal from '@/medications/Categorias/gastrointestinal_updated.
 
 // Arquivo estático de cada categoria (combinando dados antigos e novos)
 const categoryFiles: Record<string, Medication[]> = {
-  // Categorias atualizadas com novos dados
-  'antibioticos': [...antibioticos, ...antibioticosUpdated],
+  // Categorias atualizadas com novos dados - Antimicrobianos fundidos com Antibióticos
+  'antibioticos': [...antibioticos, ...antibioticosUpdated, ...antimicrobianos],
   'anticonvulsivantes': [...anticonvulsivantes, ...anticonvulsivantesUpdated],
   'antivirais': [...antivirais, ...antiviraisUpdated],
   'corticoides-ev': [...corticoidesEv, ...corticoidesUpdated],
@@ -50,46 +51,46 @@ const categoryFiles: Record<string, Medication[]> = {
   
   // Categorias existentes mantidas
   'antiemeticos': antiemeticos,
-  'antimicrobianos': antimicrobianos,
   'bloqueador-neuromuscular': bloqueadorNeuromuscular,
   'carvao-ativado': carvaoAtivado,
   'medicacao-bradicardia': medicacaoBradicardia,
   'nasais': nasais,
-  'oftalmologicos-otologicos': oftalmologicosOtologicos,
+  'oftalmologicos': oftalmologicos,
+  'otologicos': otologicos,
   'pcr': pcr,
   'sedativos': sedativos,
   'xaropes-tosse': xaropesTosse,
 };
 
 const categoryIconMap: Record<string, { icon: LucideIcon; iconColorClass: string; bgColorClass: string }> = {
-  // Categorias existentes
+  // Todas as categorias com ícone Pill unificado e variações de cor
   'antibioticos': { icon: Pill, iconColorClass: 'text-blue-500', bgColorClass: 'bg-blue-100' },
-  'antivirais': { icon: ShieldAlert, iconColorClass: 'text-green-500', bgColorClass: 'bg-green-100' },
-  'antiemeticos': { icon: Package, iconColorClass: 'text-purple-500', bgColorClass: 'bg-purple-100' },
-  'anticonvulsivantes': { icon: Brain, iconColorClass: 'text-indigo-600', bgColorClass: 'bg-indigo-100' },
-  'antimicrobianos': { icon: Microscope, iconColorClass: 'text-green-600', bgColorClass: 'bg-green-100' },
-  'bloqueador-neuromuscular': { icon: Brain, iconColorClass: 'text-gray-600', bgColorClass: 'bg-gray-100' },
-  'corticoides-ev': { icon: Syringe, iconColorClass: 'text-red-500', bgColorClass: 'bg-red-100' },
-  'medicacao-bradicardia': { icon: HeartPulse, iconColorClass: 'text-yellow-600', bgColorClass: 'bg-yellow-100' },
-  'nasais': { icon: Package, iconColorClass: 'text-green-400', bgColorClass: 'bg-green-50' },
-  
-  // Novas categorias
-  'anti-histaminicos': { icon: ShieldAlert, iconColorClass: 'text-orange-500', bgColorClass: 'bg-orange-100' },
-  'antidotos': { icon: Zap, iconColorClass: 'text-red-600', bgColorClass: 'bg-red-100' },
-  'antiparasitarios': { icon: Microscope, iconColorClass: 'text-teal-600', bgColorClass: 'bg-teal-100' },
-  'antitussigenos': { icon: Stethoscope, iconColorClass: 'text-cyan-600', bgColorClass: 'bg-cyan-100' },
-  'expectorantes-mucoliticos': { icon: Activity, iconColorClass: 'text-emerald-600', bgColorClass: 'bg-emerald-100' },
-  'gastrointestinal': { icon: Package, iconColorClass: 'text-violet-600', bgColorClass: 'bg-violet-100' },
-  
-  // Categorias existentes mantidas
-  'oftalmologicos-otologicos': { icon: Eye, iconColorClass: 'text-blue-500', bgColorClass: 'bg-blue-100' },
-  'pcr': { icon: HeartPulse, iconColorClass: 'text-red-700', bgColorClass: 'bg-red-200' },
-  'sedativos': { icon: Brain, iconColorClass: 'text-purple-600', bgColorClass: 'bg-purple-100' },
-  'xaropes-tosse': { icon: Package, iconColorClass: 'text-amber-500', bgColorClass: 'bg-amber-100' },
-  'carvao-ativado': { icon: Package, iconColorClass: 'text-gray-600', bgColorClass: 'bg-gray-100' },
+  'antivirais': { icon: Pill, iconColorClass: 'text-green-500', bgColorClass: 'bg-green-100' },
+  'antiemeticos': { icon: Pill, iconColorClass: 'text-purple-500', bgColorClass: 'bg-purple-100' },
+  'anticonvulsivantes': { icon: Pill, iconColorClass: 'text-indigo-600', bgColorClass: 'bg-indigo-100' },
+  'bloqueador-neuromuscular': { icon: Pill, iconColorClass: 'text-gray-600', bgColorClass: 'bg-gray-100' },
+  'corticoides-ev': { icon: Pill, iconColorClass: 'text-red-500', bgColorClass: 'bg-red-100' },
+  'medicacao-bradicardia': { icon: Pill, iconColorClass: 'text-yellow-600', bgColorClass: 'bg-yellow-100' },
+  'nasais': { icon: Pill, iconColorClass: 'text-green-400', bgColorClass: 'bg-green-50' },
+  'anti-histaminicos': { icon: Pill, iconColorClass: 'text-orange-500', bgColorClass: 'bg-orange-100' },
+  'antidotos': { icon: Pill, iconColorClass: 'text-red-600', bgColorClass: 'bg-red-100' },
+  'antiparasitarios': { icon: Pill, iconColorClass: 'text-teal-600', bgColorClass: 'bg-teal-100' },
+  'antitussigenos': { icon: Pill, iconColorClass: 'text-cyan-600', bgColorClass: 'bg-cyan-100' },
+  'expectorantes-mucoliticos': { icon: Pill, iconColorClass: 'text-emerald-600', bgColorClass: 'bg-emerald-100' },
+  'gastrointestinal': { icon: Pill, iconColorClass: 'text-violet-600', bgColorClass: 'bg-violet-100' },
+  'oftalmologicos': { icon: Pill, iconColorClass: 'text-blue-500', bgColorClass: 'bg-blue-100' },
+  'otologicos': { icon: Pill, iconColorClass: 'text-pink-500', bgColorClass: 'bg-pink-100' },
+  'pcr': { icon: Pill, iconColorClass: 'text-red-700', bgColorClass: 'bg-red-200' },
+  'sedativos': { icon: Pill, iconColorClass: 'text-purple-600', bgColorClass: 'bg-purple-100' },
+  'xaropes-tosse': { icon: Pill, iconColorClass: 'text-amber-500', bgColorClass: 'bg-amber-100' },
+  'carvao-ativado': { icon: Pill, iconColorClass: 'text-gray-600', bgColorClass: 'bg-gray-100' },
 };
 
 function formatCategoryName(slug: string): string {
+  // Tratamento especial para corticoides-ev
+  if (slug === 'corticoides-ev') {
+    return 'Corticoides';
+  }
   return slug.split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
 }
 

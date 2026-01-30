@@ -209,19 +209,25 @@ const ChatBot: React.FC = () => {
         <DialogTrigger asChild>
           <Button
             size="lg"
-            className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 bg-primary hover:bg-primary/90 z-50"
+            className="fixed bottom-8 right-8 h-16 w-16 rounded-full shadow-premium-xl hover:shadow-premium-xl transition-all duration-500 bg-gradient-to-br from-violet-600 to-blue-600 hover:from-violet-700 hover:to-blue-700 z-50 group ripple-effect hover:scale-110 glow-effect-strong animate-pulse-glow"
           >
-            <MessageCircle className="h-6 w-6" />
+            <MessageCircle className="h-7 w-7 group-hover:scale-110 transition-transform duration-300" />
             <span className="sr-only">Abrir chat</span>
+            
+            {/* Pulse ring */}
+            <div className="absolute inset-0 rounded-full border-2 border-violet-400 opacity-0 group-hover:opacity-75 animate-ping" />
           </Button>
         </DialogTrigger>
 
-        <DialogContent className="sm:max-w-md h-[600px] flex flex-col p-0 border-0 shadow-lg">
-          <DialogHeader className="p-4 border-b bg-primary text-primary-foreground">
-            <DialogTitle className="flex items-center justify-between pr-8">
-              <div className="flex items-center gap-2">
-                <Bot className="h-5 w-5" />
-                Assistente PedLife
+        <DialogContent className="sm:max-w-md h-[600px] flex flex-col p-0 border-0 shadow-premium-xl backdrop-premium">
+          <DialogHeader className="p-5 border-b border-white/10 bg-gradient-to-r from-violet-600 via-blue-600 to-indigo-600 text-white relative overflow-hidden">
+            <div className="absolute inset-0 shimmer-effect opacity-30" />
+            <DialogTitle className="flex items-center justify-between pr-10 relative z-10">
+              <div className="flex items-center gap-3">
+                <div className="icon-glass-bg p-2 rounded-lg animate-pulse-glow">
+                  <Bot className="h-6 w-6" />
+                </div>
+                <span className="font-bold text-lg">Assistente PedLife</span>
               </div>
               <div className="flex items-center gap-1 text-xs mr-2">
                 <div className={`w-2 h-2 rounded-full ${

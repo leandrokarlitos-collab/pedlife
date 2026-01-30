@@ -22,13 +22,16 @@ interface DoseCalculatorSectionProps {
 
 const DoseCalculatorSection = ({ medication, form, onSubmit, navigate }: DoseCalculatorSectionProps) => {
   return (
-    <section className="grid md:grid-cols-3 gap-8">
+    <section className="grid md:grid-cols-3 gap-8 animate-fade-in">
       <div className="md:col-span-2">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-2xl">Calculadora de Dose</CardTitle>
+        <Card className="border border-gray-200 dark:border-gray-800">
+          <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+            <CardTitle className="text-xl font-semibold flex items-center gap-2">
+              <span className="text-xl">🧮</span>
+              Calculadora de Dose
+            </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="pt-6">
             <MedicationCalculatorInputForm form={form} onSubmit={onSubmit} navigate={navigate} />
           </CardContent>
         </Card>

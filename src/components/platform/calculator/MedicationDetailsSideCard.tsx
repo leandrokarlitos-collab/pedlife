@@ -22,50 +22,50 @@ interface MedicationDetailsSideCardProps {
 
 const MedicationDetailsSideCard: React.FC<MedicationDetailsSideCardProps> = ({ medication }) => {
   return (
-    <Card className="bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
-      <CardHeader>
-        <CardTitle className="text-xl dark:text-gray-100">Informações do Medicamento</CardTitle>
+    <Card className="border border-gray-200 dark:border-gray-800 sticky top-20">
+      <CardHeader className="border-b border-gray-200 dark:border-gray-800">
+        <CardTitle className="text-base font-semibold flex items-center gap-2">
+          <span className="text-lg">ℹ️</span>
+          Informações do Medicamento
+        </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-3 text-sm">
-        <div>
-          <Label className="font-semibold dark:text-gray-200">Nome:</Label>
-          <p className="text-muted-foreground dark:text-gray-300">{medication.name}</p>
+      <CardContent className="space-y-4 text-sm pt-6">
+        <div className="space-y-1">
+          <Label className="font-semibold text-xs text-muted-foreground uppercase">Nome</Label>
+          <p className="text-gray-900 dark:text-gray-100 font-medium">{medication.name}</p>
         </div>
-        {medication.dosageInformation?.concentration && (
-          <div>
-            <Label className="font-semibold dark:text-gray-200">Concentração:</Label>
-            <p className="text-muted-foreground dark:text-gray-300">{medication.dosageInformation.concentration}</p>
-          </div>
-        )}
         {medication.dosageInformation?.usualDose && (
-          <div>
-            <Label className="font-semibold dark:text-gray-200">Dose usual:</Label>
-            <p className="text-muted-foreground dark:text-gray-300">{medication.dosageInformation.usualDose}</p>
+          <div className="space-y-1">
+            <Label className="font-semibold text-xs text-muted-foreground uppercase">Dose usual</Label>
+            <p className="text-gray-900 dark:text-gray-100">{medication.dosageInformation.usualDose}</p>
           </div>
         )}
          {medication.dosageInformation?.doseInterval && (
-          <div>
-            <Label className="font-semibold dark:text-gray-200">Intervalo:</Label>
-            <p className="text-muted-foreground dark:text-gray-300">{medication.dosageInformation.doseInterval}</p>
+          <div className="space-y-1">
+            <Label className="font-semibold text-xs text-muted-foreground uppercase">Intervalo</Label>
+            <p className="text-gray-900 dark:text-gray-100">{medication.dosageInformation.doseInterval}</p>
           </div>
         )}
         {medication.dosageInformation?.treatmentDuration && (
-          <div>
-            <Label className="font-semibold dark:text-gray-200">Duração:</Label>
-            <p className="text-muted-foreground dark:text-gray-300">{medication.dosageInformation.treatmentDuration}</p>
+          <div className="space-y-1">
+            <Label className="font-semibold text-xs text-muted-foreground uppercase">Duração</Label>
+            <p className="text-gray-900 dark:text-gray-100">{medication.dosageInformation.treatmentDuration}</p>
           </div>
         )}
         {medication.dosageInformation?.administrationNotes && (
-           <div>
-            <Label className="font-semibold dark:text-gray-200">Notas de Administração:</Label>
-            <p className="text-muted-foreground dark:text-gray-300">{medication.dosageInformation.administrationNotes}</p>
+           <div className="space-y-1">
+            <Label className="font-semibold text-xs text-muted-foreground uppercase">Notas de Administração</Label>
+            <p className="text-gray-900 dark:text-gray-100 leading-relaxed">{medication.dosageInformation.administrationNotes}</p>
           </div>
         )}
-        <div className="pt-4">
-          <p className="text-xs text-center text-muted-foreground dark:text-gray-400 mb-2">Paciente alérgico?</p>
+        <div className="pt-6">
+          <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800/50 text-center mb-3">
+            <p className="text-sm text-muted-foreground font-medium mb-1">💭 Paciente alérgico?</p>
+            <p className="text-xs text-muted-foreground">Consulte o assistente inteligente</p>
+          </div>
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="outline" className="w-full">
+              <Button variant="default" className="w-full">
                 <Bot className="mr-2 h-4 w-4" /> Auxílio do Lifebot
               </Button>
             </DialogTrigger>

@@ -32,7 +32,7 @@ const MedicationFormView = ({
   navigate,
 }: MedicationFormViewProps) => {
   return (
-    <div className="max-w-6xl mx-auto py-8 px-4 bg-slate-50 dark:bg-background min-h-full rounded-lg">
+    <div className="max-w-6xl mx-auto py-8 px-4 min-h-full">
       <CalculatorBreadcrumb
         categorySlug={categorySlug}
         categoryTitle={categoryData.title}
@@ -40,16 +40,22 @@ const MedicationFormView = ({
         medicationName={medication.name}
         isResultPage={false}
       />
-      <MedicationInfoSummarySection
-        medication={medication}
-        categoryDisplayInfo={categoryDisplayInfo}
-      />
-      <DoseCalculatorSection
-        medication={medication}
-        form={form}
-        onSubmit={onSubmit}
-        navigate={navigate}
-      />
+      
+      <div className="mt-6">
+        <MedicationInfoSummarySection
+          medication={medication}
+          categoryDisplayInfo={categoryDisplayInfo}
+        />
+      </div>
+      
+      <div className="mt-6">
+        <DoseCalculatorSection
+          medication={medication}
+          form={form}
+          onSubmit={onSubmit}
+          navigate={navigate}
+        />
+      </div>
     </div>
   );
 };

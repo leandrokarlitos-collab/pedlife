@@ -36,26 +36,33 @@ const ProtocolCard: React.FC<ProtocolCardProps> = ({
   hasCalculator = false,
   calculatorLink
 }) => (
-  <Card className="hover:shadow-lg transition-shadow">
-    <CardHeader>
+  <Card className="glass-card-premium hover:glass-card-hover group relative overflow-hidden">
+    {/* Gradient overlay */}
+    <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+    
+    <CardHeader className="relative z-10 border-b border-white/10 pb-4">
       <div className="flex items-center gap-3 mb-2">
-        <Icon className={`h-8 w-8 ${iconColorClass}`} />
-        <CardTitle className="text-xl">{title}</CardTitle>
+        <div className="icon-glass-bg p-3 rounded-xl group-hover:scale-105 transition-all duration-300">
+          <Icon className={`h-6 w-6 ${iconColorClass}`} />
+        </div>
+        <CardTitle className="text-lg font-bold group-hover:gradient-text-premium transition-all duration-300">
+          {title}
+        </CardTitle>
       </div>
     </CardHeader>
-    <CardContent>
-      <p className="text-sm text-muted-foreground mb-4">{description}</p>
+    <CardContent className="pt-5 relative z-10">
+      <p className="text-sm text-muted-foreground mb-5 leading-relaxed font-medium">{description}</p>
       <div className="flex gap-2">
         {hasCalculator && calculatorLink ? (
-          <Button variant="default" size="sm" asChild className="w-full">
+          <Button variant="gradient" size="sm" asChild className="w-full py-5 font-bold">
             <Link to={calculatorLink}>
-              <Calculator className="h-3 w-3 mr-1" />
+              <Calculator className="h-4 w-4 mr-2" />
               Calculadora
             </Link>
           </Button>
         ) : link ? (
-          <Button variant="outline" size="sm" asChild className="w-full">
-            <Link to={link}>Ver Protocolo</Link>
+          <Button variant="glass-premium" size="sm" asChild className="w-full py-5 font-semibold">
+            <Link to={link}>📋 Ver Protocolo</Link>
           </Button>
         ) : null}
       </div>
@@ -79,14 +86,22 @@ interface CategorySectionProps {
 }
 
 const CategorySection: React.FC<CategorySectionProps> = ({ title, icon: Icon, iconColor, protocols }) => (
-  <section className="mb-10">
-    <div className="flex items-center gap-2 mb-6">
-      <Icon className={`h-6 w-6 ${iconColor}`} />
-      <h2 className={`text-2xl font-semibold ${iconColor}`}>{title}</h2>
+  <section className="mb-12 animate-fade-in">
+    <div className="flex items-center gap-3 mb-6">
+      <div className="icon-glass-bg p-2.5 rounded-xl">
+        <Icon className={`h-7 w-7 ${iconColor}`} />
+      </div>
+      <h2 className="text-3xl font-bold gradient-text-premium">{title}</h2>
+      <div className="h-px flex-1 bg-gradient-to-r from-violet-500/20 via-blue-500/20 to-transparent ml-4" />
     </div>
-    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
       {protocols.map((protocol, index) => (
-        <ProtocolCard key={`${title}-protocol-${index}`} {...protocol} />
+        <div 
+          key={`${title}-protocol-${index}`}
+          className={`animate-scale-in cascade-item-${(index % 8) + 1}`}
+        >
+          <ProtocolCard {...protocol} />
+        </div>
       ))}
     </div>
   </section>
@@ -293,23 +308,58 @@ const ProtocolsPage: React.FC = () => {
   ];
 
   return (
-    <div className="container mx-auto py-8 px-4">
-      <header className="mb-10 text-center">
-        <BookOpenText className="h-16 w-16 mx-auto text-primary mb-4" />
-        <h1 className="text-4xl font-bold text-gray-800">Protocolos</h1>
-        <p className="text-lg text-muted-foreground mt-2">
-          Sistema de apoio à decisão clínica baseado em protocolos médicos pediátricos.
-        </p>
-      </header>
+    <div className="container mx-auto py-12 px-4 relative">
+      {/* Floating particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="particle particle-1" style={{ top: '8%', left: '12%' }} />
+        <div className="particle particle-3" style={{ top: '35%', right: '18%' }} />
+        <div className="particle particle-2" style={{ bottom: '25%', left: '22%' }} />
+        <div className="particle particle-1" style={{ top: '70%', right: '25%' }} />
+      </div>
 
-      <div className="mb-8 max-w-xl mx-auto">
-        <div className="relative">
-          <Input
-            type="search"
-            placeholder="Buscar protocolo..."
-            className="pl-10 text-base py-3"
-          />
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+      <div className="relative z-10">
+        <header className="mb-14 text-center animate-fade-in">
+          <div className="relative inline-block mb-8">
+            <div className="icon-glass-bg p-6 rounded-2xl animate-pulse-glow corner-accent">
+              <BookOpenText className="h-20 w-20 text-violet-600 dark:text-violet-400 drop-shadow-2xl" />
+            </div>
+            <div className="absolute -inset-4 bg-gradient-to-r from-violet-500/20 via-blue-500/20 to-indigo-500/20 blur-2xl rounded-full opacity-50 -z-10" />
+          </div>
+          <h1 className="text-6xl md:text-7xl font-extrabold gradient-text-premium mb-5 text-glow-strong tracking-tight">
+            Protocolos Clínicos
+          </h1>
+        <p className="text-lg text-muted-foreground mt-3 max-w-2xl mx-auto leading-relaxed">
+          Sistema de apoio à decisão clínica baseado em 
+          <span className="gradient-text-accent font-semibold"> protocolos médicos pediátricos</span>.
+        </p>
+        
+          {/* Decorative line with shimmer */}
+          <div className="flex items-center justify-center gap-3 mt-8">
+            <div className="h-px w-20 bg-gradient-to-r from-transparent via-violet-500/60 to-transparent relative overflow-hidden">
+              <div className="absolute inset-0 shimmer-effect" />
+            </div>
+            <div className="relative">
+              <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-violet-500 to-blue-500 animate-pulse" />
+              <div className="absolute inset-0 rounded-full bg-violet-500 animate-ping opacity-75" />
+            </div>
+            <div className="h-px w-20 bg-gradient-to-r from-transparent via-blue-500/60 to-transparent relative overflow-hidden">
+              <div className="absolute inset-0 shimmer-effect" />
+            </div>
+          </div>
+        </header>
+
+        <div className="mb-12 max-w-2xl mx-auto animate-slide-in-left">
+          <div className="relative glass-card-premium p-2 corner-accent group">
+            <div className="absolute inset-0 shimmer-effect opacity-0 group-focus-within:opacity-100 transition-opacity duration-500 rounded-xl" />
+            <Input
+              type="search"
+              placeholder="🔍 Buscar protocolo..."
+              className="glass-input pl-14 text-lg py-7 border-0 focus:glow-effect-hover relative z-10 font-medium"
+            />
+            <div className="absolute left-5 top-1/2 -translate-y-1/2 icon-glass-bg p-2 rounded-lg">
+              <Search className="h-5 w-5 text-violet-600 dark:text-violet-400" />
+            </div>
+          </div>
         </div>
       </div>
 

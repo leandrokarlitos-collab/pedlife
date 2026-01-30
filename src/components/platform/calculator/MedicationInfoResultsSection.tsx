@@ -36,52 +36,73 @@ Manter em temperatura ambiente, salvo indicação contrária.`}
 
   return (
     <>
-      <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">Informações do Medicamento</h2>
+      <div className="flex items-center gap-3 mb-6">
+        <h2 className="text-3xl font-extrabold gradient-text-premium text-glow">Informações do Medicamento</h2>
+        <div className="h-px flex-1 bg-gradient-to-r from-violet-500/30 via-blue-500/30 to-transparent relative overflow-hidden">
+          <div className="absolute inset-0 shimmer-effect" />
+        </div>
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <Card className="lg:col-span-2 relative dark:bg-gray-800 dark:border-gray-700">
+        <Card className="lg:col-span-2 relative glass-card-premium noise-texture corner-accent group">
+          <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-blue-500/5 opacity-50" />
+          
            <Button 
             variant="ghost" 
             size="icon" 
-            className="absolute top-2 right-2 text-primary/70 hover:text-primary"
+            className="absolute top-3 right-3 glass-button z-20"
             onClick={() => copyToClipboard(medicationInfoToCopy, "Informações do medicamento copiadas!")}
             title="Copiar informações do medicamento"
           >
-            <Copy className="h-4 w-4" />
+            <Copy className="h-4 w-4 text-violet-600 dark:text-violet-400" />
           </Button>
-          <CardHeader>
-            <CardTitle className="text-xl text-gray-700 dark:text-gray-100">{medication.name}</CardTitle>
+          <CardHeader className="border-b border-white/10 relative z-10">
+            <CardTitle className="text-xl gradient-text-premium font-bold">{medication.name}</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="pt-6 relative z-10 space-y-4">
             {medication.description && medication.description.trim() !== "" && (
-              <p className="text-sm text-muted-foreground mb-4 dark:text-gray-300">
-                {medication.description}
-              </p>
+              <div className="glass-card p-4 rounded-xl">
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {medication.description}
+                </p>
+              </div>
             )}
             {medication.alerts && medication.alerts.length > 0 && (
-              <div className="mb-4">
-                <h4 className="font-semibold text-red-600 mb-1">Alertas:</h4>
-                <ul className="list-disc list-inside text-sm text-red-500">
-                  {medication.alerts.map((alert, index) => <li key={index}>{alert}</li>)}
+              <div className="glass-card p-4 rounded-xl border-l-2 border-red-500">
+                <h4 className="font-bold text-red-600 dark:text-red-400 mb-3 flex items-center gap-2">
+                  <span>⚠️</span> Alertas Importantes
+                </h4>
+                <ul className="space-y-2">
+                  {medication.alerts.map((alert, index) => (
+                    <li key={index} className="text-sm text-red-500 dark:text-red-400 flex items-start gap-2">
+                      <span className="mt-1">•</span>
+                      <span>{alert}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             )}
           </CardContent>
         </Card>
         
-        <Card className="relative dark:bg-gray-800 dark:border-gray-700">
+        <Card className="relative glass-card-premium corner-accent group">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 opacity-50" />
+          
           <Button 
             variant="ghost" 
             size="icon" 
-            className="absolute top-2 right-2 text-primary/70 hover:text-primary"
+            className="absolute top-3 right-3 glass-button z-20"
             onClick={() => copyToClipboard(observationsToCopy, "Observações copiadas!")}
             title="Copiar observações"
           >
-            <Copy className="h-4 w-4" />
+            <Copy className="h-4 w-4 text-blue-600 dark:text-blue-400" />
           </Button>
-          <CardHeader>
-            <CardTitle className="text-lg font-semibold text-gray-700 dark:text-gray-100">Observações</CardTitle>
+          <CardHeader className="border-b border-white/10 relative z-10">
+            <CardTitle className="text-lg font-bold gradient-text-premium flex items-center gap-2">
+              <span className="icon-glass-bg p-2 rounded-lg">📝</span>
+              Observações
+            </CardTitle>
           </CardHeader>
-          <CardContent className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+          <CardContent className="text-sm space-y-3 pt-6 relative z-10">
             {medication.dosageInformation?.administrationNotes ? (
               <p>{medication.dosageInformation.administrationNotes}</p>
             ) : (

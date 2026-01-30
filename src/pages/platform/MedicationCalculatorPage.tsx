@@ -202,6 +202,25 @@ const MedicationCalculatorPage: React.FC = () => {
     return <MedicationNotFound />;
   }
 
+  // Para oftalmológicos e otológicos, usar dose fixa sem necessidade de cálculo
+  const isFixedDoseCategory = categorySlug === 'oftalmologicos' || categorySlug === 'otologicos';
+  
+  // Se for dose fixa e ainda não temos dados de cálculo, gerar automaticamente
+  if (isFixedDoseCategory && !calculationData) {
+    const doseResultText = medication.dosageInformation?.usualDose || 'Dose não disponível';
+    const parsedDose = parseDoseText(doseResultText, medication);
+    
+    setCalculationData({
+      weight: 0, // Não aplicável para dose fixa
+      age: 0, // Não aplicável para dose fixa
+      calculatedDoseText: doseResultText,
+      calculationDate: format(new Date(), "dd/MM/yyyy"),
+      calculationTime: format(new Date(), "HH:mm"),
+      detailedCalculation: '', // Não há detalhes de cálculo para dose fixa
+      parsedDose: parsedDose,
+    });
+  }
+
   const onSubmit = (values: FormValues) => {
     if (!medication) return;
 
@@ -472,9 +491,15 @@ const MedicationCalculatorPage: React.FC = () => {
         categoryData={categoryData as MedicationCategoryData}
         medication={medication}
         calculationData={calculationData}
-        handleReturnToForm={handleReturnToForm}
+        handleReturnToForm={isFixedDoseCategory ? () => navigate(-1) : handleReturnToForm}
       />
     );
+  }
+
+  // Para categorias de dose fixa, não mostrar o formulário
+  // (o calculationData será setado automaticamente acima)
+  if (isFixedDoseCategory) {
+    return null; // Renderização temporária enquanto setCalculationData é processado
   }
 
   return (
