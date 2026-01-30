@@ -62,28 +62,28 @@ const categoryFiles: Record<string, Medication[]> = {
   'xaropes-tosse': xaropesTosse,
 };
 
-const categoryIconMap: Record<string, { icon: LucideIcon; iconColorClass: string; bgColorClass: string }> = {
+const categoryIconMap: Record<string, { icon: LucideIcon; iconColorClass: string; bgColorClass: string; description: string }> = {
   // Todas as categorias com ícone Pill unificado e variações de cor
-  'antibioticos': { icon: Pill, iconColorClass: 'text-blue-500', bgColorClass: 'bg-blue-100' },
-  'antivirais': { icon: Pill, iconColorClass: 'text-green-500', bgColorClass: 'bg-green-100' },
-  'antiemeticos': { icon: Pill, iconColorClass: 'text-purple-500', bgColorClass: 'bg-purple-100' },
-  'anticonvulsivantes': { icon: Pill, iconColorClass: 'text-indigo-600', bgColorClass: 'bg-indigo-100' },
-  'bloqueador-neuromuscular': { icon: Pill, iconColorClass: 'text-gray-600', bgColorClass: 'bg-gray-100' },
-  'corticoides-ev': { icon: Pill, iconColorClass: 'text-red-500', bgColorClass: 'bg-red-100' },
-  'medicacao-bradicardia': { icon: Pill, iconColorClass: 'text-yellow-600', bgColorClass: 'bg-yellow-100' },
-  'nasais': { icon: Pill, iconColorClass: 'text-green-400', bgColorClass: 'bg-green-50' },
-  'anti-histaminicos': { icon: Pill, iconColorClass: 'text-orange-500', bgColorClass: 'bg-orange-100' },
-  'antidotos': { icon: Pill, iconColorClass: 'text-red-600', bgColorClass: 'bg-red-100' },
-  'antiparasitarios': { icon: Pill, iconColorClass: 'text-teal-600', bgColorClass: 'bg-teal-100' },
-  'antitussigenos': { icon: Pill, iconColorClass: 'text-cyan-600', bgColorClass: 'bg-cyan-100' },
-  'expectorantes-mucoliticos': { icon: Pill, iconColorClass: 'text-emerald-600', bgColorClass: 'bg-emerald-100' },
-  'gastrointestinal': { icon: Pill, iconColorClass: 'text-violet-600', bgColorClass: 'bg-violet-100' },
-  'oftalmologicos': { icon: Pill, iconColorClass: 'text-blue-500', bgColorClass: 'bg-blue-100' },
-  'otologicos': { icon: Pill, iconColorClass: 'text-pink-500', bgColorClass: 'bg-pink-100' },
-  'pcr': { icon: Pill, iconColorClass: 'text-red-700', bgColorClass: 'bg-red-200' },
-  'sedativos': { icon: Pill, iconColorClass: 'text-purple-600', bgColorClass: 'bg-purple-100' },
-  'xaropes-tosse': { icon: Pill, iconColorClass: 'text-amber-500', bgColorClass: 'bg-amber-100' },
-  'carvao-ativado': { icon: Pill, iconColorClass: 'text-gray-600', bgColorClass: 'bg-gray-100' },
+  'antibioticos': { icon: Pill, iconColorClass: 'text-blue-500', bgColorClass: 'bg-blue-100', description: 'Medicamentos para tratamento de infecções bacterianas' },
+  'antivirais': { icon: Pill, iconColorClass: 'text-green-500', bgColorClass: 'bg-green-100', description: 'Medicações para combate a infecções virais' },
+  'antiemeticos': { icon: Pill, iconColorClass: 'text-purple-500', bgColorClass: 'bg-purple-100', description: 'Controle de náuseas e vômitos' },
+  'anticonvulsivantes': { icon: Pill, iconColorClass: 'text-indigo-600', bgColorClass: 'bg-indigo-100', description: 'Controle e prevenção de crises convulsivas' },
+  'bloqueador-neuromuscular': { icon: Pill, iconColorClass: 'text-gray-600', bgColorClass: 'bg-gray-100', description: 'Relaxantes musculares para procedimentos' },
+  'corticoides-ev': { icon: Pill, iconColorClass: 'text-red-500', bgColorClass: 'bg-red-100', description: 'Anti-inflamatórios potentes para condições agudas' },
+  'medicacao-bradicardia': { icon: Pill, iconColorClass: 'text-yellow-600', bgColorClass: 'bg-yellow-100', description: 'Tratamento de frequência cardíaca baixa' },
+  'nasais': { icon: Pill, iconColorClass: 'text-green-400', bgColorClass: 'bg-green-50', description: 'Medicações de uso nasal e descongestionantes' },
+  'anti-histaminicos': { icon: Pill, iconColorClass: 'text-orange-500', bgColorClass: 'bg-orange-100', description: 'Tratamento de alergias e reações alérgicas' },
+  'antidotos': { icon: Pill, iconColorClass: 'text-red-600', bgColorClass: 'bg-red-100', description: 'Reversão de intoxicações e envenenamentos' },
+  'antiparasitarios': { icon: Pill, iconColorClass: 'text-teal-600', bgColorClass: 'bg-teal-100', description: 'Combate a parasitas e verminoses' },
+  'antitussigenos': { icon: Pill, iconColorClass: 'text-cyan-600', bgColorClass: 'bg-cyan-100', description: 'Supressores de tosse e reflexo de tosse' },
+  'expectorantes-mucoliticos': { icon: Pill, iconColorClass: 'text-emerald-600', bgColorClass: 'bg-emerald-100', description: 'Facilitam a eliminação de secreções' },
+  'gastrointestinal': { icon: Pill, iconColorClass: 'text-violet-600', bgColorClass: 'bg-violet-100', description: 'Medicações para trato digestivo' },
+  'oftalmologicos': { icon: Pill, iconColorClass: 'text-blue-500', bgColorClass: 'bg-blue-100', description: 'Colírios e medicações para os olhos' },
+  'otologicos': { icon: Pill, iconColorClass: 'text-pink-500', bgColorClass: 'bg-pink-100', description: 'Medicações para ouvido e otites' },
+  'pcr': { icon: Pill, iconColorClass: 'text-red-700', bgColorClass: 'bg-red-200', description: 'Medicamentos para parada cardiorrespiratória' },
+  'sedativos': { icon: Pill, iconColorClass: 'text-purple-600', bgColorClass: 'bg-purple-100', description: 'Sedação e controle de ansiedade' },
+  'xaropes-tosse': { icon: Pill, iconColorClass: 'text-amber-500', bgColorClass: 'bg-amber-100', description: 'Xaropes para alívio da tosse' },
+  'carvao-ativado': { icon: Pill, iconColorClass: 'text-gray-600', bgColorClass: 'bg-gray-100', description: 'Tratamento de intoxicações e envenenamentos' },
 };
 
 function formatCategoryName(slug: string): string {
@@ -147,7 +147,7 @@ export function loadMedicationData(): MockMedicationData {
   const seen = new Set<string>();
 
   for (const [slug, meds] of Object.entries(categoryFiles)) {
-    const iconInfo = categoryIconMap[slug] || { icon: Pill, iconColorClass: 'text-gray-500', bgColorClass: 'bg-gray-100' };
+    const iconInfo = categoryIconMap[slug] || { icon: Pill, iconColorClass: 'text-gray-500', bgColorClass: 'bg-gray-100', description: 'Medicamentos diversos' };
 
     // Remover duplicatas e gerar slugs únicos
     const unique = meds.filter(m => {
@@ -186,6 +186,7 @@ export function loadMedicationData(): MockMedicationData {
     data[slug] = {
       slug,
       title: formatCategoryName(slug),
+      description: iconInfo.description,
       icon: iconInfo.icon,
       iconColorClass: iconInfo.iconColorClass,
       bgColorClass: iconInfo.bgColorClass,
@@ -204,6 +205,7 @@ export function loadCategories(): CategoryInfo[] {
   return Object.values(loadMedicationData()).map(cat => ({
     title: cat.title,
     slug: cat.slug,
+    description: cat.description,
     icon: cat.icon,
     iconColorClass: cat.iconColorClass,
     bgColorClass: cat.bgColorClass,

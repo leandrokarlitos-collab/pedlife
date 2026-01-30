@@ -177,6 +177,23 @@
     animation: fade-in 0.3s ease-out forwards;
   }
 
+  /* Fade In Up with Stagger */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+  }
+
   /* Premium Shadows - Subtle */
   .shadow-premium {
     box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.08);
@@ -216,5 +233,45 @@
   /* Smooth Transitions */
   * {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Animation Delays for Living Vapor Blobs */
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  .animation-delay-6000 {
+    animation-delay: 6s;
+  }
+
+  /* Premium Text Gradients - Aurora Theme */
+  .text-gradient-premium {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-premium-violet to-premium-blue;
+  }
+
+  .text-gradient-premium-soft {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-premium-violet/80 to-premium-blue/80;
+  }
+
+  .text-gradient-pediatric {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-violet-400 to-indigo-400;
+  }
+
+  /* Premium Background Gradients */
+  .bg-gradient-premium {
+    @apply bg-gradient-to-br from-premium-violet to-premium-blue;
+  }
+
+  .bg-gradient-premium-soft {
+    @apply bg-gradient-to-br from-premium-violet/10 via-premium-blue/10 to-indigo-500/10;
+  }
+
+  /* 3D Perspective for Cards Grid */
+  .perspective-1000 {
+    perspective: 1000px;
   }
 }

@@ -35,6 +35,7 @@ export interface Medication {
 export interface CategoryInfo {
   title: string;
   slug: string;
+  description?: string; // Descrição curta da categoria
   icon: LucideIcon;
   iconColorClass: string;
   bgColorClass: string;
