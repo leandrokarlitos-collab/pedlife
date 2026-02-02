@@ -25,13 +25,13 @@ export const WaveBackground: React.FC = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Cores mais sutis e suaves
+    // Cores sutis mas visíveis - meio termo
     const strandColors = [
       // Fita 1 - tons suaves de violeta/azul
       [
-        { r: 167, g: 139, b: 250 },  // Violet-400 (mais claro)
-        { r: 129, g: 140, b: 248 },  // Indigo-400
+        { r: 165, g: 180, b: 252 },  // Indigo-300
         { r: 147, g: 197, b: 253 },  // Blue-300
+        { r: 196, g: 181, b: 253 },  // Violet-300
       ],
       // Fita 2 - tons suaves de rosa/roxo
       [
@@ -46,10 +46,10 @@ export const WaveBackground: React.FC = () => {
 
       particles.current = [];
 
-      // DNA maior - mais partículas e maior extensão
+      // DNA mais completo - mais partículas
       const diagonalLength = Math.sqrt(width * width + height * height);
-      const verticalSpacing = 20;
-      const particlesPerStrand = Math.floor(diagonalLength / verticalSpacing) + 20;
+      const verticalSpacing = 18; // Menor espaçamento = mais partículas
+      const particlesPerStrand = Math.floor(diagonalLength / verticalSpacing) + 25;
 
       for (let strand = 0; strand < 2; strand++) {
         const colors = strandColors[strand];
@@ -62,9 +62,9 @@ export const WaveBackground: React.FC = () => {
             y: Math.random() * height,
             targetX: 0,
             targetY: 0,
-            size: 3 + Math.random() * 2.5, // Partículas maiores
+            size: 2.5 + Math.random() * 2,
             color: colors[colorIndex],
-            alpha: 0.25 + Math.random() * 0.2, // Um pouco mais visível
+            alpha: 0.18 + Math.random() * 0.12, // Meio termo - visível mas sutil
             strand: strand,
             index: i,
             phase: Math.random() * Math.PI * 2,
@@ -72,8 +72,8 @@ export const WaveBackground: React.FC = () => {
         }
       }
 
-      // Partículas de conexão
-      const connectionCount = Math.floor(particlesPerStrand / 4);
+      // Menos partículas de conexão
+      const connectionCount = Math.floor(particlesPerStrand / 6);
       for (let i = 0; i < connectionCount; i++) {
         const mixedColor = {
           r: Math.round((strandColors[0][1].r + strandColors[1][1].r) / 2),
@@ -86,9 +86,9 @@ export const WaveBackground: React.FC = () => {
           y: Math.random() * height,
           targetX: 0,
           targetY: 0,
-          size: 1.2 + Math.random() * 0.8,
+          size: 1 + Math.random() * 0.5,
           color: mixedColor,
-          alpha: 0.1 + Math.random() * 0.1,
+          alpha: 0.08 + Math.random() * 0.06, // Sutil
           strand: 2,
           index: i,
           phase: Math.random() * Math.PI * 2,
@@ -117,13 +117,13 @@ export const WaveBackground: React.FC = () => {
       }
 
       // Limpar com mais transparência para trail mais suave
-      ctx.fillStyle = 'rgba(248, 250, 252, 0.06)';
+      ctx.fillStyle = 'rgba(248, 250, 252, 0.08)'; // Limpa mais rápido = menos trail
       ctx.fillRect(0, 0, width, height);
 
-      time.current += 0.006; // Mais lento
+      time.current += 0.005; // Ainda mais lento e suave
 
-      // DNA na DIAGONAL INVERSA - do canto superior direito ao inferior esquerdo
-      const angle = -Math.PI / 5; // ~-36 graus (inverso)
+      // DNA na DIAGONAL - inclinado mais para a direita
+      const angle = -Math.PI / 7; // ~-26 graus (mais inclinado para a direita)
       const cosAngle = Math.cos(angle);
       const sinAngle = Math.sin(angle);
 
@@ -154,33 +154,29 @@ export const WaveBackground: React.FC = () => {
           p.targetX = baseX + xOffset * sinAngle;
           p.targetY = baseY - xOffset * cosAngle;
 
-          // Profundidade mais sutil
-          const depthAlpha = (0.15 + (zDepth + 1) * 0.12) * p.alpha / 0.35;
-          const depthSize = p.size * (0.75 + (zDepth + 1) * 0.25);
+          // Profundidade - meio termo
+          const depthAlpha = (0.12 + (zDepth + 1) * 0.08) * p.alpha / 0.25;
+          const depthSize = p.size * (0.75 + (zDepth + 1) * 0.2);
 
-          // Movimento muito suave
-          p.x += (p.targetX - p.x) * 0.025;
-          p.y += (p.targetY - p.y) * 0.025;
+          // Movimento suave
+          p.x += (p.targetX - p.x) * 0.022;
+          p.y += (p.targetY - p.y) * 0.022;
 
           // Oscilação mínima
-          p.x += Math.sin(time.current * 1.5 + p.phase) * 0.2;
-          p.y += Math.cos(time.current + p.phase) * 0.2;
+          p.x += Math.sin(time.current * 1.2 + p.phase) * 0.15;
+          p.y += Math.cos(time.current * 0.8 + p.phase) * 0.15;
 
-          // Glow mais suave
-          const glowRadius = depthSize * 5;
-          const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, glowRadius);
-          glow.addColorStop(0, `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${depthAlpha * 0.2})`);
-          glow.addColorStop(1, `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, 0)`);
-
+          // Glow sutil (sem gradiente pesado para performance)
+          const glowRadius = depthSize * 3.5;
           ctx.beginPath();
           ctx.arc(p.x, p.y, glowRadius, 0, Math.PI * 2);
-          ctx.fillStyle = glow;
+          ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${depthAlpha * 0.12})`;
           ctx.fill();
 
           // Partícula
           ctx.beginPath();
           ctx.arc(p.x, p.y, depthSize, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${depthAlpha})`;
+          ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${depthAlpha * 0.6})`;
           ctx.fill();
 
         } else {
@@ -202,16 +198,16 @@ export const WaveBackground: React.FC = () => {
 
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${p.alpha * 0.4})`;
+          ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${p.alpha * 0.35})`;
           ctx.fill();
         }
       });
 
-      // Linhas de conexão mais sutis
+      // Linhas de conexão quase invisíveis
       const strand0 = particles.current.filter(p => p.strand === 0);
       const strand1 = particles.current.filter(p => p.strand === 1);
 
-      ctx.strokeStyle = 'rgba(196, 181, 253, 0.04)';
+      ctx.strokeStyle = 'rgba(165, 180, 252, 0.06)'; // Meio termo - sutil mas visível
       ctx.lineWidth = 0.8;
 
       for (let i = 0; i < Math.min(strand0.length, strand1.length); i += 5) {

@@ -10,7 +10,7 @@ import PlatformLayout from "./layouts/PlatformLayout";
 import CalculatorPage from "./pages/platform/CalculatorPage";
 import UserEditPage from "./pages/platform/UserEditPage";
 import MedicationCategoryPage from "./pages/platform/MedicationCategoryPage";
-import MedicationCalculatorPage from "./pages/platform/MedicationCalculatorPage";
+import MedicationCalculatorPage from "./pages/platform/MedicationCalculatorPageNew";
 import InsulinCalculatorPage from "./pages/platform/InsulinCalculatorPage";
 import ProtocolsPage from "./pages/platform/ProtocolsPage";
 

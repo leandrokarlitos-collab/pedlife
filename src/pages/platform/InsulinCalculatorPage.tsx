@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { Droplets } from 'lucide-react';
 
 import InsulinPageBreadcrumb from '@/components/platform/insulin-calculator/InsulinPageBreadcrumb';
 import InsulinCalculatorForm, { insulinFormSchema, InsulinFormValues } from '@/components/platform/insulin-calculator/InsulinCalculatorForm';
@@ -9,6 +10,7 @@ import InsulinCalculationResults, { CalculatedValues } from '@/components/platfo
 import ImportantNotesCard from '@/components/platform/insulin-calculator/ImportantNotesCard';
 import ProtocolTable from '@/components/platform/insulin-calculator/ProtocolTable';
 import DoseAdjustmentTable from '@/components/platform/insulin-calculator/DoseAdjustmentTable';
+import { FeedbackSection } from '@/components/ui/FeedbackSection';
 
 const protocolData = [
   { condition: "GLICEMIA ≥ 180 MG/DL", conduct: "CONDUTA (VIDE TABELA 2)" },
@@ -62,23 +64,73 @@ const InsulinCalculatorPage: React.FC = () => {
 
 
   return (
-    <div className="max-w-5xl mx-auto py-8 px-4 bg-slate-50 min-h-full rounded-lg">
-      <InsulinPageBreadcrumb />
+    <div className="container mx-auto py-12 px-4 relative">
+      {/* Floating particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="particle particle-1" style={{ top: '8%', left: '12%' }} />
+        <div className="particle particle-3" style={{ top: '35%', right: '18%' }} />
+        <div className="particle particle-2" style={{ bottom: '25%', left: '22%' }} />
+        <div className="particle particle-1" style={{ top: '70%', right: '25%' }} />
+      </div>
 
-      <InsulinCalculatorForm form={form} onSubmit={onSubmit} />
+      <div className="relative z-10">
+        {/* Breadcrumb */}
+        <InsulinPageBreadcrumb />
 
-      {calculatedValues && (
-        <InsulinCalculationResults
-          calculatedValues={calculatedValues}
-          taxaInfusaoUIKgH={form.getValues("taxaInfusaoUIKgH")}
-        />
-      )}
+        {/* Header */}
+        <header className="mb-10 text-center animate-fade-in">
+          <div className="relative inline-block mb-6">
+            <div className="icon-glass-bg p-5 rounded-2xl animate-pulse-glow corner-accent">
+              <Droplets className="h-16 w-16 text-violet-600 dark:text-violet-400 drop-shadow-2xl" />
+            </div>
+            <div className="absolute -inset-4 bg-gradient-to-r from-violet-500/20 via-blue-500/20 to-indigo-500/20 blur-2xl rounded-full opacity-50 -z-10" />
+          </div>
+          <h1 className="text-5xl md:text-6xl font-extrabold gradient-text-premium mb-4 text-glow-strong tracking-tight">
+            Referencial para Insulina
+          </h1>
+          <p className="text-lg text-muted-foreground mt-3 max-w-2xl mx-auto leading-relaxed">
+            Cálculos automáticos baseados no
+            <span className="gradient-text-accent font-semibold"> peso e valor glicêmico</span> para infusão de insulina.
+          </p>
 
-      <ImportantNotesCard />
+          {/* Decorative line with shimmer */}
+          <div className="flex items-center justify-center gap-3 mt-6">
+            <div className="h-px w-20 bg-gradient-to-r from-transparent via-violet-500/60 to-transparent relative overflow-hidden">
+              <div className="absolute inset-0 shimmer-effect" />
+            </div>
+            <div className="relative">
+              <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-violet-500 to-blue-500 animate-pulse" />
+              <div className="absolute inset-0 rounded-full bg-violet-500 animate-ping opacity-75" />
+            </div>
+            <div className="h-px w-20 bg-gradient-to-r from-transparent via-blue-500/60 to-transparent relative overflow-hidden">
+              <div className="absolute inset-0 shimmer-effect" />
+            </div>
+          </div>
+        </header>
 
-      <div className="grid md:grid-cols-1 gap-8">
-        <ProtocolTable data={protocolData} />
-        <DoseAdjustmentTable data={doseAdjustmentData} />
+        {/* Calculadora */}
+        <div className="max-w-4xl mx-auto">
+          <InsulinCalculatorForm form={form} onSubmit={onSubmit} />
+
+          {calculatedValues && (
+            <InsulinCalculationResults
+              calculatedValues={calculatedValues}
+              taxaInfusaoUIKgH={form.getValues("taxaInfusaoUIKgH")}
+            />
+          )}
+
+          <ImportantNotesCard />
+
+          <div className="grid md:grid-cols-1 gap-6">
+            <ProtocolTable data={protocolData} />
+            <DoseAdjustmentTable data={doseAdjustmentData} />
+          </div>
+
+          {/* Seção de Feedback */}
+          <div className="mt-12 mb-6">
+            <FeedbackSection />
+          </div>
+        </div>
       </div>
     </div>
   );

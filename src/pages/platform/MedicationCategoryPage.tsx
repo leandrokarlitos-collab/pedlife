@@ -6,7 +6,7 @@ import MedicationListItem from '@/components/platform/MedicationListItem';
 import MedicationGroupItem from '@/components/platform/MedicationGroupItem';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Pill, BookOpen, CalendarDays, Search } from 'lucide-react';
+import { ArrowLeft, Pill, BookOpen, CalendarDays, Search, ArrowUpAZ, ArrowDownAZ, Filter, X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import {
   Breadcrumb,
@@ -18,12 +18,68 @@ import {
 } from "@/components/ui/breadcrumb";
 import { slugify } from '@/lib/utils'; // Importar slugify
 
+type SortOrder = 'none' | 'asc' | 'desc';
+
 const MedicationCategoryPage: React.FC = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
   const [showGrouped, setShowGrouped] = React.useState<boolean>(false);
   const [searchTerm, setSearchTerm] = React.useState<string>('');
-  
+  const [sortOrder, setSortOrder] = React.useState<SortOrder>('none');
+  const [selectedRoute, setSelectedRoute] = React.useState<string>('all');
+
   const categoryData = categorySlug ? mockMedicationsData[categorySlug] : undefined;
+
+  // Extrair vias de administração únicas dos medicamentos
+  const availableRoutes = React.useMemo(() => {
+    if (!categoryData) return [];
+
+    const routes = new Set<string>();
+    categoryData.medications.forEach(med => {
+      if (med.application) {
+        // Separar vias combinadas como "EV / IM" em vias individuais
+        const parts = med.application.split(/\s*[\/,]\s*/);
+        parts.forEach(part => {
+          const trimmed = part.trim().toUpperCase();
+          if (trimmed) routes.add(trimmed);
+        });
+      }
+    });
+
+    return Array.from(routes).sort();
+  }, [categoryData]);
+
+  // Função para verificar se um medicamento corresponde à via selecionada
+  const matchesRoute = (medication: { application?: string }) => {
+    if (selectedRoute === 'all') return true;
+    if (!medication.application) return false;
+
+    const medRoutes = medication.application.toUpperCase().split(/\s*[\/,]\s*/);
+    return medRoutes.some(route => route.trim() === selectedRoute);
+  };
+
+  // Função para alternar ordenação
+  const toggleSortOrder = () => {
+    setSortOrder(current => {
+      if (current === 'none' || current === 'desc') return 'asc';
+      return 'desc';
+    });
+  };
+
+  // Função para ordenar medicamentos
+  const sortMedications = <T extends { name: string }>(medications: T[]): T[] => {
+    if (sortOrder === 'none') return medications;
+
+    return [...medications].sort((a, b) => {
+      const nameA = a.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      const nameB = b.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+      if (sortOrder === 'asc') {
+        return nameA.localeCompare(nameB);
+      } else {
+        return nameB.localeCompare(nameA);
+      }
+    });
+  };
 
   if (!categoryData) {
     return (
@@ -112,19 +168,102 @@ const MedicationCategoryPage: React.FC = () => {
       <div>
         {categoryData.medications.length > 0 ? (
           <>
-            {/* Botão para alternar entre visualização agrupada e lista plana */}
-            {categoryData.medicationGroups && categoryData.medicationGroups.length > 0 && (
-              <div className="flex justify-end mb-6">
-                <Button 
-                  variant="glass" 
-                  size="sm"
-                  onClick={() => setShowGrouped(!showGrouped)}
-                  className="ripple-effect"
-                >
-                  {showGrouped ? "📋 Ver como Lista" : "📦 Ver como Grupos"}
-                </Button>
+            {/* Botões de controle: filtro, ordenação e visualização */}
+            <div className="flex flex-wrap justify-between items-center gap-3 mb-6">
+              {/* Filtros por via de administração */}
+              {!showGrouped && availableRoutes.length > 1 && (
+                <div className="flex items-center gap-2 flex-wrap">
+                  <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
+                    <Filter className="h-3.5 w-3.5" />
+                    <span className="font-medium">Via:</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    <button
+                      onClick={() => setSelectedRoute('all')}
+                      className={`
+                        px-2.5 py-1 rounded-lg text-xs font-medium transition-all duration-200
+                        ${selectedRoute === 'all'
+                          ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 border border-violet-200 dark:border-violet-800/50'
+                          : 'bg-white/50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 border border-white/50 dark:border-white/10 hover:bg-white/80 dark:hover:bg-slate-800/80'
+                        }
+                      `}
+                    >
+                      Todas
+                    </button>
+                    {availableRoutes.map(route => (
+                      <button
+                        key={route}
+                        onClick={() => setSelectedRoute(route)}
+                        className={`
+                          px-2.5 py-1 rounded-lg text-xs font-medium transition-all duration-200
+                          ${selectedRoute === route
+                            ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 border border-violet-200 dark:border-violet-800/50'
+                            : 'bg-white/50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 border border-white/50 dark:border-white/10 hover:bg-white/80 dark:hover:bg-slate-800/80'
+                          }
+                        `}
+                      >
+                        {route}
+                      </button>
+                    ))}
+                    {selectedRoute !== 'all' && (
+                      <button
+                        onClick={() => setSelectedRoute('all')}
+                        className="p-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-200"
+                        title="Limpar filtro"
+                      >
+                        <X className="h-3.5 w-3.5" />
+                      </button>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Espaçador quando não há filtro */}
+              {(showGrouped || availableRoutes.length <= 1) && <div />}
+
+              {/* Botões de ordenação e visualização */}
+              <div className="flex items-center gap-2">
+                {/* Botão de ordenação alfabética */}
+                {!showGrouped && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={toggleSortOrder}
+                    className={`
+                      flex items-center gap-2 px-3 py-2 rounded-xl transition-all duration-200
+                      ${sortOrder !== 'none'
+                        ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 border border-violet-200 dark:border-violet-800/50'
+                        : 'bg-white/50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 border border-white/50 dark:border-white/10 hover:bg-white/80 dark:hover:bg-slate-800/80'
+                      }
+                    `}
+                    title={sortOrder === 'asc' ? 'Ordenar Z-A' : sortOrder === 'desc' ? 'Remover ordenação' : 'Ordenar A-Z'}
+                  >
+                    {sortOrder === 'asc' ? (
+                      <ArrowUpAZ className="h-4 w-4" />
+                    ) : sortOrder === 'desc' ? (
+                      <ArrowDownAZ className="h-4 w-4" />
+                    ) : (
+                      <ArrowUpAZ className="h-4 w-4 opacity-60" />
+                    )}
+                    <span className="text-xs font-medium">
+                      {sortOrder === 'asc' ? 'A-Z' : sortOrder === 'desc' ? 'Z-A' : 'Ordenar'}
+                    </span>
+                  </Button>
+                )}
+
+                {/* Botão para alternar entre visualização agrupada e lista plana */}
+                {categoryData.medicationGroups && categoryData.medicationGroups.length > 0 && (
+                  <Button
+                    variant="glass"
+                    size="sm"
+                    onClick={() => setShowGrouped(!showGrouped)}
+                    className="ripple-effect"
+                  >
+                    {showGrouped ? "📋 Ver como Lista" : "📦 Ver como Grupos"}
+                  </Button>
+                )}
               </div>
-            )}
+            </div>
 
             {/* Visualização agrupada */}
             {showGrouped && categoryData.medicationGroups && categoryData.medicationGroups.length > 0 && (
@@ -164,9 +303,13 @@ const MedicationCategoryPage: React.FC = () => {
 
             {/* Visualização em lista plana */}
             {!showGrouped && (
-              <div className="space-y-2">
-                {categoryData.medications
+              <div className="rounded-2xl p-4 space-y-2 bg-white/40 dark:bg-slate-900/30 backdrop-blur-xl border border-white/40 dark:border-white/10">
+                {sortMedications(categoryData.medications
                   .filter(med => {
+                    // Filtro por via de administração
+                    if (!matchesRoute(med)) return false;
+
+                    // Filtro por termo de busca
                     if (!searchTerm) return true;
                     const search = searchTerm.toLowerCase();
                     return (
@@ -174,13 +317,13 @@ const MedicationCategoryPage: React.FC = () => {
                       med.form?.toLowerCase().includes(search) ||
                       med.description?.toLowerCase().includes(search)
                     );
-                  })
+                  }))
                   .map((med) => {
                     const medSlug = med.slug || slugify(med.name);
                     return (
-                      <Link 
-                        key={medSlug} 
-                        to={`/platform/calculator/${categorySlug}/${medSlug}`} 
+                      <Link
+                        key={medSlug}
+                        to={`/platform/calculator/${categorySlug}/${medSlug}`}
                         className="block hover:bg-gradient-to-r hover:from-violet-500/5 hover:to-blue-500/5 rounded-xl transition-all duration-300"
                       >
                         <MedicationListItem medication={med} />
@@ -188,6 +331,7 @@ const MedicationCategoryPage: React.FC = () => {
                     );
                   })}
                 {categoryData.medications.filter(med => {
+                  if (!matchesRoute(med)) return false;
                   if (!searchTerm) return true;
                   const search = searchTerm.toLowerCase();
                   return (
@@ -197,7 +341,11 @@ const MedicationCategoryPage: React.FC = () => {
                   );
                 }).length === 0 && (
                   <div className="glass-card p-12 rounded-2xl text-center">
-                    <p className="text-muted-foreground text-lg">Nenhum medicamento encontrado para "<span className="gradient-text-premium font-semibold">{searchTerm}</span>"</p>
+                    <p className="text-muted-foreground text-lg">
+                      Nenhum medicamento encontrado
+                      {searchTerm && <> para "<span className="gradient-text-premium font-semibold">{searchTerm}</span>"</>}
+                      {selectedRoute !== 'all' && <> com via <span className="gradient-text-premium font-semibold">{selectedRoute}</span></>}
+                    </p>
                   </div>
                 )}
               </div>

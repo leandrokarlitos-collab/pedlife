@@ -63,35 +63,59 @@ export const PremiumCategoryCard = ({ title, description, icon: Icon, layout = '
         }}
         className={cn(
           "group relative rounded-2xl cursor-pointer overflow-hidden",
-          "bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl",
-          "border border-slate-200/50 dark:border-slate-800/50",
+          // Glassmorphism premium
+          "bg-white/60 dark:bg-slate-900/40 backdrop-blur-xl backdrop-saturate-150",
+          // Borda com gradiente sutil
+          "border border-white/50 dark:border-white/10",
+          // Ring interno para efeito de profundidade
+          "ring-1 ring-inset ring-white/20 dark:ring-white/5",
           isList ? "h-24 w-full" : "h-full min-h-[200px]",
-          "shadow-[0_4px_20px_-5px_rgba(0,0,0,0.1)]",
-          "hover:shadow-[0_25px_50px_-12px_rgba(99,102,241,0.25),0_0_0_1px_rgba(99,102,241,0.1)]",
+          // Sombras multicamadas para profundidade
+          "shadow-[0_8px_32px_-8px_rgba(0,0,0,0.1),0_4px_16px_-4px_rgba(99,102,241,0.08)]",
+          // Hover com sombra mais intensa e borda brilhante
+          "hover:shadow-[0_20px_40px_-12px_rgba(99,102,241,0.3),0_8px_24px_-8px_rgba(0,0,0,0.15)]",
+          "hover:border-white/70 dark:hover:border-white/20",
+          "hover:ring-premium-violet/20 dark:hover:ring-premium-violet/30",
         )}
       >
+        {/* Gradiente de fundo glassmorphism */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(255,255,255,0.05) 100%)',
+          }}
+        />
+
         {/* Brilho holográfico que segue o mouse */}
         <div
-          className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
           style={{
-            background: `radial-gradient(circle at ${mousePos.x}px ${mousePos.y}px, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.1) 40%, transparent 70%)`
+            background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(99,102,241,0.15) 0%, rgba(167,139,250,0.08) 30%, transparent 60%)`
           }}
         />
 
-        {/* Borda brilhante no hover */}
+        {/* Shimmer effect no hover */}
         <div
-          className="absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
           style={{
-            background: `linear-gradient(135deg, rgba(99,102,241,0.1) 0%, transparent 50%, rgba(167,139,250,0.1) 100%)`,
+            background: `radial-gradient(circle at ${mousePos.x}px ${mousePos.y}px, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 25%, transparent 50%)`
           }}
         />
 
-        {/* Reflexo superior (efeito vidro) */}
+        {/* Reflexo superior (efeito vidro) - sempre visível */}
         <div
-          className="absolute inset-x-0 top-0 h-1/2 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          className="absolute inset-x-0 top-0 h-1/2 pointer-events-none transition-opacity duration-500"
           style={{
-            background: 'linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, transparent 100%)',
+            background: 'linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, transparent 100%)',
             borderRadius: '1rem 1rem 0 0',
+          }}
+        />
+
+        {/* Linha de luz na borda superior */}
+        <div
+          className="absolute inset-x-0 top-0 h-px pointer-events-none"
+          style={{
+            background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.5) 50%, transparent 100%)',
           }}
         />
 
@@ -100,8 +124,11 @@ export const PremiumCategoryCard = ({ title, description, icon: Icon, layout = '
             <div className="flex items-center justify-between flex-shrink-0">
               <div
                 className={cn(
-                  "rounded-2xl bg-slate-100/80 dark:bg-slate-900/80 backdrop-blur-md transition-all duration-500 border border-transparent",
-                  "group-hover:bg-premium-violet/10 group-hover:border-premium-violet/20 group-hover:shadow-[0_0_30px_rgba(99,102,241,0.2)]",
+                  "rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-md transition-all duration-500",
+                  "border border-white/60 dark:border-white/10",
+                  "shadow-[0_2px_8px_-2px_rgba(0,0,0,0.1),inset_0_1px_0_0_rgba(255,255,255,0.2)]",
+                  "group-hover:bg-premium-violet/15 group-hover:border-premium-violet/30",
+                  "group-hover:shadow-[0_8px_24px_-4px_rgba(99,102,241,0.3),inset_0_1px_0_0_rgba(255,255,255,0.3)]",
                   "group-hover:-translate-y-1",
                   isList ? "p-2 w-12 h-12" : "p-3 w-16 h-16"
                 )}

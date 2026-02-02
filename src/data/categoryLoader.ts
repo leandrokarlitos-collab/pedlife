@@ -87,11 +87,31 @@ const categoryIconMap: Record<string, { icon: LucideIcon; iconColorClass: string
 };
 
 function formatCategoryName(slug: string): string {
-  // Tratamento especial para corticoides-ev
-  if (slug === 'corticoides-ev') {
-    return 'Corticoides';
-  }
-  return slug.split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
+  // Mapeamento de slugs para nomes corretos com acentos
+  const nameMap: Record<string, string> = {
+    'antibioticos': 'Antibióticos',
+    'antivirais': 'Antivirais',
+    'antiemeticos': 'Antieméticos',
+    'anticonvulsivantes': 'Anticonvulsivantes',
+    'bloqueador-neuromuscular': 'Bloqueador Neuromuscular',
+    'corticoides-ev': 'Corticóides',
+    'medicacao-bradicardia': 'Medicação Bradicardia',
+    'nasais': 'Nasais',
+    'anti-histaminicos': 'Anti-Histamínicos',
+    'antidotos': 'Antídotos',
+    'antiparasitarios': 'Antiparasitários',
+    'antitussigenos': 'Antitussígenos',
+    'expectorantes-mucoliticos': 'Expectorantes Mucolíticos',
+    'gastrointestinal': 'Gastrointestinal',
+    'oftalmologicos': 'Oftalmológicos',
+    'otologicos': 'Otológicos',
+    'pcr': 'Parada Cardiorrespiratória',
+    'sedativos': 'Sedativos',
+    'xaropes-tosse': 'Xaropes: Tosse',
+    'carvao-ativado': 'Carvão Ativado',
+  };
+
+  return nameMap[slug] || slug.split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
 }
 
 function getLastUpdatedDate(): string {

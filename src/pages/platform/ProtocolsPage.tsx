@@ -1,6 +1,4 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { 
   BookOpenText, 
@@ -12,10 +10,10 @@ import {
   Stethoscope,
   Droplets,
   Wind,
-  Thermometer,
-  Calculator
+  Thermometer
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { FeedbackSection } from '@/components/ui/FeedbackSection';
 
 interface ProtocolCardProps {
   title: string;
@@ -27,47 +25,88 @@ interface ProtocolCardProps {
   calculatorLink?: string;
 }
 
-const ProtocolCard: React.FC<ProtocolCardProps> = ({ 
-  title, 
-  description, 
-  icon: Icon, 
-  link, 
+const ProtocolCard: React.FC<ProtocolCardProps> = ({
+  title,
+  description,
+  icon: Icon,
+  link,
   iconColorClass = "text-primary",
   hasCalculator = false,
   calculatorLink
 }) => (
-  <Card className="glass-card-premium hover:glass-card-hover group relative overflow-hidden">
-    {/* Gradient overlay */}
-    <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-    
-    <CardHeader className="relative z-10 border-b border-white/10 pb-4">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="icon-glass-bg p-3 rounded-xl group-hover:scale-105 transition-all duration-300">
-          <Icon className={`h-6 w-6 ${iconColorClass}`} />
+  <Link
+    to={hasCalculator && calculatorLink ? calculatorLink : link}
+    className="block h-full"
+  >
+    <div className="protocol-card group relative h-full min-h-[200px] p-5 rounded-2xl transition-all duration-300 flex flex-col
+      bg-white/60 dark:bg-slate-800/40
+      hover:bg-white/80 dark:hover:bg-slate-800/60
+      shadow-md shadow-black/5 dark:shadow-black/20
+      hover:shadow-xl hover:-translate-y-1
+      backdrop-blur-sm cursor-pointer
+      border border-white/40 dark:border-white/10
+      overflow-hidden">
+
+      {/* Borda animada com efeito de desenho */}
+      <svg className="border-draw" width="100%" height="100%">
+        <rect
+          x="1"
+          y="1"
+          width="calc(100% - 2px)"
+          height="calc(100% - 2px)"
+          rx="15"
+          ry="15"
+          fill="none"
+          stroke="rgb(139, 92, 246)"
+          strokeWidth="2"
+        />
+      </svg>
+
+      {/* Conteúdo */}
+      <div className="relative z-10 flex flex-col h-full">
+        {/* Ícone e título */}
+        <div className="flex items-start gap-3 mb-4">
+          <div className={`p-3 rounded-xl transition-all duration-300 flex-shrink-0
+            bg-gradient-to-br from-white/80 to-white/40 dark:from-slate-700/80 dark:to-slate-700/40
+            group-hover:scale-110 group-hover:shadow-lg
+            ${iconColorClass.includes('red') ? 'group-hover:shadow-red-500/30' : ''}
+            ${iconColorClass.includes('purple') ? 'group-hover:shadow-purple-500/30' : ''}
+            ${iconColorClass.includes('blue') ? 'group-hover:shadow-blue-500/30' : ''}
+            ${iconColorClass.includes('orange') ? 'group-hover:shadow-orange-500/30' : ''}
+            ${iconColorClass.includes('teal') ? 'group-hover:shadow-teal-500/30' : ''}`}>
+            <Icon className={`h-6 w-6 ${iconColorClass}`} />
+          </div>
+          <div className="flex-1 min-w-0 pt-1">
+            <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-100
+              group-hover:text-violet-700 dark:group-hover:text-violet-400
+              transition-colors duration-300 line-clamp-2 leading-snug">
+              {title}
+            </h3>
+          </div>
         </div>
-        <CardTitle className="text-lg font-bold group-hover:gradient-text-premium transition-all duration-300">
-          {title}
-        </CardTitle>
+
+        {/* Descrição */}
+        <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-3 flex-1">
+          {description}
+        </p>
+
+        {/* Indicador de ação */}
+        <div className="flex items-center justify-between mt-4 pt-3 border-t border-slate-200/50 dark:border-slate-700/50">
+          <span className="text-[10px] font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wide">
+            {hasCalculator ? 'Calculadora' : 'Protocolo'}
+          </span>
+          <div className="flex items-center gap-1 text-violet-500 dark:text-violet-400
+            opacity-0 group-hover:opacity-100 transition-all duration-300
+            translate-x-[-4px] group-hover:translate-x-0">
+            <span className="text-xs font-medium">Abrir</span>
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
       </div>
-    </CardHeader>
-    <CardContent className="pt-5 relative z-10">
-      <p className="text-sm text-muted-foreground mb-5 leading-relaxed font-medium">{description}</p>
-      <div className="flex gap-2">
-        {hasCalculator && calculatorLink ? (
-          <Button variant="gradient" size="sm" asChild className="w-full py-5 font-bold">
-            <Link to={calculatorLink}>
-              <Calculator className="h-4 w-4 mr-2" />
-              Calculadora
-            </Link>
-          </Button>
-        ) : link ? (
-          <Button variant="glass-premium" size="sm" asChild className="w-full py-5 font-semibold">
-            <Link to={link}>📋 Ver Protocolo</Link>
-          </Button>
-        ) : null}
-      </div>
-    </CardContent>
-  </Card>
+    </div>
+  </Link>
 );
 
 interface CategorySectionProps {
@@ -86,22 +125,18 @@ interface CategorySectionProps {
 }
 
 const CategorySection: React.FC<CategorySectionProps> = ({ title, icon: Icon, iconColor, protocols }) => (
-  <section className="mb-12 animate-fade-in">
-    <div className="flex items-center gap-3 mb-6">
-      <div className="icon-glass-bg p-2.5 rounded-xl">
-        <Icon className={`h-7 w-7 ${iconColor}`} />
+  <section className="mb-10">
+    <div className="flex items-center gap-3 mb-5">
+      <div className={`p-2 rounded-xl bg-gradient-to-br from-white/70 to-white/30
+        dark:from-slate-800/70 dark:to-slate-800/30 shadow-sm`}>
+        <Icon className={`h-5 w-5 ${iconColor}`} />
       </div>
-      <h2 className="text-3xl font-bold gradient-text-premium">{title}</h2>
-      <div className="h-px flex-1 bg-gradient-to-r from-violet-500/20 via-blue-500/20 to-transparent ml-4" />
+      <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">{title}</h2>
+      <div className="h-px flex-1 bg-gradient-to-r from-slate-200 dark:from-slate-700 to-transparent ml-2" />
     </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
       {protocols.map((protocol, index) => (
-        <div 
-          key={`${title}-protocol-${index}`}
-          className={`animate-scale-in cascade-item-${(index % 8) + 1}`}
-        >
-          <ProtocolCard {...protocol} />
-        </div>
+        <ProtocolCard key={`${title}-protocol-${index}`} {...protocol} />
       ))}
     </div>
   </section>
@@ -412,12 +447,17 @@ const ProtocolsPage: React.FC = () => {
       />
 
       {/* Seção de Situações Especiais */}
-      <CategorySection 
-        title="Situações Especiais" 
-        icon={ShieldAlert} 
-        iconColor="text-orange-500" 
-        protocols={specialSituationsProtocols} 
+      <CategorySection
+        title="Situações Especiais"
+        icon={ShieldAlert}
+        iconColor="text-orange-500"
+        protocols={specialSituationsProtocols}
       />
+
+      {/* Seção de Feedback */}
+      <div className="mt-12 mb-6">
+        <FeedbackSection />
+      </div>
     </div>
   );
 };
