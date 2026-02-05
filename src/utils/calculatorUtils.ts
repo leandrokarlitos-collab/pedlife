@@ -14,12 +14,12 @@ export const validateInputs = (
 ): { isValid: boolean; error?: string } => {
   for (const field of requiredFields) {
     if (inputs[field] === undefined || inputs[field] === '' || inputs[field] === null) {
-      return { 
-        isValid: false, 
-        error: `O campo ${field.replace('_', ' ')} é obrigatório` 
+      return {
+        isValid: false,
+        error: `O campo ${field.replace('_', ' ')} é obrigatório`
       };
     }
-    
+
     // Validação específica para campos numéricos
     if (['idade', 'peso', 'temperatura', 'frequencia_respiratoria', 'saturacao'].includes(field)) {
       const value = parseFloat(inputs[field]);
@@ -31,7 +31,7 @@ export const validateInputs = (
       }
     }
   }
-  
+
   return { isValid: true };
 };
 
@@ -44,10 +44,9 @@ export const validateInputs = (
 export const normalizeResults = (results: any, protocolId: string): any => {
   // Se não há resultados ou os resultados não são um objeto, retornar um objeto vazio
   if (!results || typeof results !== 'object' || results === null) {
-    console.warn(`[${protocolId}] Resultados inválidos ou vazios:`, results);
     return {};
   }
-  
+
   // Estrutura padrão para todos os protocolos
   const defaultStructure = {
     classificacao: '',
@@ -55,7 +54,7 @@ export const normalizeResults = (results: any, protocolId: string): any => {
     exames_complementares: [],
     orientacoes: []
   };
-  
+
   // Estruturas específicas por protocolo
   const protocolStructures: Record<string, any> = {
     'doenca-diarreica': {
@@ -78,16 +77,16 @@ export const normalizeResults = (results: any, protocolId: string): any => {
       medicacoes_suporte: []
     }
   };
-  
+
   // Combinar a estrutura padrão com a estrutura específica do protocolo
   const structure = {
     ...defaultStructure,
     ...(protocolStructures[protocolId] || {})
   };
-  
+
   // Garantir que todos os campos esperados existam no resultado
   const normalized = { ...structure };
-  
+
   // Adicionar todos os campos do resultado, mesmo que não estejam na estrutura padrão
   Object.keys(results).forEach(key => {
     if (results[key] !== undefined) {
@@ -99,7 +98,7 @@ export const normalizeResults = (results: any, protocolId: string): any => {
       }
     }
   });
-  
+
   return normalized;
 };
 
@@ -114,10 +113,10 @@ export const prepareInputs = (
   protocolId: string
 ): Record<string, any> => {
   const processed: Record<string, any> = { ...inputs };
-  
+
   // Converter campos numéricos
   const numericFields = ['idade', 'peso', 'temperatura', 'frequencia_respiratoria', 'saturacao'];
-  
+
   numericFields.forEach(field => {
     if (inputs[field] !== undefined && inputs[field] !== '') {
       // Converter para número, tratando vírgula como separador decimal
@@ -125,7 +124,7 @@ export const prepareInputs = (
       processed[field] = field.includes('idade') ? parseInt(value) : parseFloat(value);
     }
   });
-  
+
   // Conversões específicas por protocolo
   if (protocolId === 'pneumonia') {
     // Garantir que os campos específicos de pneumonia estejam presentes
@@ -141,7 +140,7 @@ export const prepareInputs = (
     processed.hipertensao = processed.hipertensao || false;
     processed.edema = processed.edema || false;
   }
-  
+
   return processed;
 };
 
@@ -158,13 +157,12 @@ export const calculateWithErrorHandling = async (
   protocolId: string
 ): Promise<{ success: boolean; results?: any; error?: string }> => {
   try {
-    console.log(`[${protocolId}] Dados de entrada:`, inputs);
-    
+
     // Validar se o controller tem o método calcular
     if (!controller || typeof controller.calcular !== 'function') {
       throw new Error('Controlador de cálculo não disponível para este protocolo');
     }
-    
+
     // Executar o cálculo com timeout para evitar bloqueios
     let results;
     try {
@@ -172,32 +170,29 @@ export const calculateWithErrorHandling = async (
       const timeoutPromise = new Promise((_, reject) => {
         setTimeout(() => reject(new Error('Tempo limite excedido ao calcular')), 10000);
       });
-      
+
       results = await Promise.race([
         controller.calcular(inputs),
         timeoutPromise
       ]);
     } catch (calcError) {
-      console.error(`[${protocolId}] Erro durante o cálculo:`, calcError);
       throw calcError;
     }
-    
+
     // Verificar se os resultados são válidos
     if (results === undefined || results === null) {
       throw new Error('O cálculo não retornou resultados válidos');
     }
-    
-    console.log(`[${protocolId}] Resultados do cálculo:`, results);
-    
+
+
     // Normalizar resultados
     const normalizedResults = normalizeResults(results, protocolId);
-    
+
     return { success: true, results: normalizedResults };
   } catch (error) {
-    console.error(`[${protocolId}] Erro ao calcular:`, error);
-    return { 
-      success: false, 
-      error: error instanceof Error ? error.message : 'Erro desconhecido ao processar o cálculo' 
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Erro desconhecido ao processar o cálculo'
     };
   }
 };

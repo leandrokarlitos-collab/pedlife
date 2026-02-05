@@ -22,7 +22,7 @@ type MarkdownProps = {
 };
 
 declare module 'react-markdown' {
-  interface ReactMarkdownProps extends MarkdownProps {}
+  interface ReactMarkdownProps extends MarkdownProps { }
 }
 // Importar estilos CSS para o markdown
 import '@/styles/markdown.css';
@@ -51,8 +51,8 @@ const CriteriosList = ({ criterios }: { criterios: string[] }) => (
 // Componente para renderizar um alerta ou informação importante
 const InfoAlert = ({ children, type = 'info' }: { children: React.ReactNode, type?: 'info' | 'warning' }) => (
   <div className={`p-4 rounded-md my-4 flex items-start gap-3 ${type === 'info' ? 'bg-blue-50' : 'bg-amber-50'}`}>
-    {type === 'info' ? 
-      <Info className="h-5 w-5 text-blue-500 mt-0.5" /> : 
+    {type === 'info' ?
+      <Info className="h-5 w-5 text-blue-500 mt-0.5" /> :
       <AlertCircle className="h-5 w-5 text-amber-500 mt-0.5" />
     }
     <div className="text-sm">{children}</div>
@@ -82,12 +82,11 @@ const ProtocolDetailPage: React.FC = () => {
         // Usar a função de utilitário para carregar os dados do protocolo
         const data = await loadProtocolContent(protocolId);
         setProtocolData(data);
-        
+
         // Definir o título do protocolo
         setTitle(getProtocolTitle(protocolId));
       } catch (err) {
         setError('Erro ao carregar o protocolo');
-        console.error(err);
       } finally {
         setLoading(false);
       }
@@ -109,52 +108,51 @@ const ProtocolDetailPage: React.FC = () => {
       toast.error('Controlador não encontrado para este protocolo');
       return;
     }
-    
+
     try {
       let result;
-      
+
       // Processamento específico para cada protocolo
       if (protocolId === 'tce') {
         const idadeMeses = calcularIdadeMeses(
-          calculatorInputs.idade_anos, 
+          calculatorInputs.idade_anos,
           calculatorInputs.idade_meses_adicionais
         );
-        
+
         const dadosCalculados = {
           ...calculatorInputs,
           idade_meses: idadeMeses
         };
-        
+
         result = protocolData.controller.calcular(dadosCalculados);
-      } 
+      }
       // Processamento específico para o protocolo de Asma
       else if (protocolId === 'asma') {
         const idadeMeses = calcularIdadeMeses(
-          calculatorInputs.idade_anos, 
+          calculatorInputs.idade_anos,
           calculatorInputs.idade_meses
         );
-        
+
         const dadosCalculados = {
           ...calculatorInputs,
           idade_meses: idadeMeses
         };
-        
+
         result = protocolData.controller.calcular(dadosCalculados);
-      } 
+      }
       // Para outros protocolos, usar o cálculo padrão
       else {
         result = protocolData.controller.calcular(calculatorInputs);
       }
-      
+
       // Verificar se o resultado é válido
       if (result === null || result === undefined) {
         throw new Error('O cálculo não retornou um resultado válido');
       }
-      
-      console.log('Resultado do cálculo:', result);
+
       setCalculatorResults(result);
       toast.success('Cálculo realizado com sucesso!');
-      
+
     } catch (error: any) {
       console.error('Erro ao calcular:', error);
       toast.error(`Erro ao calcular: ${error.message || 'Verifique os dados inseridos.'}`);
@@ -166,7 +164,7 @@ const ProtocolDetailPage: React.FC = () => {
     // Criar um texto formatado com as informações do protocolo
     const controller = protocolData?.controller;
     let textContent = `${title}\n\n`;
-    
+
     // Adicionar informações específicas do protocolo
     if (controller) {
       // Adicionar critérios se disponíveis
@@ -176,14 +174,14 @@ const ProtocolDetailPage: React.FC = () => {
           textContent += `${index + 1}. ${criterio}\n`;
         });
       }
-      
+
       // Adicionar outras informações específicas do protocolo
       // Isso varia de acordo com o tipo de protocolo
     }
-    
+
     navigator.clipboard.writeText(textContent);
     toast.success('Conteúdo copiado para a área de transferência');
-    
+
     // Feedback visual com ícone de check
     setIsCopying(true);
     setTimeout(() => {
@@ -203,9 +201,9 @@ const ProtocolDetailPage: React.FC = () => {
     <div className="container mx-auto py-8 px-4">
       <Card className="p-6 md:p-8 bg-white shadow-sm">
         <div className="flex items-center justify-between mb-6">
-          <Button 
-            variant="outline" 
-            size="sm" 
+          <Button
+            variant="outline"
+            size="sm"
             onClick={goBack}
             className="flex items-center gap-1"
           >
@@ -213,9 +211,9 @@ const ProtocolDetailPage: React.FC = () => {
             Voltar
           </Button>
           <div className="flex gap-2">
-            <Button 
-              variant="outline" 
-              size="sm" 
+            <Button
+              variant="outline"
+              size="sm"
               onClick={handleCopyContent}
               className="flex items-center gap-1"
             >
@@ -226,9 +224,9 @@ const ProtocolDetailPage: React.FC = () => {
               )}
               {isCopying ? 'Copiado' : 'Copiar'}
             </Button>
-            <Button 
-              variant="outline" 
-              size="sm" 
+            <Button
+              variant="outline"
+              size="sm"
               onClick={handlePrint}
               className="flex items-center gap-1 print:hidden"
             >
@@ -253,9 +251,9 @@ const ProtocolDetailPage: React.FC = () => {
         ) : error ? (
           <div className="text-center py-10">
             <p className="text-red-500 font-medium text-lg">{error}</p>
-            <Button 
-              variant="outline" 
-              className="mt-4" 
+            <Button
+              variant="outline"
+              className="mt-4"
               onClick={() => navigate('/platform/protocols')}
             >
               Voltar para Protocolos
@@ -273,118 +271,118 @@ const ProtocolDetailPage: React.FC = () => {
                         <Calculator className="h-5 w-5 text-primary" />
                         <h3 className="text-xl font-semibold">Calculadora de {title}</h3>
                       </div>
-                      
+
                       {/* Formulários específicos para cada protocolo */}
                       {protocolId === 'tce' && (
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
                             <Label htmlFor="idade_anos">Idade (anos)</Label>
-                            <Input 
-                              id="idade_anos" 
-                              type="number" 
+                            <Input
+                              id="idade_anos"
+                              type="number"
                               placeholder="Ex: 5"
                               value={calculatorInputs.idade_anos || ''}
-                              onChange={(e) => setCalculatorInputs(prev => ({ ...prev, idade_anos: e.target.value }))} 
+                              onChange={(e) => setCalculatorInputs(prev => ({ ...prev, idade_anos: e.target.value }))}
                             />
                           </div>
                           <div>
                             <Label htmlFor="idade_meses_adicionais">Meses adicionais</Label>
-                            <Input 
-                              id="idade_meses_adicionais" 
-                              type="number" 
+                            <Input
+                              id="idade_meses_adicionais"
+                              type="number"
                               placeholder="Ex: 6"
                               value={calculatorInputs.idade_meses_adicionais || ''}
-                              onChange={(e) => setCalculatorInputs(prev => ({ ...prev, idade_meses_adicionais: e.target.value }))} 
+                              onChange={(e) => setCalculatorInputs(prev => ({ ...prev, idade_meses_adicionais: e.target.value }))}
                             />
                           </div>
-                          
+
                           <div className="flex flex-col justify-end">
                             <div className="flex items-center space-x-2 mt-4">
-                              <Checkbox 
-                                id="mecanismo_alto_impacto" 
+                              <Checkbox
+                                id="mecanismo_alto_impacto"
                                 checked={calculatorInputs.mecanismo_alto_impacto || false}
-                                onCheckedChange={(checked) => setCalculatorInputs(prev => ({ ...prev, mecanismo_alto_impacto: checked }))} 
+                                onCheckedChange={(checked) => setCalculatorInputs(prev => ({ ...prev, mecanismo_alto_impacto: checked }))}
                               />
                               <Label htmlFor="mecanismo_alto_impacto" className="text-sm font-normal">Mecanismo de alto impacto</Label>
                             </div>
                           </div>
-                          
+
                           <div className="flex flex-col justify-end">
                             <div className="flex items-center space-x-2 mt-4">
-                              <Checkbox 
-                                id="alteracao_comportamento" 
+                              <Checkbox
+                                id="alteracao_comportamento"
                                 checked={calculatorInputs.alteracao_comportamento || false}
-                                onCheckedChange={(checked) => setCalculatorInputs(prev => ({ ...prev, alteracao_comportamento: checked }))} 
+                                onCheckedChange={(checked) => setCalculatorInputs(prev => ({ ...prev, alteracao_comportamento: checked }))}
                               />
                               <Label htmlFor="alteracao_comportamento" className="text-sm font-normal">Alteração de comportamento</Label>
                             </div>
                           </div>
-                          
+
                           <div className="flex flex-col justify-end">
                             <div className="flex items-center space-x-2 mt-4">
-                              <Checkbox 
-                                id="perda_consciencia" 
+                              <Checkbox
+                                id="perda_consciencia"
                                 checked={calculatorInputs.perda_consciencia || false}
-                                onCheckedChange={(checked) => setCalculatorInputs(prev => ({ ...prev, perda_consciencia: checked }))} 
+                                onCheckedChange={(checked) => setCalculatorInputs(prev => ({ ...prev, perda_consciencia: checked }))}
                               />
                               <Label htmlFor="perda_consciencia" className="text-sm font-normal">Perda de consciência</Label>
                             </div>
                           </div>
-                          
+
                           <div className="flex flex-col justify-end">
                             <div className="flex items-center space-x-2 mt-4">
-                              <Checkbox 
-                                id="vomitos" 
+                              <Checkbox
+                                id="vomitos"
                                 checked={calculatorInputs.vomitos || false}
-                                onCheckedChange={(checked) => setCalculatorInputs(prev => ({ ...prev, vomitos: checked }))} 
+                                onCheckedChange={(checked) => setCalculatorInputs(prev => ({ ...prev, vomitos: checked }))}
                               />
                               <Label htmlFor="vomitos" className="text-sm font-normal">Vômitos</Label>
                             </div>
                           </div>
-                          
+
                           <div className="flex flex-col justify-end">
                             <div className="flex items-center space-x-2 mt-4">
-                              <Checkbox 
-                                id="cefaleia" 
+                              <Checkbox
+                                id="cefaleia"
                                 checked={calculatorInputs.cefaleia || false}
-                                onCheckedChange={(checked) => setCalculatorInputs(prev => ({ ...prev, cefaleia: checked }))} 
+                                onCheckedChange={(checked) => setCalculatorInputs(prev => ({ ...prev, cefaleia: checked }))}
                               />
                               <Label htmlFor="cefaleia" className="text-sm font-normal">Cefaleia</Label>
                             </div>
                           </div>
-                          
+
                           <div className="flex flex-col justify-end">
                             <div className="flex items-center space-x-2 mt-4">
-                              <Checkbox 
-                                id="convulsao" 
+                              <Checkbox
+                                id="convulsao"
                                 checked={calculatorInputs.convulsao || false}
-                                onCheckedChange={(checked) => setCalculatorInputs(prev => ({ ...prev, convulsao: checked }))} 
+                                onCheckedChange={(checked) => setCalculatorInputs(prev => ({ ...prev, convulsao: checked }))}
                               />
                               <Label htmlFor="convulsao" className="text-sm font-normal">Convulsão</Label>
                             </div>
                           </div>
                         </div>
                       )}
-                      
+
                       <div className="flex justify-between mt-6">
-                        <Button 
-                          variant="outline" 
+                        <Button
+                          variant="outline"
                           onClick={() => setCalculatorInputs({})}
                         >
                           Limpar
                         </Button>
-                        <Button 
+                        <Button
                           onClick={handleCalculate}
                         >
                           Calcular
                         </Button>
                       </div>
-                      
+
                       {/* Resultados do cálculo */}
                       {calculatorResults && (
                         <div className="mt-6 border rounded-md p-4 bg-white">
                           <h4 className="font-medium text-lg mb-4">Resultados</h4>
-                          
+
                           {/* Resultados específicos para cada protocolo */}
                           {protocolId === 'tce' && (
                             <div className="space-y-4">
@@ -394,7 +392,7 @@ const ProtocolDetailPage: React.FC = () => {
                                   {calculatorResults.risco}
                                 </p>
                               </div>
-                              
+
                               {calculatorResults.recomendacoes && calculatorResults.recomendacoes.length > 0 && (
                                 <div className="p-3 bg-white rounded border">
                                   <h5 className="font-medium mb-2">Recomendações</h5>
@@ -411,16 +409,16 @@ const ProtocolDetailPage: React.FC = () => {
                       )}
                     </div>
                   )}
-                  
+
                   {/* Conteúdo Markdown do protocolo */}
                   <div className="prose prose-slate max-w-none mb-8 markdown-content">
-                    <ReactMarkdown 
+                    <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
                       components={{
-                        a: ({node, ...props}) => (
+                        a: ({ node, ...props }) => (
                           <a target="_blank" rel="noopener noreferrer" {...props} />
                         ),
-                        table: ({node, ...props}) => (
+                        table: ({ node, ...props }) => (
                           <div className="overflow-x-auto">
                             <table className="min-w-full divide-y divide-gray-200" {...props} />
                           </div>

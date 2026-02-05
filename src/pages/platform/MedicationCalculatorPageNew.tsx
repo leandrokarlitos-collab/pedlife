@@ -248,22 +248,13 @@ const MedicationCalculatorPageNew: React.FC = () => {
     // 🆕 PRIORIDADE: Usar função calculateDosage() que suporta TSX
     if (params) {
       try {
-        console.log('🔄 [CALC] Calculando dose com TSX/JSON híbrido...', {
-          medicamento: medication.name,
-          peso: weight,
-          idadeMeses: ageMonths,
-          temCustomCalculator: !!params.customCalculator
-        });
 
         // Passamos a idade em MESES para o calculador, pois é mais preciso para pediatria
         const resultado = calculateDosage(weight, params, ageMonths);
 
-        console.log('📊 [CALC] Resultado:', resultado);
 
         if (resultado && resultado.doseText) {
           doseResultText = resultado.doseText;
-          console.log('✅ [CALC] Usando resultado:', doseResultText);
-          console.log('⚠️ [CALC] Alertas:', resultado.alertas);
 
           setResult({
             doseText: doseResultText,

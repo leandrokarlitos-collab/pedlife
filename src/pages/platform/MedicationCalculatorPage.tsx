@@ -254,30 +254,11 @@ const MedicationCalculatorPage: React.FC = () => {
     // Esta função suporta customCalculator do TSX automaticamente
     if (params) {
       try {
-        console.log('🔄 [CALC] Iniciando cálculo...', {
-          medicamento: medication.name,
-          peso: values.weight,
-          idade: values.age,
-          temCustomCalculator: !!params.customCalculator,
-          typeParams: params.type
-        });
-
         const resultado = calculateDosage(values.weight, params, values.age);
 
-        console.log('📊 [CALC] Resultado completo:', {
-          dose: resultado.dose,
-          volume: resultado.volume,
-          doseText: resultado.doseText,
-          tamanhoTexto: resultado.doseText?.length
-        });
-
-        // ✅ SEMPRE usar o resultado se doseText existir (mesmo que seja "Consulte...")
         if (resultado && resultado.doseText && resultado.doseText.trim().length > 0) {
           doseResultText = resultado.doseText;
-          console.log('✅ [CALC] doseResultText definido como:', doseResultText);
-
           const parsedDose = parseDoseText(doseResultText, medication);
-          console.log('📋 [CALC] parsedDose:', parsedDose);
 
           setCalculationData({
             weight: values.weight,
@@ -289,16 +270,10 @@ const MedicationCalculatorPage: React.FC = () => {
             parsedDose: parsedDose,
           });
 
-          console.log('✅ [CALC] State atualizado, componente deve renderizar resultado');
           return; // ← Sair, não executar lógicas hardcoded
-        } else {
-          console.error('❌ [CALC] doseText vazio ou inválido!', resultado);
         }
       } catch (error) {
-        console.error('❌ [CALC] Exceção ao calcular:', error);
       }
-    } else {
-      console.error('❌ [CALC] Params é null/undefined!');
     }
 
     // Existing Amoxicilina 250mg/5mL logic

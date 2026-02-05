@@ -73,7 +73,6 @@ export function useFavorites(user?: User | null) {
           );
 
           if (itemsToSync.length > 0) {
-            console.log(`Sincronizando ${itemsToSync.length} favoritos locais com a nuvem...`);
             for (const item of itemsToSync) {
               await supabase.from('favorites').insert({
                 id: item.id,

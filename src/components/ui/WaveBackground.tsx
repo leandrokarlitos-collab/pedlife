@@ -44,105 +44,103 @@ const darkStrandColors = [
 
 export const WaveBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const spriteCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const animationFrameId = useRef<number>();
   const particles = useRef<Particle[]>([]);
   const time = useRef(0);
   const { resolvedTheme } = useTheme();
   const isDark = resolvedTheme === 'dark';
 
+  // Pré-renderizar sprites para as partículas
+  const createSprites = (colors: { r: number; g: number; b: number }[][]) => {
+    const canvas = document.createElement('canvas');
+    const size = 32;
+    const particleTypes = 6;
+    canvas.width = size * particleTypes;
+    canvas.height = size * 2;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return null;
+
+    for (let strand = 0; strand < 2; strand++) {
+      const strandColors = colors[strand];
+      for (let i = 0; i < particleTypes; i++) {
+        const color = strandColors[i % strandColors.length];
+        const radius = 2 + (i * 0.5);
+        const centerX = i * size + size / 2;
+        const centerY = strand * size + size / 2;
+
+        const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius * 3.5);
+        gradient.addColorStop(0, `rgba(${color.r}, ${color.g}, ${color.b}, 0.15)`);
+        gradient.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(i * size, strand * size, size, size);
+
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.8)`;
+        ctx.fill();
+      }
+    }
+    return canvas;
+  };
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { alpha: false });
     if (!ctx) return;
 
-    // Selecionar cores baseado no tema
     const strandColors = isDark ? darkStrandColors : lightStrandColors;
+    spriteCanvasRef.current = createSprites(strandColors);
 
     const initParticles = (width: number, height: number) => {
-      if (width <= 0 || height <= 0) return;
-
       particles.current = [];
-
-      // DNA mais completo - mais partículas
       const diagonalLength = Math.sqrt(width * width + height * height);
-      const verticalSpacing = 18; // Menor espaçamento = mais partículas
-      const particlesPerStrand = Math.floor(diagonalLength / verticalSpacing) + 25;
+      const verticalSpacing = 40;
+      const particlesPerStrand = Math.floor(diagonalLength / verticalSpacing) + 10;
 
       for (let strand = 0; strand < 2; strand++) {
         const colors = strandColors[strand];
-
         for (let i = 0; i < particlesPerStrand; i++) {
-          const colorIndex = i % colors.length;
-
           particles.current.push({
             x: Math.random() * width,
             y: Math.random() * height,
             targetX: 0,
             targetY: 0,
             size: 2.5 + Math.random() * 2,
-            color: colors[colorIndex],
-            alpha: 0.18 + Math.random() * 0.12, // Meio termo - visível mas sutil
+            color: colors[i % colors.length],
+            alpha: 0.2 + Math.random() * 0.1,
             strand: strand,
             index: i,
             phase: Math.random() * Math.PI * 2,
           });
         }
       }
-
-      // Menos partículas de conexão
-      const connectionCount = Math.floor(particlesPerStrand / 6);
-      for (let i = 0; i < connectionCount; i++) {
-        const mixedColor = {
-          r: Math.round((strandColors[0][1].r + strandColors[1][1].r) / 2),
-          g: Math.round((strandColors[0][1].g + strandColors[1][1].g) / 2),
-          b: Math.round((strandColors[0][1].b + strandColors[1][1].b) / 2),
-        };
-
-        particles.current.push({
-          x: Math.random() * width,
-          y: Math.random() * height,
-          targetX: 0,
-          targetY: 0,
-          size: 1 + Math.random() * 0.5,
-          color: mixedColor,
-          alpha: 0.08 + Math.random() * 0.06, // Sutil
-          strand: 2,
-          index: i,
-          phase: Math.random() * Math.PI * 2,
-        });
-      }
     };
 
     const resizeCanvas = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       const width = window.innerWidth;
       const height = window.innerHeight;
 
-      if (width <= 0 || height <= 0) return;
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.scale(dpr, dpr);
 
-      canvas.width = width;
-      canvas.height = height;
       initParticles(width, height);
     };
 
     const animate = () => {
-      const width = canvas.width;
-      const height = canvas.height;
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      const spriteCanvas = spriteCanvasRef.current;
 
-      if (width <= 0 || height <= 0 || particles.current.length === 0) {
-        animationFrameId.current = requestAnimationFrame(animate);
-        return;
-      }
-
-      // Limpar com mais transparência para trail mais suave
-      // Cor de fundo adaptada ao tema
-      const clearColor = isDark
-        ? 'rgba(2, 6, 23, 0.08)'      // slate-950 para dark mode
-        : 'rgba(248, 250, 252, 0.08)'; // slate-50 para light mode
-      ctx.fillStyle = clearColor;
+      ctx.fillStyle = isDark ? '#020617' : '#f8fafc';
       ctx.fillRect(0, 0, width, height);
 
-      time.current += 0.005;
+      time.current += 0.003;
 
       const angle = -Math.PI / 7;
       const cosAngle = Math.cos(angle);
@@ -150,99 +148,56 @@ export const WaveBackground: React.FC = () => {
       const centerX = width * 0.35;
       const centerY = height * 0.55;
       const helixRadius = Math.min(width, height) * 0.22;
-      const verticalSpacing = 25; // Aumentado para reduzir contagem de partículas
-      const rotationSpeed = 0.4;
+      const verticalSpacing = 40;
+      const rotationSpeed = 0.3;
 
-      // Agrupar partículas por cor/estilo para Batched Drawing
-      const drawGroups: Record<string, { x: number; y: number; size: number; alpha: number; r: number; g: number; b: number }[]> = {};
+      ctx.strokeStyle = isDark ? 'rgba(99, 102, 241, 0.08)' : 'rgba(165, 180, 252, 0.04)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
 
       particles.current.forEach(p => {
-        const diagonalPos = (p.index * verticalSpacing - time.current * 25);
+        const diagonalPos = (p.index * verticalSpacing - time.current * 20);
         const totalLength = Math.sqrt(width * width + height * height);
         const wrappedPos = ((diagonalPos % totalLength) + totalLength) % totalLength - totalLength / 2;
 
-        if (p.strand === 0 || p.strand === 1) {
-          const helixAngle = (p.index * 0.25) + time.current * rotationSpeed + (p.strand * Math.PI);
-          const xOffset = Math.cos(helixAngle) * helixRadius;
-          const zDepth = Math.sin(helixAngle);
+        const helixAngle = (p.index * 0.25) + time.current * rotationSpeed + (p.strand * Math.PI);
+        const xOffset = Math.cos(helixAngle) * helixRadius;
+        const zDepth = Math.sin(helixAngle);
 
-          const baseX = centerX + wrappedPos * cosAngle;
-          const baseY = centerY + wrappedPos * sinAngle;
+        const baseX = centerX + wrappedPos * cosAngle;
+        const baseY = centerY + wrappedPos * sinAngle;
 
-          p.targetX = baseX + xOffset * sinAngle;
-          p.targetY = baseY - xOffset * cosAngle;
+        p.targetX = baseX + xOffset * sinAngle;
+        p.targetY = baseY - xOffset * cosAngle;
 
-          p.x += (p.targetX - p.x) * 0.022;
-          p.y += (p.targetY - p.y) * 0.022;
-          p.x += Math.sin(time.current * 1.2 + p.phase) * 0.15;
-          p.y += Math.cos(time.current * 0.8 + p.phase) * 0.15;
+        p.x += (p.targetX - p.x) * 0.03;
+        p.y += (p.targetY - p.y) * 0.03;
 
-          const depthAlpha = (0.12 + (zDepth + 1) * 0.08) * p.alpha / 0.25;
-          const depthSize = p.size * (0.75 + (zDepth + 1) * 0.2);
+        if (spriteCanvas) {
+          const spriteSize = 32;
+          const typeIndex = p.index % 6;
+          const strandIndex = p.strand;
+          const opacity = (0.2 + (zDepth + 1) * 0.3) * p.alpha;
 
-          // Criar chave para agrupamento baseado na cor e alpha (arredondado para evitar muitos grupos)
-          const alphaKey = Math.round(depthAlpha * 100);
-          const groupKey = `${p.color.r}-${p.color.g}-${p.color.b}-${alphaKey}`;
-
-          if (!drawGroups[groupKey]) drawGroups[groupKey] = [];
-          drawGroups[groupKey].push({ x: p.x, y: p.y, size: depthSize, alpha: depthAlpha, r: p.color.r, g: p.color.g, b: p.color.b });
-        } else {
-          const connectionPos = (p.index * verticalSpacing * 4 - time.current * 25);
-          const wrappedConnPos = ((connectionPos % totalLength) + totalLength) % totalLength - totalLength / 2;
-          const connAngle = (p.index * 1) + time.current * rotationSpeed;
-          const xOffset = Math.cos(connAngle) * helixRadius * 0.4;
-          const baseX = centerX + wrappedConnPos * cosAngle;
-          const baseY = centerY + wrappedConnPos * sinAngle;
-
-          p.targetX = baseX + xOffset * sinAngle;
-          p.targetY = baseY - xOffset * cosAngle;
-          p.x += (p.targetX - p.x) * 0.02;
-          p.y += (p.targetY - p.y) * 0.02;
-
-          const groupKey = `conn-${p.color.r}-${p.color.g}-${p.color.b}`;
-          if (!drawGroups[groupKey]) drawGroups[groupKey] = [];
-          drawGroups[groupKey].push({ x: p.x, y: p.y, size: p.size, alpha: p.alpha * 0.35, r: p.color.r, g: p.color.g, b: p.color.b });
+          ctx.globalAlpha = opacity;
+          ctx.drawImage(
+            spriteCanvas,
+            typeIndex * spriteSize, strandIndex * spriteSize, spriteSize, spriteSize,
+            p.x - spriteSize / 2, p.y - spriteSize / 2, spriteSize, spriteSize
+          );
         }
       });
 
-      // Executar o desenho em lote (Batch Rendering)
-      Object.values(drawGroups).forEach(group => {
-        const first = group[0];
-
-        // Desenhar brilho sutil (agrupado)
-        ctx.beginPath();
-        group.forEach(p => {
-          ctx.moveTo(p.x + p.size * 3.5, p.y);
-          ctx.arc(p.x, p.y, p.size * 3.5, 0, Math.PI * 2);
-        });
-        ctx.fillStyle = `rgba(${first.r}, ${first.g}, ${first.b}, ${first.alpha * 0.12})`;
-        ctx.fill();
-
-        // Desenhar núcleos das partículas (agrupado)
-        ctx.beginPath();
-        group.forEach(p => {
-          ctx.moveTo(p.x + p.size, p.y);
-          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        });
-        ctx.fillStyle = `rgba(${first.r}, ${first.g}, ${first.b}, ${first.alpha * 0.6})`;
-        ctx.fill();
-      });
-
-      // Linhas de conexão
+      ctx.globalAlpha = 1;
       const strand0 = particles.current.filter(p => p.strand === 0);
       const strand1 = particles.current.filter(p => p.strand === 1);
 
-      ctx.strokeStyle = isDark
-        ? 'rgba(99, 102, 241, 0.15)'
-        : 'rgba(165, 180, 252, 0.06)';
-      ctx.lineWidth = 0.8;
-      ctx.beginPath(); // Agrupar todas as linhas em um único path
-      for (let i = 0; i < Math.min(strand0.length, strand1.length); i += 5) {
+      for (let i = 0; i < Math.min(strand0.length, strand1.length); i += 6) {
         const p0 = strand0[i];
         const p1 = strand1[i];
         if (p0 && p1) {
-          const dist = Math.sqrt(Math.pow(p0.x - p1.x, 2) + Math.pow(p0.y - p1.y, 2));
-          if (dist < helixRadius * 2.5 && dist > 10) {
+          const distSq = Math.pow(p0.x - p1.x, 2) + Math.pow(p0.y - p1.y, 2);
+          if (distSq < Math.pow(helixRadius * 2.5, 2)) {
             ctx.moveTo(p0.x, p0.y);
             ctx.lineTo(p1.x, p1.y);
           }
@@ -253,17 +208,10 @@ export const WaveBackground: React.FC = () => {
       animationFrameId.current = requestAnimationFrame(animate);
     };
 
-    // Inicializar
     resizeCanvas();
-
-    // Fundo inicial adaptado ao tema
-    ctx.fillStyle = isDark ? '#020617' : '#f8fafc';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
     animate();
 
     window.addEventListener('resize', resizeCanvas);
-
     return () => {
       if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
       window.removeEventListener('resize', resizeCanvas);
@@ -274,7 +222,7 @@ export const WaveBackground: React.FC = () => {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none"
-      style={{ zIndex: -1 }}
+      style={{ zIndex: -1, backgroundColor: isDark ? '#020617' : '#f8fafc' }}
     />
   );
 };
