@@ -3,7 +3,8 @@ import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { format } from 'date-fns';
 import { Calculator } from 'lucide-react';
 import { slugify, cn } from '@/lib/utils';
-import { mockMedicationsData, allCategories, evaluateJsLogic, calculateDosage } from '@/data/mockMedications';
+import { evaluateJsLogic, calculateDosage } from '@/data/mockMedications';
+import { loadMedicationsForCategory, loadCategories, loadMedicationData } from '@/data/categoryLoader';
 import { formatarIntervaloBR } from '@/utils/numberFormat';
 import { Medication } from '@/types/medication';
 import { useSearchHistory } from '@/hooks/use-search-history';
@@ -48,13 +49,41 @@ const MedicationCalculatorPageNew: React.FC = () => {
   const [isCalculating, setIsCalculating] = useState(false);
   const [searchRecorded, setSearchRecorded] = useState(false);
 
-  // Buscar dados
-  const categoryData = categorySlug ? mockMedicationsData[categorySlug] : undefined;
-  const medication = categoryData?.medications.find(m => {
-    const medSlug = m.slug || slugify(m.name);
-    return medSlug === medicationSlug;
-  });
-  const categoryDisplayInfo = allCategories.find(c => c.slug === categorySlug);
+  const [medication, setMedication] = useState<Medication | undefined>(undefined);
+  const [categoryDisplayInfo, setCategoryDisplayInfo] = useState<any>(undefined);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Buscar dados de forma assíncrona
+  useEffect(() => {
+    async function fetchData() {
+      if (!categorySlug || !medicationSlug) {
+        setIsLoading(false);
+        return;
+      }
+
+      setIsLoading(true);
+      try {
+        // Carrega metadados da categoria (Síncrono)
+        const categories = loadCategories();
+        const catInfo = categories.find(c => c.slug === categorySlug);
+        setCategoryDisplayInfo(catInfo);
+
+        // Carrega medicamentos da categoria (Assíncrono)
+        const medications = await loadMedicationsForCategory(categorySlug);
+        const med = medications.find(m => {
+          const medSlug = m.slug || slugify(m.name);
+          return medSlug === medicationSlug;
+        });
+        setMedication(med);
+      } catch (error) {
+        console.error("Erro ao carregar dados do medicamento:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchData();
+  }, [categorySlug, medicationSlug]);
 
   // Registrar pesquisa quando a página é acessada
   useEffect(() => {
@@ -183,8 +212,17 @@ const MedicationCalculatorPageNew: React.FC = () => {
     }
   }, [fromFavorite, favoriteWeight, favoriteAge, medication, result, setSearchParams]);
 
-  // Se não encontrar, mostrar erro
-  if (!categoryData || !medication || !categoryDisplayInfo || !categorySlug || !medicationSlug) {
+  // Estados de erro e carregamento
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[calc(100vh-10rem)]">
+        <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4" />
+        <p className="text-muted-foreground animate-pulse">Carregando calculadora...</p>
+      </div>
+    );
+  }
+
+  if (!medication || !categoryDisplayInfo || !categorySlug || !medicationSlug) {
     return <MedicationNotFound />;
   }
 

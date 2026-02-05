@@ -3,65 +3,61 @@ import { LucideIcon, Pill } from 'lucide-react';
 import { slugify } from '@/lib/utils';
 import { loadTsxMedications, hasTsxMedications, getCategoriesWithTsx } from './tsxMedicationLoader';
 
-// Importar arquivos de categoria existentes
-import antibioticos from '@/medications/Categorias/antibioticos_fixed.json';
-import anticonvulsivantes from '@/medications/Categorias/anticonvulsivantes_fixed.json';
-import antiemeticos from '@/medications/Categorias/antiemeticos_fixed.json';
-import antimicrobianos from '@/medications/Categorias/antimicrobianos_fixed.json';
-import antivirais from '@/medications/Categorias/antivirais_fixed.json';
-import bloqueadorNeuromuscular from '@/medications/Categorias/bloqueador_neuromuscular_fixed.json';
-import carvaoAtivado from '@/medications/Categorias/carvao_ativado_fixed.json';
-import corticoidesEv from '@/medications/Categorias/corticoides_ev_fixed.json';
-import medicacaoBradicardia from '@/medications/Categorias/medicacao_bradicardia_fixed.json';
-import nasais from '@/medications/Categorias/nasais_fixed.json';
-import oftalmologicos from '@/medications/Categorias/oftalmologicos_fixed.json';
-import otologicos from '@/medications/Categorias/otologicos_fixed.json';
-import oftalmologicosOtologicos from '@/medications/Categorias/oftalmologicos_otologicos_fixed.json';
-import pcr from '@/medications/Categorias/pcr_fixed.json';
-import sedativos from '@/medications/Categorias/sedativos_fixed.json';
-import xaropesTosse from '@/medications/Categorias/xaropes_tosse_fixed.json';
-
-// Importar novas categorias atualizadas
-import antibioticosUpdated from '@/medications/Categorias/antibioticos_updated.json';
-import anticonvulsivantesUpdated from '@/medications/Categorias/anticonvulsivantes_updated.json';
-import antihistaminicos from '@/medications/Categorias/anti-histaminicos_updated.json';
-import antidotos from '@/medications/Categorias/antidotos_updated.json';
-import antiparasitarios from '@/medications/Categorias/antiparasitarios_updated.json';
-import antitussigenos from '@/medications/Categorias/antitussigenos_updated.json';
-import antiviraisUpdated from '@/medications/Categorias/antivirais_updated.json';
-import corticoidesUpdated from '@/medications/Categorias/corticoides-ev_updated.json';
-import expectorantesMucoliticos from '@/medications/Categorias/expectorantes-mucoliticos_updated.json';
-import gastrointestinal from '@/medications/Categorias/gastrointestinal_updated.json';
-
-// categoria 'diureticos' removida (não existe JSON correspondente)
-
-// Arquivo estático de cada categoria (combinando dados antigos e novos)
-const categoryFiles: Record<string, Medication[]> = {
-  // Categorias atualizadas com novos dados - Antimicrobianos fundidos com Antibióticos
-  'antibioticos': [...antibioticos, ...antibioticosUpdated, ...antimicrobianos],
-  'anticonvulsivantes': [...anticonvulsivantes, ...anticonvulsivantesUpdated],
-  'antivirais': [...antivirais, ...antiviraisUpdated],
-  'corticoides-ev': [...corticoidesEv, ...corticoidesUpdated],
-
-  // Novas categorias
-  'anti-histaminicos': antihistaminicos,
-  'antidotos': antidotos,
-  'antiparasitarios': antiparasitarios,
-  'antitussigenos': antitussigenos,
-  'expectorantes-mucoliticos': expectorantesMucoliticos,
-  'gastrointestinal': gastrointestinal,
-
-  // Categorias existentes mantidas
-  'antiemeticos': antiemeticos,
-  'bloqueador-neuromuscular': bloqueadorNeuromuscular,
-  'carvao-ativado': carvaoAtivado,
-  'medicacao-bradicardia': medicacaoBradicardia,
-  'nasais': nasais,
-  // 🆕 Oftalmológicos e Otológicos unificados
-  'oftalmologicos-otologicos': [...oftalmologicos, ...otologicos, ...oftalmologicosOtologicos],
-  'pcr': pcr,
-  'sedativos': sedativos,
-  'xaropes-tosse': xaropesTosse,
+/**
+ * Mapeamento de slugs para funções de carregamento dinâmico de JSON
+ */
+const dynamicCategoryImports: Record<string, () => Promise<any>> = {
+  'antibioticos': async () => {
+    const [fixed, updated, antimicrobianos] = await Promise.all([
+      import('@/medications/Categorias/antibioticos_fixed.json'),
+      import('@/medications/Categorias/antibioticos_updated.json'),
+      import('@/medications/Categorias/antimicrobianos_fixed.json')
+    ]);
+    return [...fixed.default, ...updated.default, ...antimicrobianos.default];
+  },
+  'anticonvulsivantes': async () => {
+    const [fixed, updated] = await Promise.all([
+      import('@/medications/Categorias/anticonvulsivantes_fixed.json'),
+      import('@/medications/Categorias/anticonvulsivantes_updated.json')
+    ]);
+    return [...fixed.default, ...updated.default];
+  },
+  'antivirais': async () => {
+    const [fixed, updated] = await Promise.all([
+      import('@/medications/Categorias/antivirais_fixed.json'),
+      import('@/medications/Categorias/antivirais_updated.json')
+    ]);
+    return [...fixed.default, ...updated.default];
+  },
+  'corticoides-ev': async () => {
+    const [fixed, updated] = await Promise.all([
+      import('@/medications/Categorias/corticoides_ev_fixed.json'),
+      import('@/medications/Categorias/corticoides-ev_updated.json')
+    ]);
+    return [...fixed.default, ...updated.default];
+  },
+  'anti-histaminicos': async () => (await import('@/medications/Categorias/anti-histaminicos_updated.json')).default,
+  'antidotos': async () => (await import('@/medications/Categorias/antidotos_updated.json')).default,
+  'antiparasitarios': async () => (await import('@/medications/Categorias/antiparasitarios_updated.json')).default,
+  'antitussigenos': async () => (await import('@/medications/Categorias/antitussigenos_updated.json')).default,
+  'expectorantes-mucoliticos': async () => (await import('@/medications/Categorias/expectorantes-mucoliticos_updated.json')).default,
+  'gastrointestinal': async () => (await import('@/medications/Categorias/gastrointestinal_updated.json')).default,
+  'antiemeticos': async () => (await import('@/medications/Categorias/antiemeticos_fixed.json')).default,
+  'bloqueador-neuromuscular': async () => (await import('@/medications/Categorias/bloqueador_neuromuscular_fixed.json')).default,
+  'carvao-ativado': async () => (await import('@/medications/Categorias/carvao_ativado_fixed.json')).default,
+  'medicacao-bradicardia': async () => (await import('@/medications/Categorias/medicacao_bradicardia_fixed.json')).default,
+  'nasais': async () => (await import('@/medications/Categorias/nasais_fixed.json')).default,
+  'oftalmologicos-otologicos': async () => {
+    const [oft, oto, combined] = await Promise.all([
+      import('@/medications/Categorias/oftalmologicos_fixed.json'),
+      import('@/medications/Categorias/otologicos_fixed.json'),
+      import('@/medications/Categorias/oftalmologicos_otologicos_fixed.json')
+    ]);
+    return [...oft.default, ...oto.default, ...combined.default];
+  },
+  'pcr': async () => (await import('@/medications/Categorias/pcr_fixed.json')).default,
+  'sedativos': async () => (await import('@/medications/Categorias/sedativos_fixed.json')).default,
+  'xaropes-tosse': async () => (await import('@/medications/Categorias/xaropes_tosse_fixed.json')).default,
 };
 
 const categoryIconMap: Record<string, { icon: LucideIcon; iconColorClass: string; bgColorClass: string; description: string }> = {
@@ -172,73 +168,45 @@ function groupMedicationsByApplication(medications: Medication[]): MedicationGro
   return groups;
 }
 
+/**
+ * Carrega medicamentos para uma categoria específica (TSX ou JSON)
+ */
+export async function loadMedicationsForCategory(slug: string): Promise<Medication[]> {
+  let medications: Medication[] = [];
+
+  if (hasTsxMedications(slug)) {
+    medications = await loadTsxMedications(slug);
+  } else if (dynamicCategoryImports[slug]) {
+    medications = await dynamicCategoryImports[slug]();
+  }
+
+  // Remover duplicatas e gerar slugs únicos
+  const seen = new Set<string>();
+  return medications.filter(m => {
+    const key = `${m.name}-${m.form || ''}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).map(m => ({
+    ...m,
+    slug: m.slug || slugify(m.name)
+  }));
+}
+
+/**
+ * Carrega toda a estrutura de dados (Metadados apenas, para manter a compatibilidade síncrona onde possível)
+ */
 export function loadMedicationData(): MockMedicationData {
   const data: MockMedicationData = {};
-  const seen = new Set<string>();
 
-  // 🆕 Combinar categorias JSON e TSX
+  // Combinar slugs de JSON e TSX para criar os metadados
   const allCategorySlug = new Set([
-    ...Object.keys(categoryFiles),
+    ...Object.keys(dynamicCategoryImports),
     ...getCategoriesWithTsx()
   ]);
 
   for (const slug of allCategorySlug) {
     const iconInfo = categoryIconMap[slug] || { icon: Pill, iconColorClass: 'text-gray-500', bgColorClass: 'bg-gray-100', description: 'Medicamentos diversos' };
-
-    // 🆕 TENTAR CARREGAR TSX PRIMEIRO
-    let medications: Medication[] = [];
-
-    if (hasTsxMedications(slug)) {
-      // Usar medicamentos TSX (já convertidos para formato Medication)
-      medications = loadTsxMedications(slug);
-      console.log(`✅ [TSX] Carregado ${medications.length} medicamentos para ${slug}`);
-
-      // 🐛 DEBUG: Verificar se customCalculator está presente
-      const primeiroMed = medications[0];
-      if (primeiroMed) {
-        console.log('🔍 [DEBUG] Primeiro medicamento TSX:', primeiroMed.name);
-        console.log('🔍 [DEBUG] Tem customCalculator?', !!primeiroMed.calculationParams?.customCalculator);
-      }
-    } else {
-      // Fallback para JSON
-      const meds = categoryFiles[slug] || [];
-      medications = meds;
-      console.log(`📋 [JSON] Carregado ${medications.length} medicamentos para ${slug}`);
-    }
-
-    // Remover duplicatas e gerar slugs únicos
-    const unique = medications.filter(m => {
-      const key = `${m.name}-${m.form || ''}`;
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    }).map(m => {
-      // Gerar slug único baseado no nome do medicamento
-      const uniqueSlug = m.slug || slugify(m.name);
-      return {
-        ...m,
-        slug: uniqueSlug
-      };
-    });
-
-    // Agrupar variantes - tratamento especial para antibióticos
-    const groups: MedicationGroup[] = [];
-
-    if (slug === 'antibioticos') {
-      // Para antibióticos, agrupar primeiro por via de administração, depois por variantes
-      groups.push(...groupMedicationsByApplication(unique));
-    } else {
-      // Para outras categorias, usar o agrupamento padrão
-      const map: Record<string, Medication[]> = {};
-      unique.forEach(m => {
-        const base = extractBaseName(m.name);
-        map[base] = map[base] || [];
-        map[base].push(m);
-      });
-      for (const base in map) {
-        groups.push({ baseName: base, baseSlug: base.replace(/\s+/g, '-').toLowerCase(), variants: map[base] });
-      }
-    }
 
     data[slug] = {
       slug,
@@ -247,10 +215,10 @@ export function loadMedicationData(): MockMedicationData {
       icon: iconInfo.icon,
       iconColorClass: iconInfo.iconColorClass,
       bgColorClass: iconInfo.bgColorClass,
-      medicationsCount: unique.length,
+      medicationsCount: 0, // Será atualizado quando os dados forem carregados
       lastUpdated: getLastUpdatedDate(),
-      medications: unique,
-      medicationGroups: groups,
+      medications: [], // Começa vazio para carregamento sob demanda
+      medicationGroups: [],
       showGrouped: true
     };
   }

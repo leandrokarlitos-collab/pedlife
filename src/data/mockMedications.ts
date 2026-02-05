@@ -4,11 +4,25 @@ import { loadMedicationData, loadCategories } from './categoryLoader';
 import { formatDosageText } from './tsxAdapter';
 import { formatarNumeroBR } from '@/utils/numberFormat';
 
-// Carregando os dados dos medicamentos a partir das categorias individuais
-const mockMedicationsData: MockMedicationData = loadMedicationData();
+// Carregando os dados e categorias de forma dinâmica através do categoryLoader
+let mockMedicationsData: MockMedicationData = {};
+let allCategories: CategoryInfo[] = [];
 
-// Carregando as informações das categorias
-const allCategories: CategoryInfo[] = loadCategories();
+// Função para inicializar dados básicos (metadata das categorias)
+export function initializeMedicationData() {
+  allCategories = loadCategories();
+  // Inicializa o objeto com o metadata das categorias, mas sem a lista completa de medicamentos (que virá sob demanda)
+  mockMedicationsData = loadMedicationData();
+}
+
+// Inicializa imediatamente com o que for síncrono
+initializeMedicationData();
+
+// Função para recarregar dados se necessário
+export const reloadMedicationData = () => {
+  initializeMedicationData();
+  return { mockMedicationsData, allCategories };
+};
 
 // Função para extrair informações de concentração do texto da lógica
 function extractConcentration(logicaJs: string): string {
@@ -355,11 +369,8 @@ function convertToJsLogic(text: string): string {
   return `"${cleanText}"`;
 }
 
-// Exportando os dados de medicamentos
-export { mockMedicationsData };
-
-// Exportando as categorias
-export { allCategories };
+// Exportando os dados de medicamentos (agora variáveis que podem ser atualizadas)
+export { mockMedicationsData, allCategories };
 
 // Função para avaliar a lógica JavaScript de forma segura
 function evaluateJsLogic(logicaJs: string, peso: number): string {

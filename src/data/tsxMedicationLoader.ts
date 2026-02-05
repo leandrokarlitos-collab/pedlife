@@ -1,105 +1,132 @@
 /**
  * Loader de Medicamentos TSX
  * 
- * Importa medicamentos dos arquivos TSX e os disponibiliza
- * para o categoryLoader através do adaptador.
+ * Importa medicamentos dos arquivos TSX de forma dinâmica
+ * para reduzir o bundle inicial.
  */
 
 import type { Medication } from '@/types/medication';
 import { convertTsxMedicationsArray } from './tsxAdapter';
 
-// Importar TODAS as categorias TSX com index.ts
-import * as antibioticos from '@/medications/antibioticos';
-import * as analgesicos from '@/medications/analgesicos';
-import * as gastrointestinal from '@/medications/gastrointestinal';
-import * as antiHistaminicos from '@/medications/anti-histaminicos';
-import * as antifungicos from '@/medications/antifungicos';
-import * as antivirais from '@/medications/antivirais';
-import * as corticoides from '@/medications/corticoides';
-// 🆕 Categorias recém-adicionadas
-import * as antiparasitarios from '@/medications/antiparasitarios';
-import * as inalatorios from '@/medications/inalatorios';
-import * as antitussigenos from '@/medications/antitussigenos';
-import * as vitaminas from '@/medications/vitaminas';
-import * as antidotos from '@/medications/antidotos';
-import * as anticonvulsivantes from '@/medications/anticonvulsivantes';
+// Lista de slugs que possuem implementação TSX
+const availableTsxCategories = [
+  'antibioticos',
+  'analgesicos',
+  'gastrointestinal',
+  'anti-histaminicos',
+  'antifungicos',
+  'antivirais',
+  'corticoides-ev',
+  'antiparasitarios',
+  'inalatorios',
+  'antitussigenos',
+  'vitaminas',
+  'antidotos',
+  'anticonvulsivantes'
+];
 
 /**
- * Mapeamento de categorias para seus medicamentos TSX
- * TODAS as 13 categorias TSX disponíveis!
+ * Cache para carregar medicamentos apenas uma vez
  */
-const tsxMedicationsByCategory: Record<string, Medication[]> = {
-  'antibioticos': antibioticos.medicamentos ? convertTsxMedicationsArray(antibioticos.medicamentos) : [],
-  'analgesicos': analgesicos.medicamentos ? convertTsxMedicationsArray(analgesicos.medicamentos) : [],
-  'gastrointestinal': gastrointestinal.medicamentos ? convertTsxMedicationsArray(gastrointestinal.medicamentos) : [],
-  'anti-histaminicos': antiHistaminicos.medicamentos ? convertTsxMedicationsArray(antiHistaminicos.medicamentos) : [],
-  'antifungicos': antifungicos.medicamentos ? convertTsxMedicationsArray(antifungicos.medicamentos) : [],
-  'antivirais': antivirais.medicamentos ? convertTsxMedicationsArray(antivirais.medicamentos) : [],
-  'corticoides-ev': corticoides.medicamentos ? convertTsxMedicationsArray(corticoides.medicamentos) : [],
-  'antiparasitarios': antiparasitarios.medicamentos ? convertTsxMedicationsArray(antiparasitarios.medicamentos) : [],
-  'inalatorios': inalatorios.medicamentos ? convertTsxMedicationsArray(inalatorios.medicamentos) : [],
-  'antitussigenos': antitussigenos.medicamentos ? convertTsxMedicationsArray(antitussigenos.medicamentos) : [],
-  'vitaminas': vitaminas.medicamentos ? convertTsxMedicationsArray(vitaminas.medicamentos) : [],
-  'antidotos': antidotos.medicamentos ? convertTsxMedicationsArray(antidotos.medicamentos) : [],
-  'anticonvulsivantes': anticonvulsivantes.medicamentos ? convertTsxMedicationsArray(anticonvulsivantes.medicamentos) : [],
-
-  // Categorias derivadas para compatibilidade com Slugs do JSON
-  'antiemeticos': gastrointestinal.medicamentos
-    ? convertTsxMedicationsArray(gastrointestinal.medicamentos.filter(m =>
-      ['ondansetrona', 'bromoprida', 'metoclopramida', 'domperidona'].some(name => m.data.nome.toLowerCase().includes(name))
-    ))
-    : [],
-  'expectorantes-mucoliticos': antitussigenos.medicamentos
-    ? convertTsxMedicationsArray(antitussigenos.medicamentos.filter(m =>
-      ['acetilcisteina', 'ambroxol', 'bromexina', 'carbocisteina', 'guaifenesina', 'hedera'].some(name => m.data.nome.toLowerCase().includes(name))
-    ))
-    : [],
-  'xaropes-tosse': antitussigenos.medicamentos
-    ? convertTsxMedicationsArray(antitussigenos.medicamentos)
-    : [],
-};
+const tsxCache: Record<string, Medication[]> = {};
 
 /**
- * Carrega medicamentos TSX para uma categoria específica
- * Retorna array vazio se não houver TSX para a categoria
+ * Carrega medicamentos TSX para uma categoria específica de forma dinâmica
  */
-export function loadTsxMedications(categorySlug: string): Medication[] {
-  return tsxMedicationsByCategory[categorySlug] || [];
+export async function loadTsxMedications(categorySlug: string): Promise<Medication[]> {
+  // Se já estiver no cache, retorna
+  if (tsxCache[categorySlug]) return tsxCache[categorySlug];
+
+  try {
+    let module;
+
+    // Mapeamento dinâmico de imports para o Vite reconhecer
+    switch (categorySlug) {
+      case 'antibioticos': module = await import('@/medications/antibioticos'); break;
+      case 'analgesicos': module = await import('@/medications/analgesicos'); break;
+      case 'gastrointestinal': module = await import('@/medications/gastrointestinal'); break;
+      case 'anti-histaminicos': module = await import('@/medications/anti-histaminicos'); break;
+      case 'antifungicos': module = await import('@/medications/antifungicos'); break;
+      case 'antivirais': module = await import('@/medications/antivirais'); break;
+      case 'corticoides-ev': module = await import('@/medications/corticoides'); break;
+      case 'antiparasitarios': module = await import('@/medications/antiparasitarios'); break;
+      case 'inalatorios': module = await import('@/medications/inalatorios'); break;
+      case 'antitussigenos': module = await import('@/medications/antitussigenos'); break;
+      case 'vitaminas': module = await import('@/medications/vitaminas'); break;
+      case 'antidotos': module = await import('@/medications/antidotos'); break;
+      case 'anticonvulsivantes': module = await import('@/medications/anticonvulsivantes'); break;
+
+      // Categorias derivadas
+      case 'antiemeticos': {
+        const gastro = await import('@/medications/gastrointestinal');
+        const meds = gastro.medicamentos ? convertTsxMedicationsArray(gastro.medicamentos.filter(m =>
+          ['ondansetrona', 'bromoprida', 'metoclopramida', 'domperidona'].some(name => m.data.nome.toLowerCase().includes(name))
+        )) : [];
+        tsxCache[categorySlug] = meds;
+        return meds;
+      }
+      case 'expectorantes-mucoliticos': {
+        const antituss = await import('@/medications/antitussigenos');
+        const meds = antituss.medicamentos ? convertTsxMedicationsArray(antituss.medicamentos.filter(m =>
+          ['acetilcisteina', 'ambroxol', 'bromexina', 'carbocisteina', 'guaifenesina', 'hedera'].some(name => m.data.nome.toLowerCase().includes(name))
+        )) : [];
+        tsxCache[categorySlug] = meds;
+        return meds;
+      }
+      case 'xaropes-tosse': {
+        const antituss = await import('@/medications/antitussigenos');
+        const meds = antituss.medicamentos ? convertTsxMedicationsArray(antituss.medicamentos) : [];
+        tsxCache[categorySlug] = meds;
+        return meds;
+      }
+      default: return [];
+    }
+
+    if (module && module.medicamentos) {
+      const converted = convertTsxMedicationsArray(module.medicamentos);
+      tsxCache[categorySlug] = converted;
+      return converted;
+    }
+
+    return [];
+  } catch (error) {
+    console.error(`Erro ao carregar medicamentos TSX para ${categorySlug}:`, error);
+    return [];
+  }
 }
 
 /**
- * Verifica se uma categoria tem medicamentos TSX disponíveis
+ * Verifica se uma categoria tem medicamentos TSX disponíveis (Síncrono para UI)
  */
 export function hasTsxMedications(categorySlug: string): boolean {
-  const meds = tsxMedicationsByCategory[categorySlug];
-  return meds !== undefined && meds.length > 0;
+  return availableTsxCategories.includes(categorySlug) ||
+    ['antiemeticos', 'expectorantes-mucoliticos', 'xaropes-tosse'].includes(categorySlug);
 }
 
 /**
  * Lista todas as categorias que têm TSX disponível
  */
 export function getCategoriesWithTsx(): string[] {
-  return Object.keys(tsxMedicationsByCategory).filter(
-    slug => tsxMedicationsByCategory[slug].length > 0
-  );
+  return [...availableTsxCategories, 'antiemeticos', 'expectorantes-mucoliticos', 'xaropes-tosse'];
 }
 
 /**
- * Estatísticas de medicamentos TSX
+ * Estatísticas de medicamentos TSX (Agora precisa ser assíncrono para carregar dados reais)
  */
-export function getTsxStats() {
+export async function getTsxStats() {
   const categories = getCategoriesWithTsx();
-  const totalMedications = categories.reduce(
-    (sum, cat) => sum + tsxMedicationsByCategory[cat].length,
-    0
-  );
+  let totalMedications = 0;
+  const results = [];
+
+  for (const slug of categories) {
+    const meds = await loadTsxMedications(slug);
+    totalMedications += meds.length;
+    results.push({ slug, count: meds.length });
+  }
 
   return {
     totalCategories: categories.length,
     totalMedications,
-    categories: categories.map(cat => ({
-      slug: cat,
-      count: tsxMedicationsByCategory[cat].length,
-    })),
+    categories: results,
   };
 }
