@@ -127,6 +127,8 @@
 
   .glass-card-hover {
     @apply transition-all duration-300 ease-out;
+    will-change: transform;
+    backface-visibility: hidden;
   }
 
   .glass-card-hover:hover {
@@ -265,6 +267,8 @@
   /* Simple Hover Lift */
   .hover-lift {
     @apply transition-all duration-200 ease-out;
+    will-change: transform;
+    backface-visibility: hidden;
   }
 
   .hover-lift:hover {

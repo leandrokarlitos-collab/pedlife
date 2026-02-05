@@ -17,7 +17,7 @@ export const Hero: React.FC = () => {
               <img
                 src="https://cdn.builder.io/api/v1/image/assets/78ab2fde8e3747148b556fefd3eab937/9d77224975ffcc8cbbf4b754d53fc6b455f157bb?placeholderIfAbsent=true"
                 alt="Pedlife Interface"
-                className="relative aspect-square object-contain w-full max-w-md md:max-w-full rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.2)] dark:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-[1.02]"
+                className="relative aspect-square object-contain w-full max-w-md md:max-w-full rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.2)] dark:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-[1.02] will-change-transform"
               />
             </div>
           </div>

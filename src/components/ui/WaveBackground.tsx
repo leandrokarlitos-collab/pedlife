@@ -142,23 +142,21 @@ export const WaveBackground: React.FC = () => {
       ctx.fillStyle = clearColor;
       ctx.fillRect(0, 0, width, height);
 
-      time.current += 0.005; // Ainda mais lento e suave
+      time.current += 0.005;
 
-      // DNA na DIAGONAL - inclinado mais para a direita
-      const angle = -Math.PI / 7; // ~-26 graus (mais inclinado para a direita)
+      const angle = -Math.PI / 7;
       const cosAngle = Math.cos(angle);
       const sinAngle = Math.sin(angle);
-
-      // Centro do DNA deslocado para a esquerda e mais para baixo
       const centerX = width * 0.35;
       const centerY = height * 0.55;
-
-      const helixRadius = Math.min(width, height) * 0.22; // Ainda maior
-      const verticalSpacing = 20;
+      const helixRadius = Math.min(width, height) * 0.22;
+      const verticalSpacing = 25; // Aumentado para reduzir contagem de partículas
       const rotationSpeed = 0.4;
 
+      // Agrupar partículas por cor/estilo para Batched Drawing
+      const drawGroups: Record<string, { x: number; y: number; size: number; alpha: number; r: number; g: number; b: number }[]> = {};
+
       particles.current.forEach(p => {
-        // Posição ao longo da diagonal
         const diagonalPos = (p.index * verticalSpacing - time.current * 25);
         const totalLength = Math.sqrt(width * width + height * height);
         const wrappedPos = ((diagonalPos % totalLength) + totalLength) % totalLength - totalLength / 2;
@@ -168,86 +166,89 @@ export const WaveBackground: React.FC = () => {
           const xOffset = Math.cos(helixAngle) * helixRadius;
           const zDepth = Math.sin(helixAngle);
 
-          // Posição na diagonal
           const baseX = centerX + wrappedPos * cosAngle;
           const baseY = centerY + wrappedPos * sinAngle;
 
-          // Offset perpendicular à diagonal para a hélice
           p.targetX = baseX + xOffset * sinAngle;
           p.targetY = baseY - xOffset * cosAngle;
 
-          // Profundidade - meio termo
-          const depthAlpha = (0.12 + (zDepth + 1) * 0.08) * p.alpha / 0.25;
-          const depthSize = p.size * (0.75 + (zDepth + 1) * 0.2);
-
-          // Movimento suave
           p.x += (p.targetX - p.x) * 0.022;
           p.y += (p.targetY - p.y) * 0.022;
-
-          // Oscilação mínima
           p.x += Math.sin(time.current * 1.2 + p.phase) * 0.15;
           p.y += Math.cos(time.current * 0.8 + p.phase) * 0.15;
 
-          // Glow sutil (sem gradiente pesado para performance)
-          const glowRadius = depthSize * 3.5;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, glowRadius, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${depthAlpha * 0.12})`;
-          ctx.fill();
+          const depthAlpha = (0.12 + (zDepth + 1) * 0.08) * p.alpha / 0.25;
+          const depthSize = p.size * (0.75 + (zDepth + 1) * 0.2);
 
-          // Partícula
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, depthSize, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${depthAlpha * 0.6})`;
-          ctx.fill();
+          // Criar chave para agrupamento baseado na cor e alpha (arredondado para evitar muitos grupos)
+          const alphaKey = Math.round(depthAlpha * 100);
+          const groupKey = `${p.color.r}-${p.color.g}-${p.color.b}-${alphaKey}`;
 
+          if (!drawGroups[groupKey]) drawGroups[groupKey] = [];
+          drawGroups[groupKey].push({ x: p.x, y: p.y, size: depthSize, alpha: depthAlpha, r: p.color.r, g: p.color.g, b: p.color.b });
         } else {
-          // Conexões
           const connectionPos = (p.index * verticalSpacing * 4 - time.current * 25);
           const wrappedConnPos = ((connectionPos % totalLength) + totalLength) % totalLength - totalLength / 2;
-
           const connAngle = (p.index * 1) + time.current * rotationSpeed;
           const xOffset = Math.cos(connAngle) * helixRadius * 0.4;
-
           const baseX = centerX + wrappedConnPos * cosAngle;
           const baseY = centerY + wrappedConnPos * sinAngle;
 
           p.targetX = baseX + xOffset * sinAngle;
           p.targetY = baseY - xOffset * cosAngle;
-
           p.x += (p.targetX - p.x) * 0.02;
           p.y += (p.targetY - p.y) * 0.02;
 
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${p.alpha * 0.35})`;
-          ctx.fill();
+          const groupKey = `conn-${p.color.r}-${p.color.g}-${p.color.b}`;
+          if (!drawGroups[groupKey]) drawGroups[groupKey] = [];
+          drawGroups[groupKey].push({ x: p.x, y: p.y, size: p.size, alpha: p.alpha * 0.35, r: p.color.r, g: p.color.g, b: p.color.b });
         }
       });
 
-      // Linhas de conexão quase invisíveis
+      // Executar o desenho em lote (Batch Rendering)
+      Object.values(drawGroups).forEach(group => {
+        const first = group[0];
+
+        // Desenhar brilho sutil (agrupado)
+        ctx.beginPath();
+        group.forEach(p => {
+          ctx.moveTo(p.x + p.size * 3.5, p.y);
+          ctx.arc(p.x, p.y, p.size * 3.5, 0, Math.PI * 2);
+        });
+        ctx.fillStyle = `rgba(${first.r}, ${first.g}, ${first.b}, ${first.alpha * 0.12})`;
+        ctx.fill();
+
+        // Desenhar núcleos das partículas (agrupado)
+        ctx.beginPath();
+        group.forEach(p => {
+          ctx.moveTo(p.x + p.size, p.y);
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        });
+        ctx.fillStyle = `rgba(${first.r}, ${first.g}, ${first.b}, ${first.alpha * 0.6})`;
+        ctx.fill();
+      });
+
+      // Linhas de conexão
       const strand0 = particles.current.filter(p => p.strand === 0);
       const strand1 = particles.current.filter(p => p.strand === 1);
 
-      // Cor das linhas adaptada ao tema
       ctx.strokeStyle = isDark
-        ? 'rgba(99, 102, 241, 0.15)'   // Indigo-500 com mais opacidade para dark
-        : 'rgba(165, 180, 252, 0.06)'; // Indigo-300 sutil para light
+        ? 'rgba(99, 102, 241, 0.15)'
+        : 'rgba(165, 180, 252, 0.06)';
       ctx.lineWidth = 0.8;
-
+      ctx.beginPath(); // Agrupar todas as linhas em um único path
       for (let i = 0; i < Math.min(strand0.length, strand1.length); i += 5) {
         const p0 = strand0[i];
         const p1 = strand1[i];
         if (p0 && p1) {
           const dist = Math.sqrt(Math.pow(p0.x - p1.x, 2) + Math.pow(p0.y - p1.y, 2));
           if (dist < helixRadius * 2.5 && dist > 10) {
-            ctx.beginPath();
             ctx.moveTo(p0.x, p0.y);
             ctx.lineTo(p1.x, p1.y);
-            ctx.stroke();
           }
         }
       }
+      ctx.stroke();
 
       animationFrameId.current = requestAnimationFrame(animate);
     };
