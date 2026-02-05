@@ -44,11 +44,11 @@ export function useFavorites(user?: User | null) {
   // Carregar favoritos (tenta Supabase primeiro, fallback para localStorage)
   const loadFavorites = useCallback(async () => {
     setLoading(true);
+    let localItems = loadFromLocalStorage();
 
-    // Se usuário está logado, tentar carregar do Supabase
+    // Se usuário está logado, sincronizar com Supabase
     if (user?.id) {
       try {
-        // Tentar buscar do Supabase (tabela 'favorites' se existir)
         const { data, error } = await supabase
           .from('favorites')
           .select('*')
@@ -56,7 +56,7 @@ export function useFavorites(user?: User | null) {
           .order('created_at', { ascending: false });
 
         if (!error && data) {
-          const formattedFavorites: FavoriteItem[] = data.map((item: any) => ({
+          const cloudFavorites: FavoriteItem[] = data.map((item: any) => ({
             id: item.id,
             medicationId: item.medication_id,
             medicationName: item.medication_name,
@@ -66,19 +66,66 @@ export function useFavorites(user?: User | null) {
             doseResult: item.dose_result,
             createdAt: item.created_at,
           }));
-          setFavorites(formattedFavorites);
+
+          // Se houver itens locais, tentar subir os que não estão na nuvem
+          const itemsToSync = localItems.filter(local =>
+            !cloudFavorites.some(cloud => cloud.medicationId === local.medicationId && Math.abs(cloud.weight - local.weight) < 0.1)
+          );
+
+          if (itemsToSync.length > 0) {
+            console.log(`Sincronizando ${itemsToSync.length} favoritos locais com a nuvem...`);
+            for (const item of itemsToSync) {
+              await supabase.from('favorites').insert({
+                id: item.id,
+                user_id: user.id,
+                medication_id: item.medicationId,
+                medication_name: item.medicationName,
+                category_slug: item.categorySlug,
+                weight: item.weight,
+                age_months: item.ageMonths,
+                dose_result: item.doseResult,
+                created_at: item.createdAt,
+              });
+            }
+            // Recarregar após sincronizar (opcional, ou apenas unificar em memória)
+            const { data: updatedData } = await supabase
+              .from('favorites')
+              .select('*')
+              .eq('user_id', user.id)
+              .order('created_at', { ascending: false });
+
+            if (updatedData) {
+              const finalFavorites = updatedData.map((item: any) => ({
+                id: item.id,
+                medicationId: item.medication_id,
+                medicationName: item.medication_name,
+                categorySlug: item.category_slug,
+                weight: item.weight,
+                ageMonths: item.age_months,
+                doseResult: item.dose_result,
+                createdAt: item.created_at,
+              }));
+              setFavorites(finalFavorites);
+              // Limpar local storage após sucesso na sincronização total
+              localStorage.removeItem(STORAGE_KEY);
+              setLoading(false);
+              return;
+            }
+          }
+
+          setFavorites(cloudFavorites);
           setLoading(false);
           return;
+        } else if (error) {
+          console.error('Erro Supabase favorites:', error);
         }
       } catch (error) {
-        // Tabela não existe ou erro, usar localStorage
-        console.log('Usando localStorage para favoritos (tabela Supabase não disponível)');
+        console.error('Erro na sincronização de favoritos:', error);
       }
     }
 
-    // Fallback para localStorage
-    const localFavorites = loadFromLocalStorage();
-    setFavorites(localFavorites);
+    // Fallback para localStorage (ou se não logado)
+    setFavorites(localItems);
     setLoading(false);
   }, [user?.id, loadFromLocalStorage]);
 
@@ -89,6 +136,8 @@ export function useFavorites(user?: User | null) {
       id: `fav_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       createdAt: new Date().toISOString(),
     };
+
+    let success = false;
 
     // Se usuário está logado, tentar salvar no Supabase
     if (user?.id) {
@@ -107,22 +156,32 @@ export function useFavorites(user?: User | null) {
 
         if (!error) {
           setFavorites(prev => [newFavorite, ...prev]);
-          return true;
+          success = true;
+        } else {
+          console.error('Erro ao salvar favorito no Supabase:', error);
+          // Fallback silencioso para localStorage se der erro no banco
         }
       } catch (error) {
-        console.log('Salvando favorito no localStorage');
+        console.error('Exceção ao salvar favorito:', error);
       }
     }
 
-    // Fallback para localStorage
-    const updatedFavorites = [newFavorite, ...favorites];
-    saveToLocalStorage(updatedFavorites);
-    setFavorites(updatedFavorites);
-    return true;
-  }, [user?.id, favorites, saveToLocalStorage]);
+    if (!success) {
+      // Fallback para localStorage ou comportamento offline
+      const currentLocal = loadFromLocalStorage();
+      const updatedFavorites = [newFavorite, ...currentLocal];
+      saveToLocalStorage(updatedFavorites);
+      setFavorites(updatedFavorites);
+      success = true;
+    }
+
+    return success;
+  }, [user?.id, loadFromLocalStorage, saveToLocalStorage]);
 
   // Remover dos favoritos
   const removeFavorite = useCallback(async (favoriteId: string) => {
+    let success = false;
+
     // Se usuário está logado, tentar remover do Supabase
     if (user?.id) {
       try {
@@ -134,19 +193,24 @@ export function useFavorites(user?: User | null) {
 
         if (!error) {
           setFavorites(prev => prev.filter(f => f.id !== favoriteId));
-          return true;
+          success = true;
         }
       } catch (error) {
-        console.log('Removendo favorito do localStorage');
+        console.error('Erro ao remover favorito do Supabase:', error);
       }
     }
 
-    // Fallback para localStorage
-    const updatedFavorites = favorites.filter(f => f.id !== favoriteId);
-    saveToLocalStorage(updatedFavorites);
-    setFavorites(updatedFavorites);
-    return true;
-  }, [user?.id, favorites, saveToLocalStorage]);
+    if (!success) {
+      // Fallback para localStorage
+      const localItems = loadFromLocalStorage();
+      const updatedFavorites = localItems.filter(f => f.id !== favoriteId);
+      saveToLocalStorage(updatedFavorites);
+      setFavorites(updatedFavorites);
+      success = true;
+    }
+
+    return success;
+  }, [user?.id, loadFromLocalStorage, saveToLocalStorage]);
 
   // Verificar se um medicamento está nos favoritos
   const isFavorite = useCallback((medicationId: string) => {

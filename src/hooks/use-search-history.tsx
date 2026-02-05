@@ -44,8 +44,9 @@ export function useSearchHistory(user?: User | null) {
   // Carregar histórico
   const loadHistory = useCallback(async () => {
     setLoading(true);
+    let localHistory = loadFromLocalStorage();
 
-    // Se usuário está logado, tentar carregar do Supabase
+    // Se usuário está logado, sincronizar com Supabase
     if (user?.id) {
       try {
         const { data, error } = await supabase
@@ -56,7 +57,7 @@ export function useSearchHistory(user?: User | null) {
           .limit(MAX_HISTORY_ITEMS);
 
         if (!error && data) {
-          const formattedHistory: SearchHistoryItem[] = data.map((item: any) => ({
+          const cloudHistory: SearchHistoryItem[] = data.map((item: any) => ({
             id: item.id,
             medicationId: item.medication_id,
             medicationName: item.medication_name,
@@ -65,17 +66,18 @@ export function useSearchHistory(user?: User | null) {
             searchCount: item.search_count,
             lastSearchedAt: item.last_searched_at,
           }));
-          setHistory(formattedHistory);
+
+          // Sincronizar itens locais se necessário (opcional para histórico, mas bom para consistência)
+          setHistory(cloudHistory);
           setLoading(false);
           return;
         }
       } catch (error) {
-        console.log('Usando localStorage para histórico (tabela Supabase não disponível)');
+        console.error('Erro ao carregar histórico do Supabase:', error);
       }
     }
 
     // Fallback para localStorage
-    const localHistory = loadFromLocalStorage();
     setHistory(localHistory);
     setLoading(false);
   }, [user?.id, loadFromLocalStorage]);
@@ -88,21 +90,22 @@ export function useSearchHistory(user?: User | null) {
     categoryName: string;
   }) => {
     const now = new Date().toISOString();
+    let success = false;
 
     // Se usuário está logado, tentar salvar no Supabase
     if (user?.id) {
       try {
         // Verificar se já existe
-        const { data: existing } = await supabase
+        const { data: existing, error: fetchError } = await supabase
           .from('search_history')
           .select('*')
           .eq('user_id', user.id)
           .eq('medication_id', item.medicationId)
-          .single();
+          .maybeSingle(); // maybeSingle para evitar erro se não encontrar
 
-        if (existing) {
+        if (!fetchError && existing) {
           // Atualizar contagem
-          const { error } = await supabase
+          const { error: updateError } = await supabase
             .from('search_history')
             .update({
               search_count: existing.search_count + 1,
@@ -110,13 +113,10 @@ export function useSearchHistory(user?: User | null) {
             })
             .eq('id', existing.id);
 
-          if (!error) {
-            await loadHistory();
-            return;
-          }
-        } else {
+          if (!updateError) success = true;
+        } else if (!fetchError) {
           // Inserir novo
-          const { error } = await supabase.from('search_history').insert({
+          const { error: insertError } = await supabase.from('search_history').insert({
             id: `search_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
             user_id: user.id,
             medication_id: item.medicationId,
@@ -127,17 +127,19 @@ export function useSearchHistory(user?: User | null) {
             last_searched_at: now,
           });
 
-          if (!error) {
-            await loadHistory();
-            return;
-          }
+          if (!insertError) success = true;
+        }
+
+        if (success) {
+          await loadHistory();
+          return;
         }
       } catch (error) {
-        console.log('Salvando histórico no localStorage');
+        console.error('Exceção ao registrar histórico no Supabase:', error);
       }
     }
 
-    // Fallback para localStorage
+    // Fallback para localStorage (sempre registrar localmente também para rapidez)
     const currentHistory = loadFromLocalStorage();
     const existingIndex = currentHistory.findIndex(h => h.medicationId === item.medicationId);
 
@@ -175,7 +177,7 @@ export function useSearchHistory(user?: User | null) {
           .delete()
           .eq('user_id', user.id);
       } catch (error) {
-        console.log('Limpando histórico do localStorage');
+        console.error('Erro ao limpar histórico no Supabase:', error);
       }
     }
 
