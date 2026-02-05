@@ -52,13 +52,10 @@ const ChatBot: React.FC = () => {
     try {
       const isConnected = await AIService.testConnection();
       setAiConnectionStatus(isConnected ? 'connected' : 'disconnected');
-      
+
       if (!isConnected) {
-        toast({
-          title: "IA Externa Indisponível",
-          description: "Usando respostas offline. Configure a API para melhor experiência.",
-          variant: "destructive"
-        });
+        // Fallback silencioso para não alarmar o usuário se for apenas um timeout
+        console.warn("IA Connection: Usando modo híbrido (Offline/Online)");
       }
     } catch (error) {
       setAiConnectionStatus('disconnected');
@@ -75,32 +72,32 @@ const ChatBot: React.FC = () => {
     }
 
     setStreamingMessageId(messageId);
-    
+
     // Split response into sentences for better streaming (respecting punctuation)
     const sentences = fullResponse.split(/([.!?])\s+/).filter(part => part.trim());
     let currentText = '';
-    
+
     for (let i = 0; i < sentences.length; i++) {
       const part = sentences[i];
-      
+
       // Add the sentence part
       if (part.match(/[.!?]/)) {
         currentText += part;
       } else {
         currentText += (currentText ? ' ' : '') + part;
       }
-      
+
       // Update the message with current text
-      setMessages(prev => prev.map(msg => 
-        msg.id === messageId 
+      setMessages(prev => prev.map(msg =>
+        msg.id === messageId
           ? { ...msg, text: currentText }
           : msg
       ));
-      
+
       // Add delay between sentences for better reading flow
       await new Promise(resolve => setTimeout(resolve, part.match(/[.!?]/) ? 200 : 100));
     }
-    
+
     setStreamingMessageId(null);
   };
 
@@ -122,7 +119,7 @@ const ChatBot: React.FC = () => {
     try {
       // Get response from AI service first
       const response = await AIService.sendMessage(currentMessage, conversationHistory);
-      
+
       if (response.success && response.message && response.message.trim()) {
         // Create bot message for streaming only if we have a valid response
         const botMessageId = (Date.now() + 1).toString();
@@ -134,10 +131,10 @@ const ChatBot: React.FC = () => {
         };
 
         setMessages(prev => [...prev, botResponse]);
-        
+
         // Simulate streaming effect
         await simulateStreamingResponse(response.message, botMessageId);
-        
+
         // Update conversation history for context
         setConversationHistory(prev => [
           ...prev,
@@ -147,7 +144,7 @@ const ChatBot: React.FC = () => {
       } else {
         // Handle error or empty response
         const errorMessage = response.message || 'Desculpe, não consegui gerar uma resposta.';
-        
+
         const botResponse: Message = {
           id: (Date.now() + 1).toString(),
           text: errorMessage,
@@ -156,7 +153,7 @@ const ChatBot: React.FC = () => {
         };
 
         setMessages(prev => [...prev, botResponse]);
-        
+
         if (response.error && aiConnectionStatus === 'connected') {
           toast({
             title: "Erro na IA",
@@ -168,7 +165,7 @@ const ChatBot: React.FC = () => {
       }
     } catch (error) {
       console.error('Error in handleSendMessage:', error);
-      
+
       const errorResponse: Message = {
         id: (Date.now() + 1).toString(),
         text: 'Desculpe, ocorreu um erro ao processar sua mensagem. Tente novamente.',
@@ -177,7 +174,7 @@ const ChatBot: React.FC = () => {
       };
 
       setMessages(prev => [...prev, errorResponse]);
-      
+
       toast({
         title: "Erro de Comunicação",
         description: "Não foi possível obter resposta da IA.",
@@ -196,9 +193,9 @@ const ChatBot: React.FC = () => {
   };
 
   const formatTime = (date: Date) => {
-    return date.toLocaleTimeString('pt-BR', { 
-      hour: '2-digit', 
-      minute: '2-digit' 
+    return date.toLocaleTimeString('pt-BR', {
+      hour: '2-digit',
+      minute: '2-digit'
     });
   };
 
@@ -213,7 +210,7 @@ const ChatBot: React.FC = () => {
           >
             <MessageCircle className="h-7 w-7 group-hover:scale-110 transition-transform duration-300" />
             <span className="sr-only">Abrir chat</span>
-            
+
             {/* Pulse ring */}
             <div className="absolute inset-0 rounded-full border-2 border-violet-400 opacity-0 group-hover:opacity-75 animate-ping" />
           </Button>
@@ -230,15 +227,14 @@ const ChatBot: React.FC = () => {
                 <span className="font-bold text-lg">Assistente PedLife</span>
               </div>
               <div className="flex items-center gap-1 text-xs mr-2">
-                <div className={`w-2 h-2 rounded-full ${
-                  aiConnectionStatus === 'connected' ? 'bg-green-400' :
-                  aiConnectionStatus === 'disconnected' ? 'bg-red-400' :
-                  'bg-yellow-400 animate-pulse'
-                }`} />
+                <div className={`w-2 h-2 rounded-full ${aiConnectionStatus === 'connected' ? 'bg-green-400' :
+                    aiConnectionStatus === 'disconnected' ? 'bg-red-400' :
+                      'bg-yellow-400 animate-pulse'
+                  }`} />
                 <span className="opacity-80">
                   {aiConnectionStatus === 'connected' ? 'IA Online' :
-                   aiConnectionStatus === 'disconnected' ? 'Modo Offline' :
-                   'Conectando...'}
+                    aiConnectionStatus === 'disconnected' ? 'Modo Offline' :
+                      'Conectando...'}
                 </span>
                 {aiConnectionStatus === 'disconnected' && (
                   <AlertCircle className="h-3 w-3 ml-1" />
@@ -253,15 +249,14 @@ const ChatBot: React.FC = () => {
               {messages.map((message) => (
                 <div
                   key={message.id}
-                  className={`flex gap-3 ${
-                    message.sender === 'user' ? 'justify-end' : 'justify-start'
-                  }`}
+                  className={`flex gap-3 ${message.sender === 'user' ? 'justify-end' : 'justify-start'
+                    }`}
                 >
                   {message.sender === 'bot' && (
                     <Avatar className="h-8 w-8">
                       {aiConnectionStatus === 'connected' ? (
-                        <AvatarImage 
-                          src="/lovable-uploads/PedroAvatar.jpg" 
+                        <AvatarImage
+                          src="/lovable-uploads/PedroAvatar.jpg"
                           alt="Pedro - Assistente Clínico Pediátrico"
                           className="object-cover"
                         />
@@ -271,25 +266,23 @@ const ChatBot: React.FC = () => {
                       </AvatarFallback>
                     </Avatar>
                   )}
-                  
+
                   <div
-                    className={`max-w-[80%] rounded-lg px-3 py-2 text-sm ${
-                      message.sender === 'user'
+                    className={`max-w-[80%] rounded-lg px-3 py-2 text-sm ${message.sender === 'user'
                         ? 'bg-primary text-primary-foreground ml-auto'
                         : 'bg-muted'
-                    }`}
+                      }`}
                   >
                     {message.sender === 'bot' ? (
-                      <MedicalFormattedMessage 
-                        text={message.text} 
+                      <MedicalFormattedMessage
+                        text={message.text}
                         className="text-inherit"
                       />
                     ) : (
                       <p>{message.text}</p>
                     )}
-                    <p className={`text-xs mt-2 opacity-70 ${
-                      message.sender === 'bot' ? 'border-t border-opacity-20 pt-1' : ''
-                    }`}>
+                    <p className={`text-xs mt-2 opacity-70 ${message.sender === 'bot' ? 'border-t border-opacity-20 pt-1' : ''
+                      }`}>
                       {formatTime(message.timestamp)}
                     </p>
                   </div>
@@ -308,8 +301,8 @@ const ChatBot: React.FC = () => {
                 <div className="flex gap-3 justify-start">
                   <Avatar className="h-8 w-8">
                     {aiConnectionStatus === 'connected' ? (
-                      <AvatarImage 
-                        src="/lovable-uploads/PedroAvatar.jpg" 
+                      <AvatarImage
+                        src="/lovable-uploads/PedroAvatar.jpg"
                         alt="Pedro - Assistente Clínico Pediátrico"
                         className="object-cover"
                       />
@@ -327,7 +320,7 @@ const ChatBot: React.FC = () => {
                   </div>
                 </div>
               )}
-              
+
               <div ref={messagesEndRef} />
             </div>
           </ScrollArea>
@@ -343,8 +336,8 @@ const ChatBot: React.FC = () => {
                 className="flex-1"
                 disabled={isTyping}
               />
-              <Button 
-                onClick={handleSendMessage} 
+              <Button
+                onClick={handleSendMessage}
                 disabled={!inputMessage.trim() || isTyping}
                 size="icon"
               >

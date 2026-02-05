@@ -24,16 +24,14 @@ export class AIService {
   private static readonly VERTEX_LOCATION = import.meta.env.VITE_VERTEX_LOCATION || 'us-central1';
 
   // System prompt para contexto médico pediátrico (usado por provedores genéricos)
-  private static readonly SYSTEM_PROMPT = `Você é o PedLife Assistant, um assistente clínico especializado em pediatria.
-Seu papel é auxiliar profissionais de saúde com:
-- Cálculos de dosagens pediátricas
-- Informações sobre medicamentos para crianças
-- Protocolos clínicos pediátricos
-- Orientações de emergências pediátricas
+  private static readonly SYSTEM_PROMPT = `Você é o PedLife Assistant, um assistente clínico pediátrico avançado.
+Seu papel é auxiliar profissionais de saúde com cálculos de dosagens, protocolos e informações clínicas.
 
-Sempre forneça informações precisas e baseadas em evidências.
-Lembre o usuário de que suas respostas são para fins educacionais e que decisões clínicas devem considerar o contexto individual de cada paciente.
-Responda sempre em português brasileiro de forma clara e objetiva.`;
+DIRETRIZES CRÍTICAS:
+1. Respostas BASEADAS EM EVIDÊNCIAS.
+2. Para cálculos de dose, SEMPRE sugira usar as calculadoras integradas da plataforma PedLife para segurança máxima.
+3. Seus cálculos manuais devem ser acompanhados do aviso: "Sempre valide os cálculos com as ferramentas oficiais da plataforma".
+4. Responda em Português (BR) de forma técnica porem acessível.`;
 
   /**
    * Detecta o provedor baseado na URL da API
@@ -105,9 +103,12 @@ Responda sempre em português brasileiro de forma clara e objetiva.`;
     userMessage: string,
     conversationHistory: AIMessage[] = []
   ): Promise<AIResponse> {
-    // Construir URL com API key (formato Gemini)
-    const model = this.MODEL || 'gemini-pro';
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${this.API_KEY}`;
+    // Sanitizar a API Key (remover espaços e aspas)
+    const apiKey = this.API_KEY.trim().replace(/^["']|["']$/g, '');
+    const model = this.MODEL || 'gemini-1.5-flash';
+
+    // Tentar v1beta primeiro, mas permitir fallback para v1 se necessário
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
     // Converter histórico para formato Gemini
     const contents = [];
@@ -161,6 +162,7 @@ Responda sempre em português brasileiro de forma clara e objetiva.`;
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
+      console.error('Gemini API Error Detail:', errorData);
       throw new Error(`Gemini API Error: ${response.status} - ${errorData.error?.message || 'Unknown error'}`);
     }
 
@@ -289,7 +291,11 @@ Responda sempre em português brasileiro de forma clara e objetiva.`;
       { role: 'user', content: userMessage }
     ];
 
-    const response = await fetch(this.API_URL, {
+    const url = this.PROVIDER === 'openai' && this.API_URL.includes('up.railway.app')
+      ? 'https://api.openai.com/v1/chat/completions'
+      : this.API_URL;
+
+    const response = await fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -433,27 +439,27 @@ Responda sempre em português brasileiro de forma clara e objetiva.`;
    */
   private static getFallbackResponse(userMessage: string): string {
     const lowercaseMessage = userMessage.toLowerCase();
-    
+
     if (lowercaseMessage.includes('dose') || lowercaseMessage.includes('dosagem')) {
       return 'Para cálculos de dosagem, use nossa calculadora de medicamentos. Informe o peso e idade do paciente para obter as doses corretas. (Modo offline - configure a API de IA para respostas mais precisas)';
     }
-    
+
     if (lowercaseMessage.includes('emergência') || lowercaseMessage.includes('urgência')) {
       return 'Em situações de emergência, consulte nossos protocolos de atendimento. Temos protocolos para anafilaxia, parada cardiorrespiratória, convulsões e muito mais. (Modo offline - configure a API de IA para respostas mais precisas)';
     }
-    
+
     if (lowercaseMessage.includes('protocolo')) {
       return 'Nossos protocolos incluem: Anafilaxia, Asma, TCE, Celulite, Convulsões, e muitos outros. Navegue pela seção de protocolos para mais informações. (Modo offline - configure a API de IA para respostas mais precisas)';
     }
-    
+
     if (lowercaseMessage.includes('insulin') || lowercaseMessage.includes('diabetes')) {
       return 'Para cálculos de insulina, use nossa calculadora específica. Ela considera o peso, glicemia e outros fatores importantes. (Modo offline - configure a API de IA para respostas mais precisas)';
     }
-    
+
     if (lowercaseMessage.includes('obrigado') || lowercaseMessage.includes('valeu')) {
       return 'De nada! Estou aqui para ajudar sempre que precisar. Boa prática clínica! 👨‍⚕️';
     }
-    
+
     return 'Entendo sua pergunta. Para melhor atendê-lo, recomendo explorar nossas calculadoras de medicamentos e protocolos clínicos. (Modo offline - configure a API de IA para respostas mais precisas)';
   }
 
