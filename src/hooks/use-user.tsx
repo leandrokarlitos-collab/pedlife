@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { Session, User } from '@supabase/supabase-js';
 import { Database } from '@/integrations/supabase/types';
-import { checkAndCleanCorruptedTokens, clearAuthData } from '@/utils/auth-utils';
+import { clearAuthData } from '@/utils/auth-utils';
 
 type UserProfile = Database['public']['Tables']['profiles']['Row'];
 
@@ -17,53 +17,22 @@ export function useUser(): UserData {
   const [session, setSession] = useState<Session | null>(null);
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
+  const isMounted = useRef(true);
+  const initialLoadComplete = useRef(false);
 
   useEffect(() => {
-    // Get initial session with error handling
-    const getSession = async () => {
-      try {
-        // First check and clean any corrupted tokens
-        const hasValidSession = await checkAndCleanCorruptedTokens();
-        
-        if (!hasValidSession) {
-          setLoading(false);
-          return;
-        }
-
-        const { data: { session }, error } = await supabase.auth.getSession();
-        
-        if (error) {
-          console.error('Error getting session:', error);
-          // If there's an auth error, clean the data and redirect
-          if (error.message.includes('Invalid Refresh Token') || error.message.includes('refresh_token_not_found')) {
-            clearAuthData();
-            window.location.href = '/auth';
-            return;
-          }
-        }
-        
-        setSession(session);
-        
-        // If there's a session, get the profile
-        if (session?.user) {
-          await fetchProfile(session.user.id);
-        }
-      } catch (error) {
-        console.error('Error getting session:', error);
-        clearAuthData();
-      } finally {
-        setLoading(false);
-      }
-    };
+    isMounted.current = true;
 
     // Function to fetch user profile
     const fetchProfile = async (userId: string) => {
       try {
-        const { data: profile, error } = await supabase
+        const { data: profileData, error } = await supabase
           .from('profiles')
           .select('*')
           .eq('id', userId)
           .single();
+
+        if (!isMounted.current) return;
 
         if (error) {
           console.error('Error fetching profile:', error);
@@ -72,7 +41,7 @@ export function useUser(): UserData {
             await createProfile(userId);
           }
         } else {
-          setProfile(profile);
+          setProfile(profileData);
         }
       } catch (error) {
         console.error('Error in fetchProfile:', error);
@@ -83,8 +52,8 @@ export function useUser(): UserData {
     const createProfile = async (userId: string) => {
       try {
         const { data: { user } } = await supabase.auth.getUser();
-        
-        if (!user) return;
+
+        if (!user || !isMounted.current) return;
 
         const { data: newProfile, error } = await supabase
           .from('profiles')
@@ -98,6 +67,8 @@ export function useUser(): UserData {
           .select()
           .single();
 
+        if (!isMounted.current) return;
+
         if (error) {
           console.error('Error creating profile:', error);
         } else {
@@ -108,24 +79,71 @@ export function useUser(): UserData {
       }
     };
 
-    getSession();
+    // Get initial session
+    const initializeAuth = async () => {
+      try {
+        const { data: { session: initialSession }, error } = await supabase.auth.getSession();
+
+        if (!isMounted.current) return;
+
+        if (error) {
+          console.error('Error getting session:', error);
+          // If there's an auth error, clean the data
+          if (error.message?.includes('Invalid Refresh Token') || error.message?.includes('refresh_token_not_found')) {
+            clearAuthData();
+          }
+          setLoading(false);
+          return;
+        }
+
+        setSession(initialSession);
+
+        // If there's a session, get the profile
+        if (initialSession?.user) {
+          await fetchProfile(initialSession.user.id);
+        }
+      } catch (error) {
+        console.error('Error initializing auth:', error);
+        if (isMounted.current) {
+          clearAuthData();
+        }
+      } finally {
+        if (isMounted.current) {
+          setLoading(false);
+          initialLoadComplete.current = true;
+        }
+      }
+    };
+
+    // Start initialization
+    initializeAuth();
 
     // Listen for auth state changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        setSession(session);
-        
-        if (event === 'SIGNED_IN' && session?.user) {
-          await fetchProfile(session.user.id);
+      async (event, newSession) => {
+        if (!isMounted.current) return;
+
+        // Só processar eventos depois do carregamento inicial
+        if (!initialLoadComplete.current) return;
+
+        setSession(newSession);
+
+        if (event === 'SIGNED_IN' && newSession?.user) {
+          setLoading(true);
+          await fetchProfile(newSession.user.id);
+          if (isMounted.current) {
+            setLoading(false);
+          }
         } else if (event === 'SIGNED_OUT') {
           setProfile(null);
         }
-        
-        setLoading(false);
       }
     );
 
-    return () => subscription.unsubscribe();
+    return () => {
+      isMounted.current = false;
+      subscription.unsubscribe();
+    };
   }, []);
 
   return {

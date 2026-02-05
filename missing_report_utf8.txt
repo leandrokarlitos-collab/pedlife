@@ -1,0 +1,28 @@
+﻿--- RELATORIO DE MEDICAMENTOS FALTANTES ---
+1. Amicacina 50ÔÇ»mg/2ÔÇ»mL  Amicacina 125ÔÇ»mg/2ÔÇ»mL  Amicacina 250ÔÇ»mg/2ÔÇ»mL
+2. Amoxicilina + Clavulanato  500ÔÇ»mg + 100ÔÇ»mg (EV)  1000ÔÇ»mg + 200ÔÇ»mg (EV)
+3. Amoxicilina + Sulbactam 200 + 50mg/5 mL
+4. Ampicilina 500 mg  Ampicilina 1000mg
+5. Ceftibuteno 400mg
+6. Cetorolaco de Trometamol 30 mg/mL   (Solu├º├úo Injet├ível)
+7. Ciprofloxacino 2 mg/mL   (Bolsa 100mL ou 200mL)
+8. Cloridrato de Midazolam 1 mg/mL   E   5 mg/mL (Solu├º├úo Injet├ível)
+9. Diclofenaco Resinato   (Suspens├úo Oral / Gotas)
+10. Dimenidrinato 25 mg/mL + Vit. B6 5 mg/mL (Dramin┬« B6 - Gotas)
+11. Dimenidrinato 3 mg/mL + Vit. B6 5 mg/mL (Dramin┬« B6 DL)
+12. Eritromicina Estearato 250 mg/5 mL
+13. Ertapenem S├│dico 1 g/p├│
+14. Fexofenadina 60, 120   ou 180 mg (Comprimido)
+15. Gentamicina (20 mg/mL, 40 mg/mL, 80 mg/2 mL)
+16. HPMIX (Aciclovir) 40 mg/mL   (Suspens├úo Oral)
+17. Linezolida 2 mg/mL 
+18. Linezolida 20 mg/mL
+19. Naproxeno 250 / 275 / 500 / 550 mg   (Comprimido)
+20. Ondansetrona 4 mg e 8 mg    Comprimido / Filme / Orodispers├¡vel
+21. Palivizumabe 50 mg / 100 mg (P├│)
+22. Paracetamol Suspens├úo Oral   (140mg/ml ,100 mg/mL e 32 mg/mL)
+23. Piperacilina + Tazobactam   4 g + 500 mg/p├│
+24. Sulfato de Morfina 1 mg/mL   (Solu├º├úo Injet├ível)
+
+Total de medicamentos no Excel: 149
+Total faltantes identificados: 24

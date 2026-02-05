@@ -42,10 +42,10 @@ const MedicationHeader: React.FC<MedicationHeaderProps> = ({
       {/* Glass Card */}
       <div className={cn(
         "relative overflow-hidden rounded-2xl",
-        "bg-white/60 dark:bg-slate-900/50",
+        "bg-white/60 dark:bg-slate-800/80",
         "backdrop-blur-xl backdrop-saturate-150",
-        "border border-white/40 dark:border-white/10",
-        "shadow-lg shadow-black/5"
+        "border border-white/40 dark:border-slate-600/60",
+        "shadow-lg shadow-black/5 dark:shadow-black/30"
       )}>
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-blue-500/5 pointer-events-none" />
@@ -57,8 +57,8 @@ const MedicationHeader: React.FC<MedicationHeaderProps> = ({
               to={`/platform/calculator/${categorySlug}`}
               className={cn(
                 "p-2 rounded-xl transition-all duration-200",
-                "bg-white/50 dark:bg-slate-800/50 hover:bg-white/80 dark:hover:bg-slate-800/80",
-                "border border-white/50 dark:border-white/10",
+                "bg-white/50 dark:bg-slate-700/70 hover:bg-white/80 dark:hover:bg-slate-700/90",
+                "border border-white/50 dark:border-slate-600/50",
                 "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
               )}
             >
@@ -87,9 +87,9 @@ const MedicationHeader: React.FC<MedicationHeaderProps> = ({
             <div className={cn(
               "p-4 rounded-2xl flex-shrink-0",
               "bg-gradient-to-br from-white/80 to-white/40",
-              "dark:from-slate-800/80 dark:to-slate-800/40",
-              "border border-white/50 dark:border-white/10",
-              "shadow-sm"
+              "dark:from-slate-700/90 dark:to-slate-700/60",
+              "border border-white/50 dark:border-slate-600/50",
+              "shadow-sm dark:shadow-black/20"
             )}>
               <CategoryIcon className={cn("h-10 w-10", categoryDisplayInfo.iconColorClass || 'text-violet-500')} />
             </div>

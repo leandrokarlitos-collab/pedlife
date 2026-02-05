@@ -3,7 +3,17 @@
     "allow": [
       "Bash(npm run build:*)",
       "Bash(curl:*)",
-      "Bash(ls -la \"C:\\\\Users\\\\Usuário\\\\OneDrive\\\\Desktop\\\\Dev.tech\\\\pedlife\\\\pedlife\\\\public\\\\icons\"\" 2>/dev/null || echo \"Icons folder is empty or doesn 't exist \")"
+      "Bash(ls -la \"C:\\\\Users\\\\Usuário\\\\OneDrive\\\\Desktop\\\\Dev.tech\\\\pedlife\\\\pedlife\\\\public\\\\icons\"\" 2>/dev/null || echo \"Icons folder is empty or doesn 't exist \")",
+      "Bash(wc:*)",
+      "Bash(npm install:*)",
+      "Bash(node -e:*)",
+      "Bash(dir:*)",
+      "Bash(for dir in antifungicos antitussigenos inalatorios vitaminas antiparasitarios analgesicos anticonvulsivantes)",
+      "Bash(do echo \"=== $dir ===\" find \"C:/Users/Usuário/OneDrive/Desktop/Dev.tech/pedlife/pedlife/src/medications/$dir\" -name \"*.tsx\")",
+      "Bash(xargs:*)",
+      "Bash(done)",
+      "Bash(npx tsc:*)",
+      "Bash(timeout:*)"
     ]
   }
 }

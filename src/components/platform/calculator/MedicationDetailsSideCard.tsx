@@ -14,13 +14,33 @@ import {
   DialogFooter,
   DialogClose,
 } from "@/components/ui/dialog";
-import { Bot } from 'lucide-react';
+import { Bot, Calculator, Scale, User, Clock } from 'lucide-react';
 
 interface MedicationDetailsSideCardProps {
   medication: Medication;
 }
 
+// Função para determinar o que é relevante para o cálculo baseado na lógica
+const getRelevantForCalculation = (medication: Medication): string => {
+  const logica = medication.calculationParams?.logica_js || '';
+  const usualDose = medication.dosageInformation?.usualDose || '';
+
+  const hasPeso = logica.includes('peso') || usualDose.toLowerCase().includes('kg');
+  const hasIdade = logica.includes('idade') ||
+                   usualDose.toLowerCase().includes('anos') ||
+                   usualDose.toLowerCase().includes('meses') ||
+                   usualDose.toLowerCase().includes('idade');
+
+  if (hasPeso && hasIdade) return 'Peso e idade';
+  if (hasPeso) return 'Somente peso';
+  if (hasIdade) return 'Somente idade';
+  return 'Dose fixa';
+};
+
 const MedicationDetailsSideCard: React.FC<MedicationDetailsSideCardProps> = ({ medication }) => {
+  const calcParams = medication.calculationParams;
+  const relevantFor = getRelevantForCalculation(medication);
+
   return (
     <Card className="border border-gray-200 dark:border-gray-800 sticky top-20">
       <CardHeader className="border-b border-gray-200 dark:border-gray-800">
@@ -30,30 +50,94 @@ const MedicationDetailsSideCard: React.FC<MedicationDetailsSideCardProps> = ({ m
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4 text-sm pt-6">
+        {/* Nome do Medicamento */}
         <div className="space-y-1">
           <Label className="font-semibold text-xs text-muted-foreground uppercase">Nome</Label>
           <p className="text-gray-900 dark:text-gray-100 font-medium">{medication.name}</p>
         </div>
-        {medication.dosageInformation?.usualDose && (
-          <div className="space-y-1">
-            <Label className="font-semibold text-xs text-muted-foreground uppercase">Dose usual</Label>
-            <p className="text-gray-900 dark:text-gray-100">{medication.dosageInformation.usualDose}</p>
+
+        {/* Seção Padronizada de Dosagem */}
+        <div className="space-y-3 p-3 bg-blue-50/50 dark:bg-blue-950/20 rounded-lg border border-blue-100 dark:border-blue-900/30">
+          <div className="flex items-center gap-2 text-blue-700 dark:text-blue-400 font-medium text-xs uppercase">
+            <Calculator className="h-3.5 w-3.5" />
+            Informações de Dosagem
           </div>
-        )}
-         {medication.dosageInformation?.doseInterval && (
+
+          {/* Dosagem Usual */}
+          {medication.dosageInformation?.usualDose && (
+            <div className="space-y-1">
+              <Label className="font-semibold text-xs text-muted-foreground uppercase flex items-center gap-1.5">
+                <Clock className="h-3 w-3" />
+                Dosagem usual
+              </Label>
+              <p className="text-gray-900 dark:text-gray-100 whitespace-pre-line">{medication.dosageInformation.usualDose}</p>
+            </div>
+          )}
+
+          {/* Dosagem Máxima */}
+          {calcParams?.doseMaxima && (
+            <div className="space-y-1">
+              <Label className="font-semibold text-xs text-red-600 dark:text-red-400 uppercase flex items-center gap-1.5">
+                <Scale className="h-3 w-3" />
+                Dosagem máxima
+              </Label>
+              <p className="text-gray-900 dark:text-gray-100 whitespace-pre-line">{calcParams.doseMaxima}</p>
+            </div>
+          )}
+
+          {/* Dosagem Mínima */}
+          {calcParams?.doseMinima && (
+            <div className="space-y-1">
+              <Label className="font-semibold text-xs text-green-600 dark:text-green-400 uppercase flex items-center gap-1.5">
+                <Scale className="h-3 w-3" />
+                Dosagem mínima
+              </Label>
+              <p className="text-gray-900 dark:text-gray-100 whitespace-pre-line">{calcParams.doseMinima}</p>
+            </div>
+          )}
+
+          {/* Lógica de Cálculo */}
+          {calcParams?.logica_js && (
+            <div className="space-y-1">
+              <Label className="font-semibold text-xs text-purple-600 dark:text-purple-400 uppercase flex items-center gap-1.5">
+                <Calculator className="h-3 w-3" />
+                Lógica de cálculo
+              </Label>
+              <p className="text-gray-900 dark:text-gray-100 text-xs font-mono bg-gray-100 dark:bg-gray-800 p-2 rounded">
+                {calcParams.logica_js.replace(/^"|"$/g, '').replace(/\\"/g, '"')}
+              </p>
+            </div>
+          )}
+
+          {/* Relevante para o Cálculo */}
+          <div className="space-y-1">
+            <Label className="font-semibold text-xs text-amber-600 dark:text-amber-400 uppercase flex items-center gap-1.5">
+              <User className="h-3 w-3" />
+              Relevante para o cálculo
+            </Label>
+            <p className="text-gray-900 dark:text-gray-100 font-medium">{relevantFor}</p>
+          </div>
+        </div>
+
+        {/* Intervalo */}
+        {medication.dosageInformation?.doseInterval && (
           <div className="space-y-1">
             <Label className="font-semibold text-xs text-muted-foreground uppercase">Intervalo</Label>
             <p className="text-gray-900 dark:text-gray-100">{medication.dosageInformation.doseInterval}</p>
           </div>
         )}
+
+        {/* Duração */}
         {medication.dosageInformation?.treatmentDuration && (
           <div className="space-y-1">
             <Label className="font-semibold text-xs text-muted-foreground uppercase">Duração</Label>
             <p className="text-gray-900 dark:text-gray-100">{medication.dosageInformation.treatmentDuration}</p>
           </div>
         )}
+
+        {/* Notas de Administração */}
         {medication.dosageInformation?.administrationNotes && (
-           <div className="space-y-1">
+          <div className="space-y-1">
             <Label className="font-semibold text-xs text-muted-foreground uppercase">Notas de Administração</Label>
             <p className="text-gray-900 dark:text-gray-100 leading-relaxed">{medication.dosageInformation.administrationNotes}</p>
           </div>

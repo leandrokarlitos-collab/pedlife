@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useTheme } from 'next-themes';
 
 interface Particle {
   x: number;
@@ -13,11 +14,41 @@ interface Particle {
   phase: number;
 }
 
+// Cores para modo claro
+const lightStrandColors = [
+  [
+    { r: 165, g: 180, b: 252 },  // Indigo-300
+    { r: 147, g: 197, b: 253 },  // Blue-300
+    { r: 196, g: 181, b: 253 },  // Violet-300
+  ],
+  [
+    { r: 249, g: 168, b: 212 },  // Pink-300
+    { r: 196, g: 181, b: 253 },  // Violet-300
+    { r: 216, g: 180, b: 254 },  // Purple-300
+  ]
+];
+
+// Cores para modo escuro - mais saturadas e vibrantes
+const darkStrandColors = [
+  [
+    { r: 99, g: 102, b: 241 },   // Indigo-500
+    { r: 59, g: 130, b: 246 },   // Blue-500
+    { r: 139, g: 92, b: 246 },   // Violet-500
+  ],
+  [
+    { r: 236, g: 72, b: 153 },   // Pink-500
+    { r: 139, g: 92, b: 246 },   // Violet-500
+    { r: 168, g: 85, b: 247 },   // Purple-500
+  ]
+];
+
 export const WaveBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameId = useRef<number>();
   const particles = useRef<Particle[]>([]);
   const time = useRef(0);
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === 'dark';
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -25,21 +56,8 @@ export const WaveBackground: React.FC = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Cores sutis mas visíveis - meio termo
-    const strandColors = [
-      // Fita 1 - tons suaves de violeta/azul
-      [
-        { r: 165, g: 180, b: 252 },  // Indigo-300
-        { r: 147, g: 197, b: 253 },  // Blue-300
-        { r: 196, g: 181, b: 253 },  // Violet-300
-      ],
-      // Fita 2 - tons suaves de rosa/roxo
-      [
-        { r: 249, g: 168, b: 212 },  // Pink-300
-        { r: 196, g: 181, b: 253 },  // Violet-300
-        { r: 216, g: 180, b: 254 },  // Purple-300
-      ]
-    ];
+    // Selecionar cores baseado no tema
+    const strandColors = isDark ? darkStrandColors : lightStrandColors;
 
     const initParticles = (width: number, height: number) => {
       if (width <= 0 || height <= 0) return;
@@ -117,7 +135,11 @@ export const WaveBackground: React.FC = () => {
       }
 
       // Limpar com mais transparência para trail mais suave
-      ctx.fillStyle = 'rgba(248, 250, 252, 0.08)'; // Limpa mais rápido = menos trail
+      // Cor de fundo adaptada ao tema
+      const clearColor = isDark
+        ? 'rgba(2, 6, 23, 0.08)'      // slate-950 para dark mode
+        : 'rgba(248, 250, 252, 0.08)'; // slate-50 para light mode
+      ctx.fillStyle = clearColor;
       ctx.fillRect(0, 0, width, height);
 
       time.current += 0.005; // Ainda mais lento e suave
@@ -207,7 +229,10 @@ export const WaveBackground: React.FC = () => {
       const strand0 = particles.current.filter(p => p.strand === 0);
       const strand1 = particles.current.filter(p => p.strand === 1);
 
-      ctx.strokeStyle = 'rgba(165, 180, 252, 0.06)'; // Meio termo - sutil mas visível
+      // Cor das linhas adaptada ao tema
+      ctx.strokeStyle = isDark
+        ? 'rgba(99, 102, 241, 0.15)'   // Indigo-500 com mais opacidade para dark
+        : 'rgba(165, 180, 252, 0.06)'; // Indigo-300 sutil para light
       ctx.lineWidth = 0.8;
 
       for (let i = 0; i < Math.min(strand0.length, strand1.length); i += 5) {
@@ -230,8 +255,8 @@ export const WaveBackground: React.FC = () => {
     // Inicializar
     resizeCanvas();
 
-    // Fundo inicial
-    ctx.fillStyle = '#f8fafc';
+    // Fundo inicial adaptado ao tema
+    ctx.fillStyle = isDark ? '#020617' : '#f8fafc';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     animate();
@@ -242,7 +267,7 @@ export const WaveBackground: React.FC = () => {
       if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
       window.removeEventListener('resize', resizeCanvas);
     };
-  }, []);
+  }, [isDark]);
 
   return (
     <canvas

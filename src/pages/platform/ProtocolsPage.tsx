@@ -39,12 +39,12 @@ const ProtocolCard: React.FC<ProtocolCardProps> = ({
     className="block h-full"
   >
     <div className="protocol-card group relative h-full min-h-[200px] p-5 rounded-2xl transition-all duration-300 flex flex-col
-      bg-white/60 dark:bg-slate-800/40
-      hover:bg-white/80 dark:hover:bg-slate-800/60
-      shadow-md shadow-black/5 dark:shadow-black/20
+      bg-white/60 dark:bg-slate-800/80
+      hover:bg-white/80 dark:hover:bg-slate-700/90
+      shadow-md shadow-black/5 dark:shadow-black/30
       hover:shadow-xl hover:-translate-y-1
       backdrop-blur-sm cursor-pointer
-      border border-white/40 dark:border-white/10
+      border border-white/40 dark:border-slate-600/60
       overflow-hidden">
 
       {/* Borda animada com efeito de desenho */}
@@ -67,7 +67,7 @@ const ProtocolCard: React.FC<ProtocolCardProps> = ({
         {/* Ícone e título */}
         <div className="flex items-start gap-3 mb-4">
           <div className={`p-3 rounded-xl transition-all duration-300 flex-shrink-0
-            bg-gradient-to-br from-white/80 to-white/40 dark:from-slate-700/80 dark:to-slate-700/40
+            bg-gradient-to-br from-white/80 to-white/40 dark:from-slate-600/90 dark:to-slate-700/70
             group-hover:scale-110 group-hover:shadow-lg
             ${iconColorClass.includes('red') ? 'group-hover:shadow-red-500/30' : ''}
             ${iconColorClass.includes('purple') ? 'group-hover:shadow-purple-500/30' : ''}

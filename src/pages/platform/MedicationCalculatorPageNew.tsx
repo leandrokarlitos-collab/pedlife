@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { format } from 'date-fns';
 import { Calculator } from 'lucide-react';
 import { slugify, cn } from '@/lib/utils';
-import { mockMedicationsData, allCategories, evaluateJsLogic } from '@/data/mockMedications';
+import { mockMedicationsData, allCategories, evaluateJsLogic, calculateDosage } from '@/data/mockMedications';
+import { formatarIntervaloBR } from '@/utils/numberFormat';
 import { Medication } from '@/types/medication';
+import { useSearchHistory } from '@/hooks/use-search-history';
+import { useUser } from '@/hooks/use-user';
 
 // Componentes novos
 import MedicationHeader from '@/components/platform/calculator/MedicationHeader';
@@ -22,17 +25,28 @@ interface CalculationResult {
   calculationTime: string;
   calculationDate: string;
   detailedCalculation?: string;
+  alertas?: string[];  // 🆕 Alertas de dose máxima/mínima
 }
 
 const MedicationCalculatorPageNew: React.FC = () => {
   const { categorySlug, medicationSlug } = useParams<{ categorySlug: string; medicationSlug: string }>();
+  const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+  const { user } = useUser();
+  const { recordSearch } = useSearchHistory(user);
+
+  // Verificar se veio de um favorito
+  const fromFavorite = searchParams.get('fromFavorite') === 'true';
+  const favoriteWeight = searchParams.get('weight');
+  const favoriteAge = searchParams.get('age');
+  const hasCalculatedFromFavorite = useRef(false);
 
   // Estados
   const [weight, setWeight] = useState<number>(10);
   const [ageMonths, setAgeMonths] = useState<number>(24); // 2 anos em meses
   const [result, setResult] = useState<CalculationResult | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
+  const [searchRecorded, setSearchRecorded] = useState(false);
 
   // Buscar dados
   const categoryData = categorySlug ? mockMedicationsData[categorySlug] : undefined;
@@ -42,8 +56,21 @@ const MedicationCalculatorPageNew: React.FC = () => {
   });
   const categoryDisplayInfo = allCategories.find(c => c.slug === categorySlug);
 
-  // Verificar se é categoria de dose fixa (oftalmológicos, otológicos)
-  const isFixedDoseCategory = categorySlug === 'oftalmologicos' || categorySlug === 'otologicos';
+  // Registrar pesquisa quando a página é acessada
+  useEffect(() => {
+    if (medication && categorySlug && categoryDisplayInfo && !searchRecorded) {
+      recordSearch({
+        medicationId: medication.slug || slugify(medication.name),
+        medicationName: medication.name,
+        categorySlug,
+        categoryName: categoryDisplayInfo.title,
+      });
+      setSearchRecorded(true);
+    }
+  }, [medication, categorySlug, categoryDisplayInfo, recordSearch, searchRecorded]);
+
+  // Verificar se é categoria de dose fixa (oftalmológicos-otológicos unificados)
+  const isFixedDoseCategory = categorySlug === 'oftalmologicos-otologicos';
 
   // Para dose fixa, mostrar resultado automaticamente
   useEffect(() => {
@@ -59,13 +86,102 @@ const MedicationCalculatorPageNew: React.FC = () => {
     }
   }, [isFixedDoseCategory, medication, result]);
 
-  // Carregar valores salvos do localStorage
+  // Carregar valores salvos do localStorage OU dos parâmetros de favorito
   useEffect(() => {
-    const savedWeight = localStorage.getItem('pedlife_lastWeight');
-    const savedAge = localStorage.getItem('pedlife_lastAge');
-    if (savedWeight) setWeight(parseFloat(savedWeight));
-    if (savedAge) setAgeMonths(parseInt(savedAge));
-  }, []);
+    if (fromFavorite && favoriteWeight && favoriteAge) {
+      // Se veio de um favorito, usar os valores do favorito
+      setWeight(parseFloat(favoriteWeight));
+      setAgeMonths(parseInt(favoriteAge));
+    } else {
+      // Caso contrário, usar valores salvos no localStorage
+      const savedWeight = localStorage.getItem('pedlife_lastWeight');
+      const savedAge = localStorage.getItem('pedlife_lastAge');
+      if (savedWeight) setWeight(parseFloat(savedWeight));
+      if (savedAge) setAgeMonths(parseInt(savedAge));
+    }
+  }, [fromFavorite, favoriteWeight, favoriteAge]);
+
+  // Calcular automaticamente se veio de um favorito
+  useEffect(() => {
+    if (fromFavorite && favoriteWeight && favoriteAge && medication && !hasCalculatedFromFavorite.current && !result) {
+      // Marcar que já calculou para evitar loop
+      hasCalculatedFromFavorite.current = true;
+
+      // Pequeno delay para garantir que os estados foram atualizados
+      const timer = setTimeout(() => {
+        // Disparar cálculo automático
+        const weightValue = parseFloat(favoriteWeight);
+        const ageValue = parseInt(favoriteAge);
+        const ageYears = Math.floor(ageValue / 12);
+
+        let doseResultText = '';
+        const params = medication.calculationParams;
+
+        if (params) {
+          try {
+            const resultado = calculateDosage(weightValue, params, ageYears);
+            if (resultado && resultado.doseText) {
+              doseResultText = resultado.doseText;
+
+              setResult({
+                doseText: doseResultText,
+                weight: weightValue,
+                ageMonths: ageValue,
+                calculationTime: format(new Date(), 'HH:mm'),
+                calculationDate: format(new Date(), 'dd/MM/yyyy'),
+                alertas: resultado.alertas,
+              });
+              // Limpar parâmetros da URL após calcular
+              setSearchParams({});
+              return;
+            }
+          } catch (error) {
+            console.error('Erro ao calcular dose do favorito:', error);
+          }
+        }
+
+        // Fallback se não conseguir calcular
+        if (params?.logica_js) {
+          try {
+            const calculatedDose = evaluateJsLogic(params.logica_js, weightValue);
+            let doseFormatada = calculatedDose.replace(/(\d+)\.(\d+)/g, '$1,$2');
+
+            let doseComUnidade = doseFormatada;
+            if (!doseComUnidade.includes('mL') && !doseComUnidade.includes('mg') &&
+              !doseComUnidade.includes('g') && !doseComUnidade.includes('mcg') &&
+              !doseComUnidade.includes('gotas')) {
+              if (medication.form?.toLowerCase().includes('xarope') ||
+                medication.form?.toLowerCase().includes('suspen') ||
+                medication.form?.toLowerCase().includes('solu')) {
+                doseComUnidade += ' mL';
+              }
+            }
+
+            let intervaloFormatado = '';
+            if (medication.dosageInformation?.doseInterval) {
+              intervaloFormatado = formatarIntervaloBR(medication.dosageInformation.doseInterval);
+            }
+
+            doseResultText = `${doseComUnidade}${intervaloFormatado ? ` de ${intervaloFormatado}` : ''}`;
+
+            setResult({
+              doseText: doseResultText,
+              weight: weightValue,
+              ageMonths: ageValue,
+              calculationTime: format(new Date(), 'HH:mm'),
+              calculationDate: format(new Date(), 'dd/MM/yyyy'),
+            });
+            // Limpar parâmetros da URL após calcular
+            setSearchParams({});
+          } catch (error) {
+            console.error('Erro no fallback:', error);
+          }
+        }
+      }, 100);
+
+      return () => clearTimeout(timer);
+    }
+  }, [fromFavorite, favoriteWeight, favoriteAge, medication, result, setSearchParams]);
 
   // Se não encontrar, mostrar erro
   if (!categoryData || !medication || !categoryDisplayInfo || !categorySlug || !medicationSlug) {
@@ -82,41 +198,88 @@ const MedicationCalculatorPageNew: React.FC = () => {
     localStorage.setItem('pedlife_lastWeight', weight.toString());
     localStorage.setItem('pedlife_lastAge', ageMonths.toString());
 
-    // Converter idade de meses para anos para os cálculos
-    const ageYears = Math.floor(ageMonths / 12);
+    // Converter idade de meses para anos para os cálculos (Preservando decimal se necessário)
+    const ageValue = ageMonths;
+    const ageYears = ageMonths / 12;
 
     let doseResultText = '';
     let detailedCalculation = '';
 
     const params = medication.calculationParams;
 
-    // Usar lógica do JSON se disponível
+    // 🆕 PRIORIDADE: Usar função calculateDosage() que suporta TSX
+    if (params) {
+      try {
+        console.log('🔄 [CALC] Calculando dose com TSX/JSON híbrido...', {
+          medicamento: medication.name,
+          peso: weight,
+          idadeMeses: ageMonths,
+          temCustomCalculator: !!params.customCalculator
+        });
+
+        // Passamos a idade em MESES para o calculador, pois é mais preciso para pediatria
+        const resultado = calculateDosage(weight, params, ageMonths);
+
+        console.log('📊 [CALC] Resultado:', resultado);
+
+        if (resultado && resultado.doseText) {
+          doseResultText = resultado.doseText;
+          console.log('✅ [CALC] Usando resultado:', doseResultText);
+          console.log('⚠️ [CALC] Alertas:', resultado.alertas);
+
+          setResult({
+            doseText: doseResultText,
+            weight,
+            ageMonths,
+            calculationTime: format(new Date(), 'HH:mm'),
+            calculationDate: format(new Date(), 'dd/MM/yyyy'),
+            detailedCalculation,
+            alertas: resultado.alertas,  // 🆕 Passar alertas
+          });
+
+          setIsCalculating(false);
+          return; // ← Sair, não executar lógica antiga
+        }
+      } catch (error) {
+        console.error('❌ [CALC] Erro:', error);
+      }
+    }
+
+    // FALLBACK: Usar lógica do JSON se disponível
     if (params?.logica_js) {
       try {
         const calculatedDose = evaluateJsLogic(params.logica_js, weight);
 
-        // Formatar texto do resultado
-        const formText = medication.form && medication.form.trim() !== '' ? `(${medication.form})` : '';
-
-        let frequencia = '';
-        if (medication.dosageInformation?.doseInterval) {
-          frequencia = ` a cada ${medication.dosageInformation.doseInterval}`;
-        }
+        // 🇧🇷 Converter ponto para vírgula (formato brasileiro)
+        let doseFormatada = calculatedDose.replace(/(\d+)\.(\d+)/g, '$1,$2');
 
         // Verificar se já tem unidade
-        let doseComUnidade = calculatedDose;
+        let doseComUnidade = doseFormatada;
         if (!doseComUnidade.includes('mL') && !doseComUnidade.includes('mg') &&
-            !doseComUnidade.includes('g') && !doseComUnidade.includes('mcg')) {
+          !doseComUnidade.includes('g') && !doseComUnidade.includes('mcg') &&
+          !doseComUnidade.includes('gotas')) {
           if (medication.form?.toLowerCase().includes('xarope') ||
-              medication.form?.toLowerCase().includes('suspen') ||
-              medication.form?.toLowerCase().includes('solu')) {
+            medication.form?.toLowerCase().includes('suspen') ||
+            medication.form?.toLowerCase().includes('solu')) {
             doseComUnidade += ' mL';
           } else if (medication.form?.toLowerCase().includes('comprimido')) {
             doseComUnidade += ' comprimido(s)';
           }
         }
 
-        doseResultText = `${doseComUnidade}${frequencia}`;
+        // 🇧🇷 Formatar intervalo brasileiro: "8/8h" → "8 em 8 horas"
+        let intervaloFormatado = '';
+        if (medication.dosageInformation?.doseInterval) {
+          intervaloFormatado = formatarIntervaloBR(medication.dosageInformation.doseInterval);
+        }
+
+        // 🇧🇷 Formato padronizado: "X mL de 8 em 8 horas, por 7 dias"
+        doseResultText = `${doseComUnidade}${intervaloFormatado ? ` de ${intervaloFormatado}` : ''}`;
+
+        // Adicionar duração se disponível
+        if (medication.dosageInformation?.treatmentDuration) {
+          doseResultText += `, por ${medication.dosageInformation.treatmentDuration}`;
+        }
 
         // Gerar explicação detalhada
         detailedCalculation = `Cálculo para ${medication.name}:\n\n`;
@@ -174,6 +337,7 @@ const MedicationCalculatorPageNew: React.FC = () => {
           <InlineResultCard
             medication={medication}
             result={result}
+            categorySlug={categorySlug}
             onNewCalculation={handleNewCalculation}
           />
         </div>
@@ -184,10 +348,10 @@ const MedicationCalculatorPageNew: React.FC = () => {
         <div className="mt-6 animate-in fade-in slide-in-from-top-2 duration-300">
           <div className={cn(
             "rounded-2xl overflow-hidden",
-            "bg-white/60 dark:bg-slate-900/50",
+            "bg-white/60 dark:bg-slate-800/80",
             "backdrop-blur-xl backdrop-saturate-150",
-            "border border-white/40 dark:border-white/10",
-            "shadow-lg shadow-black/5"
+            "border border-white/40 dark:border-slate-600/60",
+            "shadow-lg shadow-black/5 dark:shadow-black/30"
           )}>
             {/* Header da calculadora */}
             <div className="flex items-center gap-3 px-5 py-4 border-b border-slate-200/50 dark:border-slate-700/50">

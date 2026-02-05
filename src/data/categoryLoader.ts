@@ -1,6 +1,7 @@
 import type { MockMedicationData, MedicationCategoryData, CategoryInfo, Medication, MedicationGroup } from '@/types/medication';
 import { LucideIcon, Pill } from 'lucide-react';
 import { slugify } from '@/lib/utils';
+import { loadTsxMedications, hasTsxMedications, getCategoriesWithTsx } from './tsxMedicationLoader';
 
 // Importar arquivos de categoria existentes
 import antibioticos from '@/medications/Categorias/antibioticos_fixed.json';
@@ -15,6 +16,7 @@ import medicacaoBradicardia from '@/medications/Categorias/medicacao_bradicardia
 import nasais from '@/medications/Categorias/nasais_fixed.json';
 import oftalmologicos from '@/medications/Categorias/oftalmologicos_fixed.json';
 import otologicos from '@/medications/Categorias/otologicos_fixed.json';
+import oftalmologicosOtologicos from '@/medications/Categorias/oftalmologicos_otologicos_fixed.json';
 import pcr from '@/medications/Categorias/pcr_fixed.json';
 import sedativos from '@/medications/Categorias/sedativos_fixed.json';
 import xaropesTosse from '@/medications/Categorias/xaropes_tosse_fixed.json';
@@ -40,7 +42,7 @@ const categoryFiles: Record<string, Medication[]> = {
   'anticonvulsivantes': [...anticonvulsivantes, ...anticonvulsivantesUpdated],
   'antivirais': [...antivirais, ...antiviraisUpdated],
   'corticoides-ev': [...corticoidesEv, ...corticoidesUpdated],
-  
+
   // Novas categorias
   'anti-histaminicos': antihistaminicos,
   'antidotos': antidotos,
@@ -48,15 +50,15 @@ const categoryFiles: Record<string, Medication[]> = {
   'antitussigenos': antitussigenos,
   'expectorantes-mucoliticos': expectorantesMucoliticos,
   'gastrointestinal': gastrointestinal,
-  
+
   // Categorias existentes mantidas
   'antiemeticos': antiemeticos,
   'bloqueador-neuromuscular': bloqueadorNeuromuscular,
   'carvao-ativado': carvaoAtivado,
   'medicacao-bradicardia': medicacaoBradicardia,
   'nasais': nasais,
-  'oftalmologicos': oftalmologicos,
-  'otologicos': otologicos,
+  // 🆕 Oftalmológicos e Otológicos unificados
+  'oftalmologicos-otologicos': [...oftalmologicos, ...otologicos, ...oftalmologicosOtologicos],
   'pcr': pcr,
   'sedativos': sedativos,
   'xaropes-tosse': xaropesTosse,
@@ -78,12 +80,16 @@ const categoryIconMap: Record<string, { icon: LucideIcon; iconColorClass: string
   'antitussigenos': { icon: Pill, iconColorClass: 'text-cyan-600', bgColorClass: 'bg-cyan-100', description: 'Supressores de tosse e reflexo de tosse' },
   'expectorantes-mucoliticos': { icon: Pill, iconColorClass: 'text-emerald-600', bgColorClass: 'bg-emerald-100', description: 'Facilitam a eliminação de secreções' },
   'gastrointestinal': { icon: Pill, iconColorClass: 'text-violet-600', bgColorClass: 'bg-violet-100', description: 'Medicações para trato digestivo' },
-  'oftalmologicos': { icon: Pill, iconColorClass: 'text-blue-500', bgColorClass: 'bg-blue-100', description: 'Colírios e medicações para os olhos' },
-  'otologicos': { icon: Pill, iconColorClass: 'text-pink-500', bgColorClass: 'bg-pink-100', description: 'Medicações para ouvido e otites' },
+  'oftalmologicos-otologicos': { icon: Pill, iconColorClass: 'text-blue-500', bgColorClass: 'bg-blue-100', description: 'Colírios, medicações para olhos e ouvidos' },
   'pcr': { icon: Pill, iconColorClass: 'text-red-700', bgColorClass: 'bg-red-200', description: 'Medicamentos para parada cardiorrespiratória' },
   'sedativos': { icon: Pill, iconColorClass: 'text-purple-600', bgColorClass: 'bg-purple-100', description: 'Sedação e controle de ansiedade' },
   'xaropes-tosse': { icon: Pill, iconColorClass: 'text-amber-500', bgColorClass: 'bg-amber-100', description: 'Xaropes para alívio da tosse' },
   'carvao-ativado': { icon: Pill, iconColorClass: 'text-gray-600', bgColorClass: 'bg-gray-100', description: 'Tratamento de intoxicações e envenenamentos' },
+  // 🆕 Categorias TSX Adicionadas
+  'analgesicos': { icon: Pill, iconColorClass: 'text-rose-600', bgColorClass: 'bg-rose-100', description: 'Analgésicos e anti-inflamatórios para dor e febre' },
+  'antifungicos': { icon: Pill, iconColorClass: 'text-fuchsia-600', bgColorClass: 'bg-fuchsia-100', description: 'Medicamentos antifúngicos para infecções fúngicas' },
+  'inalatorios': { icon: Pill, iconColorClass: 'text-sky-600', bgColorClass: 'bg-sky-100', description: 'Medicamentos para uso inalatório e respiratório' },
+  'vitaminas': { icon: Pill, iconColorClass: 'text-lime-600', bgColorClass: 'bg-lime-100', description: 'Vitaminas e suplementos nutricionais' },
 };
 
 function formatCategoryName(slug: string): string {
@@ -103,12 +109,16 @@ function formatCategoryName(slug: string): string {
     'antitussigenos': 'Antitussígenos',
     'expectorantes-mucoliticos': 'Expectorantes Mucolíticos',
     'gastrointestinal': 'Gastrointestinal',
-    'oftalmologicos': 'Oftalmológicos',
-    'otologicos': 'Otológicos',
+    'oftalmologicos-otologicos': 'Oftalmológicos e Otológicos',
     'pcr': 'Parada Cardiorrespiratória',
     'sedativos': 'Sedativos',
     'xaropes-tosse': 'Xaropes: Tosse',
     'carvao-ativado': 'Carvão Ativado',
+    // 🆕 Categorias TSX Adicionadas
+    'analgesicos': 'Analgésicos e Anti-inflamatórios',
+    'antifungicos': 'Antifúngicos',
+    'inalatorios': 'Inalatórios',
+    'vitaminas': 'Vitaminas e Suplementos',
   };
 
   return nameMap[slug] || slug.split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
@@ -116,39 +126,39 @@ function formatCategoryName(slug: string): string {
 
 function getLastUpdatedDate(): string {
   const now = new Date();
-  const months = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+  const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
   return `${months[now.getMonth()]}/${now.getFullYear()}`;
 }
 
 function extractBaseName(fullName: string): string {
   // Remover informações extras e números
-  const cleaned = fullName.replace(/\s*\([^)]*\)/g,'').split(/\d/)[0].trim();
+  const cleaned = fullName.replace(/\s*\([^)]*\)/g, '').split(/\d/)[0].trim();
   return cleaned;
 }
 
 function groupMedicationsByApplication(medications: Medication[]): MedicationGroup[] {
   // Agrupar medicamentos por via de administração
   const applicationGroups: Record<string, Medication[]> = {};
-  
+
   medications.forEach(med => {
     const app = med.application || 'Outros';
     if (!applicationGroups[app]) applicationGroups[app] = [];
     applicationGroups[app].push(med);
   });
-  
+
   const groups: MedicationGroup[] = [];
-  
+
   // Criar grupos por aplicação
   Object.entries(applicationGroups).forEach(([app, meds]) => {
     // Dentro de cada aplicação, agrupar por nome base
     const baseNameGroups: Record<string, Medication[]> = {};
-    
+
     meds.forEach(med => {
       const baseName = extractBaseName(med.name);
       if (!baseNameGroups[baseName]) baseNameGroups[baseName] = [];
       baseNameGroups[baseName].push(med);
     });
-    
+
     // Criar grupos para cada nome base
     Object.entries(baseNameGroups).forEach(([baseName, variants]) => {
       groups.push({
@@ -158,7 +168,7 @@ function groupMedicationsByApplication(medications: Medication[]): MedicationGro
       });
     });
   });
-  
+
   return groups;
 }
 
@@ -166,18 +176,45 @@ export function loadMedicationData(): MockMedicationData {
   const data: MockMedicationData = {};
   const seen = new Set<string>();
 
-  for (const [slug, meds] of Object.entries(categoryFiles)) {
+  // 🆕 Combinar categorias JSON e TSX
+  const allCategorySlug = new Set([
+    ...Object.keys(categoryFiles),
+    ...getCategoriesWithTsx()
+  ]);
+
+  for (const slug of allCategorySlug) {
     const iconInfo = categoryIconMap[slug] || { icon: Pill, iconColorClass: 'text-gray-500', bgColorClass: 'bg-gray-100', description: 'Medicamentos diversos' };
 
+    // 🆕 TENTAR CARREGAR TSX PRIMEIRO
+    let medications: Medication[] = [];
+
+    if (hasTsxMedications(slug)) {
+      // Usar medicamentos TSX (já convertidos para formato Medication)
+      medications = loadTsxMedications(slug);
+      console.log(`✅ [TSX] Carregado ${medications.length} medicamentos para ${slug}`);
+
+      // 🐛 DEBUG: Verificar se customCalculator está presente
+      const primeiroMed = medications[0];
+      if (primeiroMed) {
+        console.log('🔍 [DEBUG] Primeiro medicamento TSX:', primeiroMed.name);
+        console.log('🔍 [DEBUG] Tem customCalculator?', !!primeiroMed.calculationParams?.customCalculator);
+      }
+    } else {
+      // Fallback para JSON
+      const meds = categoryFiles[slug] || [];
+      medications = meds;
+      console.log(`📋 [JSON] Carregado ${medications.length} medicamentos para ${slug}`);
+    }
+
     // Remover duplicatas e gerar slugs únicos
-    const unique = meds.filter(m => {
-      const key = `${m.name}-${m.form||''}`;
+    const unique = medications.filter(m => {
+      const key = `${m.name}-${m.form || ''}`;
       if (seen.has(key)) return false;
       seen.add(key);
       return true;
     }).map(m => {
       // Gerar slug único baseado no nome do medicamento
-      const uniqueSlug = slugify(m.name);
+      const uniqueSlug = m.slug || slugify(m.name);
       return {
         ...m,
         slug: uniqueSlug
@@ -186,7 +223,7 @@ export function loadMedicationData(): MockMedicationData {
 
     // Agrupar variantes - tratamento especial para antibióticos
     const groups: MedicationGroup[] = [];
-    
+
     if (slug === 'antibioticos') {
       // Para antibióticos, agrupar primeiro por via de administração, depois por variantes
       groups.push(...groupMedicationsByApplication(unique));

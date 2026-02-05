@@ -43,8 +43,9 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
   return (
     <div className={cn(
       "rounded-xl overflow-hidden transition-all duration-200",
-      "bg-white/60 dark:bg-slate-800/40",
-      "border border-slate-200/50 dark:border-slate-700/50",
+      "bg-white/60 dark:bg-slate-800/80",
+      "border border-slate-200/50 dark:border-slate-600/60",
+      "shadow-sm dark:shadow-black/20",
       isOpen && "ring-1 ring-violet-500/20"
     )}>
       <button
@@ -107,25 +108,46 @@ const MedicationInfoAccordion: React.FC<MedicationInfoAccordionProps> = ({
           <div className="space-y-3 text-sm">
             {medication.dosageInformation?.usualDose && (
               <div className="flex items-start gap-2">
-                <span className="font-medium text-slate-600 dark:text-slate-400 min-w-[100px]">Dose usual:</span>
-                <span className="text-slate-800 dark:text-slate-200">{medication.dosageInformation.usualDose}</span>
+                <span className="font-medium text-slate-600 dark:text-slate-400 min-w-[120px]">Dose usual:</span>
+                <span className="text-slate-800 dark:text-slate-200 whitespace-pre-line">{medication.dosageInformation.usualDose}</span>
+              </div>
+            )}
+            {/* Dose Máxima */}
+            {medication.calculationParams?.doseMaxima && (
+              <div className="flex items-start gap-2">
+                <span className="font-medium text-red-600 dark:text-red-400 min-w-[120px]">Dose máxima:</span>
+                <span className="text-slate-800 dark:text-slate-200 whitespace-pre-line">{medication.calculationParams.doseMaxima}</span>
+              </div>
+            )}
+            {/* Dose Mínima */}
+            {medication.calculationParams?.doseMinima && (
+              <div className="flex items-start gap-2">
+                <span className="font-medium text-green-600 dark:text-green-400 min-w-[120px]">Dose mínima:</span>
+                <span className="text-slate-800 dark:text-slate-200 whitespace-pre-line">{medication.calculationParams.doseMinima}</span>
+              </div>
+            )}
+            {/* Lógica de Cálculo */}
+            {medication.calculationParams?.formulaCalculo && (
+              <div className="flex items-start gap-2">
+                <span className="font-medium text-purple-600 dark:text-purple-400 min-w-[120px]">Lógica de cálculo:</span>
+                <span className="text-slate-800 dark:text-slate-200 font-mono text-xs bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">{medication.calculationParams.formulaCalculo}</span>
               </div>
             )}
             {medication.dosageInformation?.doseInterval && (
               <div className="flex items-start gap-2">
-                <span className="font-medium text-slate-600 dark:text-slate-400 min-w-[100px]">Intervalo:</span>
+                <span className="font-medium text-slate-600 dark:text-slate-400 min-w-[120px]">Intervalo:</span>
                 <span className="text-slate-800 dark:text-slate-200">{medication.dosageInformation.doseInterval}</span>
               </div>
             )}
             {medication.dosageInformation?.treatmentDuration && (
               <div className="flex items-start gap-2">
-                <span className="font-medium text-slate-600 dark:text-slate-400 min-w-[100px]">Duração:</span>
+                <span className="font-medium text-slate-600 dark:text-slate-400 min-w-[120px]">Duração:</span>
                 <span className="text-slate-800 dark:text-slate-200">{medication.dosageInformation.treatmentDuration}</span>
               </div>
             )}
             {medication.dosageInformation?.concentration && (
               <div className="flex items-start gap-2">
-                <span className="font-medium text-slate-600 dark:text-slate-400 min-w-[100px]">Concentração:</span>
+                <span className="font-medium text-slate-600 dark:text-slate-400 min-w-[120px]">Concentração:</span>
                 <span className="text-slate-800 dark:text-slate-200">{medication.dosageInformation.concentration}</span>
               </div>
             )}
@@ -199,8 +221,9 @@ const MedicationInfoAccordion: React.FC<MedicationInfoAccordionProps> = ({
       {/* Botão Lifebot */}
       <div className={cn(
         "p-4 rounded-xl",
-        "bg-gradient-to-r from-violet-50 to-blue-50 dark:from-violet-900/20 dark:to-blue-900/20",
-        "border border-violet-200/50 dark:border-violet-800/30"
+        "bg-gradient-to-r from-violet-50 to-blue-50 dark:from-violet-900/40 dark:to-blue-900/40",
+        "border border-violet-200/50 dark:border-violet-600/50",
+        "shadow-sm dark:shadow-black/20"
       )}>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">

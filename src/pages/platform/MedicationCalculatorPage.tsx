@@ -7,7 +7,7 @@ import { format } from 'date-fns';
 // import { ptBR } from 'date-fns/locale'; // ptBR not used in format, can be removed if not used elsewhere
 import { slugify } from '@/lib/utils';
 
-import { mockMedicationsData, allCategories } from '@/data/mockMedications';
+import { mockMedicationsData, allCategories, calculateDosage } from '@/data/mockMedications';
 
 // Função para gerar explicação detalhada do cálculo de dosagem
 function generateDetailedCalculation(medication: Medication, weight: number, age: number): string {
@@ -16,23 +16,23 @@ function generateDetailedCalculation(medication: Medication, weight: number, age
     if (!params || !params.logica_js) {
       return "Lógica de cálculo não disponível para este medicamento.";
     }
-    
+
     // Remove as aspas que envolvem a string de lógica JavaScript
     const logicaJs = params.logica_js.replace(/^"|"$/g, '');
-    
+
     // Extrair informações do medicamento
     const name = medication.name;
     const form = medication.form;
     const concentration = medication.dosageInformation?.concentration || '';
-    
+
     // Iniciar explicação
     let explanation = `Cálculo detalhado para ${name}:\n\n`;
-    
+
     // Adicionar informações do paciente
     explanation += `Dados do paciente:\n`;
     explanation += `- Peso: ${weight} kg\n`;
     explanation += `- Idade: ${age} anos\n\n`;
-    
+
     // Analisar a lógica para identificar padrões comuns
     if (logicaJs.includes('peso*')) {
       // Extrair o fator de multiplicação do peso
@@ -42,18 +42,18 @@ function generateDetailedCalculation(medication: Medication, weight: number, age
         const totalDoseMg = weight * mgPerKg;
         explanation += `1. Cálculo da dose total:\n`;
         explanation += `   ${weight} kg × ${mgPerKg} mg/kg = ${totalDoseMg.toFixed(2)} mg\n\n`;
-        
+
         // Verificar se há divisão por doses por dia
         if (logicaJs.includes('/2') || logicaJs.includes('/3') || logicaJs.includes('/4')) {
           let dosesPerDay = 1;
           if (logicaJs.includes('/2')) dosesPerDay = 2;
           if (logicaJs.includes('/3')) dosesPerDay = 3;
           if (logicaJs.includes('/4')) dosesPerDay = 4;
-          
+
           const dosePerTakeMg = totalDoseMg / dosesPerDay;
           explanation += `2. Cálculo da dose por tomada:\n`;
           explanation += `   ${totalDoseMg.toFixed(2)} mg ÷ ${dosesPerDay} doses = ${dosePerTakeMg.toFixed(2)} mg por dose\n\n`;
-          
+
           // Verificar se há conversão para volume baseado na concentração
           const concentrationMatch = logicaJs.match(/(\d+)\s*\/\s*(\d+)/);
           if (concentrationMatch && concentrationMatch[1] && concentrationMatch[2]) {
@@ -63,7 +63,7 @@ function generateDetailedCalculation(medication: Medication, weight: number, age
             explanation += `3. Conversão para volume:\n`;
             explanation += `   Concentração: ${concentrationMg} mg/${concentrationMl} ml\n`;
             explanation += `   ${dosePerTakeMg.toFixed(2)} mg ÷ (${concentrationMg} mg/${concentrationMl} ml) = ${volumePerTakeMl.toFixed(2)} ml\n\n`;
-            
+
             // Verificar se há arredondamento
             if (logicaJs.includes('Math.round')) {
               const roundedVolume = Math.round(volumePerTakeMl * 10) / 10;
@@ -73,14 +73,14 @@ function generateDetailedCalculation(medication: Medication, weight: number, age
         }
       }
     }
-    
+
     // Se não conseguiu gerar uma explicação detalhada, retornar uma mensagem genérica
     if (explanation === `Cálculo detalhado para ${name}:\n\nDados do paciente:\n- Peso: ${weight} kg\n- Idade: ${age} anos\n\n`) {
       explanation += `A lógica de cálculo específica para este medicamento é complexa.\n\n`;
       explanation += `Fórmula utilizada: ${logicaJs.replace(/\"/g, '')}\n\n`;
       explanation += `O resultado foi calculado automaticamente com base nos parâmetros fornecidos.`;
     }
-    
+
     return explanation;
   } catch (error) {
     console.error('Erro ao gerar explicação detalhada:', error);
@@ -131,25 +131,38 @@ const parseDoseText = (doseText: string, medication: Medication): ParsedDose => 
   const parsedDose: ParsedDose = {
     amount: ""
   };
-  
-  // Extrair a quantidade da dose
-  const doseMatch = doseText.match(/Dose:\s*([\d,.]+\s*(?:ml|mL|mg|g|mcg|UI|unidades|ampola|ampolas|comprimido|comprimidos|cápsula|cápsulas|gota|gotas|aplicação|aplicações|dose|doses|adesivo|adesivos|inalação|inalações|spray|sprays|supositório|supositórios)(?:\/[\w]+)?)/i);
-  if (doseMatch && doseMatch[1]) {
-    parsedDose.amount = doseMatch[1].trim();
-  } else {
-    // Se não encontrar um padrão específico, tentar extrair após "Dose: "
-    const simpleDoseMatch = doseText.match(/Dose:\s*([^.\n]+)/i);
-    if (simpleDoseMatch && simpleDoseMatch[1]) {
-      parsedDose.amount = simpleDoseMatch[1].trim();
+
+  // 🆕 NOVO PADRÃO: "X mL de 8/8 horas, por 7 dias"
+  const newFormatMatch = doseText.match(/^([\d,.]+\s*(?:ml|mL|mg|g|mcg|UI|unidades|ampola|ampolas|comprimido|comprimidos|cápsula|cápsulas|gota|gotas)(?:\/[\w]+)?)\s+de\s+/i);
+  if (newFormatMatch && newFormatMatch[1]) {
+    parsedDose.amount = newFormatMatch[1].trim();
+  }
+  // Padrão antigo: "Dose: X mL"
+  else {
+    const doseMatch = doseText.match(/Dose:\s*([\d,.]+\s*(?:ml|mL|mg|g|mcg|UI|unidades|ampola|ampolas|comprimido|comprimidos|cápsula|cápsulas|gota|gotas|aplicação|aplicações|dose|doses|adesivo|adesivos|inalação|inalações|spray|sprays|supositório|supositórios)(?:\/[\w]+)?)/i);
+    if (doseMatch && doseMatch[1]) {
+      parsedDose.amount = doseMatch[1].trim();
     } else {
-      // Fallback: usar o texto completo como quantidade
-      parsedDose.amount = doseText;
+      // Se não encontrar um padrão específico, tentar extrair após "Dose: "
+      const simpleDoseMatch = doseText.match(/Dose:\s*([^.\n]+)/i);
+      if (simpleDoseMatch && simpleDoseMatch[1]) {
+        parsedDose.amount = simpleDoseMatch[1].trim();
+      } else {
+        // Fallback: tentar extrair qualquer número + unidade no início
+        const anyNumberMatch = doseText.match(/^([\d,.]+\s*(?:ml|mL|mg|g|mcg|UI|gotas?|comprimidos?|cápsulas?))/i);
+        if (anyNumberMatch) {
+          parsedDose.amount = anyNumberMatch[1].trim();
+        } else {
+          // Último fallback: usar o texto completo como quantidade
+          parsedDose.amount = doseText;
+        }
+      }
     }
   }
-  
+
   // Extrair via de administração
   parsedDose.route = medication.application || "";
-  
+
   // Extrair período de tratamento
   if (medication.dosageInformation?.treatmentDuration) {
     parsedDose.period = medication.dosageInformation.treatmentDuration;
@@ -159,7 +172,7 @@ const parseDoseText = (doseText: string, medication: Medication): ParsedDose => 
       parsedDose.period = periodMatch[1].trim();
     }
   }
-  
+
   // Extrair frequência
   if (medication.dosageInformation?.doseInterval) {
     parsedDose.frequency = medication.dosageInformation.doseInterval;
@@ -169,7 +182,7 @@ const parseDoseText = (doseText: string, medication: Medication): ParsedDose => 
       parsedDose.frequency = frequencyMatch[1].trim();
     }
   }
-  
+
   return parsedDose;
 };
 
@@ -183,7 +196,7 @@ const MedicationCalculatorPage: React.FC = () => {
     return medSlug === medicationSlug;
   });
   const categoryDisplayInfo = allCategories.find(c => c.slug === categorySlug);
-  
+
   // Use the explicit FormValues type to ensure type consistency
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -204,12 +217,12 @@ const MedicationCalculatorPage: React.FC = () => {
 
   // Para oftalmológicos e otológicos, usar dose fixa sem necessidade de cálculo
   const isFixedDoseCategory = categorySlug === 'oftalmologicos' || categorySlug === 'otologicos';
-  
+
   // Se for dose fixa e ainda não temos dados de cálculo, gerar automaticamente
   if (isFixedDoseCategory && !calculationData) {
     const doseResultText = medication.dosageInformation?.usualDose || 'Dose não disponível';
     const parsedDose = parseDoseText(doseResultText, medication);
-    
+
     setCalculationData({
       weight: 0, // Não aplicável para dose fixa
       age: 0, // Não aplicável para dose fixa
@@ -233,9 +246,60 @@ const MedicationCalculatorPage: React.FC = () => {
     let doseResultText = '';
     let detailedCalculation = '';
     const params = medication.calculationParams;
-    
+
     // Gerar explicação detalhada do cálculo
     detailedCalculation = generateDetailedCalculation(medication, values.weight, values.age);
+
+    // 🆕 USAR FUNÇÃO UNIVERSAL calculateDosage() 
+    // Esta função suporta customCalculator do TSX automaticamente
+    if (params) {
+      try {
+        console.log('🔄 [CALC] Iniciando cálculo...', {
+          medicamento: medication.name,
+          peso: values.weight,
+          idade: values.age,
+          temCustomCalculator: !!params.customCalculator,
+          typeParams: params.type
+        });
+
+        const resultado = calculateDosage(values.weight, params, values.age);
+
+        console.log('📊 [CALC] Resultado completo:', {
+          dose: resultado.dose,
+          volume: resultado.volume,
+          doseText: resultado.doseText,
+          tamanhoTexto: resultado.doseText?.length
+        });
+
+        // ✅ SEMPRE usar o resultado se doseText existir (mesmo que seja "Consulte...")
+        if (resultado && resultado.doseText && resultado.doseText.trim().length > 0) {
+          doseResultText = resultado.doseText;
+          console.log('✅ [CALC] doseResultText definido como:', doseResultText);
+
+          const parsedDose = parseDoseText(doseResultText, medication);
+          console.log('📋 [CALC] parsedDose:', parsedDose);
+
+          setCalculationData({
+            weight: values.weight,
+            age: values.age,
+            calculatedDoseText: doseResultText,
+            calculationDate: formattedDate,
+            calculationTime: formattedTime,
+            detailedCalculation: detailedCalculation,
+            parsedDose: parsedDose,
+          });
+
+          console.log('✅ [CALC] State atualizado, componente deve renderizar resultado');
+          return; // ← Sair, não executar lógicas hardcoded
+        } else {
+          console.error('❌ [CALC] doseText vazio ou inválido!', resultado);
+        }
+      } catch (error) {
+        console.error('❌ [CALC] Exceção ao calcular:', error);
+      }
+    } else {
+      console.error('❌ [CALC] Params é null/undefined!');
+    }
 
     // Existing Amoxicilina 250mg/5mL logic
     if (medication.slug === slugify('Amoxicilina') && params?.type === 'amoxicilina_suspension_250_5') {
@@ -246,7 +310,7 @@ const MedicationCalculatorPage: React.FC = () => {
         totalDailyDoseMg = Math.min(totalDailyDoseMg, params.maxDailyDoseMg);
 
         const dosePerTakeMg = totalDailyDoseMg / params.dosesPerDay;
-        
+
         const concentrationRatio = params.concentrationNumeratorMg / params.concentrationDenominatorMl;
         const volumePerTakeMlUncapped = dosePerTakeMg / concentrationRatio;
 
@@ -254,7 +318,7 @@ const MedicationCalculatorPage: React.FC = () => {
         if (volumePerTakeMlUncapped > params.maxVolumePerDoseBeforeCapMl) {
           finalVolumePerTakeMlAdjusted = params.cappedVolumeAtMaxMl;
         }
-        
+
         const roundedVolumePerTakeMl = Math.round(finalVolumePerTakeMlAdjusted);
 
         doseResultText = `Tomar ${roundedVolumePerTakeMl} mL do xarope por via oral de 8/8 horas por 7 a 10 dias.`;
@@ -262,7 +326,7 @@ const MedicationCalculatorPage: React.FC = () => {
         doseResultText = `Erro: Parâmetros de cálculo para ${medication.name} estão incompletos. Verifique os dados do medicamento.`;
         console.error(`Parâmetros de cálculo incompletos para ${medication.name}:`, params);
       }
-    } 
+    }
     // Amoxicilina Tri-hidratada 400mg/5mL logic
     else if (medication.slug === slugify('Amoxicilina Tri-hidratada') && params?.type === 'amoxicilina_suspension_400_5') {
       const weight = values.weight;
@@ -280,7 +344,7 @@ const MedicationCalculatorPage: React.FC = () => {
         totalDailyDoseMg = Math.min(totalDailyDoseMg, params.maxDailyDoseMg);
 
         const dosePerTakeMg = totalDailyDoseMg / params.dosesPerDay;
-        
+
         const concentrationRatio = params.concentrationNumeratorMg / params.concentrationDenominatorMl;
         const volumePerTakeMlUncapped = dosePerTakeMg / concentrationRatio;
 
@@ -288,7 +352,7 @@ const MedicationCalculatorPage: React.FC = () => {
         if (volumePerTakeMlUncapped > params.maxVolumePerDoseBeforeCapMl) {
           finalVolumePerTakeMlAdjusted = params.cappedVolumeAtMaxMl;
         }
-        
+
         const roundedVolumePerTakeMl = Math.round(finalVolumePerTakeMlAdjusted);
 
         doseResultText = `Tomar ${roundedVolumePerTakeMl} mL por via oral de 8/8 horas por 7 a 10 dias.`;
@@ -310,10 +374,10 @@ const MedicationCalculatorPage: React.FC = () => {
       ) {
         let totalDailyDoseMg = weight * params.mgPerKg;
         totalDailyDoseMg = Math.min(totalDailyDoseMg, params.maxDailyDoseMg);
-        
+
         // For Azitromicina, dosePerTakeMg is the same as totalDailyDoseMg because it's once a day
         // const dosePerTakeMg = totalDailyDoseMg / params.dosesPerDay; 
-        
+
         const concentrationRatio = params.concentrationNumeratorMg / params.concentrationDenominatorMl;
         const volumePerTakeMlUncapped = totalDailyDoseMg / concentrationRatio; // Using totalDailyDoseMg directly
 
@@ -344,7 +408,7 @@ const MedicationCalculatorPage: React.FC = () => {
         // Example: 500mg / 25 gotas = 20 mg/gota
         const mgPerDrop = params.mgInStandardVolume / params.dropsInStandardVolume;
         const calculatedDrops = dosePerTakeMg / mgPerDrop;
-        
+
         const roundedDrops = Math.round(calculatedDrops);
 
         doseResultText = `Tomar ${roundedDrops} gotas por via oral de 6/6 horas.`;
@@ -371,7 +435,7 @@ const MedicationCalculatorPage: React.FC = () => {
         // Example: 200mg / 10 gotas = 20 mg/gota
         const mgPerDrop = params.mgInStandardVolume / params.dropsInStandardVolume;
         const calculatedDrops = dosePerTakeMg / mgPerDrop;
-        
+
         // Arredondar para duas casas decimais
         const roundedDrops = parseFloat(calculatedDrops.toFixed(2));
 
@@ -387,7 +451,7 @@ const MedicationCalculatorPage: React.FC = () => {
         // Usar a função evaluateJsLogic para calcular a dose com segurança
         const peso = values.weight;
         const idade = values.age;
-        
+
         // Calcular a dose usando a função evaluateJsLogic importada
         let calculatedDose;
         try {
@@ -396,32 +460,32 @@ const MedicationCalculatorPage: React.FC = () => {
           console.error('Erro ao avaliar lógica de cálculo:', evalError);
           calculatedDose = 'Erro no cálculo';
         }
-        
+
         // Exibir o resultado com a dose e frequência
         const formText = medication.form && medication.form.trim() !== '' ? `(${medication.form})` : '';
-        
+
         // Adicionar frequência se disponível
         let frequencia = '';
         if (medication.dosageInformation?.doseInterval) {
           frequencia = ` a cada ${medication.dosageInformation.doseInterval}`;
         }
-        
+
         // Verificar se calculatedDose já contém a unidade (mL, mg, etc)
         // Se não contiver, adicionar a unidade apropriada baseada na forma do medicamento
         let doseComUnidade = calculatedDose;
-        if (!doseComUnidade.includes('mL') && !doseComUnidade.includes('mg') && 
-            !doseComUnidade.includes('g') && !doseComUnidade.includes('mcg')) {
-          if (medication.form?.toLowerCase().includes('xarope') || 
-              medication.form?.toLowerCase().includes('suspen') || 
-              medication.form?.toLowerCase().includes('solu')) {
+        if (!doseComUnidade.includes('mL') && !doseComUnidade.includes('mg') &&
+          !doseComUnidade.includes('g') && !doseComUnidade.includes('mcg')) {
+          if (medication.form?.toLowerCase().includes('xarope') ||
+            medication.form?.toLowerCase().includes('suspen') ||
+            medication.form?.toLowerCase().includes('solu')) {
             doseComUnidade += ' mL';
           } else if (medication.form?.toLowerCase().includes('comprimido')) {
             doseComUnidade += ' comprimido(s)';
           }
         }
-        
+
         doseResultText = `Dar a dose de ${doseComUnidade}${frequencia}`;
-        
+
         // Adicionar observação ou restrição se houver
         if (medication.alerts && medication.alerts.length > 0) {
           doseResultText += ` (${medication.alerts[0]})`;
@@ -432,12 +496,12 @@ const MedicationCalculatorPage: React.FC = () => {
         console.error('Error evaluating medication calculation logic:', error);
         // Tentar exibir alguma informação útil mesmo em caso de erro
         const formText = medication.form && medication.form.trim() !== '' ? `(${medication.form})` : '';
-        
+
         let frequencia = '';
         if (medication.dosageInformation?.doseInterval) {
           frequencia = ` a cada ${medication.dosageInformation.doseInterval}`;
         }
-        
+
         if (medication.dosageInformation?.usualDose) {
           doseResultText = `${medication.dosageInformation.usualDose}`;
         } else {
@@ -448,23 +512,23 @@ const MedicationCalculatorPage: React.FC = () => {
     // Fallback if no calculation logic is available
     else {
       const formText = medication.form && medication.form.trim() !== '' ? `(${medication.form})` : '';
-      
+
       // Tentar exibir alguma informação útil mesmo sem lógica de cálculo
       let frequencia = '';
       if (medication.dosageInformation?.doseInterval) {
         frequencia = ` a cada ${medication.dosageInformation.doseInterval}`;
       }
-      
+
       if (medication.dosageInformation?.usualDose) {
         doseResultText = `${medication.dosageInformation.usualDose}`;
       } else {
         doseResultText = `Consulte um profissional de saúde para orientações específicas${frequencia}.`;
       }
     }
-    
+
     // Analisar o texto de dosagem para extrair informações estruturadas
     const parsedDose = parseDoseText(doseResultText, medication);
-    
+
     setCalculationData({
       weight: values.weight,
       age: values.age,

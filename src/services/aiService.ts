@@ -10,10 +10,47 @@ export interface AIResponse {
   error?: string;
 }
 
+// Tipos de provedor suportados
+type AIProvider = 'pedro' | 'gemini' | 'vertex' | 'openai' | 'anthropic' | 'ollama';
+
 export class AIService {
   private static readonly API_URL = import.meta.env.VITE_AI_API_URL || 'https://pedro-production.up.railway.app/ask';
   private static readonly API_KEY = import.meta.env.VITE_AI_API_KEY || 'pedroapikey';
   private static readonly MODEL = import.meta.env.VITE_AI_MODEL || 'pedro-v1';
+  private static readonly PROVIDER: AIProvider = (import.meta.env.VITE_AI_PROVIDER as AIProvider) || 'pedro';
+
+  // Vertex AI specific configs
+  private static readonly VERTEX_PROJECT = import.meta.env.VITE_VERTEX_PROJECT || '';
+  private static readonly VERTEX_LOCATION = import.meta.env.VITE_VERTEX_LOCATION || 'us-central1';
+
+  // System prompt para contexto médico pediátrico (usado por provedores genéricos)
+  private static readonly SYSTEM_PROMPT = `Você é o PedLife Assistant, um assistente clínico especializado em pediatria.
+Seu papel é auxiliar profissionais de saúde com:
+- Cálculos de dosagens pediátricas
+- Informações sobre medicamentos para crianças
+- Protocolos clínicos pediátricos
+- Orientações de emergências pediátricas
+
+Sempre forneça informações precisas e baseadas em evidências.
+Lembre o usuário de que suas respostas são para fins educacionais e que decisões clínicas devem considerar o contexto individual de cada paciente.
+Responda sempre em português brasileiro de forma clara e objetiva.`;
+
+  /**
+   * Detecta o provedor baseado na URL da API
+   */
+  private static detectProvider(): AIProvider {
+    if (this.PROVIDER && this.PROVIDER !== 'pedro') {
+      return this.PROVIDER;
+    }
+
+    const url = this.API_URL.toLowerCase();
+    if (url.includes('aiplatform.googleapis.com') || url.includes('vertex')) return 'vertex';
+    if (url.includes('generativelanguage.googleapis.com')) return 'gemini';
+    if (url.includes('api.openai.com')) return 'openai';
+    if (url.includes('api.anthropic.com')) return 'anthropic';
+    if (url.includes('localhost:11434') || url.includes('ollama')) return 'ollama';
+    return 'pedro';
+  }
 
   /**
    * Send message to external AI agent
@@ -23,9 +60,6 @@ export class AIService {
     conversationHistory: AIMessage[] = []
   ): Promise<AIResponse> {
     try {
-      // Pedro já tem contexto médico pediátrico integrado, não precisa de system message
-      // Apenas enviamos a mensagem do usuário diretamente
-
       // Check if API key is configured
       if (!this.API_KEY) {
         return {
@@ -35,49 +69,362 @@ export class AIService {
         };
       }
 
-      // Make request to Pedro API
-      const response = await fetch(this.API_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-API-Key': this.API_KEY
-        },
-        body: JSON.stringify({
-          message: userMessage
-        })
-      });
+      const provider = this.detectProvider();
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
-
-      // Handle Pedro API response format
-      if (data.response) {
-        return {
-          message: data.response.trim(),
-          success: true
-        };
-      } else if (data.detail) {
-        // Handle API errors
-        const errorMsg = Array.isArray(data.detail) 
-          ? data.detail.map(d => d.msg).join(', ')
-          : data.detail;
-        throw new Error(`Pedro API Error: ${errorMsg}`);
-      } else {
-        throw new Error('Formato de resposta inesperado da API do Pedro');
+      switch (provider) {
+        case 'vertex':
+          return await this.sendVertexMessage(userMessage, conversationHistory);
+        case 'gemini':
+          return await this.sendGeminiMessage(userMessage, conversationHistory);
+        case 'openai':
+          return await this.sendOpenAIMessage(userMessage, conversationHistory);
+        case 'anthropic':
+          return await this.sendAnthropicMessage(userMessage, conversationHistory);
+        case 'ollama':
+          return await this.sendOllamaMessage(userMessage, conversationHistory);
+        default:
+          return await this.sendPedroMessage(userMessage);
       }
 
     } catch (error) {
       console.error('AI Service Error:', error);
-      
+
       // Fallback response for when external AI is not available
       return {
         message: this.getFallbackResponse(userMessage),
         success: false,
         error: error instanceof Error ? error.message : 'Unknown error'
       };
+    }
+  }
+
+  /**
+   * Send message to Google Gemini API
+   */
+  private static async sendGeminiMessage(
+    userMessage: string,
+    conversationHistory: AIMessage[] = []
+  ): Promise<AIResponse> {
+    // Construir URL com API key (formato Gemini)
+    const model = this.MODEL || 'gemini-pro';
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${this.API_KEY}`;
+
+    // Converter histórico para formato Gemini
+    const contents = [];
+
+    // Adicionar system prompt como primeira mensagem do usuário (Gemini não tem role system nativo)
+    contents.push({
+      role: 'user',
+      parts: [{ text: this.SYSTEM_PROMPT }]
+    });
+    contents.push({
+      role: 'model',
+      parts: [{ text: 'Entendido! Sou o PedLife Assistant, pronto para ajudar com questões de pediatria.' }]
+    });
+
+    // Adicionar histórico de conversa
+    for (const msg of conversationHistory) {
+      if (msg.role === 'system') continue; // Gemini não suporta role system
+      contents.push({
+        role: msg.role === 'assistant' ? 'model' : 'user',
+        parts: [{ text: msg.content }]
+      });
+    }
+
+    // Adicionar mensagem atual
+    contents.push({
+      role: 'user',
+      parts: [{ text: userMessage }]
+    });
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        contents,
+        generationConfig: {
+          temperature: 0.7,
+          topK: 40,
+          topP: 0.95,
+          maxOutputTokens: 2048
+        },
+        safetySettings: [
+          { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+          { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+          { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+          { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' }
+        ]
+      })
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(`Gemini API Error: ${response.status} - ${errorData.error?.message || 'Unknown error'}`);
+    }
+
+    const data = await response.json();
+
+    if (data.candidates && data.candidates[0]?.content?.parts?.[0]?.text) {
+      return {
+        message: data.candidates[0].content.parts[0].text.trim(),
+        success: true
+      };
+    }
+
+    if (data.promptFeedback?.blockReason) {
+      return {
+        message: 'Desculpe, não posso responder a essa pergunta devido às políticas de segurança.',
+        success: false,
+        error: `Blocked: ${data.promptFeedback.blockReason}`
+      };
+    }
+
+    throw new Error('Formato de resposta inesperado da API do Gemini');
+  }
+
+  /**
+   * Send message to Google Cloud Vertex AI
+   * Requer autenticação via Access Token (OAuth2) ou API Key
+   */
+  private static async sendVertexMessage(
+    userMessage: string,
+    conversationHistory: AIMessage[] = []
+  ): Promise<AIResponse> {
+    const project = this.VERTEX_PROJECT;
+    const location = this.VERTEX_LOCATION;
+    const model = this.MODEL || 'gemini-1.5-flash';
+
+    if (!project) {
+      throw new Error('VITE_VERTEX_PROJECT não configurado. Configure o ID do projeto do Google Cloud.');
+    }
+
+    // URL do Vertex AI
+    const url = `https://${location}-aiplatform.googleapis.com/v1/projects/${project}/locations/${location}/publishers/google/models/${model}:generateContent`;
+
+    // Converter histórico para formato Vertex AI (igual ao Gemini)
+    const contents = [];
+
+    // Adicionar system instruction (Vertex AI suporta systemInstruction)
+    const systemInstruction = {
+      parts: [{ text: this.SYSTEM_PROMPT }]
+    };
+
+    // Adicionar histórico de conversa
+    for (const msg of conversationHistory) {
+      if (msg.role === 'system') continue;
+      contents.push({
+        role: msg.role === 'assistant' ? 'model' : 'user',
+        parts: [{ text: msg.content }]
+      });
+    }
+
+    // Adicionar mensagem atual
+    contents.push({
+      role: 'user',
+      parts: [{ text: userMessage }]
+    });
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.API_KEY}` // Access Token do Google Cloud
+      },
+      body: JSON.stringify({
+        contents,
+        systemInstruction,
+        generationConfig: {
+          temperature: 0.7,
+          topK: 40,
+          topP: 0.95,
+          maxOutputTokens: 2048
+        },
+        safetySettings: [
+          { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+          { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+          { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+          { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' }
+        ]
+      })
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      const errorMessage = errorData.error?.message || errorData.error?.status || 'Unknown error';
+      throw new Error(`Vertex AI Error: ${response.status} - ${errorMessage}`);
+    }
+
+    const data = await response.json();
+
+    if (data.candidates && data.candidates[0]?.content?.parts?.[0]?.text) {
+      return {
+        message: data.candidates[0].content.parts[0].text.trim(),
+        success: true
+      };
+    }
+
+    if (data.promptFeedback?.blockReason) {
+      return {
+        message: 'Desculpe, não posso responder a essa pergunta devido às políticas de segurança.',
+        success: false,
+        error: `Blocked: ${data.promptFeedback.blockReason}`
+      };
+    }
+
+    throw new Error('Formato de resposta inesperado da API do Vertex AI');
+  }
+
+  /**
+   * Send message to OpenAI API
+   */
+  private static async sendOpenAIMessage(
+    userMessage: string,
+    conversationHistory: AIMessage[] = []
+  ): Promise<AIResponse> {
+    const messages = [
+      { role: 'system', content: this.SYSTEM_PROMPT },
+      ...conversationHistory,
+      { role: 'user', content: userMessage }
+    ];
+
+    const response = await fetch(this.API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.API_KEY}`
+      },
+      body: JSON.stringify({
+        model: this.MODEL || 'gpt-3.5-turbo',
+        messages,
+        temperature: 0.7,
+        max_tokens: 2048
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`OpenAI API Error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return {
+      message: data.choices[0].message.content.trim(),
+      success: true
+    };
+  }
+
+  /**
+   * Send message to Anthropic Claude API
+   */
+  private static async sendAnthropicMessage(
+    userMessage: string,
+    conversationHistory: AIMessage[] = []
+  ): Promise<AIResponse> {
+    const messages = conversationHistory
+      .filter(m => m.role !== 'system')
+      .map(m => ({
+        role: m.role,
+        content: m.content
+      }));
+
+    messages.push({ role: 'user', content: userMessage });
+
+    const response = await fetch(this.API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': this.API_KEY,
+        'anthropic-version': '2023-06-01'
+      },
+      body: JSON.stringify({
+        model: this.MODEL || 'claude-3-sonnet-20240229',
+        max_tokens: 2048,
+        system: this.SYSTEM_PROMPT,
+        messages
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`Anthropic API Error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return {
+      message: data.content[0].text.trim(),
+      success: true
+    };
+  }
+
+  /**
+   * Send message to Ollama (local LLM)
+   */
+  private static async sendOllamaMessage(
+    userMessage: string,
+    conversationHistory: AIMessage[] = []
+  ): Promise<AIResponse> {
+    const messages = [
+      { role: 'system', content: this.SYSTEM_PROMPT },
+      ...conversationHistory,
+      { role: 'user', content: userMessage }
+    ];
+
+    const response = await fetch(this.API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: this.MODEL || 'llama2',
+        messages,
+        stream: false
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`Ollama API Error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return {
+      message: data.message.content.trim(),
+      success: true
+    };
+  }
+
+  /**
+   * Send message to Pedro API (original implementation)
+   */
+  private static async sendPedroMessage(userMessage: string): Promise<AIResponse> {
+    const response = await fetch(this.API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-API-Key': this.API_KEY
+      },
+      body: JSON.stringify({
+        message: userMessage
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (data.response) {
+      return {
+        message: data.response.trim(),
+        success: true
+      };
+    } else if (data.detail) {
+      const errorMsg = Array.isArray(data.detail)
+        ? data.detail.map((d: { msg: string }) => d.msg).join(', ')
+        : data.detail;
+      throw new Error(`Pedro API Error: ${errorMsg}`);
+    } else {
+      throw new Error('Formato de resposta inesperado da API do Pedro');
     }
   }
 

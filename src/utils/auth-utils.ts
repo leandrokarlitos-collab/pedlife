@@ -46,9 +46,22 @@ export const forceLogout = async () => {
   } finally {
     // Sempre limpar os dados independentemente do resultado
     clearAuthData();
-    
+
     // Recarregar a página para garantir que o estado seja limpo
     window.location.href = '/auth';
+  }
+};
+
+/**
+ * Logout simples (sem reload automático)
+ */
+export const logout = async () => {
+  try {
+    await supabase.auth.signOut();
+    clearAuthData();
+  } catch (error) {
+    console.warn('Logout failed, forcing cleanup:', error);
+    clearAuthData();
   }
 };
 

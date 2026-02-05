@@ -16,14 +16,14 @@ export const GlassSection = ({ title, subtitle, icon: Icon, iconGif, children, c
     <div
       className={cn(
         "relative rounded-3xl p-6 md:p-8",
-        // Glassmorphism sutil para o container
-        "bg-white/30 dark:bg-slate-900/20 backdrop-blur-md backdrop-saturate-125",
-        // Borda suave
-        "border border-white/40 dark:border-white/10",
+        // Glassmorphism - mais visível no dark mode
+        "bg-white/30 dark:bg-slate-800/60 backdrop-blur-md backdrop-saturate-125",
+        // Borda mais visível no dark
+        "border border-white/40 dark:border-slate-600/40",
         // Ring interno para profundidade
-        "ring-1 ring-inset ring-white/10 dark:ring-white/5",
-        // Sombra sutil
-        "shadow-[0_4px_24px_-4px_rgba(0,0,0,0.06)]",
+        "ring-1 ring-inset ring-white/10 dark:ring-slate-500/15",
+        // Sombra - mais pronunciada no dark
+        "shadow-[0_4px_24px_-4px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_-4px_rgba(0,0,0,0.3)]",
         className
       )}
     >
@@ -47,7 +47,7 @@ export const GlassSection = ({ title, subtitle, icon: Icon, iconGif, children, c
       <div className="relative z-10 mb-6">
         <div className="flex items-center gap-3">
           {iconGif ? (
-            <div className="w-10 h-10 rounded-xl bg-white/60 dark:bg-slate-800/40 p-1.5 border border-white/40 dark:border-white/10 shadow-sm">
+            <div className="w-10 h-10 rounded-xl bg-white/60 dark:bg-slate-700/60 p-1.5 border border-white/40 dark:border-slate-500/30 shadow-sm">
               <img
                 src={iconGif}
                 alt={title}
@@ -55,7 +55,7 @@ export const GlassSection = ({ title, subtitle, icon: Icon, iconGif, children, c
               />
             </div>
           ) : Icon && (
-            <div className="p-2 rounded-xl bg-premium-violet/10 backdrop-blur-sm border border-premium-violet/20">
+            <div className="p-2 rounded-xl bg-premium-violet/10 dark:bg-premium-violet/20 backdrop-blur-sm border border-premium-violet/20 dark:border-premium-violet/30">
               <Icon className="w-5 h-5 text-premium-violet" />
             </div>
           )}

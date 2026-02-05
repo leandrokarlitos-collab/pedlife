@@ -102,16 +102,83 @@ const AuthPage: React.FC = () => {
 
   const onLogin = async (data: LoginForm) => {
     setIsLoading(true);
-    
-    toast({
-      title: "✅ Bem-vindo!",
-      description: "Acessando a plataforma...",
-    });
 
-    setTimeout(() => {
+    try {
+      console.log('🔐 Tentando fazer login para:', data.email);
+
+      const { data: authData, error } = await supabase.auth.signInWithPassword({
+        email: data.email,
+        password: data.password,
+      });
+
+      if (error) {
+        console.error('❌ Erro no login:', error);
+
+        let errorMessage = "Erro no login";
+        let errorDetails = "";
+
+        if (error.message.includes('Invalid login credentials')) {
+          errorMessage = "Credenciais inválidas";
+          errorDetails = "Email ou senha incorretos";
+
+          // Mostrar ajuda para confirmação de email
+          setShowEmailConfirmationHelp(true);
+
+          setTimeout(() => {
+            toast({
+              title: "💡 Dica",
+              description: "Verifique se confirmou seu email após o cadastro",
+            });
+          }, 2000);
+        } else if (error.message.includes('Email not confirmed')) {
+          errorMessage = "Email não confirmado";
+          errorDetails = "Verifique sua caixa de entrada e confirme seu email";
+
+          setShowEmailConfirmationHelp(true);
+
+          setTimeout(() => {
+            toast({
+              title: "📧 Ação necessária",
+              description: "Clique no link de confirmação enviado para seu email",
+            });
+          }, 2000);
+        } else if (error.message.includes('Too many requests')) {
+          errorMessage = "Muitas tentativas";
+          errorDetails = "Aguarde alguns minutos antes de tentar novamente";
+        } else {
+          errorMessage = error.message || "Erro desconhecido";
+          errorDetails = "Tente novamente em alguns instantes";
+        }
+
+        toast({
+          variant: "destructive",
+          title: `❌ ${errorMessage}`,
+          description: errorDetails,
+        });
+
+        return;
+      }
+
+      console.log('✅ Login bem-sucedido!', authData);
+
+      toast({
+        title: "✅ Bem-vindo!",
+        description: "Acessando a plataforma...",
+      });
+
+      // Navegar para a plataforma
       navigate('/platform/calculator');
+
+    } catch (error) {
+      console.error('Erro inesperado no login:', error);
+      toast({
+        variant: "destructive",
+        title: "Erro inesperado",
+        description: "Tente novamente em alguns instantes.",
+      });
+    } finally {
       setIsLoading(false);
-    }, 500);
+    }
   };
 
   const onRegister = async (data: RegisterForm) => {

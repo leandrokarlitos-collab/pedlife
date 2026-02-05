@@ -7,16 +7,56 @@ interface WeightInputProps {
   onChange: (weight: number) => void;
   min?: number;
   max?: number;
-  step?: number;
 }
+
+// Pontos de referência igualmente espaçados na régua
+const MARKERS = [0.1, 10, 30, 60, 100, 200];
 
 const WeightInput: React.FC<WeightInputProps> = ({
   value,
   onChange,
   min = 0.1,
   max = 200,
-  step = 0.1,
 }) => {
+
+  // Converter valor real (0.1-200) para posição no slider (0-100)
+  // Usa interpolação linear entre os marcadores
+  const valueToSliderPosition = (val: number): number => {
+    // Limitar ao range
+    val = Math.max(MARKERS[0], Math.min(MARKERS[MARKERS.length - 1], val));
+
+    // Encontrar entre quais marcadores o valor está
+    for (let i = 0; i < MARKERS.length - 1; i++) {
+      if (val >= MARKERS[i] && val <= MARKERS[i + 1]) {
+        // Posição do segmento (cada segmento = 20% do slider, pois temos 6 marcadores = 5 segmentos)
+        const segmentStart = (i / (MARKERS.length - 1)) * 100;
+        const segmentEnd = ((i + 1) / (MARKERS.length - 1)) * 100;
+
+        // Posição dentro do segmento
+        const ratio = (val - MARKERS[i]) / (MARKERS[i + 1] - MARKERS[i]);
+
+        return segmentStart + ratio * (segmentEnd - segmentStart);
+      }
+    }
+    return 100;
+  };
+
+  // Converter posição no slider (0-100) para valor real (0.1-200)
+  const sliderPositionToValue = (pos: number): number => {
+    // Encontrar em qual segmento a posição está
+    const segmentSize = 100 / (MARKERS.length - 1); // 20% por segmento
+    const segmentIndex = Math.min(Math.floor(pos / segmentSize), MARKERS.length - 2);
+
+    // Posição dentro do segmento (0 a 1)
+    const positionInSegment = (pos - segmentIndex * segmentSize) / segmentSize;
+
+    // Interpolar entre os marcadores
+    const startValue = MARKERS[segmentIndex];
+    const endValue = MARKERS[segmentIndex + 1];
+
+    return startValue + positionInSegment * (endValue - startValue);
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseFloat(e.target.value);
     // Permitir qualquer valor positivo digitado manualmente
@@ -26,12 +66,14 @@ const WeightInput: React.FC<WeightInputProps> = ({
   };
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = parseFloat(e.target.value);
-    onChange(newValue);
+    const sliderPos = parseFloat(e.target.value);
+    const realValue = sliderPositionToValue(sliderPos);
+    // Arredondar para 1 casa decimal
+    onChange(Math.round(realValue * 10) / 10);
   };
 
   // Calcular porcentagem para o gradiente do slider
-  const percentage = ((value - min) / (max - min)) * 100;
+  const percentage = valueToSliderPosition(value);
 
   return (
     <div className="space-y-2">
@@ -43,8 +85,8 @@ const WeightInput: React.FC<WeightInputProps> = ({
       {/* Input numérico */}
       <div className={cn(
         "flex items-center gap-3 p-3 rounded-xl",
-        "bg-white/70 dark:bg-slate-800/70",
-        "border border-slate-200 dark:border-slate-700",
+        "bg-white/70 dark:bg-slate-700/80",
+        "border border-slate-200 dark:border-slate-600/60",
         "focus-within:ring-2 focus-within:ring-violet-500/30 focus-within:border-violet-500"
       )}>
         <input
@@ -62,14 +104,14 @@ const WeightInput: React.FC<WeightInputProps> = ({
         <span className="text-lg font-medium text-slate-500 dark:text-slate-400">kg</span>
       </div>
 
-      {/* Slider visual */}
+      {/* Slider visual com escala não-linear */}
       <div className="relative pt-2 pb-1">
         <input
           type="range"
-          min={min}
-          max={max}
-          step={step}
-          value={value}
+          min={0}
+          max={100}
+          step={0.1}
+          value={percentage}
           onChange={handleSliderChange}
           className="w-full h-2 rounded-full appearance-none cursor-pointer slider-thumb"
           style={{
@@ -77,8 +119,8 @@ const WeightInput: React.FC<WeightInputProps> = ({
           }}
         />
 
-        {/* Marcadores de referência - valores típicos pediátricos */}
-        <div className="flex justify-between mt-1 text-xs text-slate-400 dark:text-slate-500">
+        {/* Marcadores de referência - igualmente espaçados */}
+        <div className="flex justify-between mt-1 text-xs text-slate-400 dark:text-slate-400">
           <span>0.1</span>
           <span>10</span>
           <span>30</span>
