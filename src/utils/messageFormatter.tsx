@@ -22,7 +22,7 @@ export const formatMessageText = (text: string): string => {
 
   // Respect sentence structure - only break after periods followed by capital letters if there's a clear new topic
   // Remove aggressive sentence breaking that was causing unwanted line breaks
-  
+
   // Add line breaks only before clear numbered lists (with space after number)
   formatted = formatted.replace(/(\n|^)(\d+\.\s+)/g, '\n$2');
 
@@ -35,7 +35,7 @@ export const formatMessageText = (text: string): string => {
     'Contraindicações', 'Efeitos', 'Observações', 'Importante', 'Atenção',
     'Cuidados', 'Monitoramento', 'Sinais', 'Sintomas', 'Protocolo'
   ];
-  
+
   headers.forEach(header => {
     const regex = new RegExp(`(\\.|\\n|^)\\s*(${header}:?)`, 'gi');
     formatted = formatted.replace(regex, '$1\n**$2**');
@@ -43,7 +43,7 @@ export const formatMessageText = (text: string): string => {
 
   // Clean up multiple consecutive line breaks
   formatted = formatted.replace(/\n{3,}/g, '\n\n');
-  
+
   // Remove leading line breaks
   formatted = formatted.replace(/^\n+/, '');
 
@@ -59,32 +59,32 @@ export const formatMessageText = (text: string): string => {
 export const parseMarkdown = (text: string): React.ReactNode[] => {
   const parts: React.ReactNode[] = [];
   let currentIndex = 0;
-  
+
   // Find all **bold** patterns
   const boldRegex = /\*\*(.*?)\*\*/g;
   let match;
-  
+
   while ((match = boldRegex.exec(text)) !== null) {
     // Add text before the bold part
     if (match.index > currentIndex) {
       parts.push(text.slice(currentIndex, match.index));
     }
-    
+
     // Add the bold part
     parts.push(
       <strong key={`bold-${match.index}`} className="font-bold">
         {match[1]}
       </strong>
     );
-    
+
     currentIndex = match.index + match[0].length;
   }
-  
+
   // Add remaining text
   if (currentIndex < text.length) {
     parts.push(text.slice(currentIndex));
   }
-  
+
   return parts.length > 0 ? parts : [text];
 };
 
@@ -93,18 +93,18 @@ export const parseMarkdown = (text: string): React.ReactNode[] => {
  */
 export const FormattedMessage: React.FC<FormattedMessageProps> = ({ text, className = '' }) => {
   const formattedText = formatMessageText(text);
-  
+
   // Split text into paragraphs and format each part
   const parts = formattedText.split('\n').filter(part => part.trim());
-  
+
   return (
     <div className={`space-y-2 ${className}`}>
       {parts.map((part, index) => {
         const trimmedPart = part.trim();
-        
+
         // Skip empty parts
         if (!trimmedPart) return null;
-        
+
         // Handle bold headers (marked with **)
         if (trimmedPart.startsWith('**') && trimmedPart.endsWith('**')) {
           const headerText = trimmedPart.slice(2, -2);
@@ -114,7 +114,7 @@ export const FormattedMessage: React.FC<FormattedMessageProps> = ({ text, classN
             </div>
           );
         }
-        
+
         // Handle numbered lists
         if (/^\d+\.\s/.test(trimmedPart)) {
           return (
@@ -128,7 +128,7 @@ export const FormattedMessage: React.FC<FormattedMessageProps> = ({ text, classN
             </div>
           );
         }
-        
+
         // Handle bullet points
         if (/^[•\-\*]\s/.test(trimmedPart)) {
           return (
@@ -138,7 +138,7 @@ export const FormattedMessage: React.FC<FormattedMessageProps> = ({ text, classN
             </div>
           );
         }
-        
+
         // Handle regular paragraphs
         return (
           <p key={index} className="leading-relaxed">
@@ -153,90 +153,179 @@ export const FormattedMessage: React.FC<FormattedMessageProps> = ({ text, classN
 /**
  * Enhanced formatter for medical content with specific styling optimized for chatbot
  */
+import { useNavigate } from 'react-router-dom';
+import { Calculator, ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { medicamentos } from '../medications'; // Using relative path to be safe/explicit
+
+// ... (existing exports and helpers)
+
+/**
+ * Enhanced formatter for medical content with specific styling optimized for chatbot
+ * Includes interactive buttons for medications
+ */
 export const MedicalFormattedMessage: React.FC<FormattedMessageProps> = ({ text, className = '' }) => {
+  const navigate = useNavigate();
+
   // Don't render anything if text is empty or just whitespace
   if (!text || text.trim() === '') {
     return null;
   }
 
   const formattedText = formatMessageText(text);
-  
+
   // Don't render if formatted text is empty
   if (!formattedText) {
     return null;
   }
-  
+
   const parts = formattedText.split('\n').filter(part => part.trim());
-  
+
   // Don't render if no valid parts
   if (parts.length === 0) {
     return null;
   }
-  
+
+  // Helper to find medication in text and create button
+  const renderMedicationButton = (text: string) => {
+    // Basic regex to find potential medication names mentioned in the text
+    // Filters common words to avoid false positives
+    const potentialMeds = text.match(/\b[A-Za-z-]{6,}\b/g);
+
+    if (!potentialMeds) return null;
+
+    // Check if any matched word is a valid medication in our registry
+    const foundMed = medicamentos.find(m =>
+      potentialMeds.some(word =>
+        m.data.nome.toLowerCase().includes(word.toLowerCase()) ||
+        word.toLowerCase().includes(m.data.nome.toLowerCase())
+      )
+    );
+
+    if (foundMed) {
+      // Construct the URL: /platform/calculator/[category]/[id]
+      // Assuming category is the first one in the array if multiple
+      const category = Array.isArray(foundMed.data.classe) ? foundMed.data.classe[0] : foundMed.data.classe;
+      // We need to map the internal class name to the route slug if they differ. 
+      // Based on antibiotics/index.ts, the slug seems to match the folder name usually.
+      // Let's assume a safe default or try to find it. 
+      // For now, simpler approach: use the 'id' which usually guides the slug or we can pass a direct link action.
+
+      // BETTER APPROACH: Use the exact 'slug' from the medication URL logic if available, 
+      // or construct it. In standard PedLife structure: /platform/calculator/[categorySlug]/[medicationId]
+
+      // We'll normalize the category name to a slug format just in case
+      const categorySlug = category.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-');
+
+      return (
+        <Button
+          variant="outline"
+          className="w-full my-2 bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200 hover:border-blue-300 hover:from-blue-100 hover:to-indigo-100 text-blue-700 justify-between group shadow-sm"
+          onClick={() => {
+            // Navigate to the calculator
+            navigate(`/platform/calculator/${categorySlug}/${foundMed.data.id}`);
+          }}
+        >
+          <div className="flex items-center gap-2">
+            <div className="bg-blue-100 p-1 rounded-md group-hover:bg-blue-200 transition-colors">
+              <Calculator className="h-4 w-4" />
+            </div>
+            <span className="font-semibold">Calculadora: {foundMed.data.nome}</span>
+          </div>
+          <ArrowRight className="h-4 w-4 opacity-50 group-hover:translate-x-1 transition-transform" />
+        </Button>
+      );
+    }
+    return null;
+  };
+
   return (
     <div className={`space-y-1.5 text-sm ${className}`}>
       {parts.map((part, index) => {
         const trimmedPart = part.trim();
-        
+
         if (!trimmedPart) return null;
-        
+
+        // Check for medication button opportunity in this part
+        const medicationButton = renderMedicationButton(trimmedPart);
+
         // Medical headers with subtle styling (no border)
         if (trimmedPart.startsWith('**') && trimmedPart.endsWith('**')) {
           const headerText = trimmedPart.slice(2, -2);
           return (
-            <div key={index} className="font-semibold text-current mt-2 mb-1 text-blue-600">
-              {headerText}
-            </div>
+            <React.Fragment key={index}>
+              <div className="font-semibold text-current mt-2 mb-1 text-blue-600">
+                {headerText}
+              </div>
+              {medicationButton}
+            </React.Fragment>
           );
         }
-        
+
+        // ... (rest of the conditions similar to before, wrapping content to append button if needed)
+
         // Dosage information with subtle highlight
         if (/dose|dosagem|mg\/kg|ml\/kg|gotas|comprimido|ml|mg/i.test(trimmedPart)) {
           return (
-            <div key={index} className="bg-blue-50 px-2 py-1 rounded text-blue-800 my-1">
-              <span className="font-medium">{parseMarkdown(trimmedPart)}</span>
-            </div>
+            <React.Fragment key={index}>
+              <div className="bg-blue-50 px-2 py-1 rounded text-blue-800 my-1">
+                <span className="font-medium">{parseMarkdown(trimmedPart)}</span>
+              </div>
+              {medicationButton}
+            </React.Fragment>
           );
         }
-        
+
         // Warning or important information with subtle styling
         if (/atenção|importante|cuidado|alerta|contraindicação|emergência|urgente/i.test(trimmedPart)) {
           return (
-            <div key={index} className="bg-orange-50 px-2 py-1 rounded text-orange-800 my-1">
-              <span className="font-medium">{parseMarkdown(trimmedPart)}</span>
-            </div>
+            <React.Fragment key={index}>
+              <div className="bg-orange-50 px-2 py-1 rounded text-orange-800 my-1">
+                <span className="font-medium">{parseMarkdown(trimmedPart)}</span>
+              </div>
+              {medicationButton}
+            </React.Fragment>
           );
         }
-        
-        // Numbered lists with clean styling
+
+        // Lists...
         if (/^\d+\.\s/.test(trimmedPart)) {
           return (
-            <div key={index} className="ml-2 mb-1 flex items-start">
-              <span className="font-semibold text-blue-600 mr-2 mt-0.5 min-w-[1.2rem] text-xs">
-                {trimmedPart.match(/^\d+\./)?.[0]}
-              </span>
-              <span className="text-current leading-relaxed">
-                {parseMarkdown(trimmedPart.replace(/^\d+\.\s/, ''))}
-              </span>
-            </div>
+            <React.Fragment key={index}>
+              <div className="ml-2 mb-1 flex items-start">
+                {/* ... existing list render ... */}
+                <span className="font-semibold text-blue-600 mr-2 mt-0.5 min-w-[1.2rem] text-xs">
+                  {trimmedPart.match(/^\d+\./)?.[0]}
+                </span>
+                <span className="text-current leading-relaxed">
+                  {parseMarkdown(trimmedPart.replace(/^\d+\.\s/, ''))}
+                </span>
+              </div>
+              {medicationButton}
+            </React.Fragment>
           );
         }
-        
-        // Bullet points with clean styling
+
         if (/^[•\-\*]\s/.test(trimmedPart)) {
           return (
-            <div key={index} className="ml-2 mb-1 flex items-start">
-              <span className="text-blue-600 mr-2 mt-1.5 text-xs">•</span>
-              <span className="text-current leading-relaxed">{parseMarkdown(trimmedPart.replace(/^[•\-\*]\s/, ''))}</span>
-            </div>
+            <React.Fragment key={index}>
+              <div className="ml-2 mb-1 flex items-start">
+                <span className="text-blue-600 mr-2 mt-1.5 text-xs">•</span>
+                <span className="text-current leading-relaxed">{parseMarkdown(trimmedPart.replace(/^[•\-\*]\s/, ''))}</span>
+              </div>
+              {medicationButton}
+            </React.Fragment>
           );
         }
-        
-        // Regular paragraphs with markdown support
+
+        // Regular paragraphs
         return (
-          <p key={index} className="leading-relaxed text-current mb-1.5">
-            {parseMarkdown(trimmedPart)}
-          </p>
+          <React.Fragment key={index}>
+            <p className="leading-relaxed text-current mb-1.5">
+              {parseMarkdown(trimmedPart)}
+            </p>
+            {medicationButton}
+          </React.Fragment>
         );
       })}
     </div>

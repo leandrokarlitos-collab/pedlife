@@ -228,8 +228,8 @@ const ChatBot: React.FC = () => {
               </div>
               <div className="flex items-center gap-1 text-xs mr-2">
                 <div className={`w-2 h-2 rounded-full ${aiConnectionStatus === 'connected' ? 'bg-green-400' :
-                    aiConnectionStatus === 'disconnected' ? 'bg-red-400' :
-                      'bg-yellow-400 animate-pulse'
+                  aiConnectionStatus === 'disconnected' ? 'bg-red-400' :
+                    'bg-yellow-400 animate-pulse'
                   }`} />
                 <span className="opacity-80">
                   {aiConnectionStatus === 'connected' ? 'IA Online' :
@@ -242,6 +242,17 @@ const ChatBot: React.FC = () => {
               </div>
             </DialogTitle>
           </DialogHeader>
+
+          {/* AI Warning Banner - Disclaimer */}
+          <div className="bg-orange-50 border-b border-orange-100 p-3 flex items-start gap-2 shadow-sm">
+            <AlertCircle className="h-4 w-4 text-orange-600 mt-0.5 flex-shrink-0" />
+            <p className="text-xs text-orange-800 leading-relaxed font-medium">
+              <strong>Atenção:</strong> Respostas geradas por IA. Pode haver imprecisões e erros (alucinações).
+              <span className="block mt-0.5 font-bold text-orange-900 border-t border-orange-200/50 pt-0.5 mt-1">
+                SEMPRE confira os cálculos com as ferramentas oficiais e seu julgamento clínico.
+              </span>
+            </p>
+          </div>
 
           {/* Messages Area */}
           <ScrollArea className="flex-1 p-4">
@@ -269,8 +280,8 @@ const ChatBot: React.FC = () => {
 
                   <div
                     className={`max-w-[80%] rounded-lg px-3 py-2 text-sm ${message.sender === 'user'
-                        ? 'bg-primary text-primary-foreground ml-auto'
-                        : 'bg-muted'
+                      ? 'bg-primary text-primary-foreground ml-auto'
+                      : 'bg-muted'
                       }`}
                   >
                     {message.sender === 'bot' ? (
