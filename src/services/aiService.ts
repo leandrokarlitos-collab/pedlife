@@ -13,6 +13,8 @@ export interface AIResponse {
 // Tipos de provedor suportados
 type AIProvider = 'pedro' | 'gemini' | 'vertex' | 'openai' | 'anthropic' | 'ollama';
 
+import { medicamentos } from '../medications';
+
 export class AIService {
   private static readonly API_URL = import.meta.env.VITE_AI_API_URL || 'https://pedro-production.up.railway.app/ask';
   private static readonly API_KEY = import.meta.env.VITE_AI_API_KEY || 'pedroapikey';
@@ -59,6 +61,39 @@ Exemplo de tom: "Para Amoxicilina, a dose usual é 50mg/kg/dia. Dividido em 3 to
   }
 
   /**
+   * Recupera contexto da plataforma (RAG-lite) baseado no texto do usuário
+   */
+  private static retrieveContext(text: string): string {
+    const hits = medicamentos.filter(med =>
+      text.toLowerCase().includes(med.data.nome.toLowerCase()) ||
+      (med.data.nomesComerciais && med.data.nomesComerciais.some(n => text.toLowerCase().includes(n.toLowerCase())))
+    );
+
+    if (hits.length === 0) return '';
+
+    let context = '\n\n[CONTEXTO DA PLATAFORMA - PRIORIDADE MÁXIMA]\n';
+    context += 'ATENÇÃO IA: O usuário mencionou medicamentos que constam em nossa base de dados. Você DEVE seguir estritamente as restrições abaixo:\n\n';
+
+    hits.forEach(med => {
+      const d = med.data;
+      context += `--- MEDICAMENTO: ${d.nome} ---\n`;
+      if (d.restricaoIdade) {
+        context += `RESTRIÇÃO DE IDADE/PESO: ${d.restricaoIdade.idadeMinima || ''} ${d.restricaoIdade.pesoMinimo || ''} (${d.restricaoIdade.observacao || ''})\n`;
+        context += `REGRA CRÍTICA: Se o paciente tiver idade/peso abaixo do limite, DÊ O ALERTA E NÃO RECOMENDE A DOSE.\n`;
+      }
+      if (d.alertas && d.alertas.length > 0) {
+        context += `ALERTAS DE SEGURANÇA: ${d.alertas.join('; ')}\n`;
+      }
+      if (d.doseUsualTexto) {
+        context += `DOSE PADRÃO DA PLATAFORMA: ${d.doseUsualTexto}\n`;
+      }
+      context += `-----------------------------------\n`;
+    });
+
+    return context;
+  }
+
+  /**
    * Send message to external AI agent
    */
   static async sendMessage(
@@ -68,47 +103,54 @@ Exemplo de tom: "Para Amoxicilina, a dose usual é 50mg/kg/dia. Dividido em 3 to
     try {
       // Check if API key is configured
       if (!this.API_KEY || this.API_KEY === 'pedroapikey') {
-        // Permitir 'pedroapikey' apenas se o provedor for realmente o pedro (default)
-        // Se for gemini, precisa de chave real.
         const provider = this.detectProvider();
         if (provider !== 'pedro' && this.API_KEY === 'pedroapikey') {
+          // ... existing checks ...
           return {
             message: `Erro de configuração: Chave da API não definida para o provedor ${provider}.`,
             success: false,
             error: 'API key not configured for selected provider'
           };
         }
-
         if (!this.API_KEY) {
+          // ... existing checks ...
           return {
-            message: 'Desculpe, o serviço de IA não está configurado. Por favor, configure a chave da API.',
+            message: 'Desculpe, o serviço de IA não está configurado...',
             success: false,
             error: 'API key not configured'
           };
         }
       }
 
+      // RAG-lite: Inject Context
+      const platformContext = this.retrieveContext(userMessage);
+      const startPrompt = conversationHistory.length === 0 ? this.SYSTEM_PROMPT : '';
+
+      // Se tiver contexto, acoplamos ao userMessage para garantir que a IA veja "agora"
+      const finalUserMessage = platformContext
+        ? `${userMessage}\n${platformContext}`
+        : userMessage;
+
       const provider = this.detectProvider();
 
       switch (provider) {
         case 'vertex':
-          return await this.sendVertexMessage(userMessage, conversationHistory);
+          return await this.sendVertexMessage(finalUserMessage, conversationHistory);
         case 'gemini':
-          return await this.sendGeminiMessage(userMessage, conversationHistory);
+          return await this.sendGeminiMessage(finalUserMessage, conversationHistory);
         case 'openai':
-          return await this.sendOpenAIMessage(userMessage, conversationHistory);
+          return await this.sendOpenAIMessage(finalUserMessage, conversationHistory);
         case 'anthropic':
-          return await this.sendAnthropicMessage(userMessage, conversationHistory);
+          return await this.sendAnthropicMessage(finalUserMessage, conversationHistory);
         case 'ollama':
-          return await this.sendOllamaMessage(userMessage, conversationHistory);
+          return await this.sendOllamaMessage(finalUserMessage, conversationHistory);
         default:
-          return await this.sendPedroMessage(userMessage);
+          return await this.sendPedroMessage(finalUserMessage);
       }
 
     } catch (error) {
+      // ... existing error handling ...
       console.error('AI Service Error:', error);
-
-      // Fallback response for when external AI is not available
       return {
         message: this.getFallbackResponse(userMessage),
         success: false,

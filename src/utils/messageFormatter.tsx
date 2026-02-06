@@ -204,16 +204,9 @@ export const MedicalFormattedMessage: React.FC<FormattedMessageProps> = ({ text,
 
     if (foundMed) {
       // Construct the URL: /platform/calculator/[category]/[id]
-      // foundMed.data.classe can be string or string[]
-      const rawCategory = Array.isArray(foundMed.data.classe)
-        ? foundMed.data.classe[0]
-        : foundMed.data.classe;
-
-      // Safety check: ensure rawCategory is a string
-      const categoryStr = typeof rawCategory === 'string' ? rawCategory : String(rawCategory);
-
-      // We'll normalize the category name to a slug format just in case
-      const categorySlug = categoryStr.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-');
+      // Use the explicit category slug from the medication data
+      // foundMed.data.categoria is exactly what we need (e.g., 'antibioticos', 'analgesicos')
+      const categorySlug = foundMed.data.categoria;
 
 
       return (
