@@ -204,18 +204,17 @@ export const MedicalFormattedMessage: React.FC<FormattedMessageProps> = ({ text,
 
     if (foundMed) {
       // Construct the URL: /platform/calculator/[category]/[id]
-      // Assuming category is the first one in the array if multiple
-      const category = Array.isArray(foundMed.data.classe) ? foundMed.data.classe[0] : foundMed.data.classe;
-      // We need to map the internal class name to the route slug if they differ. 
-      // Based on antibiotics/index.ts, the slug seems to match the folder name usually.
-      // Let's assume a safe default or try to find it. 
-      // For now, simpler approach: use the 'id' which usually guides the slug or we can pass a direct link action.
+      // foundMed.data.classe can be string or string[]
+      const rawCategory = Array.isArray(foundMed.data.classe)
+        ? foundMed.data.classe[0]
+        : foundMed.data.classe;
 
-      // BETTER APPROACH: Use the exact 'slug' from the medication URL logic if available, 
-      // or construct it. In standard PedLife structure: /platform/calculator/[categorySlug]/[medicationId]
+      // Safety check: ensure rawCategory is a string
+      const categoryStr = typeof rawCategory === 'string' ? rawCategory : String(rawCategory);
 
       // We'll normalize the category name to a slug format just in case
-      const categorySlug = category.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-');
+      const categorySlug = categoryStr.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-');
+
 
       return (
         <Button
