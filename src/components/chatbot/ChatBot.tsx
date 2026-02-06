@@ -288,6 +288,7 @@ const ChatBot: React.FC = () => {
                       <MedicalFormattedMessage
                         text={message.text}
                         className="text-inherit"
+                        onClose={() => setIsOpen(false)}
                       />
                     ) : (
                       <p>{message.text}</p>

@@ -7,6 +7,7 @@ import React from 'react';
 export interface FormattedMessageProps {
   text: string;
   className?: string;
+  onClose?: () => void;
 }
 
 /**
@@ -164,7 +165,7 @@ import { medicamentos } from '../medications'; // Using relative path to be safe
  * Enhanced formatter for medical content with specific styling optimized for chatbot
  * Includes interactive buttons for medications
  */
-export const MedicalFormattedMessage: React.FC<FormattedMessageProps> = ({ text, className = '' }) => {
+export const MedicalFormattedMessage: React.FC<FormattedMessageProps> = ({ text, className = '', onClose }) => {
   const navigate = useNavigate();
 
   // Don't render anything if text is empty or just whitespace
@@ -216,6 +217,8 @@ export const MedicalFormattedMessage: React.FC<FormattedMessageProps> = ({ text,
           onClick={() => {
             // Navigate to the calculator
             navigate(`/platform/calculator/${categorySlug}/${foundMed.data.id}`);
+            // Close the chat dialog if callback is provided
+            if (onClose) onClose();
           }}
         >
           <div className="flex items-center gap-2">
