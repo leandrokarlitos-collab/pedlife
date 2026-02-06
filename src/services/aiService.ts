@@ -34,19 +34,23 @@ DIRETRIZES CRÍTICAS:
 4. Responda em Português (BR) de forma técnica porem acessível.`;
 
   /**
-   * Detecta o provedor baseado na URL da API
+   * Detecta o provedor baseado na URL da API ou configuração explícita
    */
   private static detectProvider(): AIProvider {
+    // 1. Verificação explícita da variável de ambiente (Prioridade Absoluta)
     if (this.PROVIDER && this.PROVIDER !== 'pedro') {
       return this.PROVIDER;
     }
 
+    // 2. Detecção baseada na URL (Legado/Fallback)
     const url = this.API_URL.toLowerCase();
     if (url.includes('aiplatform.googleapis.com') || url.includes('vertex')) return 'vertex';
     if (url.includes('generativelanguage.googleapis.com')) return 'gemini';
     if (url.includes('api.openai.com')) return 'openai';
     if (url.includes('api.anthropic.com')) return 'anthropic';
     if (url.includes('localhost:11434') || url.includes('ollama')) return 'ollama';
+
+    // 3. Padrão antigo
     return 'pedro';
   }
 
@@ -59,12 +63,25 @@ DIRETRIZES CRÍTICAS:
   ): Promise<AIResponse> {
     try {
       // Check if API key is configured
-      if (!this.API_KEY) {
-        return {
-          message: 'Desculpe, o serviço de IA não está configurado. Por favor, configure a chave da API.',
-          success: false,
-          error: 'API key not configured'
-        };
+      if (!this.API_KEY || this.API_KEY === 'pedroapikey') {
+        // Permitir 'pedroapikey' apenas se o provedor for realmente o pedro (default)
+        // Se for gemini, precisa de chave real.
+        const provider = this.detectProvider();
+        if (provider !== 'pedro' && this.API_KEY === 'pedroapikey') {
+          return {
+            message: `Erro de configuração: Chave da API não definida para o provedor ${provider}.`,
+            success: false,
+            error: 'API key not configured for selected provider'
+          };
+        }
+
+        if (!this.API_KEY) {
+          return {
+            message: 'Desculpe, o serviço de IA não está configurado. Por favor, configure a chave da API.',
+            success: false,
+            error: 'API key not configured'
+          };
+        }
       }
 
       const provider = this.detectProvider();
@@ -105,6 +122,8 @@ DIRETRIZES CRÍTICAS:
   ): Promise<AIResponse> {
     // Sanitizar a API Key (remover espaços e aspas)
     const apiKey = this.API_KEY.trim().replace(/^["']|["']$/g, '');
+
+    // Usar modelo configurado ou fallback seguro atualizado
     const model = this.MODEL || 'gemini-1.5-flash';
 
     // Tentar v1beta primeiro, mas permitir fallback para v1 se necessário
@@ -468,10 +487,16 @@ DIRETRIZES CRÍTICAS:
    */
   static async testConnection(): Promise<boolean> {
     try {
-      const response = await this.sendMessage('Teste de conexão');
-      return response.success;
+      // Ao invés de uma string genérica, enviamos um "Ping" ou "Olá"
+      // Usar a mesma lógica de roteamento do sendMessage para respeitar o provider
+      const response = await this.sendMessage('Olá, teste de conexão');
+
+      // Verificação mais robusta: se retornou sucesso E uma mensagem não vazia
+      return response.success && !!response.message;
     } catch (error) {
+      console.error("Erro no teste de conexão IA:", error);
       return false;
     }
   }
 }
+
